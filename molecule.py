@@ -209,8 +209,10 @@ class Molecule(object):
         
 
 if __name__ == '__main__':
+    np.set_printoptions(precision=3)
     filename = 'h2o.dat'
     h2o = Molecule(filename,basis='sto-3g')
     h2o.SCF()
+    print h2o.S
     
 
