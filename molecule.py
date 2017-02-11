@@ -48,6 +48,11 @@ class Molecule(object):
                     #self.bfs.append(BasisFunction(atom[1],shell,exps,coefs))
                     self.bfs.append(BasisFunction(atom[1],shell,exps,coefs))
         self.nbasis = len(self.bfs)
+        # note this is center of positive charge
+        self.center_of_charge = np.asarray([sum([x[0]*x[1][0] for x in self.atoms]),
+                                            sum([x[0]*x[1][1] for x in self.atoms]),
+                                            sum([x[0]*x[1][2] for x in self.atoms])])\
+                                         * (1./sum([x[0] for x in self.atoms]))
         self.one_electron_integrals()
         self.two_electron_integrals()
 
@@ -109,6 +114,10 @@ class Molecule(object):
         self.S = np.zeros((N,N)) 
         self.V = np.zeros((N,N)) 
         self.T = np.zeros((N,N)) 
+        # dipole integrals
+        self.Mx = np.zeros((N,N)) 
+        self.My = np.zeros((N,N)) 
+        self.Mz = np.zeros((N,N)) 
         self.nuc_energy = 0.0
         # Get one electron integrals
         print "One-electron integrals"
@@ -116,6 +125,9 @@ class Molecule(object):
             for j in range(N):
                 self.S[i,j] = S(self.bfs[i],self.bfs[j])
                 self.T[i,j] = T(self.bfs[i],self.bfs[j])
+                self.Mx[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
+                self.My[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
+                self.Mz[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
                 for atom in self.atoms:
                     self.V[i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1])
         # Also populate nuclear repulsion at this time
@@ -148,7 +160,7 @@ class Molecule(object):
                                     self.TwoE[l,k,i,j] = val
                                     self.TwoE[i,j,l,k] = val
                                     self.TwoE[k,l,j,i] = val
-        print "\n"
+        print "\n\n"
     def SCF(self):
         self.delta_energy = 1e20
         self.P_RMS        = 1e20
@@ -183,6 +195,10 @@ class Molecule(object):
                       " in "+str(step)+" iterations"
                 print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
                 print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
+                self.computeDipole()
+                print " Dipole X = ", "{0:.8f}".format(self.mu_x)
+                print " Dipole Y = ", "{0:.8f}".format(self.mu_y)
+                print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
                 #import matplotlib.pyplot as plt
                 #plt.plot(range(len(En[1:])),En[1:])
                 #plt.show()
@@ -205,6 +221,16 @@ class Molecule(object):
         self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
         self.energy    = self.el_energy + self.nuc_energy
 
+    def computeDipole(self):
+        self.mu_x = -2*np.trace(np.dot(self.P,self.Mx)) + sum([x[0]*(x[1][0]-self.center_of_charge[0]) for x in self.atoms])  
+        self.mu_y = -2*np.trace(np.dot(self.P,self.My)) + sum([x[0]*(x[1][1]-self.center_of_charge[1]) for x in self.atoms])  
+        self.mu_z = -2*np.trace(np.dot(self.P,self.Mz)) + sum([x[0]*(x[1][2]-self.center_of_charge[2]) for x in self.atoms])  
+        # to debye
+        self.mu_x *= 2.541765
+        self.mu_y *= 2.541765
+        self.mu_z *= 2.541765
+         
+
 
         
 
@@ -213,6 +239,5 @@ if __name__ == '__main__':
     filename = 'h2o.dat'
     h2o = Molecule(filename,basis='sto-3g')
     h2o.SCF()
-    print h2o.S
     
 

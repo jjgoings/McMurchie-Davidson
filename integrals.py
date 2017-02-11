@@ -12,6 +12,15 @@ def S(a,b):
                      b.exps[ib],b.shell,b.origin)
     return s
 
+def Mu(a,b,C,direction):
+    mu = 0.0
+    for ia, ca in enumerate(a.coefs):
+        for ib, cb in enumerate(b.coefs):
+            mu += a.norm[ia]*b.norm[ib]*ca*cb*\
+                     dipole(a.exps[ia],a.shell,a.origin,
+                     b.exps[ib],b.shell,b.origin,C,direction)
+    return mu
+
 def T(a,b):
     t = 0.0
     for ia, ca in enumerate(a.coefs):
@@ -51,6 +60,29 @@ def overlap(a,lmn1,A,b,lmn2,B):
     S2 = E(m1,m2,0,A[1]-B[1],a,b)
     S3 = E(n1,n2,0,A[2]-B[2],a,b)
     return S1*S2*S3*np.power(np.pi/(a+b),1.5)
+
+def dipole(a,lmn1,A,b,lmn2,B,C,direction):
+    l1,m1,n1 = lmn1
+    l2,m2,n2 = lmn2
+    P = gaussian_product_center(a,A,b,B)
+    if direction.lower() == 'x':
+        XPC = P[0] - C[0]
+        D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
+        S2 = E(m1,m2,0,A[1]-B[1],a,b)
+        S3 = E(n1,n2,0,A[2]-B[2],a,b)
+        return D*S2*S3*np.power(np.pi/(a+b),1.5)
+    elif direction.lower() == 'y':
+        YPC = P[1] - C[1]
+        S1 = E(l1,l2,0,A[0]-B[0],a,b)
+        D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
+        S3 = E(n1,n2,0,A[2]-B[2],a,b)
+        return S1*D*S3*np.power(np.pi/(a+b),1.5)
+    elif direction.lower() == 'z':
+        ZPC = P[2] - C[2]
+        S1 = E(l1,l2,0,A[0]-B[0],a,b)
+        S2 = E(m1,m2,0,A[1]-B[1],a,b)
+        D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
+        return S1*S2*D*np.power(np.pi/(a+b),1.5)
 
 def kinetic(a,lmn1,A,b,lmn2,B):
     l1,m1,n1 = lmn1
