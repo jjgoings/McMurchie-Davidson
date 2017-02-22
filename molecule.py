@@ -1,5 +1,6 @@
 import numpy as np
 from integrals import *
+#from hermite import *
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 import itertools
@@ -111,28 +112,78 @@ class Molecule(object):
 
     def one_electron_integrals(self):
         N = self.nbasis
+        # core integrals
         self.S = np.zeros((N,N)) 
+        self.rH = np.zeros((3,N,N)) 
         self.V = np.zeros((N,N)) 
         self.T = np.zeros((N,N)) 
         # dipole integrals
         self.Mx = np.zeros((N,N)) 
         self.My = np.zeros((N,N)) 
         self.Mz = np.zeros((N,N)) 
+        # angular momentum
+        self.RxDelx = np.zeros((N,N)) 
+        self.RxDely = np.zeros((N,N)) 
+        self.RxDelz = np.zeros((N,N)) 
+ 
+        # derivative of one-electron GIAO integrals wrt B at B = 0.
+        self.rH = np.zeros((3,N,N)) 
+
         self.nuc_energy = 0.0
         # Get one electron integrals
         print "One-electron integrals"
+
         for i in tqdm(range(N)):
-            for j in range(N):
-                self.S[i,j] = S(self.bfs[i],self.bfs[j])
-                self.T[i,j] = T(self.bfs[i],self.bfs[j])
-                self.Mx[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
-                self.My[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
-                self.Mz[i,j] = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
+            for j in range(i+1):
+                self.S[i,j] = self.S[j,i] \
+                    = S(self.bfs[i],self.bfs[j])
+                self.T[i,j] = self.T[j,i] \
+                    = T(self.bfs[i],self.bfs[j])
+                self.Mx[i,j] = self.Mx[j,i] \
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
+                self.My[i,j] = self.My[j,i] \
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
+                self.Mz[i,j] = self.Mz[j,i] \
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
+                self.RxDelx[i,j] = self.RxDelx[j,i] \
+                    = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'x')
+                self.RxDely[i,j] = self.RxDely[j,i] \
+                    = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'y')
+                self.RxDelz[i,j] = self.RxDelz[j,i] \
+                    = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'z')
                 for atom in self.atoms:
                     self.V[i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1])
+                self.V[j,i] = self.V[i,j]
         # Also populate nuclear repulsion at this time
         for pair in itertools.combinations(self.atoms,2):
             self.nuc_energy += pair[0][0]*pair[1][0]/np.linalg.norm(pair[0][1] - pair[1][1])
+           
+        # Do GIAOs (no symmetry) 
+        for i in tqdm(range(N)):
+            for j in range(N):
+                #QAB matrix elements
+                XAB = self.bfs[i].origin[0] - self.bfs[j].origin[0]
+                YAB = self.bfs[i].origin[1] - self.bfs[j].origin[1]
+                ZAB = self.bfs[i].origin[2] - self.bfs[j].origin[2]
+                # GIAO T
+                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],n=(1,0,0))
+                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],n=(0,1,0))
+                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],n=(0,0,1))
+                for atom in self.atoms:
+                    self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0))
+                    self.rH[1,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,1,0))
+                    self.rH[2,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,0,1))
+
+                # Some temp copies for mult with QAB matrix 
+                xH = self.rH[0,i,j]
+                yH = self.rH[1,i,j]
+                zH = self.rH[2,i,j]
+               
+                # add QAB contribution 
+                self.rH[0,i,j] = 0.5*(-ZAB*yH + YAB*zH)
+                self.rH[1,i,j] = 0.5*( ZAB*xH - XAB*zH)
+                self.rH[2,i,j] = 0.5*(-YAB*xH + XAB*yH)
+
 
         # preparing for SCF
         self.Core       = self.T + self.V
@@ -140,26 +191,27 @@ class Molecule(object):
         self.U          = mat_pow(self.S,0.5)
         print "\n"
 
+
     def two_electron_integrals(self):
         N = self.nbasis
         self.TwoE = np.zeros((N,N,N,N))  
         print "Two-electron integrals"
         for i in trange(N,desc='First loop'):
-            for j in trange(N,desc='Second loop'):
+            for j in trange(i+1,desc='Second loop'):
+                ij = (i*(i+1)//2 + j)
                 for k in trange(N,desc='Third loop'):
-                    for l in trange(N,desc='Fourth loop'):
-                        if i >= j:
-                            if k >= l:
-                                if (i*(i+1)//2 + j) >= (k*(k+1)//2 + l):
-                                    val = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l])
-                                    self.TwoE[i,j,k,l] = val
-                                    self.TwoE[k,l,i,j] = val
-                                    self.TwoE[j,i,l,k] = val
-                                    self.TwoE[l,k,j,i] = val
-                                    self.TwoE[j,i,k,l] = val
-                                    self.TwoE[l,k,i,j] = val
-                                    self.TwoE[i,j,l,k] = val
-                                    self.TwoE[k,l,j,i] = val
+                    for l in trange(k+1,desc='Fourth loop'):
+                        kl = (k*(k+1)//2 + l)
+                        if ij >= kl:
+                           val = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l])
+                           self.TwoE[i,j,k,l] = val
+                           self.TwoE[k,l,i,j] = val
+                           self.TwoE[j,i,l,k] = val
+                           self.TwoE[l,k,j,i] = val
+                           self.TwoE[j,i,k,l] = val
+                           self.TwoE[l,k,i,j] = val
+                           self.TwoE[i,j,l,k] = val
+                           self.TwoE[k,l,j,i] = val
         print "\n\n"
     def SCF(self):
         self.delta_energy = 1e20
@@ -208,7 +260,7 @@ class Molecule(object):
         self.J = np.einsum('pqrs,rs->pq', self.TwoE,self.P)
         self.K = np.einsum('prqs,rs->pq', self.TwoE,self.P)
         self.G = 2.*self.J - self.K
-        self.GO = np.dot(self.X.T,np.dot(self.G,self.X))
+        #self.GO = np.dot(self.X.T,np.dot(self.G,self.X))
         self.F = self.Core + self.G
 
     def orthoFock(self):
@@ -235,9 +287,8 @@ class Molecule(object):
         
 
 if __name__ == '__main__':
-    np.set_printoptions(precision=3)
+    np.set_printoptions(precision=10,suppress=True)
     filename = 'h2o.dat'
     h2o = Molecule(filename,basis='sto-3g')
     h2o.SCF()
-    
 
