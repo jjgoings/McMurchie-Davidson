@@ -1,6 +1,6 @@
 import numpy as np
 from integrals import *
-#from hermite import *
+from hermite import ERI 
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 import itertools
@@ -122,12 +122,13 @@ class Molecule(object):
         self.My = np.zeros((N,N)) 
         self.Mz = np.zeros((N,N)) 
         # angular momentum
-        self.RxDelx = np.zeros((N,N)) 
-        self.RxDely = np.zeros((N,N)) 
-        self.RxDelz = np.zeros((N,N)) 
- 
+        self.L = np.zeros((3,N,N)) 
+
         # derivative of one-electron GIAO integrals wrt B at B = 0.
         self.rH = np.zeros((3,N,N)) 
+
+        # London Angular momentum L_N
+        self.Ln = np.zeros((3,N,N))
 
         self.nuc_energy = 0.0
         # Get one electron integrals
@@ -145,11 +146,11 @@ class Molecule(object):
                     = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
                 self.Mz[i,j] = self.Mz[j,i] \
                     = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
-                self.RxDelx[i,j] = self.RxDelx[j,i] \
+                self.L[0,i,j] = self.L[0,j,i] \
                     = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'x')
-                self.RxDely[i,j] = self.RxDely[j,i] \
+                self.L[1,i,j] = self.L[1,j,i] \
                     = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'y')
-                self.RxDelz[i,j] = self.RxDelz[j,i] \
+                self.L[2,i,j] = self.L[2,j,i] \
                     = RxDel(self.bfs[i],self.bfs[j],np.asarray([0,0,0]),'z')
                 for atom in self.atoms:
                     self.V[i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1])
@@ -166,10 +167,12 @@ class Molecule(object):
                 YAB = self.bfs[i].origin[1] - self.bfs[j].origin[1]
                 ZAB = self.bfs[i].origin[2] - self.bfs[j].origin[2]
                 # GIAO T
-                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],n=(1,0,0))
-                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],n=(0,1,0))
-                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],n=(0,0,1))
+                C = np.asarray([0,0,0])
+                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],C,n=(1,0,0))
+                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],C,n=(0,1,0))
+                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],C,n=(0,0,1))
                 for atom in self.atoms:
+                    # GIAO V
                     self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0))
                     self.rH[1,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,1,0))
                     self.rH[2,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,0,1))
@@ -183,6 +186,11 @@ class Molecule(object):
                 self.rH[0,i,j] = 0.5*(-ZAB*yH + YAB*zH)
                 self.rH[1,i,j] = 0.5*( ZAB*xH - XAB*zH)
                 self.rH[2,i,j] = 0.5*(-YAB*xH + XAB*yH)
+
+                # now do Angular London Momentum
+                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'x',london=True)
+                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'y',london=True)
+                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'z',london=True)
 
 
         # preparing for SCF
@@ -287,8 +295,37 @@ class Molecule(object):
         
 
 if __name__ == '__main__':
-    np.set_printoptions(precision=10,suppress=True)
-    filename = 'h2o.dat'
-    h2o = Molecule(filename,basis='sto-3g')
+    np.set_printoptions(precision=4,suppress=True)
+    filename = 'h2s.dat'
+    h2o = Molecule(filename,basis='6-31G**')
+    np.savetxt('xH.csv',h2o.rH[0],delimiter=',')
+    np.savetxt('yH.csv',h2o.rH[1],delimiter=',')
+    np.savetxt('zH.csv',h2o.rH[2],delimiter=',')
+    np.savetxt('S.csv',h2o.S,delimiter=',')
+    np.savetxt('T.csv',h2o.T,delimiter=',')
+    np.savetxt('V.csv',h2o.V,delimiter=',')
+    np.savetxt('Mx.csv',h2o.Mx,delimiter=',')
+    np.savetxt('My.csv',h2o.My,delimiter=',')
+    np.savetxt('Mz.csv',h2o.Mz,delimiter=',')
+    np.savetxt('Lx.csv',h2o.L[0],delimiter=',')
+    np.savetxt('Ly.csv',h2o.L[1],delimiter=',')
+    np.savetxt('Lz.csv',h2o.L[2],delimiter=',')
+    np.savetxt('LNx.csv',h2o.Ln[0],delimiter=',')
+    np.savetxt('LNy.csv',h2o.Ln[1],delimiter=',')
+    np.savetxt('LNz.csv',h2o.Ln[2],delimiter=',')
+#    print "OVERLAP"
+#    print h2o.S
+#    print "KINETIC"
+#    print h2o.T
+#    print "NUCLEAR"
+#    print h2o.V
+#    print "ANGMOM"
+#    print h2o.L
+#    print "ANGLON"
+#    print h2o.Ln
+#    print "LONMOM"
+#    print h2o.rH
+   
+
     h2o.SCF()
 

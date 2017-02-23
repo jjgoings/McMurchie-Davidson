@@ -8,7 +8,6 @@ def S(a,b,n=(0,0,0)):
     # Generalized overlap integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
-    # Note dipole ints are for product gaussian centered at C, e.g x_c not x_A  
     # normal overlap is just n = (0,0,0) case
     s = 0.0
     for ia, ca in enumerate(a.coefs):
@@ -27,16 +26,16 @@ def Mu(a,b,C,direction):
                      b.exps[ib],b.shell,b.origin,C,direction)
     return mu
 
-def RxDel(a,b,C,direction):
+def RxDel(a,b,C,direction,london=False):
     l = 0.0
     for ia, ca in enumerate(a.coefs):
         for ib, cb in enumerate(b.coefs):
             l += a.norm[ia]*b.norm[ib]*ca*cb*\
                      angular(a.exps[ia],a.shell,a.origin,
-                     b.exps[ib],b.shell,b.origin,C,direction)
+                     b.exps[ib],b.shell,b.origin,C,direction,london)
     return l
 
-def T(a,b,n=(0,0,0)):
+def T(a,b,C=np.asarray([0,0,0]),n=(0,0,0)):
     # Generalized kinetic integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * del^2
@@ -46,7 +45,7 @@ def T(a,b,n=(0,0,0)):
         for ib, cb in enumerate(b.coefs):
             t += a.norm[ia]*b.norm[ib]*ca*cb*\
                      kinetic(a.exps[ia],a.shell,a.origin,\
-                     b.exps[ib],b.shell,b.origin,n)
+                     b.exps[ib],b.shell,b.origin,C,n)
     return t
 
 def V(a,b,C,n=(0,0,0)):
@@ -86,21 +85,26 @@ def dipole(a,lmn1,A,b,lmn2,B,C,direction):
     P = gaussian_product_center(a,A,b,B)
     if direction.lower() == 'x':
         XPC = P[0] - C[0]
-        D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
+        # Top call for 'D; works for sure, bottom works in terms of properties,
+        # but the gauge-origin is different so the AO ints differ.
+        #D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
+        D  = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])
         S2 = E(m1,m2,0,A[1]-B[1],a,b)
         S3 = E(n1,n2,0,A[2]-B[2],a,b)
         return D*S2*S3*np.power(np.pi/(a+b),1.5)
     elif direction.lower() == 'y':
         YPC = P[1] - C[1]
         S1 = E(l1,l2,0,A[0]-B[0],a,b)
-        D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
+        #D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
+        D  = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-C[1])
         S3 = E(n1,n2,0,A[2]-B[2],a,b)
         return S1*D*S3*np.power(np.pi/(a+b),1.5)
     elif direction.lower() == 'z':
         ZPC = P[2] - C[2]
         S1 = E(l1,l2,0,A[0]-B[0],a,b)
         S2 = E(m1,m2,0,A[1]-B[1],a,b)
-        D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
+        #D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
+        D  = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-C[2]) 
         return S1*S2*D*np.power(np.pi/(a+b),1.5)
 
 
@@ -119,7 +123,7 @@ def kinetic(a,lmn1,A,b,lmn2,B):
                   n2*(n2-1)*overlap(a,(l1,m1,n1),A,b,(l2,m2,n2-2),B))
     return term0+term1+term2
 '''
-def kinetic(a,lmn1,A,b,lmn2,B,n):
+def kinetic(a,lmn1,A,b,lmn2,B,C,n):
     # explicit kinetic in terms of "E" operator
     # generalized to include GIAO derivatives
     l1,m1,n1 = lmn1
@@ -128,29 +132,29 @@ def kinetic(a,lmn1,A,b,lmn2,B,n):
     Bx = By = Bz = -2*np.power(b,2) # redundant, I know
     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1) 
 
-    Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]) + \
-         Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]) + \
-         Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0])
-    Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1])
-    Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2])
+    Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-C[0]) + \
+         Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-C[0]) + \
+         Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
+    Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
+    Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
 
-    Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]) + \
-         By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]) + \
-         Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1])
-    Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0])
-    Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2])
+    Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-C[1]) + \
+         By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-C[1]) + \
+         Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
+    Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
+    Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
 
-    Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]) + \
-         Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]) + \
-         Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2])
-    Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0])
-    Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1])
+    Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-C[2]) + \
+         Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-C[2]) + \
+         Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
+    Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
+    Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
 
     return (Tx + Ty + Tz)*np.power(np.pi/(a+b),1.5)
           
 
 
-def angular(a,lmn1,A,b,lmn2,B,C,direction):
+def angular(a,lmn1,A,b,lmn2,B,C,direction,london):
     # a little extra work at the moment, but not all that more expensive
     l1,m1,n1 = lmn1
     l2,m2,n2 = lmn2
@@ -164,22 +168,33 @@ def angular(a,lmn1,A,b,lmn2,B,C,direction):
     S0y =    E(m1,m2,0,A[1]-B[1],a,b) 
     S0z =    E(n1,n2,0,A[2]-B[2],a,b) 
 
-    S1x = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
-    S1y = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
-    S1z = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
+    if london:
+        # pretty sure this works
+        S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-B[0])
+        S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-B[1])
+        S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-B[2])
+    else:
+        # old code, works
+        #S1x = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
+        #S1y = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
+        #S1z = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
+        S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])
+        S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-C[1])
+        S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-C[2])
+    
 
     D1x = l2*E(l1,l2-1,0,A[0]-B[0],a,b) - 2*b*E(l1,l2+1,0,A[0]-B[0],a,b)
     D1y = m2*E(m1,m2-1,0,A[1]-B[1],a,b) - 2*b*E(m1,m2+1,0,A[1]-B[1],a,b)
     D1z = n2*E(n1,n2-1,0,A[2]-B[2],a,b) - 2*b*E(n1,n2+1,0,A[2]-B[2],a,b)
 
     if direction.lower() == 'x':
-        return S0x*(S1y*D1z - S1z*D1y)*np.power(np.pi/(a+b),1.5) 
+        return -S0x*(S1y*D1z - S1z*D1y)*np.power(np.pi/(a+b),1.5) 
 
     elif direction.lower() == 'y':
-        return S0y*(S1z*D1x - S1x*D1z)*np.power(np.pi/(a+b),1.5) 
+        return -S0y*(S1z*D1x - S1x*D1z)*np.power(np.pi/(a+b),1.5) 
 
     elif direction.lower() == 'z':
-        return S0z*(S1x*D1y - S1y*D1x)*np.power(np.pi/(a+b),1.5) 
+        return -S0z*(S1x*D1y - S1y*D1x)*np.power(np.pi/(a+b),1.5) 
 
 
 def E(i,j,t,Qx,a,b,n=0,Ax=0.0):
