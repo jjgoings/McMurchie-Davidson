@@ -3,6 +3,7 @@ import data
 import numpy as np
 #import pyximport; pyximport.install()
 from scipy.special import gamma, gammainc
+from scipy.special import hyp1f1
 
 def S(a,b,n=(0,0,0)):
     # Generalized overlap integrals for derivatives of GIAOs
@@ -57,7 +58,7 @@ def V(a,b,C,n=(0,0,0)):
                      b.exps[ib],b.shell,b.origin,C,n)
     return v
 
-def ERI(a,b,c,d):
+def ERI(a,b,c,d,n1=(0,0,0),n2=(0,0,0)):
     eri = 0.0
     for ja, ca in enumerate(a.coefs):
         for jb, cb in enumerate(b.coefs):
@@ -68,7 +69,8 @@ def ERI(a,b,c,d):
                              electron_repulsion(a.exps[ja],a.shell,a.origin,\
                                                 b.exps[jb],b.shell,b.origin,\
                                                 c.exps[jc],c.shell,c.origin,\
-                                                d.exps[jd],d.shell,d.origin)
+                                                d.exps[jd],d.shell,d.origin,\
+                                                n1,n2)
     return eri
 
 def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0)):
@@ -123,7 +125,7 @@ def kinetic(a,lmn1,A,b,lmn2,B):
                   n2*(n2-1)*overlap(a,(l1,m1,n1),A,b,(l2,m2,n2-2),B))
     return term0+term1+term2
 '''
-def kinetic(a,lmn1,A,b,lmn2,B,C,n):
+def kinetic(a,lmn1,A,b,lmn2,B,C=np.array([0,0,0]),n=(0,0,0)):
     # explicit kinetic in terms of "E" operator
     # generalized to include GIAO derivatives
     l1,m1,n1 = lmn1
@@ -173,6 +175,9 @@ def angular(a,lmn1,A,b,lmn2,B,C,direction,london):
         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-B[0])
         S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-B[1])
         S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-B[2])
+        #S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0])
+        #S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1])
+        #S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2])
     else:
         # old code, works
         #S1x = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
@@ -255,7 +260,7 @@ def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n):
     val *= 2*np.pi/p # Pink book, Eq(9.9.40) 
     return val 
 
-def electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D):
+def electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D,r1,r2):
     l1,m1,n1 = lmn1
     l2,m2,n2 = lmn2
     l3,m3,n3 = lmn3
@@ -274,12 +279,12 @@ def electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D):
                 for tau in xrange(l3+l4+1):
                     for nu in xrange(m3+m4+1):
                         for phi in xrange(n3+n4+1):
-                            val += E(l1,l2,t,A[0]-B[0],a,b) * \
-                                   E(m1,m2,u,A[1]-B[1],a,b) * \
-                                   E(n1,n2,v,A[2]-B[2],a,b) * \
-                                   E(l3,l4,tau,C[0]-D[0],c,d) * \
-                                   E(m3,m4,nu ,C[1]-D[1],c,d) * \
-                                   E(n3,n4,phi,C[2]-D[2],c,d) * \
+                            val += E(l1,l2,t,A[0]-B[0],a,b,r1[0],A[0]) * \
+                                   E(m1,m2,u,A[1]-B[1],a,b,r1[1],A[1]) * \
+                                   E(n1,n2,v,A[2]-B[2],a,b,r1[2],A[2]) * \
+                                   E(l3,l4,tau,C[0]-D[0],c,d,r2[0],C[0]) * \
+                                   E(m3,m4,nu ,C[1]-D[1],c,d,r2[1],C[1]) * \
+                                   E(n3,n4,phi,C[2]-D[2],c,d,r2[2],C[2]) * \
                                    np.power(-1,tau+nu+phi) * \
                                    R(t+tau,u+nu,v+phi,0,\
                                        alpha,P[0]-Q[0],P[1]-Q[1],P[2]-Q[2],RPQ) 
@@ -289,10 +294,11 @@ def electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D):
 
 def boys(m,T):
     # pretty sure this works, tested a few cases vs wolfram alpha
-    if abs(T) < 1e-12:
-        return 1/(2*m + 1)
-    else:
-        return gammainc(m+0.5,T)*gamma(m+0.5)/(2*np.power(T,m+0.5))
+    #if abs(T) < 1e-12:
+    #    return 1/(2*m + 1)
+    #else:
+    #    return gammainc(m+0.5,T)*gamma(m+0.5)/(2*np.power(T,m+0.5))
+    return hyp1f1(m+0.5,m+1.5,-T)/(2*m+1)
 
 def gaussian_product_center(a,A,b,B):
     return (a*A+b*B)/(a+b)
