@@ -3,15 +3,15 @@ from mmd.spectra import *
 import matplotlib.pyplot as plt
 
 # if we do load, we will load all important integrals
-load = True 
+load = False 
 
-geometry = '/Users/jjgoings/Dropbox/Code/mcmurchie-davidson/geoms/h2o2.dat'
+geometry = '/Users/jjgoings/Dropbox/Code/mcmurchie-davidson/geoms/h4.dat'
 
 mol = Molecule(filename=geometry,basis='sto-3g',load=load)
 
 mol.SCF()
 
-N  = 1000
+N  = 1500
 dt = 0.1
 
 mol.RT(direction='x',numsteps=N,stepsize=dt)

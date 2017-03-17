@@ -164,8 +164,7 @@ class Molecule(object):
         # Get one electron integrals
         print "One-electron integrals"
 
-        C = self.center_of_charge
-        #C = np.asarray([0,0,0])
+        gauge_origin = self.center_of_charge
         for i in tqdm(range(N)):
             for j in range(i+1):
                 self.S[i,j] = self.S[j,i] \
@@ -173,11 +172,11 @@ class Molecule(object):
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
                 self.Mx[i,j] = self.Mx[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],C,'x')
+                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'x')
                 self.My[i,j] = self.My[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],C,'y')
+                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'y')
                 self.Mz[i,j] = self.Mz[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],C,'z')
+                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'z')
                # self.Mx[i,j] = self.Mx[j,i] \
                #     = S(self.bfs[i],self.bfs[j],n=(1,0,0)) 
                # self.My[i,j] = self.My[j,i] \
@@ -196,20 +195,20 @@ class Molecule(object):
         for i in tqdm(range(N)):
             for j in range(N):
                 self.L[0,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],C,'x')
+                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'x')
                 self.L[1,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],C,'y')
+                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'y')
                 self.L[2,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],C,'z')
+                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'z')
                 #QAB matrix elements
                 XAB = self.bfs[i].origin[0] - self.bfs[j].origin[0]
                 YAB = self.bfs[i].origin[1] - self.bfs[j].origin[1]
                 ZAB = self.bfs[i].origin[2] - self.bfs[j].origin[2]
                 # GIAO T
-                C = np.asarray([0,0,0])
-                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],C,n=(1,0,0))
-                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],C,n=(0,1,0))
-                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],C,n=(0,0,1))
+                gauge_origin = np.asarray([0,0,0])
+                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(1,0,0))
+                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(0,1,0))
+                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(0,0,1))
                 for atom in self.atoms:
                     # GIAO V
                     self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0))
@@ -236,9 +235,9 @@ class Molecule(object):
                 self.Sb[2,i,j] = 0.5*(-YAB*Rx + XAB*Ry)
 
                 # now do Angular London Momentum
-                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'x',london=True)
-                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'y',london=True)
-                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],C,'z',london=True)
+                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'x',london=True)
+                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'y',london=True)
+                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'z',london=True)
 
         # below gives dH/dB accoriding to dalton
         self.dhdb[:] = 0.5*self.Ln[:] + self.rH[:]
@@ -377,6 +376,9 @@ class Molecule(object):
                     np.save('Mx.npy',self.Mx)
                     np.save('My.npy',self.My)
                     np.save('Mz.npy',self.Mz)
+                    np.savetxt('rHx.csv',self.rH[0],delimiter=',')
+                    np.savetxt('rHy.csv',self.rH[1],delimiter=',')
+                    np.savetxt('rHz.csv',self.rH[2],delimiter=',')
                     np.save('dsdb.npy',self.Sb)
                     np.save('dhdb.npy',self.dhdb)
                     np.save('dgdb.npy',self.dgdb)
@@ -509,12 +511,12 @@ class Molecule(object):
  
         #J = np.einsum('pqrs,rs->pq', dGdB,self.P)
         #K = np.einsum('prqs,rs->pq', dGdB,self.P)
-        J = np.einsum('pqrs,rs->pq', dGdB,self.P)
-        K = np.einsum('prqs,rs->pq', dGdB,self.P)
+        J = np.einsum('pqrs,rs->pq', dGdB,P)
+        K = np.einsum('prqs,rs->pq', dGdB,P)
         G = 2.*J - K
         F = dHdB + G 
         self.LN = np.einsum('pq,pq',self.P,F+dHdB)
-        W = np.dot(self.P,np.dot(self.F,self.P)) 
+        W = np.dot(self.P,np.dot(self.F,P)) 
         self.LN -= 2*np.einsum('pq,pq',W,dSdB)
 
         # indiv components
@@ -533,7 +535,7 @@ class Molecule(object):
         #for idx,time in enumerate((self.time)):
             if idx == 0: P = self.P
             if idx == 0: F = self.F
-            self.buildL(direction=direction,P=self.P,F=self.F)
+            self.buildL(direction=direction,P=P,F=F)
             ''' 
             if direction.lower() == 'x':
                 self.LN = np.trace(np.dot(self.P,self.Lx))

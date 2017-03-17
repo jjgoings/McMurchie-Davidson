@@ -33,15 +33,15 @@ def genSpectra(time,dipole,field):
 
     # OLD CODE: sometimes more stable
     # G[k,m] = dipole[N - m + k] for m,k in range(1,N)
-    G = dipole[N + np.arange(1,N)[:,None] - np.arange(1,N)]
-    b = np.linalg.solve(G,d)
+    #G = dipole[N + np.arange(1,N)[:,None] - np.arange(1,N)]
+    #b = np.linalg.solve(G,d)
 
 
     # Instead, form G = (c,r) as toeplitz
     #c = dipole[N:2*N-1]
     #r = np.hstack((dipole[1],dipole[N-1:1:-1]))
-    #b = solve_toeplitz((dipole[N:2*N-1],\
-    #    np.hstack((dipole[1],dipole[N-1:1:-1]))),d,check_finite=False)
+    b = solve_toeplitz((dipole[N:2*N-1],\
+        np.hstack((dipole[1],dipole[N-1:1:-1]))),d,check_finite=False)
 
     # Now make b Nx1 where b0 = 1
     b = np.hstack((1,b))
