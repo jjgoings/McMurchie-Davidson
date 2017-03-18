@@ -5,7 +5,7 @@ import numpy as np
 from scipy.special import gamma, gammainc
 from scipy.special import hyp1f1
 
-def S(a,b,n=(0,0,0)):
+def S(a,b,n=(0,0,0),gOrigin=np.zeros((3))):
     # Generalized overlap integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
@@ -15,7 +15,7 @@ def S(a,b,n=(0,0,0)):
         for ib, cb in enumerate(b.coefs):
             s += a.norm[ia]*b.norm[ib]*ca*cb*\
                      overlap(a.exps[ia],a.shell,a.origin,
-                     b.exps[ib],b.shell,b.origin,n)
+                     b.exps[ib],b.shell,b.origin,n,gOrigin)
     return s
 
 def Mu(a,b,C,direction):
@@ -36,7 +36,7 @@ def RxDel(a,b,C,direction,london=False):
                      b.exps[ib],b.shell,b.origin,C,direction,london)
     return l
 
-def T(a,b,C=np.asarray([0,0,0]),n=(0,0,0)):
+def T(a,b,n=(0,0,0),gOrigin=np.zeros((3))):
     # Generalized kinetic integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * del^2
@@ -46,39 +46,39 @@ def T(a,b,C=np.asarray([0,0,0]),n=(0,0,0)):
         for ib, cb in enumerate(b.coefs):
             t += a.norm[ia]*b.norm[ib]*ca*cb*\
                      kinetic(a.exps[ia],a.shell,a.origin,\
-                     b.exps[ib],b.shell,b.origin,C,n)
+                     b.exps[ib],b.shell,b.origin,n,gOrigin)
     return t
 
-def V(a,b,C,n=(0,0,0)):
+def V(a,b,C,n=(0,0,0),gOrigin=np.zeros((3))):
     v = 0.0
     for ia, ca in enumerate(a.coefs):
         for ib, cb in enumerate(b.coefs):
             v += a.norm[ia]*b.norm[ib]*ca*cb*\
                      nuclear_attraction(a.exps[ia],a.shell,a.origin,
-                     b.exps[ib],b.shell,b.origin,C,n)
+                     b.exps[ib],b.shell,b.origin,C,n,gOrigin)
     return v
 
-def ERI(a,b,c,d,n1=(0,0,0),n2=(0,0,0)):
-    eri = 0.0
-    for ja, ca in enumerate(a.coefs):
-        for jb, cb in enumerate(b.coefs):
-            for jc, cc in enumerate(c.coefs):
-                for jd, cd in enumerate(d.coefs):
-                    eri += a.norm[ja]*b.norm[jb]*c.norm[jc]*d.norm[jd]*\
-                             ca*cb*cc*cd*\
-                             electron_repulsion(a.exps[ja],a.shell,a.origin,\
-                                                b.exps[jb],b.shell,b.origin,\
-                                                c.exps[jc],c.shell,c.origin,\
-                                                d.exps[jd],d.shell,d.origin,\
-                                                n1,n2)
-    return eri
+#def ERI(a,b,c,d,n1=(0,0,0),n2=(0,0,0)):
+#    eri = 0.0
+#    for ja, ca in enumerate(a.coefs):
+#        for jb, cb in enumerate(b.coefs):
+#            for jc, cc in enumerate(c.coefs):
+#                for jd, cd in enumerate(d.coefs):
+#                    eri += a.norm[ja]*b.norm[jb]*c.norm[jc]*d.norm[jd]*\
+#                             ca*cb*cc*cd*\
+#                             electron_repulsion(a.exps[ja],a.shell,a.origin,\
+#                                                b.exps[jb],b.shell,b.origin,\
+#                                                c.exps[jc],c.shell,c.origin,\
+#                                                d.exps[jd],d.shell,d.origin,\
+#                                                n1,n2)
+#    return eri
 
-def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0)):
+def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
     l1,m1,n1 = lmn1
     l2,m2,n2 = lmn2
-    S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0])
-    S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1])
-    S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2])
+    S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
+    S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
+    S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
     return S1*S2*S3*np.power(np.pi/(a+b),1.5)
 
 def dipole(a,lmn1,A,b,lmn2,B,C,direction):
@@ -125,7 +125,7 @@ def kinetic(a,lmn1,A,b,lmn2,B):
                   n2*(n2-1)*overlap(a,(l1,m1,n1),A,b,(l2,m2,n2-2),B))
     return term0+term1+term2
 '''
-def kinetic(a,lmn1,A,b,lmn2,B,C=np.array([0,0,0]),n=(0,0,0)):
+def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
     # explicit kinetic in terms of "E" operator
     # generalized to include GIAO derivatives
     l1,m1,n1 = lmn1
@@ -134,23 +134,23 @@ def kinetic(a,lmn1,A,b,lmn2,B,C=np.array([0,0,0]),n=(0,0,0)):
     Bx = By = Bz = -2*np.power(b,2) # redundant, I know
     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1) 
 
-    Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-C[0]) + \
-         Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-C[0]) + \
-         Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
-    Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
-    Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
+    Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
+         Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
+         Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
+    Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
+    Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
 
-    Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-C[1]) + \
-         By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-C[1]) + \
-         Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
-    Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
-    Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
+    Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
+         By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
+         Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
+    Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
+    Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
 
-    Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-C[2]) + \
-         Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-C[2]) + \
-         Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-C[2])
-    Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-C[0])
-    Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-C[1])
+    Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
+         Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
+         Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
+    Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
+    Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
 
     return (Tx + Ty + Tz)*np.power(np.pi/(a+b),1.5)
           
@@ -238,7 +238,7 @@ def R(t,u,v,n,p,PCx,PCy,PCz,RPC):
         val += PCx*R(t-1,u,v,n+1,p,PCx,PCy,PCz,RPC)
     return val
 
-def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n):
+def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3))):
     # Generalized nucler integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * 1/r
@@ -253,9 +253,9 @@ def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n):
     for t in xrange(l1+l2+1+n[0]):
         for u in xrange(m1+m2+1+n[1]):
             for v in xrange(n1+n2+1+n[2]):
-                val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]) * \
-                       E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]) * \
-                       E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]) * \
+                val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
+                       E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
+                       E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
                        R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC) 
     val *= 2*np.pi/p # Pink book, Eq(9.9.40) 
     return val 

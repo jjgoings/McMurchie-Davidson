@@ -33,7 +33,7 @@ class BasisFunction(object):
         return
 
 class Molecule(object):
-    def __init__(self,filename,basis='sto3g',load=False):
+    def __init__(self,filename,basis='sto3g',load=False,gauge=None):
         self.load = load
         charge, multiplicity, atomlist = self.read_molecule(filename)
         self.charge = charge
@@ -62,6 +62,11 @@ class Molecule(object):
                                             sum([x[0]*x[1][1] for x in self.atoms]),
                                             sum([x[0]*x[1][2] for x in self.atoms])])\
                                          * (1./sum([x[0] for x in self.atoms]))
+        if not gauge:
+            self.gauge_origin = self.center_of_charge
+        else:
+            self.gauge_origin = np.asarray(gauge)
+            
         if self.load:
             self.nuc_energy = np.load('enuc.npy')
             self.nelec      = np.load('nelec.npy')
@@ -164,7 +169,6 @@ class Molecule(object):
         # Get one electron integrals
         print "One-electron integrals"
 
-        gauge_origin = self.center_of_charge
         for i in tqdm(range(N)):
             for j in range(i+1):
                 self.S[i,j] = self.S[j,i] \
@@ -172,11 +176,11 @@ class Molecule(object):
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
                 self.Mx[i,j] = self.Mx[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'x')
+                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'x')
                 self.My[i,j] = self.My[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'y')
+                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
                 self.Mz[i,j] = self.Mz[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],gauge_origin,'z')
+                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
                # self.Mx[i,j] = self.Mx[j,i] \
                #     = S(self.bfs[i],self.bfs[j],n=(1,0,0)) 
                # self.My[i,j] = self.My[j,i] \
@@ -195,25 +199,24 @@ class Molecule(object):
         for i in tqdm(range(N)):
             for j in range(N):
                 self.L[0,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'x')
+                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'x')
                 self.L[1,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'y')
+                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
                 self.L[2,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'z')
+                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
                 #QAB matrix elements
                 XAB = self.bfs[i].origin[0] - self.bfs[j].origin[0]
                 YAB = self.bfs[i].origin[1] - self.bfs[j].origin[1]
                 ZAB = self.bfs[i].origin[2] - self.bfs[j].origin[2]
                 # GIAO T
-                gauge_origin = np.asarray([0,0,0])
-                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(1,0,0))
-                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(0,1,0))
-                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],gauge_origin,n=(0,0,1))
+                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],n=(1,0,0),gOrigin=self.gauge_origin)
+                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],n=(0,1,0),gOrigin=self.gauge_origin)
+                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],n=(0,0,1),gOrigin=self.gauge_origin)
                 for atom in self.atoms:
                     # GIAO V
-                    self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0))
-                    self.rH[1,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,1,0))
-                    self.rH[2,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,0,1))
+                    self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0),gOrigin=self.gauge_origin)
+                    self.rH[1,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,1,0),gOrigin=self.gauge_origin)
+                    self.rH[2,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,0,1),gOrigin=self.gauge_origin)
 
                 # Some temp copies for mult with QAB matrix 
                 xH = self.rH[0,i,j]
@@ -227,17 +230,17 @@ class Molecule(object):
 
                 # add QAB contribution for overlaps 
                 #C = np.asarray([0,0,0])
-                Rx = S(self.bfs[i],self.bfs[j],n=(1,0,0))
-                Ry = S(self.bfs[i],self.bfs[j],n=(0,1,0))
-                Rz = S(self.bfs[i],self.bfs[j],n=(0,0,1))
+                Rx = S(self.bfs[i],self.bfs[j],n=(1,0,0),gOrigin=self.gauge_origin)
+                Ry = S(self.bfs[i],self.bfs[j],n=(0,1,0),gOrigin=self.gauge_origin)
+                Rz = S(self.bfs[i],self.bfs[j],n=(0,0,1),gOrigin=self.gauge_origin)
                 self.Sb[0,i,j] = 0.5*(-ZAB*Ry + YAB*Rz)
                 self.Sb[1,i,j] = 0.5*( ZAB*Rx - XAB*Rz)
                 self.Sb[2,i,j] = 0.5*(-YAB*Rx + XAB*Ry)
 
                 # now do Angular London Momentum
-                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'x',london=True)
-                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'y',london=True)
-                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],gauge_origin,'z',london=True)
+                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'x',london=True)
+                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y',london=True)
+                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z',london=True)
 
         # below gives dH/dB accoriding to dalton
         self.dhdb[:] = 0.5*self.Ln[:] + self.rH[:]
@@ -302,12 +305,12 @@ class Molecule(object):
                             YPQ  = self.bfs[k].origin[1] - self.bfs[l].origin[1]
                             ZPQ  = self.bfs[k].origin[2] - self.bfs[l].origin[2]
 
-                            GR1x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(1,0,0),n2=(0,0,0))
-                            GR1y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,1,0),n2=(0,0,0))
-                            GR1z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,1),n2=(0,0,0))
-                            GR2x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(1,0,0))
-                            GR2y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,1,0))
-                            GR2z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,1))
+                            GR1x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=self.gauge_origin)
+                            GR1y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=self.gauge_origin)
+                            GR1z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=self.gauge_origin)
+                            GR2x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=self.gauge_origin)
+                            GR2y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=self.gauge_origin)
+                            GR2z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,1), gOrigin=self.gauge_origin)
 
                             # add QMN contribution
                             self.GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)
@@ -376,9 +379,9 @@ class Molecule(object):
                     np.save('Mx.npy',self.Mx)
                     np.save('My.npy',self.My)
                     np.save('Mz.npy',self.Mz)
-                    np.savetxt('rHx.csv',self.rH[0],delimiter=',')
-                    np.savetxt('rHy.csv',self.rH[1],delimiter=',')
-                    np.savetxt('rHz.csv',self.rH[2],delimiter=',')
+                    #np.savetxt('rHx.csv',self.rH[0],delimiter=',')
+                    #np.savetxt('rHy.csv',self.rH[1],delimiter=',')
+                    #np.savetxt('rHz.csv',self.rH[2],delimiter=',')
                     np.save('dsdb.npy',self.Sb)
                     np.save('dhdb.npy',self.dhdb)
                     np.save('dgdb.npy',self.dgdb)
@@ -441,9 +444,9 @@ class Molecule(object):
         self.energy    = self.el_energy + self.nuc_energy
 
     def computeDipole(self):
-        self.mu_x = -2*np.trace(np.dot(self.P,self.Mx)) + sum([x[0]*(x[1][0]-self.center_of_charge[0]) for x in self.atoms])  
-        self.mu_y = -2*np.trace(np.dot(self.P,self.My)) + sum([x[0]*(x[1][1]-self.center_of_charge[1]) for x in self.atoms])  
-        self.mu_z = -2*np.trace(np.dot(self.P,self.Mz)) + sum([x[0]*(x[1][2]-self.center_of_charge[2]) for x in self.atoms])  
+        self.mu_x = -2*np.trace(np.dot(self.P,self.Mx)) + sum([x[0]*(x[1][0]-self.gauge_origin[0]) for x in self.atoms])  
+        self.mu_y = -2*np.trace(np.dot(self.P,self.My)) + sum([x[0]*(x[1][1]-self.gauge_origin[1]) for x in self.atoms])  
+        self.mu_z = -2*np.trace(np.dot(self.P,self.Mz)) + sum([x[0]*(x[1][2]-self.gauge_origin[2]) for x in self.atoms])  
         # to debye
         self.mu_x *= 2.541765
         self.mu_y *= 2.541765
@@ -517,7 +520,7 @@ class Molecule(object):
         F = dHdB + G 
         self.LN = np.einsum('pq,pq',self.P,F+dHdB)
         W = np.dot(self.P,np.dot(self.F,P)) 
-        self.LN -= 2*np.einsum('pq,pq',W,dSdB)
+        self.LN += 2*np.einsum('pq,pq',W,dSdB)
 
         # indiv components
         #self.LN = np.einsum('pq,pq',W,dSdB)
@@ -535,7 +538,7 @@ class Molecule(object):
         #for idx,time in enumerate((self.time)):
             if idx == 0: P = self.P
             if idx == 0: F = self.F
-            self.buildL(direction=direction,P=P,F=F)
+            self.buildL(direction=direction,P=self.P,F=self.F)
             ''' 
             if direction.lower() == 'x':
                 self.LN = np.trace(np.dot(self.P,self.Lx))

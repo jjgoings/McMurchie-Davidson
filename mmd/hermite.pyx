@@ -11,7 +11,7 @@ cdef double pi = 3.141592653589793238462643383279
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0)):
+cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3))):
     cdef double eri = 0.0
     cdef int ja, jb, jc, jd
     cdef double ca, cb, cc, cd
@@ -25,7 +25,7 @@ cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple 
                                                 b.exps[jb],b.shell,b.origin,\
                                                 c.exps[jc],c.shell,c.origin,\
                                                 d.exps[jd],d.shell,d.origin,\
-                                                n1,n2)
+                                                n1,n2, gOrigin)
     return eri
 
 @cython.cdivision(True)
@@ -75,7 +75,7 @@ cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double P
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cpdef double electron_repulsion(double a, np.ndarray[long,mode='c',ndim=1] lmn1,np.ndarray[double,mode='c',ndim=1] A,double b,np.ndarray[long,mode='c',ndim=1] lmn2, np.ndarray[double,mode='c',ndim=1] B,double c,np.ndarray[long,mode='c',ndim=1] lmn3,np.ndarray[double,mode='c',ndim=1] C,double d,np.ndarray[long,mode='c',ndim=1] lmn4,np.ndarray[double,mode='c',ndim=1] D, tuple r1, tuple r2):
+cpdef double electron_repulsion(double a, np.ndarray[long,mode='c',ndim=1] lmn1,np.ndarray[double,mode='c',ndim=1] A,double b,np.ndarray[long,mode='c',ndim=1] lmn2, np.ndarray[double,mode='c',ndim=1] B,double c,np.ndarray[long,mode='c',ndim=1] lmn3,np.ndarray[double,mode='c',ndim=1] C,double d,np.ndarray[long,mode='c',ndim=1] lmn4,np.ndarray[double,mode='c',ndim=1] D, tuple r1, tuple r2, np.ndarray[double,mode='c',ndim=1] gOrigin):
     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
@@ -104,12 +104,12 @@ cpdef double electron_repulsion(double a, np.ndarray[long,mode='c',ndim=1] lmn1,
                 for tau in range(l3+l4+1+r2x):
                     for nu in range(m3+m4+1+r2y):
                         for phi in range(n3+n4+1+r2z):
-                            val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0]) * \
-                                   E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1]) * \
-                                   E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2]) * \
-                                   E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0]) * \
-                                   E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1]) * \
-                                   E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2]) * \
+                            val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
+                                   E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
+                                   E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
+                                   E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
+                                   E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
+                                   E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \
                                    pow(-1,tau+nu+phi) * \
                                    R(t+tau,u+nu,v+phi,0,\
                                        alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ) 

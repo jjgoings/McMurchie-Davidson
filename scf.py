@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 # if we do load, we will load all important integrals
 load = False 
 
-geometry = '/Users/jjgoings/Dropbox/Code/mcmurchie-davidson/geoms/h4.dat'
+geometry = '/Users/jjgoings/Dropbox/Code/mcmurchie-davidson/geoms/h2o2.dat'
 
-mol = Molecule(filename=geometry,basis='sto-3g',load=load)
+mol = Molecule(filename=geometry,basis='sto-3g',load=load,gauge=[0.0,1.0,2.0])
 
 mol.SCF()
 
-N  = 1500
-dt = 0.1
+N  = 5000
+dt = 0.05
 
 mol.RT(direction='x',numsteps=N,stepsize=dt)
 freq, xsignal = genSpectra(mol.time,mol.dipole,mol.field)
