@@ -9,6 +9,7 @@ def genSpectra(time,dipole,field):
     import matplotlib.pyplot as plt
     damp_const = 1000
     dipole = np.asarray(dipole) - dipole[0]
+      
     stepsize = time[1] - time[0]
     #print dipole
     damp = np.exp(-(stepsize*np.arange(len(dipole)))/float(damp_const))

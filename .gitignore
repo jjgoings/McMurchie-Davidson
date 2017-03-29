@@ -1,4 +1,5 @@
 *.csv
+*.c
 build
 *.so
 *.pyc

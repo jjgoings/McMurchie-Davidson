@@ -18,13 +18,13 @@ def S(a,b,n=(0,0,0),gOrigin=np.zeros((3))):
                      b.exps[ib],b.shell,b.origin,n,gOrigin)
     return s
 
-def Mu(a,b,C,direction):
+def Mu(a,b,direction,n=(0,0,0),gOrigin=np.zeros((3))):
     mu = 0.0
     for ia, ca in enumerate(a.coefs):
         for ib, cb in enumerate(b.coefs):
             mu += a.norm[ia]*b.norm[ib]*ca*cb*\
                      dipole(a.exps[ia],a.shell,a.origin,
-                     b.exps[ib],b.shell,b.origin,C,direction)
+                     b.exps[ib],b.shell,b.origin,direction,n,gOrigin)
     return mu
 
 def RxDel(a,b,C,direction,london=False):
@@ -81,32 +81,32 @@ def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
     S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
     return S1*S2*S3*np.power(np.pi/(a+b),1.5)
 
-def dipole(a,lmn1,A,b,lmn2,B,C,direction):
+def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):
     l1,m1,n1 = lmn1
     l2,m2,n2 = lmn2
     P = gaussian_product_center(a,A,b,B)
     if direction.lower() == 'x':
-        XPC = P[0] - C[0]
+        #XPC = P[0] - C[0]
         # Top call for 'D; works for sure, bottom works in terms of properties,
         # but the gauge-origin is different so the AO ints differ.
         #D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
-        D  = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])
-        S2 = E(m1,m2,0,A[1]-B[1],a,b)
-        S3 = E(n1,n2,0,A[2]-B[2],a,b)
+        D  = E(l1,l2,0,A[0]-B[0],a,b,1+n[0],A[0]-gOrigin[0])
+        S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
+        S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2] -gOrigin[2])
         return D*S2*S3*np.power(np.pi/(a+b),1.5)
     elif direction.lower() == 'y':
-        YPC = P[1] - C[1]
-        S1 = E(l1,l2,0,A[0]-B[0],a,b)
+        #YPC = P[1] - C[1]
+        S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
         #D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
-        D  = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-C[1])
-        S3 = E(n1,n2,0,A[2]-B[2],a,b)
+        D  = E(m1,m2,0,A[1]-B[1],a,b,1+n[1],A[1]-gOrigin[1])
+        S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
         return S1*D*S3*np.power(np.pi/(a+b),1.5)
     elif direction.lower() == 'z':
-        ZPC = P[2] - C[2]
-        S1 = E(l1,l2,0,A[0]-B[0],a,b)
-        S2 = E(m1,m2,0,A[1]-B[1],a,b)
+        #ZPC = P[2] - C[2]
+        S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
+        S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
         #D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
-        D  = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-C[2]) 
+        D  = E(n1,n2,0,A[2]-B[2],a,b,1+n[2],A[2]-gOrigin[2]) 
         return S1*S2*D*np.power(np.pi/(a+b),1.5)
 
 

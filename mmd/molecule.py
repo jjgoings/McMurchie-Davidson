@@ -1,6 +1,7 @@
 from __future__ import division
 import numpy as np
 from integrals import *
+#from magnus import updateM4
 from hermite import ERI 
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
@@ -76,6 +77,7 @@ class Molecule(object):
             self.Mx         = np.load('Mx.npy')
             self.My         = np.load('My.npy')
             self.Mz         = np.load('Mz.npy')
+            self.L          = np.load('L.npy') 
             self.Sb         = np.load('dsdb.npy')
             self.dhdb       = np.load('dhdb.npy')
             self.dgdb       = np.load('dgdb.npy')
@@ -151,6 +153,12 @@ class Molecule(object):
         self.Mx = np.zeros((N,N)) 
         self.My = np.zeros((N,N)) 
         self.Mz = np.zeros((N,N)) 
+ 
+        # GIAO quasienergy dipole intgrals
+        self.rDipX = np.zeros((3,N,N))
+        self.rDipY = np.zeros((3,N,N))
+        self.rDipZ = np.zeros((3,N,N))
+        
         # angular momentum
         self.L = np.zeros((3,N,N)) 
 
@@ -176,11 +184,11 @@ class Molecule(object):
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
                 self.Mx[i,j] = self.Mx[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'x')
+                    = Mu(self.bfs[i],self.bfs[j],'x',gOrigin=self.gauge_origin)
                 self.My[i,j] = self.My[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
+                    = Mu(self.bfs[i],self.bfs[j],'y',gOrigin=self.gauge_origin)
                 self.Mz[i,j] = self.Mz[j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
+                    = Mu(self.bfs[i],self.bfs[j],'z',gOrigin=self.gauge_origin)
                # self.Mx[i,j] = self.Mx[j,i] \
                #     = S(self.bfs[i],self.bfs[j],n=(1,0,0)) 
                # self.My[i,j] = self.My[j,i] \
@@ -212,6 +220,20 @@ class Molecule(object):
                 self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],n=(1,0,0),gOrigin=self.gauge_origin)
                 self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],n=(0,1,0),gOrigin=self.gauge_origin)
                 self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],n=(0,0,1),gOrigin=self.gauge_origin)
+
+                # testing GIAO quasienergy dipole contribs
+                self.rDipX[0,i,j] = Mu(self.bfs[i],self.bfs[j],'x',n=(1,0,0),gOrigin=self.gauge_origin)
+                self.rDipX[1,i,j] = Mu(self.bfs[i],self.bfs[j],'x',n=(0,1,0),gOrigin=self.gauge_origin)
+                self.rDipX[2,i,j] = Mu(self.bfs[i],self.bfs[j],'x',n=(0,0,1),gOrigin=self.gauge_origin)
+
+                self.rDipY[0,i,j] = Mu(self.bfs[i],self.bfs[j],'y',n=(1,0,0),gOrigin=self.gauge_origin)
+                self.rDipY[1,i,j] = Mu(self.bfs[i],self.bfs[j],'y',n=(0,1,0),gOrigin=self.gauge_origin)
+                self.rDipY[2,i,j] = Mu(self.bfs[i],self.bfs[j],'y',n=(0,0,1),gOrigin=self.gauge_origin)
+
+                self.rDipZ[0,i,j] = Mu(self.bfs[i],self.bfs[j],'z',n=(1,0,0),gOrigin=self.gauge_origin)
+                self.rDipZ[1,i,j] = Mu(self.bfs[i],self.bfs[j],'z',n=(0,1,0),gOrigin=self.gauge_origin)
+                self.rDipZ[2,i,j] = Mu(self.bfs[i],self.bfs[j],'z',n=(0,0,1),gOrigin=self.gauge_origin)
+
                 for atom in self.atoms:
                     # GIAO V
                     self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0),gOrigin=self.gauge_origin)
@@ -227,6 +249,31 @@ class Molecule(object):
                 self.rH[0,i,j] = 0.5*(-ZAB*yH + YAB*zH)
                 self.rH[1,i,j] = 0.5*( ZAB*xH - XAB*zH)
                 self.rH[2,i,j] = 0.5*(-YAB*xH + XAB*yH)
+
+                # ditto for GIAO quasienergy dipoles
+                xDipX = self.rDipX[0,i,j]
+                yDipX = self.rDipX[1,i,j]
+                zDipX = self.rDipX[2,i,j]
+
+                xDipY = self.rDipY[0,i,j]
+                yDipY = self.rDipY[1,i,j]
+                zDipY = self.rDipY[2,i,j]
+
+                xDipZ = self.rDipZ[0,i,j]
+                yDipZ = self.rDipZ[1,i,j]
+                zDipZ = self.rDipZ[2,i,j]
+
+                self.rDipX[0,i,j] = 0.5*(-ZAB*yDipX + YAB*zDipX)
+                self.rDipX[1,i,j] = 0.5*( ZAB*xDipX - XAB*zDipX)
+                self.rDipX[2,i,j] = 0.5*(-YAB*xDipX + XAB*yDipX)
+
+                self.rDipY[0,i,j] = 0.5*(-ZAB*yDipY + YAB*zDipY)
+                self.rDipY[1,i,j] = 0.5*( ZAB*xDipY - XAB*zDipY)
+                self.rDipY[2,i,j] = 0.5*(-YAB*xDipY + XAB*yDipY)
+
+                self.rDipZ[0,i,j] = 0.5*(-ZAB*yDipZ + YAB*zDipZ)
+                self.rDipZ[1,i,j] = 0.5*( ZAB*xDipZ - XAB*zDipZ)
+                self.rDipZ[2,i,j] = 0.5*(-YAB*xDipZ + XAB*yDipZ)
 
                 # add QAB contribution for overlaps 
                 #C = np.asarray([0,0,0])
@@ -326,69 +373,172 @@ class Molecule(object):
 
         print "\n\n"
 
-    def SCF(self,doPrint=True,save=True):
+    def SCF(self,doPrint=True,save=True,method=None):
         self.delta_energy = 1e20
         self.P_RMS        = 1e20
-        self.P_old        = None
-        En = []
-        maxiter = 80
-        for step in xrange(maxiter):
-            if step == 0:
-                self.F = self.Core
-            else:
-                self.P_old      = self.P
-                energy_old = self.energy
-                self.buildFock()
-            self.FO     = np.dot(self.X.T,np.dot(self.F,self.X))
-            E,self.CO   = np.linalg.eigh(self.FO)
-            C      = np.dot(self.X,self.CO)
-            self.C      = np.dot(self.X,self.CO)
-            self.MO     = E
-            self.P = np.einsum('pi,qi->pq', C[:,:self.nocc], C[:,:self.nocc])
-           # if step == 0:
-           #     np.save("Po.npy",self.P)
+        self.P_old        = np.zeros((self.nbasis,self.nbasis)) 
+        if not method:
+            En = []
+            num_e = 8
+            FockSet = []
+            ErrorSet = []
+            maxiter = 200
+            for step in xrange(maxiter):
+                if step == 0:
+                    #print "Using old P"
+                    self.P_old      = self.P
+                    self.buildFock()
+                    self.computeEnergy()
+                    #print self.energy
+                    #self.F = self.Core
+                else:
+                    self.P_old      = self.P
+                    energy_old = self.energy
+                    self.buildFock()
+                doDIIS = False 
+                if doDIIS:
+                    if step >= 0:
+                        FPS = np.dot(self.F,np.dot(self.P,self.S))
+                        SPF = np.dot(self.S,np.dot(self.P,self.F))
+                        error = FPS - SPF
+                        if np.linalg.norm(error) < 1e-8:
+                           doDIIS = False 
+                        if len(ErrorSet) < num_e:
+                            FockSet.append(self.F)
+                            ErrorSet.append(error)
+                        elif len(ErrorSet) >= num_e:
+                            del FockSet[0]
+                            del ErrorSet[0]
+                            FockSet.append(self.F)
+                            ErrorSet.append(error)
+                        NErr = len(ErrorSet)
+                        if NErr >= 2:
+                            Bmat = np.zeros((NErr+1,NErr+1),dtype='complex')
+                            ZeroVec = np.zeros((NErr+1))
+                            ZeroVec[-1] = -1.0
+                            for a in range(0,NErr):
+                                for b in range(0,a+1):
+                                    Bmat[a,b] = Bmat[b,a] = np.trace(np.dot(ErrorSet[a].T,ErrorSet[b])) 
+                                    Bmat[a,NErr] = Bmat[NErr,a] = -1.0
+                            try:
+                                coeff = np.linalg.solve(Bmat,ZeroVec)
+                            except np.linalg.linalg.LinAlgError as err:
+                                if 'Singular matrix' in err.message:
+                                    print '\tSingular B matrix, turing off DIIS'
+                                    do_DIIS = False
+                            else:
+                                F = 0.0
+                                for i in range(0,len(coeff)-1):
+                                    F += coeff[i]*FockSet[i]
+                                self.F = F
 
-            self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
-            self.energy    = self.el_energy + self.nuc_energy
-            #print self.energy
-            En.append(self.energy)
-            if step > 0:
-                self.delta_energy = self.energy - energy_old
-                self.P_RMS        = np.std(self.P - self.P_old)
-            if np.abs(self.delta_energy) < 1e-14 or self.P_RMS < 1e-12 or step == (maxiter - 1):
-                if step == (maxiter - 1):
-                    print "NOT CONVERGED"
-                elif doPrint:
-                    print "E(SCF)    = ", "{0:.12f}".format(self.energy.real)+ \
+                self.FO     = np.dot(self.X.T,np.dot(self.F,self.X))
+                E,self.CO   = np.linalg.eigh(self.FO)
+
+                C      = np.dot(self.X,self.CO)
+                self.C      = np.dot(self.X,self.CO)
+                self.MO     = E
+                self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
+               # if step == 0:
+               #     np.save("Po.npy",self.P)
+
+                self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
+                self.energy    = self.el_energy + self.nuc_energy
+                #print self.energy
+                En.append(self.energy)
+                if step > 0:
+                    self.delta_energy = self.energy - energy_old
+                    self.P_RMS        = np.std(self.P - self.P_old)
+                if np.abs(self.delta_energy) < 1e-14 or self.P_RMS < 1e-12 or step == (maxiter - 1):
+                    if step == (maxiter - 1):
+                        print "NOT CONVERGED"
+                    elif doPrint:
+                        print "E(SCF)    = ", "{0:.12f}".format(self.energy.real)+ \
+                              " in "+str(step)+" iterations"
+                        print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
+                        print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
+                        self.computeDipole()
+                        print " Dipole X = ", "{0:.8f}".format(self.mu_x)
+                        print " Dipole Y = ", "{0:.8f}".format(self.mu_y)
+                        print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
+                        self.orthoDen()
+                        self.buildL(direction='z',P=self.P)
+                        print "{0:.8f}".format(self.LN)
+                    if save:
+                        np.save('enuc.npy',self.nuc_energy)
+                        np.save('nelec.npy',self.nelec)
+                        np.save('S.npy',self.S)
+                        np.save('T.npy',self.T)
+                        np.save('V.npy',self.V)
+                        np.save('Mx.npy',self.Mx)
+                        np.save('My.npy',self.My)
+                        np.save('Mz.npy',self.Mz)
+                        np.save('L.npy',self.L)
+                        np.save('dsdb.npy',self.Sb)
+                        np.save('dhdb.npy',self.dhdb)
+                        np.save('dgdb.npy',self.dgdb)
+                        np.save('ERI.npy',self.TwoE)
+                        np.save('F.npy',self.F)
+                        np.save('P.npy',self.P)
+                    break
+        elif method == 'imagtime':
+            En = []
+            dt = 0.050
+            for step in xrange(1000000):
+                if step == 0:
+                    #self.P = np.random.rand(self.nbasis,self.nbasis)
+                    #self.P = np.zeros((self.nbasis,self.nbasis),dtype='complex')
+                    #self.F = self.Core
+                    self.buildFock()
+                    self.orthoFock()
+                    self.FO,R = np.linalg.qr(self.F)
+                    E,self.CO = np.linalg.eigh(self.FO)
+                    t = 0.0
+                else:
+                    self.buildFock()
+                    self.orthoFock()
+                    self.P_old      = self.P
+                    energy_old = self.energy
+                    #t += dt
+
+                self.timeProp(dt)
+                self.computeEnergy()
+
+                print self.energy, dt
+                #E = np.linalg.eigvalsh(self.FO)
+                if step > 0:
+                    self.delta_energy = self.energy - energy_old
+                    self.P_RMS        = np.std(self.P - self.P_old)
+                    #En.append(np.log10(abs(self.delta_energy)))
+                    En.append(self.energy)
+
+                if np.abs(self.delta_energy) < 1e-10 or self.P_RMS < 1e-8:
+                    print "E(SCF)    = ", "{0:.8f}".format(self.energy.real)+ \
                           " in "+str(step)+" iterations"
                     print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
                     print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
-                    self.computeDipole()
-                    print " Dipole X = ", "{0:.8f}".format(self.mu_x)
-                    print " Dipole Y = ", "{0:.8f}".format(self.mu_y)
-                    print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
-                    #import matplotlib.pyplot as plt
-                    #plt.plot(range(len(En[1:])),En[1:])
-                    #plt.show()
-                if save:
-                    np.save('enuc.npy',self.nuc_energy)
-                    np.save('nelec.npy',self.nelec)
-                    np.save('S.npy',self.S)
-                    np.save('T.npy',self.T)
-                    np.save('V.npy',self.V)
-                    np.save('Mx.npy',self.Mx)
-                    np.save('My.npy',self.My)
-                    np.save('Mz.npy',self.Mz)
-                    #np.savetxt('rHx.csv',self.rH[0],delimiter=',')
-                    #np.savetxt('rHy.csv',self.rH[1],delimiter=',')
-                    #np.savetxt('rHz.csv',self.rH[2],delimiter=',')
-                    np.save('dsdb.npy',self.Sb)
-                    np.save('dhdb.npy',self.dhdb)
-                    np.save('dgdb.npy',self.dgdb)
-                    np.save('ERI.npy',self.TwoE)
-                    np.save('F.npy',self.F)
-                    np.save('P.npy',self.P)
-                break
+                    self.buildL(direction='z')
+                    print self.LN
+                    break
+
+    def timeProp(self,dt):
+        C0          = np.copy(self.CO)
+        C           = C0 - dt*np.dot(self.FO,self.CO)
+
+        self.CO, R  = np.linalg.qr(C)
+        C           = np.dot(self.X,self.CO)
+        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], C[:,:self.nocc])
+
+        self.buildFock() 
+        self.orthoFock()
+
+        U           = expm(-dt*(self.FO))
+        C           = np.dot(U,C0)
+        self.CO, R  = np.linalg.qr(C)
+        C           = np.dot(self.X,self.CO)
+        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], C[:,:self.nocc])
+
+
 
     def MP2(self):
 
@@ -408,10 +558,60 @@ class Molecule(object):
                         EMP2 += numer/denom
 
         print 'E(MP2) = ', EMP2 + self.energy
+
+    def Stable(self):
+        self.single_bar = np.einsum('mp,mnlz->pnlz',self.C,self.TwoE)
+        temp            = np.einsum('nq,pnlz->pqlz',self.C,self.single_bar)
+        self.single_bar = np.einsum('lr,pqlz->pqrz',self.C,temp)
+        temp            = np.einsum('zs,pqrz->pqrs',self.C,self.single_bar)
+        self.single_bar = temp
+
+
+        self.nvirt = self.nbasis - self.nocc
+        NOV = self.nocc * self.nvirt
+        A = np.zeros((NOV,NOV),dtype='complex')
+        B = np.zeros((NOV,NOV),dtype='complex')
+
+        ia = -1
+        for i in range(self.nocc):
+            for a in range(self.nocc,self.nbasis):
+                ia += 1
+                jb = -1
+                for j in range(self.nocc):
+                    for b in range(self.nocc,self.nbasis):
+                        jb += 1
+                        A[ia,jb] = (self.MO[a] - self.MO[i]) * ( i == j ) * (a == b) + 2*self.single_bar[a,i,j,b] - self.single_bar[a,b,j,i]
+                        B[ia,jb] = 2*self.single_bar[i,a,j,b] - self.single_bar[i,b,j,a]
+        M = np.bmat([[A,B],[np.conjugate(B).T,np.conjugate(A).T]]).astype('complex')
+        # careful with eigensolver...
+        E,C = np.linalg.eigh(M)
+
+        X = C[:NOV,0].reshape(self.nocc,self.nvirt)
+        #Y = C[NOV:,0].reshape(self.nvirt,self.nocc)
+
+        #print np.dot(C[:,0].T,np.dot(M,C[:,0]))*27.2114
+        
+        #print X
+        #print -X.T 
+
+        
+        print E[0:3]*27.2114
+        theta = 0.1 
+        U = expm(-theta*np.bmat([[np.zeros((self.nocc,self.nocc)),X],[-X.T,np.zeros((self.nvirt,self.nvirt))]]))
+        self.P = np.dot(U,np.dot(self.P,np.conjugate(U).T))
+        
+
+     
+        
+
    
     def RT(self,numsteps=1000,stepsize=0.1,field=0.0001,direction='x'):
         self.SCF(doPrint=False,save=False)
         self.dipole     = []
+        self.angmom     = []
+        self.Sbmom     = []
+        self.Hbmom     = []
+        self.Gbmom     = []
         self.Energy     = []
         self.field = field
         self.stepsize = stepsize
@@ -421,11 +621,11 @@ class Molecule(object):
         self.Magnus4(direction=direction)
        
     def buildFock(self):
-        self.J = np.einsum('pqrs,rs->pq', self.TwoE,self.P)
-        self.K = np.einsum('prqs,rs->pq', self.TwoE,self.P)
+        self.J = np.einsum('pqrs,rs->pq', self.TwoE.astype('complex'),self.P)
+        self.K = np.einsum('prqs,rs->pq', self.TwoE.astype('complex'),self.P)
         self.G = 2.*self.J - self.K
         #self.GO = np.dot(self.X.T,np.dot(self.G,self.X))
-        self.F = self.Core + self.G
+        self.F = self.Core.astype('complex') + self.G
 
     def orthoFock(self):
         self.FO = np.dot(self.X.T,np.dot(self.F,self.X))
@@ -478,15 +678,19 @@ class Molecule(object):
         if addstep:
             self.shape.append(shape)
         else:
+            # this will only be true for isotropic GIAO stuffz
             if direction.lower() == 'x':
+                #self.F += -self.field*shape*(self.Mx + 1j*self.rDipX[0])
                 self.F += -self.field*shape*self.Mx
             elif direction.lower() == 'y':
+                #self.F += -self.field*shape*(self.My + 1j*self.rDipY[1])
                 self.F += -self.field*shape*self.My
             elif direction.lower() == 'z':
+                #self.F += -self.field*shape*(self.Mz + 1j*self.rDipZ[2])
                 self.F += -self.field*shape*self.Mz
             self.orthoFock()
 
-    def buildL(self,direction='x',P=None,F=None):
+    def buildL(self,direction='x',P=None,time=None):
         #self.LNy = 0.0
         # W1 is equivalent to P*F*P
         #self.orthoFock()
@@ -503,32 +707,52 @@ class Molecule(object):
             dHdB = 1j*self.dhdb[0]
             dGdB = 1j*self.dgdb[0]
             dSdB = 1j*self.Sb[0] 
+            #dVdB = 1j*self.rDipX[0]
         elif direction.lower() == 'y':
             dHdB = 1j*self.dhdb[1]
             dGdB = 1j*self.dgdb[1]
             dSdB = 1j*self.Sb[1] 
+            #dVdB = 1j*self.rDipY[1]
         elif direction.lower() == 'z':
             dHdB = 1j*self.dhdb[2]
             dGdB = 1j*self.dgdb[2]
             dSdB = 1j*self.Sb[2] 
+            #dVdB = 1j*self.rDipZ[2]
  
-        #J = np.einsum('pqrs,rs->pq', dGdB,self.P)
-        #K = np.einsum('prqs,rs->pq', dGdB,self.P)
-        J = np.einsum('pqrs,rs->pq', dGdB,P)
-        K = np.einsum('prqs,rs->pq', dGdB,P)
+        J = np.einsum('pqrs,rs->pq', dGdB,self.P)
+        K = np.einsum('prqs,rs->pq', dGdB,self.P)
         G = 2.*J - K
         F = dHdB + G 
         self.LN = np.einsum('pq,pq',self.P,F+dHdB)
-        W = np.dot(self.P,np.dot(self.F,P)) 
-        self.LN += 2*np.einsum('pq,pq',W,dSdB)
+        # do I need to make W time dependent?
+        comm = self.comm(self.FO,self.PO)
+        dP = -np.dot(self.X,np.dot(comm,self.X.T))
+        W = np.dot(self.P,np.dot(self.F,self.P)) + 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
+        #W = np.dot(self.P,np.dot(self.F,self.P)) 
+        #W = 0.5*np.dot(self.comm(self.F,self.P),np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,self.comm(self.F,self.P)))
+        self.LN -= 2*np.einsum('pq,pq',W,dSdB)
+        # I dont think this helps with anything
+        #if time == 1:
+        #    print "adding correction"
+        #    print self.field*np.einsum('pq,pq',self.P,dVdB)
+        #    self.LN += self.field*np.einsum('pq,pq',self.P,dVdB)
+        self.LN *= -0.5
+       # print "Tot GIAO: ",self.LN
+       # #self.LN = np.trace(np.dot(self.P,1j*self.L[2]))
 
-        # indiv components
-        #self.LN = np.einsum('pq,pq',W,dSdB)
-        #self.LN = np.einsum('pq,pq',self.P,G)
-        #self.LN = np.einsum('pq,pq',self.P,dHdB)
-        #test = dHdB + F + 2j*np.dot(np.dot(self.F,self.P),dSdB)
-        #test_orth = np.dot(self.X.T,np.dot(test,self.X))
-        #print np.dot(CO.T,np.dot(test_orth,CO))[:,0].reshape(len(CO),1)
+       # # indiv components
+        self.dSdB = np.einsum('pq,pq',W,dSdB)
+     #   print "dS: ",self.dSdB
+        self.dGdB = np.einsum('pq,pq',self.P,G)
+     #   print "dG: ",self.dGdB
+        self.dHdB = np.einsum('pq,pq',self.P,dHdB)
+     #   print "dH: ",self.dHdB
+     #  # #test = dHdB + F + 2j*np.dot(np.dot(self.F,self.P),dSdB)
+     #  # #test_orth = np.dot(self.X.T,np.dot(test,self.X))
+     #  # #print np.dot(CO.T,np.dot(test_orth,CO))[:,0].reshape(len(CO),1)
+     #   self.LN = np.trace(np.dot(self.P,1j*self.L[2]))
+     #   print "nonGIAO: ",self.LN
+
 
     def Magnus4(self,direction='x'):
         self.orthoDen()
@@ -536,21 +760,18 @@ class Molecule(object):
         h = -1j*self.stepsize
         for idx,time in enumerate(tqdm(self.time)):
         #for idx,time in enumerate((self.time)):
-            if idx == 0: P = self.P
-            if idx == 0: F = self.F
-            self.buildL(direction=direction,P=self.P,F=self.F)
-            ''' 
-            if direction.lower() == 'x':
-                self.LN = np.trace(np.dot(self.P,self.Lx))
-            elif direction.lower() == 'y':
-                self.LN = np.trace(np.dot(self.P,self.Ly))
-            elif direction.lower() == 'z':
-                self.LN = np.trace(np.dot(self.P,self.Lz))
-            ''' 
+            self.buildL(direction=direction,P=self.P,time=time)
             self.dipole.append(np.real(self.LN))
+            self.Sbmom.append(np.real(self.dSdB))
+            self.Hbmom.append(np.real(self.dHdB))
+            self.Gbmom.append(np.real(self.dGdB))
+            self.angmom.append(np.real(np.trace(np.dot(self.P,1j*self.L[2]))))
             self.addField(time,addstep=True,direction=direction)
 
+            #self.FO, self.PO = updateM4(time,direction,self.stepsize,self.PO,self.F,self.X,self.TwoE,self.Core,self.Mx,self.My,self.Mz,self.field)
+
             #curFock = np.copy(self.FO)
+
             curDen  = np.copy(self.PO)
       
             self.addField(time + 0.0*self.stepsize,direction=direction)
