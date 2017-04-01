@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def genSpectra(time,dipole,field):
     import matplotlib.pyplot as plt
-    damp_const = 1000
+    damp_const = 300
     dipole = np.asarray(dipole) - dipole[0]
       
     stepsize = time[1] - time[0]
@@ -64,7 +64,9 @@ def genSpectra(time,dipole,field):
     fw_im = np.imag(p(W)/q(W))
     fw_abs = fw_re**2 + fw_im**2
 
-    spectra = -fw_re*(17.32/(np.pi*field))
+    #spectra = (fw_re*17.32)/(np.pi*field*damp_const)
+    spectra = (fw_re*17.32*514.220652)/(np.pi*field*damp_const)
+    #spectra = -((4.0*27.21138602*2*frequency*np.pi*((fw_im)))/(3.0*137.036*field*damp_const))
     #plt.plot(frequency*27.2114,fourier)
     #plt.show()
     return frequency, spectra

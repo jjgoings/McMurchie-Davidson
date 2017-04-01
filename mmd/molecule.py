@@ -400,7 +400,7 @@ class Molecule(object):
                     if step >= 0:
                         FPS = np.dot(self.F,np.dot(self.P,self.S))
                         SPF = np.dot(self.S,np.dot(self.P,self.F))
-                        error = FPS - SPF
+                        error = FPS - SPF 
                         if np.linalg.norm(error) < 1e-8:
                            doDIIS = False 
                         if len(ErrorSet) < num_e:
@@ -438,21 +438,36 @@ class Molecule(object):
                 C      = np.dot(self.X,self.CO)
                 self.C      = np.dot(self.X,self.CO)
                 self.MO     = E
-                self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
+                self.P = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
+                #self.P = np.dot(np.conjugate(C[:,:self.nocc]),(C[:,:self.nocc]).T)
+                #self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
                # if step == 0:
                #     np.save("Po.npy",self.P)
 
-                self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
-                self.energy    = self.el_energy + self.nuc_energy
+                self.buildFock() 
+                self.computeEnergy()
+                #self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
+                #self.energy    = self.el_energy + self.nuc_energy
                 #print self.energy
                 En.append(self.energy)
                 if step > 0:
                     self.delta_energy = self.energy - energy_old
-                    self.P_RMS        = np.std(self.P - self.P_old)
+                    self.P_RMS        = np.linalg.norm(self.P - self.P_old)
+                FPS = np.dot(self.F,np.dot(self.P,self.S))
+                SPF = np.dot(self.S,np.dot(self.P,self.F))
+                SPF = np.conjugate(FPS).T
+                error = np.linalg.norm(FPS - SPF)
+                #print self.P_RMS 
                 if np.abs(self.delta_energy) < 1e-14 or self.P_RMS < 1e-12 or step == (maxiter - 1):
+                #if self.P_RMS < 1e-8 or step == (maxiter - 1):
+                #if np.abs(error) < 1e-14 or step == (maxiter - 1):
                     if step == (maxiter - 1):
                         print "NOT CONVERGED"
                     elif doPrint:
+                        FPS = np.dot(self.F,np.dot(self.P,self.S))
+                        SPF = np.dot(self.S,np.dot(self.P,self.F))
+                        error = FPS - SPF
+                        print "Error", np.linalg.norm(error)
                         print "E(SCF)    = ", "{0:.12f}".format(self.energy.real)+ \
                               " in "+str(step)+" iterations"
                         print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
@@ -463,7 +478,36 @@ class Molecule(object):
                         print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
                         self.orthoDen()
                         self.buildL(direction='z',P=self.P)
-                        print "{0:.8f}".format(self.LN)
+                        Lz = (self.LN)
+                        dSz = -self.dSdB#**2
+                        dHz = -self.dHdB#**2
+                        dGz = -self.dGdB#**2
+                        self.buildL(direction='y',P=self.P)
+                        Ly = (self.LN)
+                        dSy = -self.dSdB#**2
+                        dHy = -self.dHdB#**2
+                        dGy = -self.dGdB#**2
+                        self.buildL(direction='x',P=self.P)
+                        Lx = (self.LN)
+                        dSx = -self.dSdB#**2
+                        dHx = -self.dHdB#**2
+                        dGx = -self.dGdB#**2
+                        print "GIAO Tot L:     ", "{0:.8f}".format(np.sqrt(Lx*Lx+Ly*Ly+Lz*Lz))
+                        print "GIAO Tot Lz:     ", "{0:.8f}".format(Lz)
+                        print "GIAO Tot Ly:     ", "{0:.8f}".format(Ly)
+                        print "GIAO Tot Lx:     ", "{0:.8f}".format(Lx)
+                        nLx = np.trace(np.dot(self.P,1j*(self.L[0])))
+                        nLy = np.trace(np.dot(self.P,1j*(self.L[1])))
+                        nLz = np.trace(np.dot(self.P,1j*(self.L[2])))
+                        print "non-GIAO Tot L: ", "{0:.8f}".format(np.sqrt(nLx*nLx +nLy*nLy+nLz*nLz))
+                        print "non-GIAO Lz: ", "{0:.8f}".format(nLz)
+                        print "non-GIAO Ly: ", "{0:.8f}".format(nLy)
+                        print "non-GIAO Lx: ", "{0:.8f}".format(nLx)
+                        print "dSdBz tot: ", dSz#np.sqrt(dSx + dSy + dSz)
+                        print "dHdBz tot: ", dHz#np.sqrt(dHx + dHy + dHz)
+                        print "dGdBz tot: ", dGz#np.sqrt(dGx + dGy + dGz)
+
+                        
                     if save:
                         np.save('enuc.npy',self.nuc_energy)
                         np.save('nelec.npy',self.nelec)
@@ -508,17 +552,75 @@ class Molecule(object):
                 #E = np.linalg.eigvalsh(self.FO)
                 if step > 0:
                     self.delta_energy = self.energy - energy_old
-                    self.P_RMS        = np.std(self.P - self.P_old)
+                    self.P_RMS        = np.std(abs(self.P) - abs(self.P_old))
                     #En.append(np.log10(abs(self.delta_energy)))
                     En.append(self.energy)
 
                 if np.abs(self.delta_energy) < 1e-10 or self.P_RMS < 1e-8:
-                    print "E(SCF)    = ", "{0:.8f}".format(self.energy.real)+ \
-                          " in "+str(step)+" iterations"
-                    print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
-                    print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
-                    self.buildL(direction='z')
-                    print self.LN
+                    self.FO     = np.dot(self.X.T,np.dot(self.F,self.X))
+                    E,self.CO   = np.linalg.eigh(self.FO)
+
+                    C      = np.dot(self.X,self.CO)
+                    self.C      = np.dot(self.X,self.CO)
+                    self.MO     = E
+                    self.P = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
+                    #self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
+
+                    if doPrint:
+                        FPS = np.dot(self.F,np.dot(self.P,self.S))
+                        SPF = np.dot(self.S,np.dot(self.P,self.F))
+                        error = FPS - SPF
+                        print "Error", np.linalg.norm(error)
+                        print "E(SCF)    = ", "{0:.12f}".format(self.energy.real)+ \
+                              " in "+str(step)+" iterations"
+                        print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
+                        print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
+                        self.computeDipole()
+                        print " Dipole X = ", "{0:.8f}".format(self.mu_x)
+                        print " Dipole Y = ", "{0:.8f}".format(self.mu_y)
+                        print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
+                        self.orthoDen()
+                    #    self.buildL(direction='z',P=self.P)
+                    #    Lz = (self.LN)
+                    #    dSz = self.dSdB**2
+                    #    dHz = self.dHdB**2
+                    #    dGz = self.dGdB**2
+                    #    self.buildL(direction='y',P=self.P)
+                    #    Ly = (self.LN)
+                    #    dSy = self.dSdB**2
+                    #    dHy = self.dHdB**2
+                    #    dGy = self.dGdB**2
+                    #    self.buildL(direction='x',P=self.P)
+                    #    Lx = (self.LN)
+                    #    dSx = self.dSdB**2
+                    #    dHx = self.dHdB**2
+                    #    dGx = self.dGdB**2
+                    #    print "GIAO Tot Lz:     ", "{0:.8f}".format(np.sqrt(Lx*Lx+Ly*Ly+Lz*Lz))
+                    #    nLx = np.trace(np.dot(self.P,1j*(self.L[0])))**2
+                    #    nLy = np.trace(np.dot(self.P,1j*(self.L[1])))**2
+                    #    nLz = np.trace(np.dot(self.P,1j*(self.L[2])))**2
+                    #    print "non-GIAO Lz: ", "{0:.8f}".format(np.sqrt(nLx +nLy+nLz))
+                    #    print "dSdB tot: ", np.sqrt(dSx + dSy + dSz)
+                    #    print "dHdB tot: ", np.sqrt(dHx + dHy + dHz)
+                    #    print "dGdB tot: ", np.sqrt(dGx + dGy + dGz)
+
+                        
+                    if save:
+                        np.save('enuc.npy',self.nuc_energy)
+                        np.save('nelec.npy',self.nelec)
+                        np.save('S.npy',self.S)
+                        np.save('T.npy',self.T)
+                        np.save('V.npy',self.V)
+                        np.save('Mx.npy',self.Mx)
+                        np.save('My.npy',self.My)
+                        np.save('Mz.npy',self.Mz)
+                        np.save('L.npy',self.L)
+                        np.save('dsdb.npy',self.Sb)
+                        np.save('dhdb.npy',self.dhdb)
+                        np.save('dgdb.npy',self.dgdb)
+                        np.save('ERI.npy',self.TwoE)
+                        np.save('F.npy',self.F)
+                        np.save('P.npy',self.P)
                     break
 
     def timeProp(self,dt):
@@ -527,7 +629,8 @@ class Molecule(object):
 
         self.CO, R  = np.linalg.qr(C)
         C           = np.dot(self.X,self.CO)
-        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], C[:,:self.nocc])
+        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
+        #self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
 
         self.buildFock() 
         self.orthoFock()
@@ -536,7 +639,8 @@ class Molecule(object):
         C           = np.dot(U,C0)
         self.CO, R  = np.linalg.qr(C)
         C           = np.dot(self.X,self.CO)
-        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], C[:,:self.nocc])
+        self.P      = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
+        #self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
 
 
 
@@ -596,7 +700,7 @@ class Molecule(object):
 
         
         print E[0:3]*27.2114
-        theta = 0.1 
+        theta = 0.001 
         U = expm(-theta*np.bmat([[np.zeros((self.nocc,self.nocc)),X],[-X.T,np.zeros((self.nvirt,self.nvirt))]]))
         self.P = np.dot(U,np.dot(self.P,np.conjugate(U).T))
         
@@ -621,11 +725,12 @@ class Molecule(object):
         self.Magnus4(direction=direction)
        
     def buildFock(self):
-        self.J = np.einsum('pqrs,rs->pq', self.TwoE.astype('complex'),self.P)
+        self.J = np.einsum('pqrs,rs->pq', self.TwoE.astype('complex'),self.P.T)
         self.K = np.einsum('prqs,rs->pq', self.TwoE.astype('complex'),self.P)
         self.G = 2.*self.J - self.K
         #self.GO = np.dot(self.X.T,np.dot(self.G,self.X))
         self.F = self.Core.astype('complex') + self.G
+        #self.F = np.conjugate(self.Core.astype('complex') + self.G)
 
     def orthoFock(self):
         self.FO = np.dot(self.X.T,np.dot(self.F,self.X))
@@ -640,7 +745,7 @@ class Molecule(object):
         self.P = np.dot(self.X,np.dot(self.PO,self.X.T))
 
     def computeEnergy(self):
-        self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
+        self.el_energy = np.einsum('pq,pq',self.P.T,self.Core+self.F)
         self.energy    = self.el_energy + self.nuc_energy
 
     def computeDipole(self):
@@ -719,33 +824,33 @@ class Molecule(object):
             dSdB = 1j*self.Sb[2] 
             #dVdB = 1j*self.rDipZ[2]
  
-        J = np.einsum('pqrs,rs->pq', dGdB,self.P)
+        J = np.einsum('pqrs,rs->pq', dGdB,self.P.T)
         K = np.einsum('prqs,rs->pq', dGdB,self.P)
         G = 2.*J - K
         F = dHdB + G 
-        self.LN = np.einsum('pq,pq',self.P,F+dHdB)
+        self.LN = np.einsum('pq,pq',self.P.T,F + dHdB) # Correct for GS
+        #self.LN = np.einsum('pq,pq',np.conjugate(self.P),G) # Correct for GS
         # do I need to make W time dependent?
-        comm = self.comm(self.FO,self.PO)
-        dP = -np.dot(self.X,np.dot(comm,self.X.T))
-        W = np.dot(self.P,np.dot(self.F,self.P)) + 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
-        #W = np.dot(self.P,np.dot(self.F,self.P)) 
-        #W = 0.5*np.dot(self.comm(self.F,self.P),np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,self.comm(self.F,self.P)))
-        self.LN -= 2*np.einsum('pq,pq',W,dSdB)
-        # I dont think this helps with anything
-        #if time == 1:
-        #    print "adding correction"
-        #    print self.field*np.einsum('pq,pq',self.P,dVdB)
-        #    self.LN += self.field*np.einsum('pq,pq',self.P,dVdB)
-        self.LN *= -0.5
-       # print "Tot GIAO: ",self.LN
-       # #self.LN = np.trace(np.dot(self.P,1j*self.L[2]))
+        # i dP/dt = SinvFP - PFSinv
+        Sinv = np.dot(self.X,self.X.T)
+        dP = (np.dot(Sinv,np.dot(self.F,self.P)) - np.dot(self.P,np.dot(self.F,Sinv)))
+        Ws = np.dot(self.P,np.dot(self.F,self.P)) 
+        Wt = 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
+        W = Ws #+ Wt
+        #PSP = np.dot(self.P,np.dot(self.S,self.P))
+        #print np.allclose(PSP,self.P)
+        #print (np.dot(self.F,np.dot(self.P,self.S))  - np.dot(np.dot(self.S,self.P),self.F))
+        #W = 0.5*(np.dot(Sinv,np.dot(self.F,self.P))  + np.dot(np.dot(self.P,self.F),Sinv))
+        #self.LN -= 2*np.einsum('pq,pq',dSdB,W)
+        self.LN -= 2*np.einsum('pq,pq',dSdB,W)
+        self.LN *= 1.0 # Correct for GS
 
        # # indiv components
         self.dSdB = np.einsum('pq,pq',W,dSdB)
      #   print "dS: ",self.dSdB
-        self.dGdB = np.einsum('pq,pq',self.P,G)
+        self.dGdB = np.einsum('pq,pq',self.P.T,G)
      #   print "dG: ",self.dGdB
-        self.dHdB = np.einsum('pq,pq',self.P,dHdB)
+        self.dHdB = np.einsum('pq,pq',self.P.T,dHdB)
      #   print "dH: ",self.dHdB
      #  # #test = dHdB + F + 2j*np.dot(np.dot(self.F,self.P),dSdB)
      #  # #test_orth = np.dot(self.X.T,np.dot(test,self.X))
@@ -765,7 +870,18 @@ class Molecule(object):
             self.Sbmom.append(np.real(self.dSdB))
             self.Hbmom.append(np.real(self.dHdB))
             self.Gbmom.append(np.real(self.dGdB))
-            self.angmom.append(np.real(np.trace(np.dot(self.P,1j*self.L[2]))))
+            if direction.lower() == 'x':
+                self.angmom.append(np.real(np.trace(np.dot(self.P,1j*self.L[0]))))
+                #self.computeDipole()
+                #self.angmom.append(np.real(self.mu_x))
+            elif direction.lower() == 'y':
+                self.angmom.append(np.real(np.trace(np.dot(self.P,1j*self.L[1]))))
+                #self.computeDipole()
+                #self.angmom.append(np.real(self.mu_y))
+            elif direction.lower() == 'z':
+                self.angmom.append(np.real(np.trace(np.dot(self.P,1j*self.L[2]))))
+                #self.computeDipole()
+                #self.angmom.append(np.real(self.mu_z))
             self.addField(time,addstep=True,direction=direction)
 
             #self.FO, self.PO = updateM4(time,direction,self.stepsize,self.PO,self.F,self.X,self.TwoE,self.Core,self.Mx,self.My,self.Mz,self.field)
