@@ -61,30 +61,32 @@ def gauss1d(r,a,l1,A,b,l2,B):
 #    return val
 
 a = 0.3
-lmn1 = np.asarray((4,1,0)).astype(long)
+lmn1 = np.asarray((0,0,0)).astype(long)
 A = np.asarray([0.0, 0.0, 0.0])
 
 b = 0.35
-lmn2 = np.asarray((4,0,0)).astype(long)
+lmn2 = np.asarray((1,0,0)).astype(long)
 B = np.asarray([0.0,0.0,0.0])
 
 c = 0.2
-lmn3 = np.asarray((0,2,3)).astype(long)
+lmn3 = np.asarray((0,1,1)).astype(long)
 C = np.asarray([0.0,0.0,1.4])
 
 d = 0.22
-lmn4 = np.asarray((0,0,3)).astype(long)
+lmn4 = np.asarray((0,0,0)).astype(long)
 D = np.asarray([0.0,0.0,1.4])
 
 #N1 = (0,1,2)
 #N2 = (4,0,0)
-N1 = (0,1,2)
-N2 = (4,0,0)
+N1 = (1,0,2)
+N2 = (1,2,0)
 
-v1 = electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D,N1,N2)
+gOrigin=np.array([43.0,-15.0,-80.0])
+
+v1 = electron_repulsion(a,lmn1,A,b,lmn2,B,c,lmn3,C,d,lmn4,D,N1,N2,gOrigin)
 print v1
 
-N = 2e8 
+N = 1e8 
 #lower = -4.0
 #upper = 4.0 
 
@@ -109,6 +111,10 @@ q = c + d
 nx1,ny1,nz1 = N1
 nx2,ny2,nz2 = N2
 
+gx = gOrigin[0]
+gy = gOrigin[1]
+gz = gOrigin[2]
+
 sp = np.sqrt(1.0/(2.*(p)))
 sq = np.sqrt(1.0/(2.*(q)))
 
@@ -127,7 +133,8 @@ result, error = mcimport(eri_wintegrand,
                                b,l2,m2,n2,Bx,By,Bz,
                                c,l3,m3,n3,Cx,Cy,Cz,
                                d,l4,m4,n4,Dx,Dy,Dz,
-                               nx1,ny1,nz1,nx2,ny2,nz2),
+                               nx1,ny1,nz1,nx2,ny2,nz2,
+                               gx,gy,gz),
                          dist_kwargs={'sp':sp,'Px':Px,'Py':Py,'Pz':Pz,
                                       'sq':sq,'Qx':Qx,'Qy':Qy,'Qz':Qz},
                          nprocs=2,

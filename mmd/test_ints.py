@@ -10,20 +10,20 @@ def G(r,a,l1,A):
     rAsq = np.power(r - A,2) 
     return rA*np.exp(-a*rAsq)
 
-def gauss1d(r,a,l1,A,b,l2,B,n=0):
+def gauss1d(r,a,l1,A,b,l2,B,n=0,origin=0.0):
     G1   = G(r,a,l1,A) 
     G2   = G(r,b,l2,B) 
-    return G1*G2*np.power(r,n)
+    return G1*G2*np.power(r-origin,n)
 
 
-def kinetic1d(r,a,l1,A,b,l2,B,n):
+def kinetic1d(r,a,l1,A,b,l2,B,n,origin=0.0):
     G1   = G(r,a,l1,A) 
     m = np.arange(r-0.1,r+0.1,0.00075)
     G2   = G(m,b,l2,B)
 #    print spline(m,G2).derivatives(r)
     G2p = spline(m,G2).__call__(r,2)
     #print G(r,b,l2,B), G2p
-    return G1*G2p*np.power(r,n)
+    return G1*G2p*np.power(r-origin,n)
 
 def gauss3d(z,y,x,a,lmn1,A,b,lmn2,B):
     l1,m1,n1 = lmn1
@@ -51,21 +51,21 @@ def numNuclear(a,lmn1,A,b,lmn2,B):
     val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2]))[0] 
     return val
 
-def numOverlap(a,lmn1,A,b,lmn2,B,n):
+def numOverlap(a,lmn1,A,b,lmn2,B,n,gOrigin=np.zeros((3))):
     val = 1.0
-    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0]))[0] 
-    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1]))[0] 
-    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2]))[0] 
+    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0],gOrigin[0]))[0] 
+    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1],gOrigin[1]))[0] 
+    val *= quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2],gOrigin[2]))[0] 
     return val
 
-def numKinetic(a,lmn1,A,b,lmn2,B,n):
+def numKinetic(a,lmn1,A,b,lmn2,B,n,gOrigin=np.zeros((3))):
     val = 0.0 
-    Sx  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0]))[0] 
-    Sy  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1]))[0] 
-    Sz  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2]))[0] 
-    Tx  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0]))[0] 
-    Ty  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1]))[0] 
-    Tz  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2]))[0] 
+    Sx  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0],gOrigin[0]))[0] 
+    Sy  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1],gOrigin[1]))[0] 
+    Sz  = quad(gauss1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2],gOrigin[2]))[0] 
+    Tx  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[0],A[0],b,lmn2[0],B[0],n[0],gOrigin[0]))[0] 
+    Ty  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[1],A[1],b,lmn2[1],B[1],n[1],gOrigin[1]))[0] 
+    Tz  = quad(kinetic1d, -np.inf, np.inf, args=(a,lmn1[2],A[2],b,lmn2[2],B[2],n[2],gOrigin[2]))[0] 
 
     return -0.5*(Tx*Sy*Sz + Ty*Sz*Sx + Tz*Sx*Sy)
 
@@ -81,17 +81,17 @@ a = 0.05
 lmn1 = (0,2,1)
 A = (0.2, 0.0, 1.0)
 
-b = 0.02
+b = 0.012
 lmn2 = (3,1,0)
-B = (0.0,-0.4,0.0)
+B = (10.0,-0.4,0.0)
 
-n = (4,2,4)
-C =np.array([0,0,0])
+n = (1,0,1)
+origin = np.array([-110.0,0.0,0.0])
 
-print overlap(a,lmn1,A,b,lmn2,B,n)
-print numOverlap(a,lmn1,A,b,lmn2,B,n)
-print kinetic(a,lmn1,A,b,lmn2,B,C,n)
-print numKinetic(a,lmn1,A,b,lmn2,B,n)
+print overlap(a,lmn1,A,b,lmn2,B,n,origin)
+print numOverlap(a,lmn1,A,b,lmn2,B,n,origin)
+print kinetic(a,lmn1,A,b,lmn2,B,n,origin)
+print numKinetic(a,lmn1,A,b,lmn2,B,n,origin)
 
 
 

@@ -1,8 +1,9 @@
 from __future__ import division
 import numpy as np
+from joblib import Parallel, delayed
 from integrals import *
 #from magnus import updateM4
-from hermite import ERI 
+from hermite import ERI, doERIs, do2eGIAO
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from scipy.linalg import expm,expm2,schur,lstsq
@@ -89,6 +90,7 @@ class Molecule(object):
             self.one_electron_integrals()
             self.two_electron_integrals()
             self.GIAO_two_electron_integrals()
+            print "\n"
 
 
 
@@ -299,30 +301,31 @@ class Molecule(object):
         self.Core       = self.T + self.V
         self.X          = mat_pow(self.S,-0.5)
         self.U          = mat_pow(self.S,0.5)
-        print "\n"
 
 
     def two_electron_integrals(self):
         N = self.nbasis
         self.TwoE = np.zeros((N,N,N,N))  
         print "Two-electron integrals"
-        for i in trange(N,desc='First loop'):
-            for j in trange(i+1,desc='Second loop'):
-                ij = (i*(i+1)//2 + j)
-                for k in trange(N,desc='Third loop'):
-                    for l in trange(k+1,desc='Fourth loop'):
-                        kl = (k*(k+1)//2 + l)
-                        if ij >= kl:
-                           val = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l])
-                           self.TwoE[i,j,k,l] = val
-                           self.TwoE[k,l,i,j] = val
-                           self.TwoE[j,i,l,k] = val
-                           self.TwoE[l,k,j,i] = val
-                           self.TwoE[j,i,k,l] = val
-                           self.TwoE[l,k,i,j] = val
-                           self.TwoE[i,j,l,k] = val
-                           self.TwoE[k,l,j,i] = val
-        print "\n\n"
+        #self.TwoE = pop_TwoE(N,self.TwoE)
+        self.TwoE = doERIs(N,self.TwoE,self.bfs)
+        self.TwoE = np.asarray(self.TwoE)
+      #  for i in trange(N,desc='First loop'):
+      #      for j in trange(i+1,desc='Second loop'):
+      #          ij = (i*(i+1)//2 + j)
+      #          for k in trange(N,desc='Third loop'):
+      #              for l in trange(k+1,desc='Fourth loop'):
+      #                  kl = (k*(k+1)//2 + l)
+      #                  if ij >= kl:
+      #                     val = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l])
+      #                     self.TwoE[i,j,k,l] = val
+      #                     self.TwoE[k,l,i,j] = val
+      #                     self.TwoE[j,i,l,k] = val
+      #                     self.TwoE[l,k,j,i] = val
+      #                     self.TwoE[j,i,k,l] = val
+      #                     self.TwoE[l,k,i,j] = val
+      #                     self.TwoE[i,j,l,k] = val
+      #                     self.TwoE[k,l,j,i] = val
 
     def GIAO_two_electron_integrals(self):
         # note these do not have the same symetry as undifferentiated integrals.
@@ -333,45 +336,46 @@ class Molecule(object):
         self.GR2 = np.zeros((3,N,N,N,N))  
         self.dgdb = np.zeros((3,N,N,N,N))  
         print "GIAO two-electron integrals"
-        ij = 0
-        for i in trange(N,desc='First loop'):
-            for j in trange(N,desc='Second loop'):
-                ij += 1
-                kl = 0
-                for k in trange(N,desc='Third loop'):
-                    ik = i + k
-                    for l in trange(N,desc='Fourth loop'):
-                        kl += 1
-                        if (ij >= kl and ik >= j+l and not (i==j and k==l)):
-                            #QMN matrix elements
-                            XMN  = self.bfs[i].origin[0] - self.bfs[j].origin[0]
-                            YMN  = self.bfs[i].origin[1] - self.bfs[j].origin[1]
-                            ZMN  = self.bfs[i].origin[2] - self.bfs[j].origin[2]
-                            #QPQ matrix elements
-                            XPQ  = self.bfs[k].origin[0] - self.bfs[l].origin[0]
-                            YPQ  = self.bfs[k].origin[1] - self.bfs[l].origin[1]
-                            ZPQ  = self.bfs[k].origin[2] - self.bfs[l].origin[2]
-
-                            GR1x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=self.gauge_origin)
-                            GR1y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=self.gauge_origin)
-                            GR1z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=self.gauge_origin)
-                            GR2x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=self.gauge_origin)
-                            GR2y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=self.gauge_origin)
-                            GR2z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,1), gOrigin=self.gauge_origin)
-
-                            # add QMN contribution
-                            self.GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)
-                            self.GR1[1,i,j,k,l] = 0.5*( ZMN*GR1x - XMN*GR1z)
-                            self.GR1[2,i,j,k,l] = 0.5*(-YMN*GR1x + XMN*GR1y)
-                            # add QPQ contribution
-                            self.GR2[0,i,j,k,l] = 0.5*(-ZPQ*GR2y + YPQ*GR2z)
-                            self.GR2[1,i,j,k,l] = 0.5*( ZPQ*GR2x - XPQ*GR2z)
-                            self.GR2[2,i,j,k,l] = 0.5*(-YPQ*GR2x + XPQ*GR2y)
-
-                            self.dgdb[:,i,j,k,l] = self.dgdb[:,k,l,i,j] = self.GR1[:,i,j,k,l] + self.GR2[:,i,j,k,l]
-                            self.dgdb[:,j,i,l,k] = self.dgdb[:,l,k,j,i] = -self.dgdb[:,i,j,k,l] 
-
-        print "\n\n"
+        self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
+        self.dgdb = np.asarray(self.dgdb)
+#        ij = 0
+#        for i in trange(N,desc='First loop'):
+#            for j in trange(N,desc='Second loop'):
+#                ij += 1
+#                kl = 0
+#                for k in trange(N,desc='Third loop'):
+#                    ik = i + k
+#                    for l in trange(N,desc='Fourth loop'):
+#                        kl += 1
+#                        if (ij >= kl and ik >= j+l and not (i==j and k==l)):
+#                            #QMN matrix elements
+#                            XMN  = self.bfs[i].origin[0] - self.bfs[j].origin[0]
+#                            YMN  = self.bfs[i].origin[1] - self.bfs[j].origin[1]
+#                            ZMN  = self.bfs[i].origin[2] - self.bfs[j].origin[2]
+#                            #QPQ matrix elements
+#                            XPQ  = self.bfs[k].origin[0] - self.bfs[l].origin[0]
+#                            YPQ  = self.bfs[k].origin[1] - self.bfs[l].origin[1]
+#                            ZPQ  = self.bfs[k].origin[2] - self.bfs[l].origin[2]
+#
+#                            GR1x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=self.gauge_origin)
+#                            GR1y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=self.gauge_origin)
+#                            GR1z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=self.gauge_origin)
+#                            GR2x = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=self.gauge_origin)
+#                            GR2y = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=self.gauge_origin)
+#                            GR2z = ERI(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,1), gOrigin=self.gauge_origin)
+#
+#                            # add QMN contribution
+#                            self.GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)
+#                            self.GR1[1,i,j,k,l] = 0.5*( ZMN*GR1x - XMN*GR1z)
+#                            self.GR1[2,i,j,k,l] = 0.5*(-YMN*GR1x + XMN*GR1y)
+#                            # add QPQ contribution
+#                            self.GR2[0,i,j,k,l] = 0.5*(-ZPQ*GR2y + YPQ*GR2z)
+#                            self.GR2[1,i,j,k,l] = 0.5*( ZPQ*GR2x - XPQ*GR2z)
+#                            self.GR2[2,i,j,k,l] = 0.5*(-YPQ*GR2x + XPQ*GR2y)
+#
+#                            self.dgdb[:,i,j,k,l] = self.dgdb[:,k,l,i,j] = self.GR1[:,i,j,k,l] + self.GR2[:,i,j,k,l]
+#                            self.dgdb[:,j,i,l,k] = self.dgdb[:,l,k,j,i] = -self.dgdb[:,i,j,k,l] 
+#
 
     def SCF(self,doPrint=True,save=True,method=None):
         self.delta_energy = 1e20
@@ -438,13 +442,13 @@ class Molecule(object):
                 C      = np.dot(self.X,self.CO)
                 self.C      = np.dot(self.X,self.CO)
                 self.MO     = E
-                self.P = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
-                #self.P = np.dot(np.conjugate(C[:,:self.nocc]),(C[:,:self.nocc]).T)
+                #self.P = np.einsum('pi,qi->pq', C[:,:self.nocc], np.conjugate(C[:,:self.nocc]))
+                self.P = np.dot(C[:,:self.nocc],np.conjugate(C[:,:self.nocc]).T)
                 #self.P = np.einsum('pi,qi->pq', np.conjugate(C[:,:self.nocc]), C[:,:self.nocc])
                # if step == 0:
                #     np.save("Po.npy",self.P)
 
-                self.buildFock() 
+                #self.buildFock() 
                 self.computeEnergy()
                 #self.el_energy = np.einsum('pq,pq',self.P,self.Core+self.F)
                 #self.energy    = self.el_energy + self.nuc_energy
@@ -458,7 +462,7 @@ class Molecule(object):
                 SPF = np.conjugate(FPS).T
                 error = np.linalg.norm(FPS - SPF)
                 #print self.P_RMS 
-                if np.abs(self.delta_energy) < 1e-14 or self.P_RMS < 1e-12 or step == (maxiter - 1):
+                if np.abs(self.delta_energy) < 1e-14 or self.P_RMS < 1e-14 or step == (maxiter - 1):
                 #if self.P_RMS < 1e-8 or step == (maxiter - 1):
                 #if np.abs(error) < 1e-14 or step == (maxiter - 1):
                     if step == (maxiter - 1):
@@ -556,7 +560,7 @@ class Molecule(object):
                     #En.append(np.log10(abs(self.delta_energy)))
                     En.append(self.energy)
 
-                if np.abs(self.delta_energy) < 1e-10 or self.P_RMS < 1e-8:
+                if np.abs(self.delta_energy) < 1e-14 or np.abs(self.P_RMS) < 1e-12:
                     self.FO     = np.dot(self.X.T,np.dot(self.F,self.X))
                     E,self.CO   = np.linalg.eigh(self.FO)
 
@@ -580,29 +584,35 @@ class Molecule(object):
                         print " Dipole Y = ", "{0:.8f}".format(self.mu_y)
                         print " Dipole Z = ", "{0:.8f}".format(self.mu_z)
                         self.orthoDen()
-                    #    self.buildL(direction='z',P=self.P)
-                    #    Lz = (self.LN)
-                    #    dSz = self.dSdB**2
-                    #    dHz = self.dHdB**2
-                    #    dGz = self.dGdB**2
-                    #    self.buildL(direction='y',P=self.P)
-                    #    Ly = (self.LN)
-                    #    dSy = self.dSdB**2
-                    #    dHy = self.dHdB**2
-                    #    dGy = self.dGdB**2
-                    #    self.buildL(direction='x',P=self.P)
-                    #    Lx = (self.LN)
-                    #    dSx = self.dSdB**2
-                    #    dHx = self.dHdB**2
-                    #    dGx = self.dGdB**2
-                    #    print "GIAO Tot Lz:     ", "{0:.8f}".format(np.sqrt(Lx*Lx+Ly*Ly+Lz*Lz))
-                    #    nLx = np.trace(np.dot(self.P,1j*(self.L[0])))**2
-                    #    nLy = np.trace(np.dot(self.P,1j*(self.L[1])))**2
-                    #    nLz = np.trace(np.dot(self.P,1j*(self.L[2])))**2
-                    #    print "non-GIAO Lz: ", "{0:.8f}".format(np.sqrt(nLx +nLy+nLz))
-                    #    print "dSdB tot: ", np.sqrt(dSx + dSy + dSz)
-                    #    print "dHdB tot: ", np.sqrt(dHx + dHy + dHz)
-                    #    print "dGdB tot: ", np.sqrt(dGx + dGy + dGz)
+                        self.buildL(direction='z',P=self.P)
+                        Lz = (self.LN)
+                        dSz = -self.dSdB#**2
+                        dHz = -self.dHdB#**2
+                        dGz = -self.dGdB#**2
+                        self.buildL(direction='y',P=self.P)
+                        Ly = (self.LN)
+                        dSy = -self.dSdB#**2
+                        dHy = -self.dHdB#**2
+                        dGy = -self.dGdB#**2
+                        self.buildL(direction='x',P=self.P)
+                        Lx = (self.LN)
+                        dSx = -self.dSdB#**2
+                        dHx = -self.dHdB#**2
+                        dGx = -self.dGdB#**2
+                        print "GIAO Tot L:     ", "{0:.8f}".format(np.sqrt(Lx*Lx+Ly*Ly+Lz*Lz))
+                        print "GIAO Tot Lz:     ", "{0:.8f}".format(Lz)
+                        print "GIAO Tot Ly:     ", "{0:.8f}".format(Ly)
+                        print "GIAO Tot Lx:     ", "{0:.8f}".format(Lx)
+                        nLx = np.trace(np.dot(self.P,1j*(self.L[0])))
+                        nLy = np.trace(np.dot(self.P,1j*(self.L[1])))
+                        nLz = np.trace(np.dot(self.P,1j*(self.L[2])))
+                        print "non-GIAO Tot L: ", "{0:.8f}".format(np.sqrt(nLx*nLx +nLy*nLy+nLz*nLz))
+                        print "non-GIAO Lz: ", "{0:.8f}".format(nLz)
+                        print "non-GIAO Ly: ", "{0:.8f}".format(nLy)
+                        print "non-GIAO Lx: ", "{0:.8f}".format(nLx)
+                        print "dSdBz tot: ", dSz#np.sqrt(dSx + dSy + dSz)
+                        print "dHdBz tot: ", dHz#np.sqrt(dHx + dHy + dHz)
+                        print "dGdBz tot: ", dGz#np.sqrt(dGx + dGy + dGz)
 
                         
                     if save:
@@ -725,8 +735,10 @@ class Molecule(object):
         self.Magnus4(direction=direction)
        
     def buildFock(self):
-        self.J = np.einsum('pqrs,rs->pq', self.TwoE.astype('complex'),self.P.T)
-        self.K = np.einsum('prqs,rs->pq', self.TwoE.astype('complex'),self.P)
+        self.J = np.einsum('pqrs,sr->pq', self.TwoE.astype('complex'),self.P)
+        # note indices for K
+        #self.K = np.einsum('prqs,rs->pq', self.TwoE.astype('complex'),self.P)
+        self.K = np.einsum('psqr,sr->pq', self.TwoE.astype('complex'),self.P)
         self.G = 2.*self.J - self.K
         #self.GO = np.dot(self.X.T,np.dot(self.G,self.X))
         self.F = self.Core.astype('complex') + self.G
@@ -745,7 +757,8 @@ class Molecule(object):
         self.P = np.dot(self.X,np.dot(self.PO,self.X.T))
 
     def computeEnergy(self):
-        self.el_energy = np.einsum('pq,pq',self.P.T,self.Core+self.F)
+        #self.el_energy = np.einsum('pq,pq',self.P.T,self.Core+self.F)
+        self.el_energy = np.einsum('pq,qp',self.Core+self.F,self.P)
         self.energy    = self.el_energy + self.nuc_energy
 
     def computeDipole(self):
@@ -801,12 +814,13 @@ class Molecule(object):
         #self.orthoFock()
         #E,CO = np.linalg.eigh(self.FO)
         #C      = np.dot(self.X,CO)
-        #W1 = np.zeros((self.nbasis,self.nbasis))
+        #W1 = np.zeros((self.nbasis,self.nbasis),dtype='complex')
         #for mu in range(self.nbasis):
         #    for nu in range(self.nbasis):
         #        for i in range(self.nocc):
-        #            W1[mu,nu] += E[i]*C[mu,i]*C[nu,i] 
-        #print W1
+        #            W1[mu,nu] += E[i]*np.conjugate(C[mu,i])*C[nu,i] 
+        #print E
+
 
         if direction.lower() == 'x':
             dHdB = 1j*self.dhdb[0]
@@ -824,33 +838,37 @@ class Molecule(object):
             dSdB = 1j*self.Sb[2] 
             #dVdB = 1j*self.rDipZ[2]
  
-        J = np.einsum('pqrs,rs->pq', dGdB,self.P.T)
-        K = np.einsum('prqs,rs->pq', dGdB,self.P)
+        #J = np.einsum('pqrs,rs->pq', dGdB,self.P.T)
+        #K = np.einsum('prqs,rs->pq', dGdB,self.P)
+        J = np.einsum('pqrs,sr->pq', dGdB,self.P)
+        K = np.einsum('psqr,sr->pq', dGdB,self.P)
         G = 2.*J - K
         F = dHdB + G 
-        self.LN = np.einsum('pq,pq',self.P.T,F + dHdB) # Correct for GS
+        self.LN = np.einsum('pq,qp',self.P,F + dHdB) # Correct for GS
+        #self.LN = np.einsum('pq,qp',self.P,F) # Correct for GS
+        #self.LN = np.einsum('pq,qp',self.P,dHdB) # Correct for GS
+        #self.LN = np.einsum('pq,qp',self.P,G) # Correct for GS
         #self.LN = np.einsum('pq,pq',np.conjugate(self.P),G) # Correct for GS
         # do I need to make W time dependent?
         # i dP/dt = SinvFP - PFSinv
-        Sinv = np.dot(self.X,self.X.T)
+        Sinv = np.dot(self.X.T,self.X)
         dP = (np.dot(Sinv,np.dot(self.F,self.P)) - np.dot(self.P,np.dot(self.F,Sinv)))
-        Ws = np.dot(self.P,np.dot(self.F,self.P)) 
-        Wt = 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
-        W = Ws #+ Wt
-        #PSP = np.dot(self.P,np.dot(self.S,self.P))
-        #print np.allclose(PSP,self.P)
-        #print (np.dot(self.F,np.dot(self.P,self.S))  - np.dot(np.dot(self.S,self.P),self.F))
-        #W = 0.5*(np.dot(Sinv,np.dot(self.F,self.P))  + np.dot(np.dot(self.P,self.F),Sinv))
-        #self.LN -= 2*np.einsum('pq,pq',dSdB,W)
-        self.LN -= 2*np.einsum('pq,pq',dSdB,W)
-        self.LN *= 1.0 # Correct for GS
+        PFP = np.dot(self.P,np.dot(self.F,self.P)) 
+        W = PFP
+        #W = 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
+        #W = Ws + Wt 
+        #T = 0.5*(PFP + dP - np.dot(self.P,np.dot(self.S,dP)))
+        #W = T + self.adj(T)
+        #W = 0.5*(np.dot(Sinv,np.dot(self.F,self.P)) + np.dot(self.P,np.dot(self.F,Sinv)))
+        self.LN += 2*np.einsum('pq,qp',dSdB,W)
+        #self.LN *= 2.0
 
        # # indiv components
-        self.dSdB = np.einsum('pq,pq',W,dSdB)
+        self.dSdB = np.einsum('pq,qp',dSdB,W)
      #   print "dS: ",self.dSdB
-        self.dGdB = np.einsum('pq,pq',self.P.T,G)
+        self.dGdB = np.einsum('pq,qp',self.P,G)
      #   print "dG: ",self.dGdB
-        self.dHdB = np.einsum('pq,pq',self.P.T,dHdB)
+        self.dHdB = np.einsum('pq,qp',self.P,dHdB)
      #   print "dH: ",self.dHdB
      #  # #test = dHdB + F + 2j*np.dot(np.dot(self.F,self.P),dSdB)
      #  # #test_orth = np.dot(self.X.T,np.dot(test,self.X))

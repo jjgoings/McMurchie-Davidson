@@ -41,7 +41,7 @@ cpdef double eri_integrand(np.ndarray[double, mode='c', ndim=1] x,double a, int 
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-cpdef double eri_wintegrand(np.ndarray[double, ndim=1] x,double a, int l1, int m1, int n1,double Ax,double Ay, double Az, double b,int l2, int m2, int n2, double Bx, double By, double Bz,double c,int l3, int m3, int n3, double Cx,double Cy,double Cz,double d,int l4, int m4, int n4,double Dx, double Dy, double Dz,int nx1,int ny1, int nz1, int nx2, int ny2, int nz2):
+cpdef double eri_wintegrand(np.ndarray[double, ndim=1] x,double a, int l1, int m1, int n1,double Ax,double Ay, double Az, double b,int l2, int m2, int n2, double Bx, double By, double Bz,double c,int l3, int m3, int n3, double Cx,double Cy,double Cz,double d,int l4, int m4, int n4,double Dx, double Dy, double Dz,int nx1,int ny1, int nz1, int nx2, int ny2, int nz2, double gx, double gy, double gz):
     cdef double x1 = x[0]
     cdef double y1 = x[1]
     cdef double z1 = x[2]
@@ -58,19 +58,20 @@ cpdef double eri_wintegrand(np.ndarray[double, ndim=1] x,double a, int l1, int m
     cdef double pre2x = preCD*exp(-gammaCD*pow(Cx-Dx,2))
     cdef double pre2y = preCD*exp(-gammaCD*pow(Cy-Dy,2))
     cdef double pre2z = preCD*exp(-gammaCD*pow(Cz-Dz,2))
-    return pow(x1,nx1)*wG(x1,a,l1,Ax) * \
-           pow(y1,ny1)*wG(y1,a,m1,Ay) * \
-           pow(z1,nz1)*wG(z1,a,n1,Az) * \
+    return pow(x1 - gx,nx1)*wG(x1,a,l1,Ax) * \
+           pow(y1 - gy,ny1)*wG(y1,a,m1,Ay) * \
+           pow(z1 - gz,nz1)*wG(z1,a,n1,Az) * \
            wG(x1,b,l2,Bx) * \
            wG(y1,b,m2,By) * \
            wG(z1,b,n2,Bz) * \
            1.0/sqrt(pow(x1 - x2,2) + pow(y1-y2,2) + pow(z1-z2,2)) * \
-           pow(x2,nx2)*wG(x2,c,l3,Cx) * \
-           pow(y2,ny2)*wG(y2,c,m3,Cy) * \
-           pow(z2,nz2)*wG(z2,c,n3,Cz) * \
+           pow(x2 - gx,nx2)*wG(x2,c,l3,Cx) * \
+           pow(y2 - gy,ny2)*wG(y2,c,m3,Cy) * \
+           pow(z2 - gz,nz2)*wG(z2,c,n3,Cz) * \
            wG(x2,d,l4,Dx) * \
            wG(y2,d,m4,Dy) * \
            wG(z2,d,n4,Dz) * pre1x * pre1y * pre1z * pre2x *pre2y * pre2z 
+
 
 
 @cython.boundscheck(False)
