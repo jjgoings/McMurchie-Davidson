@@ -84,7 +84,7 @@ cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOr
 @cython.wraparound(False)
 cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, object bfs):
     cdef long i,j,k,l,ij,kl
-    for i in tqdm(range(N)):
+    for i in (range(N)):
         for j in range(i+1):
             ij = (i*(i+1)//2 + j)
             for k in range(N):
@@ -111,7 +111,7 @@ cpdef double [:,:,:,:,:] do2eGIAO(long N,double [:,:,:,:,:] GR1, double [:,:,:,:
     cdef long i,j,k,l,kl,ik
     cdef double XMN,YMN,ZMN,XPQ,YPQ,ZPQ
     cdef double GR1x,GR1y,GR1z,GR2x,GR2y,GR2z
-    for i in tqdm(range(N)):
+    for i in (range(N)):
         for j in range(N):
             ij += 1
             kl = 0

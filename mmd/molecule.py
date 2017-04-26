@@ -14,6 +14,8 @@ class Atom(object):
     def __init__(self,charge,origin=np.zeros(3)):
         self.charge = charge
         self.origin = origin
+        self.Fx    = []
+   
 
 class BasisFunction(object):
     def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
@@ -42,33 +44,38 @@ class Molecule(object):
         self.atoms = atomlist
         self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
-        self.bfs = []
         self.is_built = False
         self.giao = giao
+        self.gauge = gauge
         try:
             import data
         except ImportError:
             print "No basis set data"
             sys.exit(0)
+        self.basis_data = data.basis[basis]
+        self.formBasis()
 
-        basis_data = data.basis[basis]
+    def formBasis(self):
+        self.bfs = []
         for atom in self.atoms:
-            for momentum,prims in basis_data[atom.charge]:
+            for momentum,prims in self.basis_data[atom.charge]:
                 exps = [e for e,c in prims]
                 coefs = [c for e,c in prims]
                 for shell in self.momentum2shell(momentum):
                     #self.bfs.append(BasisFunction(atom[1],shell,exps,coefs))
-                    self.bfs.append(BasisFunction(np.asarray(atom.origin),np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    self.bfs.append(BasisFunction(np.asarray(atom.origin),\
+                        np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
         # note this is center of positive charge
-        self.center_of_charge = np.asarray([sum([atom.charge*atom.origin[0] for atom in self.atoms]),
-                                            sum([atom.charge*atom.origin[1] for atom in self.atoms]),
-                                            sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
-                                         * (1./sum([atom.charge for atom in self.atoms]))
-        if not gauge:
+        self.center_of_charge =\
+            np.asarray([sum([atom.charge*atom.origin[0] for atom in self.atoms]),
+                        sum([atom.charge*atom.origin[1] for atom in self.atoms]),
+                        sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
+                        * (1./sum([atom.charge for atom in self.atoms]))
+        if not self.gauge:
             self.gauge_origin = self.center_of_charge
         else:
-            self.gauge_origin = np.asarray(gauge)
+            self.gauge_origin = np.asarray(self.gauge)
            
 
     def build(self):
@@ -153,9 +160,9 @@ class Molecule(object):
 
         self.nuc_energy = 0.0
         # Get one electron integrals
-        print "One-electron integrals"
+        #print "One-electron integrals"
 
-        for i in tqdm(range(N)):
+        for i in (range(N)):
             for j in range(i+1):
                 self.S[i,j] = self.S[j,i] \
                     = S(self.bfs[i],self.bfs[j])
@@ -207,7 +214,7 @@ class Molecule(object):
         self.dhdb = np.zeros((3,N,N))
 
         print "GIAO one-electron integrals"
-        for i in tqdm(range(N)):
+        for i in (range(N)):
             for j in range(N):
                 #QAB matrix elements
                 XAB = self.bfs[i].origin[0] - self.bfs[j].origin[0]
@@ -254,7 +261,7 @@ class Molecule(object):
     def two_electron_integrals(self):
         N = self.nbasis
         self.TwoE = np.zeros((N,N,N,N))  
-        print "Two-electron integrals"
+        #print "Two-electron integrals"
         self.TwoE = doERIs(N,self.TwoE,self.bfs)
         self.TwoE = np.asarray(self.TwoE)
 
@@ -268,7 +275,51 @@ class Molecule(object):
         self.dgdb = np.asarray(self.dgdb)
 
     def forces(self):
-        h = 1e-4
+        # compute energy gradient on 
+        h = 1e-7
+        S    = self.S
+        V    = self.V
+        T    = self.T
+        TwoE = self.TwoE 
+        P    = self.P
+        F    = self.F
+        VN   = self.nuc_energy
+
+        for atom in self.atoms:
+            for direction in xrange(3):
+                atom.origin[direction] += h
+                self.formBasis()
+                self.build()
+                VNx = 0.0
+                Sx = ((1./h)*(self.S - S))
+                Tx = ((1./h)*(self.T - T))
+                Vx = ((1./h)*(self.V - V))
+                TwoEx = ((1./h)*(self.TwoE - TwoE))
+
+                Hx = Tx + Vx
+
+                Jx = np.einsum('pqrs,sr->pq', TwoEx, P)
+                Kx = np.einsum('psqr,sr->pq', TwoEx, P)
+                Gx = 2.*Jx - Kx
+                Fx = Hx + Gx
+                force = np.einsum('pq,qp',P,Fx + Hx) 
+                # energy-weighted density matrix for overlap derivative
+                PFP = np.dot(P,np.dot(F,P)) 
+                W = PFP
+                force -= 2*np.einsum('pq,qp',Sx,W)
+                force += (1./h)*(self.nuc_energy - VN)
+
+                atom.Fx.append(force)
+                atom.origin[direction] -= h
+        self.formBasis()
+        self.build()
+
+
+
+ 
+
+                
+ 
 
 
 
