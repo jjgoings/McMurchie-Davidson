@@ -10,6 +10,11 @@ import itertools
 import matplotlib
 matplotlib.use('TkAgg')
 
+class Atom(object):
+    def __init__(self,charge,origin=np.zeros(3)):
+        self.charge = charge
+        self.origin = origin
+
 class BasisFunction(object):
     def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
         assert len(origin)==3
@@ -35,7 +40,7 @@ class Molecule(object):
         self.charge = charge
         self.multiplicity = multiplicity
         self.atoms = atomlist
-        self.nelec = sum([atom[0] for atom in atomlist]) - charge 
+        self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
         self.bfs = []
         self.is_built = False
@@ -48,18 +53,18 @@ class Molecule(object):
 
         basis_data = data.basis[basis]
         for atom in self.atoms:
-            for momentum,prims in basis_data[atom[0]]:
+            for momentum,prims in basis_data[atom.charge]:
                 exps = [e for e,c in prims]
                 coefs = [c for e,c in prims]
                 for shell in self.momentum2shell(momentum):
                     #self.bfs.append(BasisFunction(atom[1],shell,exps,coefs))
-                    self.bfs.append(BasisFunction(np.asarray(atom[1]),np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    self.bfs.append(BasisFunction(np.asarray(atom.origin),np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
         # note this is center of positive charge
-        self.center_of_charge = np.asarray([sum([x[0]*x[1][0] for x in self.atoms]),
-                                            sum([x[0]*x[1][1] for x in self.atoms]),
-                                            sum([x[0]*x[1][2] for x in self.atoms])])\
-                                         * (1./sum([x[0] for x in self.atoms]))
+        self.center_of_charge = np.asarray([sum([atom.charge*atom.origin[0] for atom in self.atoms]),
+                                            sum([atom.charge*atom.origin[1] for atom in self.atoms]),
+                                            sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
+                                         * (1./sum([atom.charge for atom in self.atoms]))
         if not gauge:
             self.gauge_origin = self.center_of_charge
         else:
@@ -121,7 +126,9 @@ class Molecule(object):
                     y   = float(line.split()[2])*1.889725989
                     z   = float(line.split()[3])*1.889725989
                     #atomlist.append((sym,(x,y,z)))
-                    atomlist.append((sym,np.asarray([x,y,z])))
+                    #atomlist.append((sym,np.asarray([x,y,z])))
+                    atom = Atom(charge=sym,origin=np.asarray([x,y,z]))
+                    atomlist.append(atom)
     
         return charge, multiplicity, atomlist
     def one_electron_integrals(self):
@@ -161,7 +168,7 @@ class Molecule(object):
                 self.Mz[i,j] = self.Mz[j,i] \
                     = Mu(self.bfs[i],self.bfs[j],'z',gOrigin=self.gauge_origin)
                 for atom in self.atoms:
-                    self.V[i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1])
+                    self.V[i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin)
                 self.V[j,i] = self.V[i,j]
 
                 # RxDel is antisymmetric
@@ -177,7 +184,7 @@ class Molecule(object):
 
         # Also populate nuclear repulsion at this time
         for pair in itertools.combinations(self.atoms,2):
-            self.nuc_energy += pair[0][0]*pair[1][0]/np.linalg.norm(pair[0][1] - pair[1][1])
+            self.nuc_energy += pair[0].charge*pair[1].charge/np.linalg.norm(pair[0].origin - pair[1].origin)
            
         # preparing for SCF
         self.Core       = self.T + self.V
@@ -213,9 +220,9 @@ class Molecule(object):
 
                 for atom in self.atoms:
                     # GIAO V
-                    self.rH[0,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(1,0,0),gOrigin=self.gauge_origin)
-                    self.rH[1,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,1,0),gOrigin=self.gauge_origin)
-                    self.rH[2,i,j] += -atom[0]*V(self.bfs[i],self.bfs[j],atom[1],n=(0,0,1),gOrigin=self.gauge_origin)
+                    self.rH[0,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(1,0,0),gOrigin=self.gauge_origin)
+                    self.rH[1,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(0,1,0),gOrigin=self.gauge_origin)
+                    self.rH[2,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(0,0,1),gOrigin=self.gauge_origin)
 
                 # Some temp copies for mult with QAB matrix 
                 xH = self.rH[0,i,j]
@@ -259,4 +266,11 @@ class Molecule(object):
         print "GIAO two-electron integrals"
         self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
         self.dgdb = np.asarray(self.dgdb)
+
+    def forces(self):
+        h = 1e-4
+
+
+
+
 

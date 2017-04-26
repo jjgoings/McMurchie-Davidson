@@ -85,9 +85,9 @@ class SCF(object):
         self.mol.energy    = self.mol.el_energy + self.mol.nuc_energy
     
     def computeDipole(self):
-        self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([x[0]*(x[1][0]-self.mol.gauge_origin[0]) for x in self.mol.atoms])  
-        self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([x[0]*(x[1][1]-self.mol.gauge_origin[1]) for x in self.mol.atoms])  
-        self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([x[0]*(x[1][2]-self.mol.gauge_origin[2]) for x in self.mol.atoms])  
+        self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([atom.charge*(atom.origin[0]-self.mol.gauge_origin[0]) for atom in self.mol.atoms])  
+        self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([atom.charge*(atom.origin[1]-self.mol.gauge_origin[1]) for atom in self.mol.atoms])  
+        self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([atom.charge*(atom.origin[2]-self.mol.gauge_origin[2]) for atom in self.mol.atoms])  
         # to debye
         self.mol.mu_x *= 2.541765
         self.mol.mu_y *= 2.541765
