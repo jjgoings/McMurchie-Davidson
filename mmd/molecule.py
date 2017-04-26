@@ -11,11 +11,13 @@ import matplotlib
 matplotlib.use('TkAgg')
 
 class Atom(object):
-    def __init__(self,charge,origin=np.zeros(3)):
+    def __init__(self,charge,mass,origin=np.zeros(3)):
         self.charge = charge
         self.origin = origin
+        self.mass   = mass
         # contains forces (not mass-weighted)
-        self.forces    = []
+        self.forces      = []
+        self.velocities  = np.zeros(3)
    
 
 class BasisFunction(object):
@@ -116,6 +118,8 @@ class Molecule(object):
         return symbol.index(str(sym))
         
     def read_molecule(self,filename):
+        masses = [0.0,1.008,4.003,6.941,9.012,10.812,12.011,14.007,5.999,18.998,\
+                  20.180,22.990,24.305,26.982,28.086,30.974,32.066,35.453,39.948]
         with open(filename) as f:
             atomlist = []
             for line_number,line in enumerate(f):
@@ -130,12 +134,13 @@ class Molecule(object):
                     if len(line.split()) == 0: break
                     assert len(line.split()) == 4
                     sym = self.sym2num(str(line.split()[0]))
+                    mass = masses[sym]
                     x   = float(line.split()[1])*1.889725989
                     y   = float(line.split()[2])*1.889725989
                     z   = float(line.split()[3])*1.889725989
                     #atomlist.append((sym,(x,y,z)))
                     #atomlist.append((sym,np.asarray([x,y,z])))
-                    atom = Atom(charge=sym,origin=np.asarray([x,y,z]))
+                    atom = Atom(charge=sym,mass=mass,origin=np.asarray([x,y,z]))
                     atomlist.append(atom)
     
         return charge, multiplicity, atomlist

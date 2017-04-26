@@ -14,7 +14,7 @@ class SCF(object):
             print "You need to run Molecule.build() to generate integrals"
             self.mol.build()
             
-    def RHF(self):
+    def RHF(self,doPrint=True):
         for step in xrange(self.maxiter):
             if step == 0:
                 self.mol.P      = self.P_old
@@ -50,15 +50,16 @@ class SCF(object):
                     FPS = np.dot(self.mol.F,np.dot(self.mol.P,self.mol.S))
                     SPF = np.dot(self.mol.S,np.dot(self.mol.P,self.mol.F))
                     error = FPS - SPF
-                    print "Error", np.linalg.norm(error)
-                    print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
-                          " in "+str(step)+" iterations"
-                    print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
-                    print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
                     self.computeDipole()
-                    print " Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
-                    print " Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
-                    print " Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
+                    if doPrint:
+                        print "Error", np.linalg.norm(error)
+                        print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
+                              " in "+str(step)+" iterations"
+                        print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
+                        print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
+                        print " Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
+                        print " Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
+                        print " Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
                     break
 
     def buildFock(self):
@@ -120,16 +121,18 @@ class SCF(object):
         VN   = self.mol.nuc_energy
 
         for atom in self.mol.atoms:
+            atom.forces = []
             for direction in xrange(3):
                 # form f(x + h)
                 atom.origin[direction] += h
                 self.mol.formBasis() 
                 self.mol.build()
-                # [f(x + h) - f(x)] / h
+                ## [f(x + h) - f(x)] / h
                 Sx = ((1./h)*(self.mol.S - S))
                 Tx = ((1./h)*(self.mol.T - T))
                 Vx = ((1./h)*(self.mol.V - V))
                 TwoEx = ((1./h)*(self.mol.TwoE - TwoE))
+                atom.origin[direction] -= h
 
                 # Fock gradient terms
                 Hx = Tx + Vx
@@ -147,7 +150,6 @@ class SCF(object):
 
                 # save forces (not mass weighted) and reset geometry
                 atom.forces.append(np.real(force))
-                atom.origin[direction] -= h
         # restore basis back to its original state
         self.mol.formBasis()
         self.mol.build()
