@@ -98,4 +98,69 @@ class SCF(object):
     
     def comm(self,A,B):
         return np.dot(A,B) - np.dot(B,A)
+
+    def forces(self):
+        # compute nuclear energy gradient using finite differences. We use a 
+        # simple two-point stencil. Any higher will get expensive. I'll try and
+        # get analytic derivatives working in the future.
+        # We do:  [f(x + h) - f(x)] / h
+
+        if not self.mol.is_converged:
+            self.exit('Need to converge SCF before computing gradient')
+
+        h = 1e-7 # finite differences step
+ 
+        # save reference integrals for finite differencing (this is f(x))
+        S    = self.mol.S
+        V    = self.mol.V
+        T    = self.mol.T
+        TwoE = self.mol.TwoE 
+        P    = self.mol.P
+        F    = self.mol.F
+        VN   = self.mol.nuc_energy
+
+        for atom in self.mol.atoms:
+            for direction in xrange(3):
+                # form f(x + h)
+                atom.origin[direction] += h
+                self.mol.formBasis() 
+                self.mol.build()
+                # [f(x + h) - f(x)] / h
+                Sx = ((1./h)*(self.mol.S - S))
+                Tx = ((1./h)*(self.mol.T - T))
+                Vx = ((1./h)*(self.mol.V - V))
+                TwoEx = ((1./h)*(self.mol.TwoE - TwoE))
+
+                # Fock gradient terms
+                Hx = Tx + Vx
+                Jx = np.einsum('pqrs,sr->pq', TwoEx, P)
+                Kx = np.einsum('psqr,sr->pq', TwoEx, P)
+                Gx = 2.*Jx - Kx
+                Fx = Hx + Gx
+                force = np.einsum('pq,qp',P,Fx + Hx) 
+                # energy-weighted density matrix for overlap derivative
+                PFP = np.dot(P,np.dot(F,P)) 
+                W = PFP
+                force -= 2*np.einsum('pq,qp',Sx,W)
+                # nuclear-nuclear repulsion contribution
+                force += (1./h)*(self.mol.nuc_energy - VN)
+
+                # save forces (not mass weighted) and reset geometry
+                atom.forces.append(np.real(force))
+                atom.origin[direction] -= h
+        # restore basis back to its original state
+        self.mol.formBasis()
+        self.mol.build()
+
+
+
+ 
+
+                
+ 
+
+
+
+
+
     

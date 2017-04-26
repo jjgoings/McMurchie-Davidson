@@ -6,7 +6,7 @@ import numpy as np
 np.set_printoptions(suppress=True,precision=6)
 
 # read in geometry
-geometry = './geoms/h2o.dat'
+geometry = './geoms/h2.dat'
 
 # init molecule and build integrals
 mol = Molecule(filename=geometry,basis='sto-3g',gauge=[0.0,0.0,0.0])
@@ -16,10 +16,7 @@ mol.build()
 scf = SCF(mol)
 scf.RHF()
 
-mol.forces()
-
-for atom in mol.atoms:
-    print atom.Fx
+#scf.forces()
 
 # do MP2
 #mp2 = PostSCF(mol)
