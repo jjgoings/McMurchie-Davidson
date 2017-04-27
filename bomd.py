@@ -28,14 +28,14 @@ for step in tqdm(xrange(steps)):
     # update positions
     for atom in mol.atoms:
         for q in xrange(3):
-            atom.origin[q] += atom.velocities[q]*dt - 0.5*dt*dt*atom.mass*atom.forces[q]
+            atom.origin[q] += atom.velocities[q]*dt + 0.5*dt*dt*atom.mass*atom.forces[q]
     # update forces
     scf.RHF(doPrint=False)
     scf.forces()
     # update velocities
     for idx, atom in enumerate(mol.atoms):
         for q in xrange(3):
-            atom.velocities[q] += -0.5*dt*(atom.mass*atom_old[idx].forces[q] + atom.mass*atom.forces[q]) 
+            atom.velocities[q] += 0.5*dt*(atom.mass*atom_old[idx].forces[q] + atom.mass*atom.forces[q]) 
 
     X.append(abs(mol.atoms[0].origin[0] - mol.atoms[1].origin[0]))
     Y.append(abs(mol.atoms[0].origin[1] - mol.atoms[1].origin[1]))
