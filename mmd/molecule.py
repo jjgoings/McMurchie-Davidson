@@ -69,6 +69,15 @@ class Molecule(object):
                     self.bfs.append(BasisFunction(np.asarray(atom.origin),\
                         np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
+        # create masking vector for geometric derivatives
+        idx = 0
+        for atom in self.atoms:
+            atom.mask = np.zeros(self.nbasis)
+            for momentum,prims in self.basis_data[atom.charge]:
+                for shell in self.momentum2shell(momentum):
+                    atom.mask[idx] = 1.0
+                    idx += 1
+
         # note this is center of positive charge
         self.center_of_charge =\
             np.asarray([sum([atom.charge*atom.origin[0] for atom in self.atoms]),

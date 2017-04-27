@@ -1,6 +1,7 @@
 from __future__ import division
 import numpy as np
 from scipy.linalg import eigh
+from integrals import *
 
 class SCF(object):
     def __init__(self,mol):
@@ -109,50 +110,84 @@ class SCF(object):
         if not self.mol.is_converged:
             self.exit('Need to converge SCF before computing gradient')
 
-        h = 1e-7 # finite differences step
- 
-        # save reference integrals for finite differencing (this is f(x))
-        S    = self.mol.S
-        V    = self.mol.V
-        T    = self.mol.T
-        TwoE = self.mol.TwoE 
-        P    = self.mol.P
-        F    = self.mol.F
-        VN   = self.mol.nuc_energy
-
+        # get the 3N forces on the molecule
         for atom in self.mol.atoms:
             atom.forces = []
             for direction in xrange(3):
                 # form f(x + h)
-                atom.origin[direction] += h
-                self.mol.formBasis() 
-                self.mol.build()
-                ## [f(x + h) - f(x)] / h
-                Sx = ((1./h)*(self.mol.S - S))
-                Tx = ((1./h)*(self.mol.T - T))
-                Vx = ((1./h)*(self.mol.V - V))
-                TwoEx = ((1./h)*(self.mol.TwoE - TwoE))
-                atom.origin[direction] -= h
+                dSx = np.zeros_like(self.mol.S)
+                dTx = np.zeros_like(self.mol.T)
+                dVx = np.zeros_like(self.mol.V)
+                dTwoEx = np.zeros_like(self.mol.TwoE)
+                dVNx = 0.0
+                # do one electron nuclear derivatives 
+                for i in (range(self.mol.nbasis)):
+                    for j in range(i+1):
+                        # dSij/dx = < d phi_i/ dx | phi_j > + < phi_i | d phi_j / dx > 
+                        # atom.mask is 1 if the AO involves the nuclei being differentiated, is 0 if not.
+                        dSx[i,j] = dSx[j,i] \
+                             = atom.mask[i]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
+                             + atom.mask[j]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                        # dTij/dx is same form as differentiated overlaps, since Del^2 does not depend on nuclear origin 
+                        dTx[i,j] = dTx[j,i] \
+                             = atom.mask[i]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
+                             + atom.mask[j]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                        # Hellman-feynman term: dVij /dx = < phi_i | d (1/r_c) / dx | phi_j >
+                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.mol.bfs[i],self.mol.bfs[j],atom.origin,x=direction)
+                        # Terms from deriv of overlap, just like dS/dx and dT/dx
+                        for atomic_center in self.mol.atoms:
+                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,x=direction,center='A')
+                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,x=direction,center='B')
+                        dVx[j,i] = dVx[i,j]
+
+                # do nuclear repulsion contibution
+                for atomic_center in self.mol.atoms:
+                    # put in A != B conditions
+                    RAB = np.linalg.norm(atom.origin - atomic_center.origin)
+                    XAB = atom.origin[direction] - atomic_center.origin[direction]
+                    ZA  = atom.charge
+                    ZB  = atomic_center.charge
+                    if not np.allclose(RAB,0.0):
+                        dVNx += -XAB*ZA*ZB/(RAB*RAB*RAB)
+                     
+                # now do two electron contributions
+                val = 0.0
+                for i in (range(self.mol.nbasis)):
+                    for j in range(i+1):
+                        ij = (i*(i+1)//2 + j)
+                        for k in range(self.mol.nbasis):
+                            for l in range(k+1):
+                                kl = (k*(k+1)//2 + l)
+                                if ij >= kl:
+                                   # do the four terms for gradient two electron 
+                                   val = atom.mask[i]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A')
+                                   val += atom.mask[j]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                                   val += atom.mask[k]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='C')
+                                   val += atom.mask[l]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='D')
+
+                                   dTwoEx[i,j,k,l] = val
+                                   dTwoEx[k,l,i,j] = val
+                                   dTwoEx[j,i,l,k] = val
+                                   dTwoEx[l,k,j,i] = val
+                                   dTwoEx[j,i,k,l] = val
+                                   dTwoEx[l,k,i,j] = val
+                                   dTwoEx[i,j,l,k] = val
+                                   dTwoEx[k,l,j,i] = val
 
                 # Fock gradient terms
-                Hx = Tx + Vx
-                Jx = np.einsum('pqrs,sr->pq', TwoEx, P)
-                Kx = np.einsum('psqr,sr->pq', TwoEx, P)
+                Hx = dTx + dVx
+                Jx = np.einsum('pqrs,sr->pq', dTwoEx, self.mol.P)
+                Kx = np.einsum('psqr,sr->pq', dTwoEx, self.mol.P)
                 Gx = 2.*Jx - Kx
                 Fx = Hx + Gx
-                force = np.einsum('pq,qp',P,Fx + Hx) 
+                force = np.einsum('pq,qp',self.mol.P,Fx + Hx) 
                 # energy-weighted density matrix for overlap derivative
-                PFP = np.dot(P,np.dot(F,P)) 
-                W = PFP
-                force -= 2*np.einsum('pq,qp',Sx,W)
+                W = np.dot(self.mol.P,np.dot(self.mol.F,self.mol.P)) 
+                force -= 2*np.einsum('pq,qp',dSx,W)
                 # nuclear-nuclear repulsion contribution
-                force += (1./h)*(self.mol.nuc_energy - VN)
-
+                force += dVNx
                 # save forces (not mass weighted) and reset geometry
                 atom.forces.append(np.real(force))
-        # restore basis back to its original state
-        self.mol.formBasis()
-        self.mol.build()
 
 
 

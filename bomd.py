@@ -18,8 +18,8 @@ scf = SCF(mol)
 scf.RHF()
 scf.forces()
 
-dt = 0.05
-steps = 1000
+dt = 0.1
+steps = 200
 X = []
 Y = []
 Z = []

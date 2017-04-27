@@ -16,7 +16,10 @@ mol.build()
 scf = SCF(mol)
 scf.RHF()
 
-#scf.forces()
+scf.forces()
+
+print mol.forces
+
 
 # do MP2
 #mp2 = PostSCF(mol)
