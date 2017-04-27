@@ -16,7 +16,7 @@ class Atom(object):
         self.origin = origin
         self.mass   = mass
         # contains forces (not mass-weighted)
-        self.forces      = []
+        self.forces      = np.zeros(3)
         self.velocities  = np.zeros(3)
    
 
@@ -288,64 +288,3 @@ class Molecule(object):
         print "GIAO two-electron integrals"
         self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
         self.dgdb = np.asarray(self.dgdb)
-'''
-    def forces(self):
-        # compute nuclear energy gradient using finite differences. We use a 
-        # simple two-point stencil. Any higher will get expensive. I'll try and
-        # get analytic derivatives working in the future.
-        # We do:  [f(x + h) - f(x)] / h
-        h = 1e-7 # finite differences step
- 
-        # save reference integrals for finite differencing (this is f(x))
-        S    = self.S
-        V    = self.V
-        T    = self.T
-        TwoE = self.TwoE 
-        P    = self.P
-        F    = self.F
-        VN   = self.nuc_energy
-
-        for atom in self.atoms:
-            for direction in xrange(3):
-                # form f(x + h)
-                atom.origin[direction] += h
-                self.formBasis() 
-                self.build()
-                # [f(x + h) - f(x)] / h
-                Sx = ((1./h)*(self.S - S))
-                Tx = ((1./h)*(self.T - T))
-                Vx = ((1./h)*(self.V - V))
-                TwoEx = ((1./h)*(self.TwoE - TwoE))
-
-                # Fock gradient terms
-                Hx = Tx + Vx
-                Jx = np.einsum('pqrs,sr->pq', TwoEx, P)
-                Kx = np.einsum('psqr,sr->pq', TwoEx, P)
-                Gx = 2.*Jx - Kx
-                Fx = Hx + Gx
-                force = np.einsum('pq,qp',P,Fx + Hx) 
-                # energy-weighted density matrix for overlap derivative
-                PFP = np.dot(P,np.dot(F,P)) 
-                W = PFP
-                force -= 2*np.einsum('pq,qp',Sx,W)
-                # nuclear-nuclear repulsion contribution
-                force += (1./h)*(self.nuc_energy - VN)
-
-                # save forces (not mass weighted) and reset geometry
-                atom.forces.append(force)
-                atom.origin[direction] -= h
-        # restore basis back to its original state
-        self.formBasis()
-        self.build()
-'''
-
-
- 
-
-                
- 
-
-
-
-
-

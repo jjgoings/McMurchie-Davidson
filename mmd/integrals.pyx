@@ -31,7 +31,7 @@ cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros(
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
-    # Generalized overlap integrals for derivatives of GIAOs
+    # Generalized overlap derivative integrals 
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
     # normal overlap is just n = (0,0,0) case
@@ -131,7 +131,7 @@ cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] g
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double VxB(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
+cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
     # handles overlap derivative contribution to nuclear attraction derivatives
     # Generalized nuclear attraction integrals for derivatives of GIAOs
     # nucleus is centered at 'C'
@@ -266,7 +266,7 @@ cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple 
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'A'):
+cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):
     cdef double eri = 0.0
     cdef int ja, jb, jc, jd
     cdef double ca, cb, cc, cd
@@ -289,7 +289,7 @@ cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple
                                                 bExps[jb],bShell,bOrigin,\
                                                 cExps[jc],cShell,cOrigin,\
                                                 dExps[jd],dShell,dOrigin,\
-                                                N1,N2, GO, x, center)
+                                                N1,N2, GO, x, center.lower())
     return eri
 
 
@@ -396,7 +396,7 @@ cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, 
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'A'):
+cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):
     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
@@ -419,7 +419,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
     cdef double val = 0.0
     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
-    if center.lower() == 'a':
+    if center == 'a':
         if x == 0:
             val = 0.0
             for t in range(l1+l2+1+r1x+1):
@@ -471,7 +471,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
                                            pow(-1,tau+nu+phi) * \
                                            R(t+tau,u+nu,v+phi,0,\
                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ) 
-    elif center.lower() == 'b':
+    elif center == 'b':
         if x == 0:
             val = 0.0
             for t in range(l1+l2+1+r1x+1):
@@ -524,7 +524,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
                                            R(t+tau,u+nu,v+phi,0,\
                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ) 
 
-    elif center.lower() == 'c':
+    elif center == 'c':
         if x == 0:
             val = 0.0
             for t in range(l1+l2+1+r1x):
@@ -577,7 +577,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
                                            R(t+tau,u+nu,v+phi,0,\
                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ) 
 
-    elif center.lower() == 'd':
+    elif center == 'd':
         if x == 0:
             val = 0.0
             for t in range(l1+l2+1+r1x):
@@ -973,7 +973,7 @@ def nuclear_attractionXa(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0):
     val *= 2*pi/p # Pink book, Eq(9.9.40) 
     return val 
 
-def nuclear_attractionXb(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0, center = 'A'):
+def nuclear_attractionXb(a, lmn1, A, b, lmn2, B, C,  n, gOrigin=np.zeros((3)), x = 0, center = 'A'):
     # Second part: compute d/dX V_ab^(0,0,0) like terms
     # Generalized nuclear integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
@@ -982,6 +982,7 @@ def nuclear_attractionXb(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0, cent
     l1,m1,n1 = lmn1
     l2,m2,n2 = lmn2
     p = a + b
+    val = 0.0 
     P = gaussian_product_center(a,A,b,B)
     RPC = np.linalg.norm(P-C)
 

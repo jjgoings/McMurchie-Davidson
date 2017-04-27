@@ -102,19 +102,17 @@ class SCF(object):
         return np.dot(A,B) - np.dot(B,A)
 
     def forces(self):
-        # compute nuclear energy gradient using finite differences. We use a 
-        # simple two-point stencil. Any higher will get expensive. I'll try and
-        # get analytic derivatives working in the future.
-        # We do:  [f(x + h) - f(x)] / h
+        # compute nuclear energy gradient using analytic derivatives.
 
         if not self.mol.is_converged:
             self.exit('Need to converge SCF before computing gradient')
 
         # get the 3N forces on the molecule
         for atom in self.mol.atoms:
-            atom.forces = []
+            # reset forces to zero
+            atom.forces = np.zeros(3)
             for direction in xrange(3):
-                # form f(x + h)
+                # init derivative arrays
                 dSx = np.zeros_like(self.mol.S)
                 dTx = np.zeros_like(self.mol.T)
                 dVx = np.zeros_like(self.mol.V)
@@ -133,11 +131,11 @@ class SCF(object):
                              = atom.mask[i]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
                              + atom.mask[j]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
                         # Hellman-feynman term: dVij /dx = < phi_i | d (1/r_c) / dx | phi_j >
-                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.mol.bfs[i],self.mol.bfs[j],atom.origin,x=direction)
+                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.mol.bfs[i],self.mol.bfs[j],atom.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction)
                         # Terms from deriv of overlap, just like dS/dx and dT/dx
                         for atomic_center in self.mol.atoms:
-                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,x=direction,center='A')
-                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,x=direction,center='B')
+                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A')
+                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
                         dVx[j,i] = dVx[i,j]
 
                 # do nuclear repulsion contibution
@@ -160,11 +158,11 @@ class SCF(object):
                                 kl = (k*(k+1)//2 + l)
                                 if ij >= kl:
                                    # do the four terms for gradient two electron 
-                                   val = atom.mask[i]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A')
-                                   val += atom.mask[j]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
-                                   val += atom.mask[k]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='C')
-                                   val += atom.mask[l]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='D')
-
+                                   val = atom.mask[i]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='a')
+                                   val += atom.mask[j]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='b')
+                                   val += atom.mask[k]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='c')
+                                   val += atom.mask[l]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='d')
+                                   # we have exploited 8-fold permutaitonal symmetry here
                                    dTwoEx[i,j,k,l] = val
                                    dTwoEx[k,l,i,j] = val
                                    dTwoEx[j,i,l,k] = val
@@ -187,7 +185,8 @@ class SCF(object):
                 # nuclear-nuclear repulsion contribution
                 force += dVNx
                 # save forces (not mass weighted) and reset geometry
-                atom.forces.append(np.real(force))
+                # strictly speaking we computed dE/dX, but F = -dE/dX 
+                atom.forces[direction] = np.real(-force)
 
 
 

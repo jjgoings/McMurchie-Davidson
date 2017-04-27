@@ -3,10 +3,10 @@ from mmd.scf import *
 from mmd.postscf import * 
 import numpy as np
 
-np.set_printoptions(suppress=True,precision=6)
+np.set_printoptions(suppress=True,precision=14)
 
 # read in geometry
-geometry = './geoms/h2.dat'
+geometry = './geoms/h2o.dat'
 
 # init molecule and build integrals
 mol = Molecule(filename=geometry,basis='sto-3g',gauge=[0.0,0.0,0.0])
@@ -18,8 +18,8 @@ scf.RHF()
 
 scf.forces()
 
-print mol.forces
-
+for atom in mol.atoms:
+    print atom.forces
 
 # do MP2
 #mp2 = PostSCF(mol)
