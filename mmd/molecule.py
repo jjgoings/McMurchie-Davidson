@@ -17,6 +17,7 @@ class Atom(object):
         self.mass   = mass
         # contains forces (not mass-weighted)
         self.forces      = np.zeros(3)
+        self.saved_forces  = np.zeros(3)
         self.velocities  = np.zeros(3)
    
 
