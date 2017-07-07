@@ -27,7 +27,17 @@ class BasisFunction(object):
                         np.power(self.exps,l+m+n+1.5)/
                         fact2(2*l-1)/fact2(2*m-1)/
                         fact2(2*n-1)/np.power(np.pi,1.5))
-        return
+        # force normed overlap diagonal
+        s = 0.0
+        for ia, ca in enumerate(self.coefs):
+            for ib, cb in enumerate(self.coefs):
+                s += self.norm[ia]*self.norm[ib]*ca*cb*\
+                     overlap(self.exps[ia],self.shell,self.origin,
+                     self.exps[ib],self.shell,self.origin)
+
+        for ia, ca in enumerate(self.coefs):
+            self.norm[ia] /= np.sqrt(s)
+        
 
 class Molecule(object):
     def __init__(self,filename,basis='sto3g',gauge=None,giao=False):
@@ -147,7 +157,6 @@ class Molecule(object):
         self.nuc_energy = 0.0
         # Get one electron integrals
         print "One-electron integrals"
-
         for i in tqdm(range(N)):
             for j in range(i+1):
                 self.S[i,j] = self.S[j,i] \
