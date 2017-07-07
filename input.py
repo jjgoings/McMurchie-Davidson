@@ -3,11 +3,12 @@ from mmd.scf import *
 from mmd.postscf import * 
 
 # read in geometry
-geometry = './geoms/h2o.dat'
+geometry = './geoms/he.dat'
 
 # init molecule and build integrals
-mol = Molecule(filename=geometry,basis='sto-3g')
+mol = Molecule(filename=geometry,basis='6-31G')
 mol.build()
+print mol.S
 
 # do the SCF
 scf = SCF(mol)

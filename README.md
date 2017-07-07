@@ -34,7 +34,7 @@ scf.RHF()
 You can also dump out the (full) integral arrays:
 
 ```
-print h2o.S
+print mol.S
 ```
 
 which dumps out the overlap matrix:
