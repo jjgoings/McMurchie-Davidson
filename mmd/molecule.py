@@ -21,23 +21,35 @@ class BasisFunction(object):
         self.normalize()
 
     def normalize(self):
+        ''' Routine to normalize the BasisFunction objects.
+            Returns self.norm, which is a list of doubles that
+            normalizes the contracted Gaussian basis functions (CGBFs) 
+            
+            First normalized the primitives, then takes the results and
+            normalizes the contracted functions. Both steps are required,
+            though I could make it one step if need be. 
+        '''
         l,m,n = self.shell
-        # self.norm is a list of length number primitives
+        L = l + m + n
+        # normalize primitives first (PGBFs)
         self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
                         np.power(self.exps,l+m+n+1.5)/
                         fact2(2*l-1)/fact2(2*m-1)/
                         fact2(2*n-1)/np.power(np.pi,1.5))
-        # force normed overlap diagonal
-        s = 0.0
+
+        # now normalize the contracted basis functions (CGBFs)
+        # Eq. 1.44 of Valeev integral whitepaper
+        prefactor = np.power(np.pi,1.5)*\
+            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
+
+        N = 0.0
         for ia, ca in enumerate(self.coefs):
             for ib, cb in enumerate(self.coefs):
-                s += self.norm[ia]*self.norm[ib]*ca*cb*\
-                     overlap(self.exps[ia],self.shell,self.origin,
-                     self.exps[ib],self.shell,self.origin)
+                N += self.norm[ia]*self.norm[ib]*ca*cb/np.power(self.exps[ia] + self.exps[ib],L+1.5)  
 
-        for ia, ca in enumerate(self.coefs):
-            self.norm[ia] /= np.sqrt(s)
-        
+        N *= prefactor
+        N = np.power(N,-0.5)
+        self.norm *= N
 
 class Molecule(object):
     def __init__(self,filename,basis='sto3g',gauge=None,giao=False):
