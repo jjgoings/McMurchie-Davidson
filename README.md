@@ -74,3 +74,5 @@ mp2 = PostSCF(mol)
 mp2.MP2()
 ```
 
+## Examples
+In the `examples` folder you can find some different scripts for different things. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`.
