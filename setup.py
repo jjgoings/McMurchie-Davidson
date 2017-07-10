@@ -9,7 +9,7 @@ os.environ["CPPFLAGS"] = os.getenv("CPPFLAGS", "") + "-I" + numpy.get_include()
 #os.environ["CC"] = "gcc-6" 
 #os.environ["CXX"] = "gcc-6"
 
-my_integrals = Extension('integrals',['integrals.pyx'])
+my_integrals = Extension('mmd.integrals',['mmd/integrals.pyx'])
 #                 extra_compile_args=['-fopenmp'],
 #                 extra_link_args=['-fopenmp'])
 

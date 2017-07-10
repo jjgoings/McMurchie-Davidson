@@ -1,4 +1,4 @@
-# McMurchie-Davidson
+## McMurchie-Davidson
 
 This contains some simple routines to compute one and two electron integrals 
 necessary for Hartree Fock calculations using the McMurchie-Davidson algorithm.
@@ -12,7 +12,23 @@ I'm slowly porting the integrals over to Cython and reoptimizing. I'm also
 thinking about reorganizing so as to make it easy to add functionality in the 
 future.
 
-If you clone (and are still in) the directory, you can try the SCF like so:
+# Installation
+Because the integrals are moving to Cython, you need to 'cythonize' the integrals for your machine. If you don't have Cython, and you use `pip`, you can get Cython by
+
+```
+pip install Cython
+```
+
+If you have `cython` all you need to do is (from the top of the cloned directory):
+
+```
+python setup.py build_ext --inplace
+```
+
+The command will "cythonize" the integral code (convert the `.pyx` extension to C and shared-object files, `.c` and `.so`). Python will execute the `.so` files when called. That's all there is to installation.
+
+# Running
+Assuming you are still in the top directory, you can try the SCF like so:
 
 ```
 from mmd.molecule import *
