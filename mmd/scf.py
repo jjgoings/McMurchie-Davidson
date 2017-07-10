@@ -1,6 +1,7 @@
 from __future__ import division
 import numpy as np
 from scipy.linalg import eigh
+from integrals import *
 
 class SCF(object):
     def __init__(self,mol):
@@ -14,7 +15,7 @@ class SCF(object):
             print "You need to run Molecule.build() to generate integrals"
             self.mol.build()
             
-    def RHF(self):
+    def RHF(self,doPrint=True):
         for step in xrange(self.maxiter):
             if step == 0:
                 self.mol.P      = self.P_old
@@ -50,15 +51,16 @@ class SCF(object):
                     FPS = np.dot(self.mol.F,np.dot(self.mol.P,self.mol.S))
                     SPF = np.dot(self.mol.S,np.dot(self.mol.P,self.mol.F))
                     error = FPS - SPF
-                    print "Error", np.linalg.norm(error)
-                    print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
-                          " in "+str(step)+" iterations"
-                    print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
-                    print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
                     self.computeDipole()
-                    print " Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
-                    print " Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
-                    print " Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
+                    if doPrint:
+                        print "Error", np.linalg.norm(error)
+                        print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
+                              " in "+str(step)+" iterations"
+                        print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
+                        print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
+                        print " Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
+                        print " Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
+                        print " Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
                     break
 
     def buildFock(self):
@@ -85,9 +87,9 @@ class SCF(object):
         self.mol.energy    = self.mol.el_energy + self.mol.nuc_energy
     
     def computeDipole(self):
-        self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([x[0]*(x[1][0]-self.mol.gauge_origin[0]) for x in self.mol.atoms])  
-        self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([x[0]*(x[1][1]-self.mol.gauge_origin[1]) for x in self.mol.atoms])  
-        self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([x[0]*(x[1][2]-self.mol.gauge_origin[2]) for x in self.mol.atoms])  
+        self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([atom.charge*(atom.origin[0]-self.mol.gauge_origin[0]) for atom in self.mol.atoms])  
+        self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([atom.charge*(atom.origin[1]-self.mol.gauge_origin[1]) for atom in self.mol.atoms])  
+        self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([atom.charge*(atom.origin[2]-self.mol.gauge_origin[2]) for atom in self.mol.atoms])  
         # to debye
         self.mol.mu_x *= 2.541765
         self.mol.mu_y *= 2.541765
@@ -98,4 +100,103 @@ class SCF(object):
     
     def comm(self,A,B):
         return np.dot(A,B) - np.dot(B,A)
+
+    def forces(self):
+        # compute nuclear energy gradient using analytic derivatives.
+
+        if not self.mol.is_converged:
+            self.exit('Need to converge SCF before computing gradient')
+
+        # get the 3N forces on the molecule
+        for atom in self.mol.atoms:
+            # reset forces to zero
+            atom.forces = np.zeros(3)
+            for direction in xrange(3):
+                # init derivative arrays
+                dSx = np.zeros_like(self.mol.S)
+                dTx = np.zeros_like(self.mol.T)
+                dVx = np.zeros_like(self.mol.V)
+                dTwoEx = np.zeros_like(self.mol.TwoE)
+                dVNx = 0.0
+                # do one electron nuclear derivatives 
+                for i in (range(self.mol.nbasis)):
+                    for j in range(i+1):
+                        # dSij/dx = < d phi_i/ dx | phi_j > + < phi_i | d phi_j / dx > 
+                        # atom.mask is 1 if the AO involves the nuclei being differentiated, is 0 if not.
+                        dSx[i,j] = dSx[j,i] \
+                             = atom.mask[i]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
+                             + atom.mask[j]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                        # dTij/dx is same form as differentiated overlaps, since Del^2 does not depend on nuclear origin 
+                        dTx[i,j] = dTx[j,i] \
+                             = atom.mask[i]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
+                             + atom.mask[j]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                        # Hellman-feynman term: dVij /dx = < phi_i | d (1/r_c) / dx | phi_j >
+                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.mol.bfs[i],self.mol.bfs[j],atom.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction)
+                        # Terms from deriv of overlap, just like dS/dx and dT/dx
+                        for atomic_center in self.mol.atoms:
+                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A')
+                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.mol.bfs[i],self.mol.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
+                        dVx[j,i] = dVx[i,j]
+
+                # do nuclear repulsion contibution
+                for atomic_center in self.mol.atoms:
+                    # put in A != B conditions
+                    RAB = np.linalg.norm(atom.origin - atomic_center.origin)
+                    XAB = atom.origin[direction] - atomic_center.origin[direction]
+                    ZA  = atom.charge
+                    ZB  = atomic_center.charge
+                    if not np.allclose(RAB,0.0):
+                        dVNx += -XAB*ZA*ZB/(RAB*RAB*RAB)
+                     
+                # now do two electron contributions
+                val = 0.0
+                for i in (range(self.mol.nbasis)):
+                    for j in range(i+1):
+                        ij = (i*(i+1)//2 + j)
+                        for k in range(self.mol.nbasis):
+                            for l in range(k+1):
+                                kl = (k*(k+1)//2 + l)
+                                if ij >= kl:
+                                   # do the four terms for gradient two electron 
+                                   val = atom.mask[i]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='a')
+                                   val += atom.mask[j]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='b')
+                                   val += atom.mask[k]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='c')
+                                   val += atom.mask[l]*ERIx(self.mol.bfs[i],self.mol.bfs[j],self.mol.bfs[k],self.mol.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='d')
+                                   # we have exploited 8-fold permutaitonal symmetry here
+                                   dTwoEx[i,j,k,l] = val
+                                   dTwoEx[k,l,i,j] = val
+                                   dTwoEx[j,i,l,k] = val
+                                   dTwoEx[l,k,j,i] = val
+                                   dTwoEx[j,i,k,l] = val
+                                   dTwoEx[l,k,i,j] = val
+                                   dTwoEx[i,j,l,k] = val
+                                   dTwoEx[k,l,j,i] = val
+
+                # Fock gradient terms
+                Hx = dTx + dVx
+                Jx = np.einsum('pqrs,sr->pq', dTwoEx, self.mol.P)
+                Kx = np.einsum('psqr,sr->pq', dTwoEx, self.mol.P)
+                Gx = 2.*Jx - Kx
+                Fx = Hx + Gx
+                force = np.einsum('pq,qp',self.mol.P,Fx + Hx) 
+                # energy-weighted density matrix for overlap derivative
+                W = np.dot(self.mol.P,np.dot(self.mol.F,self.mol.P)) 
+                force -= 2*np.einsum('pq,qp',dSx,W)
+                # nuclear-nuclear repulsion contribution
+                force += dVNx
+                # save forces (not mass weighted) and reset geometry
+                # strictly speaking we computed dE/dX, but F = -dE/dX 
+                atom.forces[direction] = np.real(-force)
+
+
+
+ 
+
+                
+ 
+
+
+
+
+
     
