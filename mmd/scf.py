@@ -25,8 +25,7 @@ class SCF(object):
                 self.P_old      = self.mol.P
                 energy_old = self.mol.energy
                 self.buildFock()
-    
-            #self.mol.FO     = np.dot(self.mol.X.T,np.dot(self.mol.F,self.mol.X))
+             
             self.orthoFock()
             E,self.mol.CO   = np.linalg.eigh(self.mol.FO)
     
@@ -121,12 +120,21 @@ class SCF(object):
                 # do one electron nuclear derivatives 
                 for i in (range(self.mol.nbasis)):
                     for j in range(i+1):
-                        # dSij/dx = < d phi_i/ dx | phi_j > + < phi_i | d phi_j / dx > 
-                        # atom.mask is 1 if the AO involves the nuclei being differentiated, is 0 if not.
+                        # dSij/dx = 
+                        #   < d phi_i/ dx | phi_j > + < phi_i | d phi_j / dx > 
+                        # atom.mask is 1 if the AO involves the nuclei being 
+                        # differentiated, is 0 if not.
                         dSx[i,j] = dSx[j,i] \
-                             = atom.mask[i]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
-                             + atom.mask[j]*Sx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
-                        # dTij/dx is same form as differentiated overlaps, since Del^2 does not depend on nuclear origin 
+                             = atom.mask[i]*Sx(self.mol.bfs[i],self.mol.bfs[j],
+                                               n=(0,0,0),
+                                               gOrigin=self.mol.gauge_origin,
+                                               x=direction,center='A') \
+                             + atom.mask[j]*Sx(self.mol.bfs[i],self.mol.bfs[j],
+                                               n=(0,0,0),
+                                               gOrigin=self.mol.gauge_origin,
+                                               x=direction,center='B')
+                        # dTij/dx is same form as differentiated overlaps, 
+                        # since Del^2 does not depend on nuclear origin 
                         dTx[i,j] = dTx[j,i] \
                              = atom.mask[i]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='A') \
                              + atom.mask[j]*Tx(self.mol.bfs[i],self.mol.bfs[j],n=(0,0,0),gOrigin=self.mol.gauge_origin,x=direction,center='B')
