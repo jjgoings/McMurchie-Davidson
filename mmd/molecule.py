@@ -63,8 +63,9 @@ class BasisFunction(object):
         self.norm *= N
 
 class Molecule(object):
-    def __init__(self,filename,basis='sto-3g',gauge=None,giao=False):
-        charge, multiplicity, atomlist = self.read_molecule(filename)
+    def __init__(self,geometry,basis='sto-3g',gauge=None,giao=False):
+        # geometry is now specified in imput file
+        charge, multiplicity, atomlist = self.read_molecule(geometry)
         self.charge = charge
         self.multiplicity = multiplicity
         self.atoms = atomlist
@@ -73,14 +74,8 @@ class Molecule(object):
         self.is_built = False
         self.giao = giao
         self.gauge = gauge
-        # OLD
-        #try:
-        #    import data
-        #except ImportError:
-        #    print "No basis set data"
-        #    sys.exit(0)
-        #self.basis_data = data.basis[basis]
-        # NEW
+        
+        # Read in basis set data
         import os
         cur_dir = os.path.dirname(__file__)
         basis_path = 'basis/'+str(basis).lower()+'.gbs'
@@ -199,34 +194,37 @@ class Molecule(object):
 
 
         
-    def read_molecule(self,filename):
-        masses = [0.0,1.008,4.003,6.941,9.012,10.812,12.011,14.007,5.999,18.998,\
-                  20.180,22.990,24.305,26.982,28.086,30.974,32.066,35.453,39.948]
-        with open(filename) as f:
-            atomlist = []
-            for line_number,line in enumerate(f):
-                if line_number == 0:
-                    assert len(line.split()) == 1
-                    natoms = int(line.split()[0])
-                elif line_number == 1:
-                    assert len(line.split()) == 2
-                    charge = int(line.split()[0])
-                    multiplicity = int(line.split()[1])
-                else: 
-                    if len(line.split()) == 0: break
-                    assert len(line.split()) == 4
-                    sym = self.sym2num(str(line.split()[0]))
-                    mass = masses[sym]
-                    x   = float(line.split()[1])*1.889725989
-                    y   = float(line.split()[2])*1.889725989
-                    z   = float(line.split()[3])*1.889725989
-                    #atomlist.append((sym,(x,y,z)))
-                    #atomlist.append((sym,np.asarray([x,y,z])))
-                    atom = Atom(charge=sym,mass=mass,
-                                origin=np.asarray([x,y,z]))
-                    atomlist.append(atom)
+    def read_molecule(self,geometry):
+        # atomic masses (isotop avg)
+        masses = [0.0,1.008,4.003,6.941,9.012,10.812,12.011,14.007,5.999,
+                  18.998,20.180,22.990,24.305,26.982,28.086,30.974,32.066,
+                  35.453,39.948]
+        f = geometry.split('\n')
+        # remove any empty lines
+        f = filter(None,f) 
+        # First line is charge and multiplicity
+        natoms = int(len(f) - 1)
+        atomlist = []
+        for line_number,line in enumerate(f):
+            if line_number == 0:
+                assert len(line.split()) == 2
+                charge = int(line.split()[0])
+                multiplicity = int(line.split()[1])
+            else: 
+                if len(line.split()) == 0: break
+                assert len(line.split()) == 4
+                sym = self.sym2num(str(line.split()[0]))
+                mass = masses[sym]
+                # Convert Angstrom to Bohr (au)
+                x   = float(line.split()[1])*1.889725989
+                y   = float(line.split()[2])*1.889725989
+                z   = float(line.split()[3])*1.889725989
+                atom = Atom(charge=sym,mass=mass,
+                            origin=np.asarray([x,y,z]))
+                atomlist.append(atom)
     
         return charge, multiplicity, atomlist
+
     def one_electron_integrals(self):
         N = self.nbasis
         # core integrals

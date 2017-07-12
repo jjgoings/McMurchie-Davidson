@@ -13,33 +13,63 @@ thinking about reorganizing so as to make it easy to add functionality in the
 future.
 
 ## Installation
-Because the integrals are moving to Cython, you need to 'cythonize' the integrals for your machine. If you don't have Cython, and you use `pip`, you can get Cython by
+Installation should be simple, just
 
 ```
-pip install Cython
+python setup.py install
 ```
 
-If you have `cython` all you need to do is (from the top of the cloned directory):
+### Dependencies
+You'll need `numpy`, `scipy`, and `cython` (for the integrals). The install script should yell at you if you don't have the requisite dependencies. You can install them all at once if you have `pip`:
 
 ```
-python setup.py build_ext --inplace
+pip install numpy scipy cython
 ```
 
-The command will "cythonize" the integral code (convert the `.pyx` extension to C and shared-object files, `.c` and `.so`). Python will execute the `.so` files when called. That's all there is to installation.
+### Testing
+You can test the install with `nosetests`. In the head directory, just do
+
+```
+nosetests tests
+```
+
+it should take a few seconds, but everything should pass.
 
 ## Running
-Assuming you are still in the top directory, you can try the SCF like so:
+Once you've installed, you can try running the input script `sample-input.py`:
+
+```
+python sample-input.py
+```
+
+which should do an SCF on water with an STO-3G basis and dump out to your terminal:
+
+```
+E(SCF)    =  -74.942079928065 in 37 iterations
+ RMS(P)  =  7.76e-13
+ dE(SCF) =  1.42e-13
+ Dipole X =  -0.00000000+0.00000000j
+ Dipole Y =  1.53400931+0.00000000j
+ Dipole Z =  -0.00000000+0.00000000j
+```
+
+## Input file specification
+
+The input is fairly straightforward. Here is a minimal example using water.
 
 ```
 from mmd.molecule import *
 from mmd.scf import *
-from mmd.postscf import *
 
-# read in geometry
-geometry = './geoms/h2o.dat'
+water = """
+0 1
+O    0.000000      -0.075791844    0.000000
+H    0.866811829    0.601435779    0.000000
+H   -0.866811829    0.601435779    0.000000
+"""
 
 # init molecule and build integrals
-mol = Molecule(filename=geometry,basis='sto-3g')
+mol = Molecule(geometry=water,basis='sto-3g')
 mol.build()
 
 # do the SCF
@@ -47,7 +77,20 @@ scf = SCF(mol)
 scf.RHF()
 ```
 
-You can also dump out the (full) integral arrays:
+The first lines import the `molecule` and `scf` modules, which we need to specify our molecule and the SCF routines. The molecular geometry follows afterward and is specified by the stuff in triple quotes. The first line is charge and multiplicity, followed by each atom and its Cartesian coordinates (in Angstrom).
+
+```
+water = """
+0 1
+O    0.000000      -0.075791844    0.000000
+H    0.866811829    0.601435779    0.000000
+H   -0.866811829    0.601435779    0.000000
+"""
+```
+
+Then we generate create the molecule (`Molecule` object) and build the integrals, and finish by running the SCF.
+
+At any point you can inspect the molecule. For example, you can dump out the (full) integral arrays:
 
 ```
 print mol.S
@@ -75,4 +118,4 @@ mp2.MP2()
 ```
 
 ## Examples
-In the `examples` folder you can find some different scripts for different things. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`.
+In the `examples` folder you can find some different scripts for different things. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. Feel free to try them out.

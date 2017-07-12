@@ -5,20 +5,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-# read in geometry
-geometry = './geoms/h2.dat'
+# Simple example of Born-Oppenheimer Molecular Dynamics
+# using minimal basis H2. Shows how you can chain together
+# routines to create more complex programs. This runs about
+# a a half of a femtosecond of molecular dynamics and plots
+# energy as a function of time
+
+# Molecular geometry input
+h2 = """
+0 1
+H 0.0 0.0 0.74
+H 0.0 0.0 0.00
+"""
 
 # init molecule and build integrals
-mol = Molecule(filename=geometry,basis='sto-3g')
+mol = Molecule(geometry=h2,basis='sto-3g')
 mol.build()
+
 # do the SCF, compute initial forces on the atoms
 scf = SCF(mol)
 scf.RHF()
 scf.forces()
 
 # BOMD parameters
-dt = 0.1
-steps = 200
+dt = 0.1     # time step
+steps = 200  # number steps
 
 # saved lists for plotting data
 X = []
@@ -51,6 +62,7 @@ for step in tqdm(xrange(steps)):
     Z.append(abs(mol.atoms[0].origin[2] - mol.atoms[1].origin[2]))
     E.append(mol.energy)
 
+# At completion, plot the energy as a function of time
 plt.plot(np.arange(steps)*dt,np.asarray(E))
 plt.show()
 

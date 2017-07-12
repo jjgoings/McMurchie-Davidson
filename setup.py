@@ -1,22 +1,27 @@
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup
+from setuptools.extension import Extension
 from Cython.Build import cythonize
-#from Cython.Distutils import build_ext
 import numpy
-import os
-
-os.environ["CPPFLAGS"] = os.getenv("CPPFLAGS", "") + "-I" + numpy.get_include() 
-#os.environ["CC"] = "gcc-6" 
-#os.environ["CXX"] = "gcc-6"
 
 my_integrals = Extension('mmd.integrals',['mmd/integrals.pyx'])
 #                 extra_compile_args=['-fopenmp'],
 #                 extra_link_args=['-fopenmp'])
 
 setup(
-   #ext_modules=cythonize("hermite.pyx"),
+    name='mmd',
+    version='0.1dev0',
+    packages=['mmd'],
+    package_data = {'mmd' : ['mmd/basis']},
+    license='BSD-3',
+    install_requires=[
+          'cython',
+          'numpy',
+          'scipy',
+    ],
+    long_description=open('README.md').read(),
     ext_modules=cythonize([my_integrals]),
     include_dirs=[numpy.get_include()],
+    include_package_data = True,
 )
 
 
