@@ -9,6 +9,7 @@ addons:
       - liblapack-dev
       - gfortran
 install:
+  - pip install Cython
   - pip install -U pip pip-tools
   - pip-compile
   - pip install -r requirements.txt
