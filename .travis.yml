@@ -15,5 +15,7 @@ language: python
     - pip install -U pip pip-tools
     - pip-compile
     - pip install -r requirements.txt
+    - python setup.py build_ext --inplace
+script: "nosetests"
 notifications:
   email: false
