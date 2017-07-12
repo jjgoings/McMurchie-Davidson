@@ -7,11 +7,11 @@ virtualenv:
 before_install:
  - sudo apt-get install build-essential gfortran libatlas-base-dev
  - sudo apt-get install -qq python-numpy 
+ - conda install -c anaconda scipy=0.19.1
 install:
-  - pip install scipy==0.19.0
   - pip install Cython --install-option="--no-cython-compile"
-  - python setup.py install 
+  #- python setup.py install 
 # command to run tests
-script: nosetests 
+script: "python setup.py install && nosetests -w tests/" 
 notifications:
   email: false
