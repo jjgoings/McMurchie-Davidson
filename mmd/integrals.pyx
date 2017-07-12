@@ -296,7 +296,7 @@ cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0) nogil:
+cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):
     # only handling first derivatives
     if q == 1:
         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)
@@ -306,7 +306,7 @@ cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0) nogil:
+cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):
     p = a + b
     u = a*b/p
     if n == 0:
@@ -326,7 +326,7 @@ cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double A
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC) nogil:
+cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):
     cdef double T = p*RPC*RPC
     cdef double val = 0.0
     if t == u == v == 0:
@@ -350,7 +350,7 @@ cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double P
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin) nogil:
+cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin):
     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
@@ -634,7 +634,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
     return val 
 
 @cython.cdivision(True)
-cdef double boys(double m,double T) nogil:
+cdef double boys(double m,double T):
     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0) 
 
 def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
