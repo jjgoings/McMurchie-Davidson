@@ -5,8 +5,9 @@ virtualenv:
   system_site_packages: true
 # command to install dependencies
 before_install:
- - sudo apt-get install -qq python-numpy python-scipy
+ - sudo apt-get install -qq python-numpy 
 install:
+  - pip install scipy>=0.19.0
   - pip install Cython --install-option="--no-cython-compile"
   - python setup.py install 
 # command to run tests
