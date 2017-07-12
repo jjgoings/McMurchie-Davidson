@@ -2,6 +2,9 @@ from setuptools import setup
 from setuptools.extension import Extension
 from Cython.Build import cythonize
 import numpy
+import os
+
+os.environ["CPPFLAGS"] = os.getenv("CPPFLAGS", "") + "-I" + numpy.get_include() 
 
 my_integrals = Extension('mmd.integrals',['mmd/integrals.pyx'])
 #                 extra_compile_args=['-fopenmp'],
