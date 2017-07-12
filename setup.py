@@ -12,7 +12,7 @@ my_integrals = Extension('mmd.integrals',['mmd/integrals.pyx'])
 
 setup(
     name='mmd',
-    version='0.1dev0',
+    version='0.0.1',
     packages=['mmd'],
     package_data = {'mmd' : ['mmd/basis']},
     license='BSD-3',
