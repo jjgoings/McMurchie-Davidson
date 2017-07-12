@@ -5,6 +5,7 @@ virtualenv:
   system_site_packages: true
 # command to install dependencies
 before_install:
+ - sudo apt-get install build-essential gfortran libatlas-base-dev
  - sudo apt-get install -qq python-numpy 
 install:
   - pip install scipy==0.19.0
@@ -12,3 +13,5 @@ install:
   - python setup.py install 
 # command to run tests
 script: nosetests 
+notifications:
+  email: false
