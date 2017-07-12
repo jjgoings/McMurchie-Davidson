@@ -2,11 +2,9 @@
 
 This contains some simple routines to compute one and two electron integrals 
 necessary for Hartree Fock calculations using the McMurchie-Davidson algorithm.
-Some of the code (esp. basis function classes and basis set definitions)
- is borrowed heavily from PyQuante2, but the integral evaluation routines over 
-primitives, as well as the SCF code, are my own. The Hartree-Fock code can only 
-handle closed shell molecules at the moment. It's not fast (though getting 
-faster with Cython interface), but should be somewhat readable. 
+The Hartree-Fock code can only  handle closed shell molecules at the moment. 
+It's not fast (though getting faster with Cython interface), but should be 
+somewhat readable. 
 
 I'm slowly porting the integrals over to Cython and reoptimizing. I'm also 
 thinking about reorganizing so as to make it easy to add functionality in the 
