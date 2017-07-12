@@ -46,8 +46,8 @@ which should do an SCF on water with an STO-3G basis and dump out to your termin
 
 ```
 E(SCF)    =  -74.942079928065 in 37 iterations
- RMS(P)  =  7.76e-13
- dE(SCF) =  1.42e-13
+ RMS(P)   =  7.76e-13
+ dE(SCF)  =  1.42e-13
  Dipole X =  -0.00000000+0.00000000j
  Dipole Y =  1.53400931+0.00000000j
  Dipole Z =  -0.00000000+0.00000000j
