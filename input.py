@@ -4,7 +4,7 @@ from mmd.postscf import *
 import numpy as np
 
 # read in geometry
-geometry = './geoms/h2o.dat'
+geometry = './geoms/test/h2o.dat'
 
 # init molecule and build integrals
 mol = Molecule(filename=geometry,basis='sto-3g')

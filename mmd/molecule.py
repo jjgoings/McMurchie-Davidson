@@ -63,7 +63,7 @@ class BasisFunction(object):
         self.norm *= N
 
 class Molecule(object):
-    def __init__(self,filename,basis='sto3g',gauge=None,giao=False):
+    def __init__(self,filename,basis='sto-3g',gauge=None,giao=False):
         charge, multiplicity, atomlist = self.read_molecule(filename)
         self.charge = charge
         self.multiplicity = multiplicity
@@ -73,12 +73,19 @@ class Molecule(object):
         self.is_built = False
         self.giao = giao
         self.gauge = gauge
-        try:
-            import data
-        except ImportError:
-            print "No basis set data"
-            sys.exit(0)
-        self.basis_data = data.basis[basis]
+        # OLD
+        #try:
+        #    import data
+        #except ImportError:
+        #    print "No basis set data"
+        #    sys.exit(0)
+        #self.basis_data = data.basis[basis]
+        # NEW
+        import os
+        cur_dir = os.path.dirname(__file__)
+        basis_path = 'basis/'+str(basis).lower()+'.gbs'
+        basis_file = os.path.join(cur_dir, basis_path)
+        self.basis_data = self.getBasis(basis_file)
         self.formBasis()
 
     def formBasis(self):
@@ -148,6 +155,49 @@ class Molecule(object):
             "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg",
             "Tl","Pb","Bi","Po","At","Rn"]
         return symbol.index(str(sym))
+
+    def getBasis(self,filename):
+        basis = {}
+    
+        with open(filename, 'r') as basisset:
+            data = basisset.read().split('****')
+    
+        for i in range(1,len(data)):
+            atomData = [x.split() for x in data[i].split('\n')[1:-1]]
+            for idx,line in enumerate(atomData):
+                if not line:
+                   pass
+                elif idx == 0:
+                    atom = self.sym2num(line[0])
+                    basis[atom] = []
+                    newPrim = True
+                elif idx > 0 and newPrim:
+                    momentum  = line[0]
+    
+                    numPrims  = int(line[1])
+                    newPrim   = False
+                    count     = 0
+                    prims     = []
+                    prims2    = []
+                else:
+                   if momentum == 'SP':
+                       prims.append((float(line[0]),float(line[1])))
+                       prims2.append((float(line[0]),float(line[2])))
+                       count += 1
+                       if count >= numPrims:
+                           basis[atom].append(('S',prims))
+                           basis[atom].append(('P',prims2))
+                           newPrim = True
+                   else:
+                       prims.append((float(line[0]),float(line[1])))
+                       count += 1
+                       if count >= numPrims:
+                           basis[atom].append((momentum,prims))
+                           newPrim = True
+    
+        return basis
+
+
         
     def read_molecule(self,filename):
         masses = [0.0,1.008,4.003,6.941,9.012,10.812,12.011,14.007,5.999,18.998,\
@@ -172,7 +222,8 @@ class Molecule(object):
                     z   = float(line.split()[3])*1.889725989
                     #atomlist.append((sym,(x,y,z)))
                     #atomlist.append((sym,np.asarray([x,y,z])))
-                    atom = Atom(charge=sym,mass=mass,origin=np.asarray([x,y,z]))
+                    atom = Atom(charge=sym,mass=mass,
+                                origin=np.asarray([x,y,z]))
                     atomlist.append(atom)
     
         return charge, multiplicity, atomlist
@@ -311,3 +362,5 @@ class Molecule(object):
         print "GIAO two-electron integrals"
         self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
         self.dgdb = np.asarray(self.dgdb)
+
+

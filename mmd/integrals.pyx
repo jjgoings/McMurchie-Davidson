@@ -1,5 +1,5 @@
 from __future__ import division
-import data 
+#import data 
 import cython
 from cython.parallel import prange, parallel
 import numpy as np

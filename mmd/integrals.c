@@ -2212,7 +2212,6 @@ static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_val[] = "val";
 static const char __pyx_k_TwoE[] = "TwoE";
 static const char __pyx_k_base[] = "base";
-static const char __pyx_k_data[] = "data";
 static const char __pyx_k_dgdb[] = "dgdb";
 static const char __pyx_k_exps[] = "exps";
 static const char __pyx_k_lmn1[] = "lmn1";
@@ -2299,7 +2298,7 @@ static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cyt
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
-static const char __pyx_k_Users_jjgoings_Dropbox_Code_mcm[] = "/Users/jjgoings/Dropbox/Code/mcmurchie-davidson/mmd/integrals.pyx";
+static const char __pyx_k_Users_jjgoings_Dropbox_Code_McM[] = "/Users/jjgoings/Dropbox/Code/McMurchie-Davidson/mmd/integrals.pyx";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -2373,7 +2372,7 @@ static PyObject *__pyx_n_s_Ty;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_Tz;
 static PyObject *__pyx_kp_s_Unable_to_convert_item_to_object;
-static PyObject *__pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm;
+static PyObject *__pyx_kp_s_Users_jjgoings_Dropbox_Code_McM;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_XPC;
 static PyObject *__pyx_n_s_YPC;
@@ -2395,7 +2394,6 @@ static PyObject *__pyx_n_s_coefs;
 static PyObject *__pyx_kp_s_contiguous_and_direct;
 static PyObject *__pyx_kp_s_contiguous_and_indirect;
 static PyObject *__pyx_n_s_d;
-static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_dgdb;
 static PyObject *__pyx_n_s_dipole;
 static PyObject *__pyx_n_s_direction;
@@ -48262,7 +48260,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_Tz, __pyx_k_Tz, sizeof(__pyx_k_Tz), 0, 0, 1, 1},
   {&__pyx_kp_s_Unable_to_convert_item_to_object, __pyx_k_Unable_to_convert_item_to_object, sizeof(__pyx_k_Unable_to_convert_item_to_object), 0, 0, 1, 0},
-  {&__pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_k_Users_jjgoings_Dropbox_Code_mcm, sizeof(__pyx_k_Users_jjgoings_Dropbox_Code_mcm), 0, 0, 1, 0},
+  {&__pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_k_Users_jjgoings_Dropbox_Code_McM, sizeof(__pyx_k_Users_jjgoings_Dropbox_Code_McM), 0, 0, 1, 0},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_XPC, __pyx_k_XPC, sizeof(__pyx_k_XPC), 0, 0, 1, 1},
   {&__pyx_n_s_YPC, __pyx_k_YPC, sizeof(__pyx_k_YPC), 0, 0, 1, 1},
@@ -48284,7 +48282,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
   {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
   {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
-  {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_dgdb, __pyx_k_dgdb, sizeof(__pyx_k_dgdb), 0, 0, 1, 1},
   {&__pyx_n_s_dipole, __pyx_k_dipole, sizeof(__pyx_k_dipole), 0, 0, 1, 1},
   {&__pyx_n_s_direction, __pyx_k_direction, sizeof(__pyx_k_direction), 0, 0, 1, 1},
@@ -48992,7 +48989,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__88 = PyTuple_Pack(10, __pyx_n_s_a, __pyx_n_s_b, __pyx_n_s_C, __pyx_n_s_direction, __pyx_n_s_london, __pyx_n_s_l, __pyx_n_s_ia, __pyx_n_s_ca, __pyx_n_s_ib, __pyx_n_s_cb); if (unlikely(!__pyx_tuple__88)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__88);
   __Pyx_GIVEREF(__pyx_tuple__88);
-  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(5, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_RxDel, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(5, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_RxDel, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 58, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":70
  * @cython.boundscheck(False)
@@ -49105,7 +49102,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__105 = PyTuple_Pack(17, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_S1, __pyx_n_s_S2, __pyx_n_s_S3); if (unlikely(!__pyx_tuple__105)) __PYX_ERR(0, 640, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__105);
   __Pyx_GIVEREF(__pyx_tuple__105);
-  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(8, 0, 17, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__105, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_overlap, 640, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(0, 640, __pyx_L1_error)
+  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(8, 0, 17, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__105, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_overlap, 640, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(0, 640, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":648
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
@@ -49120,7 +49117,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__108 = PyTuple_Pack(19, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_x, __pyx_n_s_center, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_S1, __pyx_n_s_S2, __pyx_n_s_S3); if (unlikely(!__pyx_tuple__108)) __PYX_ERR(0, 648, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__108);
   __Pyx_GIVEREF(__pyx_tuple__108);
-  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(10, 0, 19, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_overlapX, 648, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(10, 0, 19, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_overlapX, 648, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 648, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":697
  * 
@@ -49135,7 +49132,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__111 = PyTuple_Pack(20, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_direction, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_P, __pyx_n_s_D, __pyx_n_s_S2, __pyx_n_s_S3, __pyx_n_s_S1); if (unlikely(!__pyx_tuple__111)) __PYX_ERR(0, 697, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__111);
   __Pyx_GIVEREF(__pyx_tuple__111);
-  __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(9, 0, 20, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__111, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_dipole, 697, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(0, 697, __pyx_L1_error)
+  __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(9, 0, 20, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__111, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_dipole, 697, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(0, 697, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":725
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
@@ -49150,7 +49147,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__114 = PyTuple_Pack(26, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_Ax, __pyx_n_s_Ay, __pyx_n_s_Az, __pyx_n_s_Bx, __pyx_n_s_By, __pyx_n_s_Bz, __pyx_n_s_Cx, __pyx_n_s_Cy, __pyx_n_s_Cz, __pyx_n_s_Tx, __pyx_n_s_Ty, __pyx_n_s_Tz); if (unlikely(!__pyx_tuple__114)) __PYX_ERR(0, 725, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__114);
   __Pyx_GIVEREF(__pyx_tuple__114);
-  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(8, 0, 26, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_kinetic, 725, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 725, __pyx_L1_error)
+  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(8, 0, 26, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_kinetic, 725, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 725, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":754
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
@@ -49165,7 +49162,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__117 = PyTuple_Pack(28, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_x, __pyx_n_s_center, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_Ax, __pyx_n_s_Ay, __pyx_n_s_Az, __pyx_n_s_Bx, __pyx_n_s_By, __pyx_n_s_Bz, __pyx_n_s_Cx, __pyx_n_s_Cy, __pyx_n_s_Cz, __pyx_n_s_Tx, __pyx_n_s_Ty, __pyx_n_s_Tz); if (unlikely(!__pyx_tuple__117)) __PYX_ERR(0, 754, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__117);
   __Pyx_GIVEREF(__pyx_tuple__117);
-  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(10, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_kineticX, 754, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(0, 754, __pyx_L1_error)
+  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(10, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_kineticX, 754, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(0, 754, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":865
  * 
@@ -49177,7 +49174,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__119 = PyTuple_Pack(28, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_C, __pyx_n_s_direction, __pyx_n_s_london, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_P, __pyx_n_s_XPC, __pyx_n_s_YPC, __pyx_n_s_ZPC, __pyx_n_s_S0x, __pyx_n_s_S0y, __pyx_n_s_S0z, __pyx_n_s_S1x, __pyx_n_s_S1y, __pyx_n_s_S1z, __pyx_n_s_D1x, __pyx_n_s_D1y, __pyx_n_s_D1z); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__119);
   __Pyx_GIVEREF(__pyx_tuple__119);
-  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(9, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_angular, 865, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(9, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_angular, 865, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 865, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":910
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)
@@ -49192,7 +49189,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__122 = PyTuple_Pack(22, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_C, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_p, __pyx_n_s_P, __pyx_n_s_RPC, __pyx_n_s_val, __pyx_n_s_t, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 910, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__122);
   __Pyx_GIVEREF(__pyx_tuple__122);
-  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_nuclear_attraction, 910, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 910, __pyx_L1_error)
+  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attraction, 910, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 910, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":932
  *     return val
@@ -49207,7 +49204,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__125 = PyTuple_Pack(23, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_C, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_x, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_p, __pyx_n_s_P, __pyx_n_s_RPC, __pyx_n_s_val, __pyx_n_s_t, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__125)) __PYX_ERR(0, 932, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__125);
   __Pyx_GIVEREF(__pyx_tuple__125);
-  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(10, 0, 23, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_nuclear_attractionXa, 932, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(0, 932, __pyx_L1_error)
+  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(10, 0, 23, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attractionXa, 932, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(0, 932, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":976
  *     return val
@@ -49222,7 +49219,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__128 = PyTuple_Pack(24, __pyx_n_s_a, __pyx_n_s_lmn1, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_lmn2, __pyx_n_s_B, __pyx_n_s_C, __pyx_n_s_n, __pyx_n_s_gOrigin, __pyx_n_s_x, __pyx_n_s_center, __pyx_n_s_l1, __pyx_n_s_m1, __pyx_n_s_n1, __pyx_n_s_l2, __pyx_n_s_m2, __pyx_n_s_n2, __pyx_n_s_p, __pyx_n_s_val, __pyx_n_s_P, __pyx_n_s_RPC, __pyx_n_s_t, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(0, 976, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__128);
   __Pyx_GIVEREF(__pyx_tuple__128);
-  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(11, 0, 24, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_nuclear_attractionXb, 976, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 976, __pyx_L1_error)
+  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(11, 0, 24, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attractionXb, 976, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 976, __pyx_L1_error)
 
   /* "mmd/integrals.pyx":1053
  * 
@@ -49234,7 +49231,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__130 = PyTuple_Pack(4, __pyx_n_s_a, __pyx_n_s_A, __pyx_n_s_b, __pyx_n_s_B); if (unlikely(!__pyx_tuple__130)) __PYX_ERR(0, 1053, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__130);
   __Pyx_GIVEREF(__pyx_tuple__130);
-  __pyx_codeobj__131 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__130, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_mcm, __pyx_n_s_gaussian_product_center, 1053, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__131)) __PYX_ERR(0, 1053, __pyx_L1_error)
+  __pyx_codeobj__131 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__130, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_gaussian_product_center, 1053, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__131)) __PYX_ERR(0, 1053, __pyx_L1_error)
 
   /* "View.MemoryView":282
  *         return self.name
@@ -49467,17 +49464,6 @@ PyMODINIT_FUNC PyInit_integrals(void)
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-
-  /* "mmd/integrals.pyx":2
- * from __future__ import division
- * import data             # <<<<<<<<<<<<<<
- * import cython
- * from cython.parallel import prange, parallel
- */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_data, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_data, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "mmd/integrals.pyx":5
  * import cython
@@ -50112,7 +50098,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
 
   /* "mmd/integrals.pyx":1
  * from __future__ import division             # <<<<<<<<<<<<<<
- * import data
+ * #import data
  * import cython
  */
   __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
