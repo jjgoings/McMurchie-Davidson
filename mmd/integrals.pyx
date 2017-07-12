@@ -5,7 +5,7 @@ from cython.parallel import prange, parallel
 import numpy as np
 cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
-from scipy.special.cython_special cimport gammainc, hyp1f1 
+from scipy.special.cython_special cimport hyp1f1 
 from scipy.misc import factorial2 as fact2
 from tqdm import tqdm
 
