@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jjgoings/McMurchie-Davidson.svg?branch=master)](https://travis-ci.org/jjgoings/McMurchie-Davidson)
 # McMurchie-Davidson
 
 This contains some simple routines to compute one and two electron integrals 
