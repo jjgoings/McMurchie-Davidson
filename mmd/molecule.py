@@ -202,15 +202,15 @@ class Molecule(object):
                    if momentum == 'SP':
                        # Many basis sets share exponents for S and P basis 
                        # functions so unfortunately we have to account for this.
-                       prims.append((float(line[0]),float(line[1])))
-                       prims2.append((float(line[0]),float(line[2])))
+                       prims.append((float(line[0].replace('D', 'E')),float(line[1].replace('D', 'E'))))
+                       prims2.append((float(line[0].replace('D', 'E')),float(line[2].replace('D', 'E'))))
                        count += 1
                        if count == numPrims:
                            basis[atom].append(('S',prims))
                            basis[atom].append(('P',prims2))
                            newPrim = True
                    else:
-                       prims.append((float(line[0]),float(line[1])))
+                       prims.append((float(line[0].replace('D', 'E')),float(line[1].replace('D', 'E'))))
                        count += 1
                        if count == numPrims:
                            basis[atom].append((momentum,prims))
