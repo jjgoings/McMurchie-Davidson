@@ -436,8 +436,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__mmd__integrals
-#define __PYX_HAVE_API__mmd__integrals
+#define __PYX_HAVE__integrals
+#define __PYX_HAVE_API__integrals
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -663,7 +663,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "mmd/integrals.pyx",
+  "cython/integrals.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1018,41 +1018,41 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
-struct __pyx_opt_args_3mmd_9integrals_S;
-struct __pyx_opt_args_3mmd_9integrals_Sx;
-struct __pyx_opt_args_3mmd_9integrals_Mu;
-struct __pyx_opt_args_3mmd_9integrals_T;
-struct __pyx_opt_args_3mmd_9integrals_Tx;
-struct __pyx_opt_args_3mmd_9integrals_V;
-struct __pyx_opt_args_3mmd_9integrals_VxA;
-struct __pyx_opt_args_3mmd_9integrals_VxB;
-struct __pyx_opt_args_3mmd_9integrals_ERI;
-struct __pyx_opt_args_3mmd_9integrals_ERIx;
-struct __pyx_opt_args_3mmd_9integrals_Ex;
-struct __pyx_opt_args_3mmd_9integrals_E;
-struct __pyx_opt_args_3mmd_9integrals_electron_repulsionX;
+struct __pyx_opt_args_9integrals_S;
+struct __pyx_opt_args_9integrals_Sx;
+struct __pyx_opt_args_9integrals_Mu;
+struct __pyx_opt_args_9integrals_T;
+struct __pyx_opt_args_9integrals_Tx;
+struct __pyx_opt_args_9integrals_V;
+struct __pyx_opt_args_9integrals_VxA;
+struct __pyx_opt_args_9integrals_VxB;
+struct __pyx_opt_args_9integrals_ERI;
+struct __pyx_opt_args_9integrals_ERIx;
+struct __pyx_opt_args_9integrals_Ex;
+struct __pyx_opt_args_9integrals_E;
+struct __pyx_opt_args_9integrals_electron_repulsionX;
 
-/* "mmd/integrals.pyx":16
+/* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
  *     # Generalized overlap integrals for derivatives of GIAOs
  *     # for basis function a centered at (Ax, Ay, Az)
  */
-struct __pyx_opt_args_3mmd_9integrals_S {
+struct __pyx_opt_args_9integrals_S {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
 };
 
-/* "mmd/integrals.pyx":32
+/* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
  *     # Generalized overlap derivative integrals
  *     # for basis function a centered at (Ax, Ay, Az)
  */
-struct __pyx_opt_args_3mmd_9integrals_Sx {
+struct __pyx_opt_args_9integrals_Sx {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
@@ -1060,40 +1060,40 @@ struct __pyx_opt_args_3mmd_9integrals_Sx {
   PyObject *center;
 };
 
-/* "mmd/integrals.pyx":48
+/* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
  *     cdef double mu = 0.0
  *     for ia, ca in enumerate(a.coefs):
  */
-struct __pyx_opt_args_3mmd_9integrals_Mu {
+struct __pyx_opt_args_9integrals_Mu {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
 };
 
-/* "mmd/integrals.pyx":69
+/* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
  *     # Generalized kinetic integrals for derivatives of GIAOs
  *     # for basis function a centered at (Ax, Ay, Az)
  */
-struct __pyx_opt_args_3mmd_9integrals_T {
+struct __pyx_opt_args_9integrals_T {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
 };
 
-/* "mmd/integrals.pyx":85
+/* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
  *     # Generalized kinetic integrals for derivatives of GIAOs
  *     # for basis function a centered at (Ax, Ay, Az)
  */
-struct __pyx_opt_args_3mmd_9integrals_Tx {
+struct __pyx_opt_args_9integrals_Tx {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
@@ -1101,41 +1101,41 @@ struct __pyx_opt_args_3mmd_9integrals_Tx {
   PyObject *center;
 };
 
-/* "mmd/integrals.pyx":102
+/* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
  *     # Generalized nuclear attraction integrals for derivatives of GIAOs
  *     # nucleus is centered at 'C'
  */
-struct __pyx_opt_args_3mmd_9integrals_V {
+struct __pyx_opt_args_9integrals_V {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
 };
 
-/* "mmd/integrals.pyx":117
+/* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
  *     # handles operator derivative contribution, e.g. Hellman Feynman forces
  *     # Generalized nuclear attraction integrals for derivatives of GIAOs
  */
-struct __pyx_opt_args_3mmd_9integrals_VxA {
+struct __pyx_opt_args_9integrals_VxA {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
   int x;
 };
 
-/* "mmd/integrals.pyx":133
+/* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
  *     # handles overlap derivative contribution to nuclear attraction derivatives
  *     # Generalized nuclear attraction integrals for derivatives of GIAOs
  */
-struct __pyx_opt_args_3mmd_9integrals_VxB {
+struct __pyx_opt_args_9integrals_VxB {
   int __pyx_n;
   PyObject *n;
   __Pyx_memviewslice gOrigin;
@@ -1143,28 +1143,28 @@ struct __pyx_opt_args_3mmd_9integrals_VxB {
   PyObject *center;
 };
 
-/* "mmd/integrals.pyx":229
+/* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
  *     cdef double eri = 0.0
  *     cdef int ja, jb, jc, jd
  */
-struct __pyx_opt_args_3mmd_9integrals_ERI {
+struct __pyx_opt_args_9integrals_ERI {
   int __pyx_n;
   PyObject *n1;
   PyObject *n2;
   PyObject *gOrigin;
 };
 
-/* "mmd/integrals.pyx":268
+/* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
  *     cdef double eri = 0.0
  *     cdef int ja, jb, jc, jd
  */
-struct __pyx_opt_args_3mmd_9integrals_ERIx {
+struct __pyx_opt_args_9integrals_ERIx {
   int __pyx_n;
   PyObject *n1;
   PyObject *n2;
@@ -1173,14 +1173,14 @@ struct __pyx_opt_args_3mmd_9integrals_ERIx {
   PyObject *center;
 };
 
-/* "mmd/integrals.pyx":298
+/* "integrals.pyx":298
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):             # <<<<<<<<<<<<<<
  *     # only handling first derivatives
  *     if q == 1:
  */
-struct __pyx_opt_args_3mmd_9integrals_Ex {
+struct __pyx_opt_args_9integrals_Ex {
   int __pyx_n;
   int n;
   double Ax;
@@ -1188,27 +1188,27 @@ struct __pyx_opt_args_3mmd_9integrals_Ex {
   int r;
 };
 
-/* "mmd/integrals.pyx":308
+/* "integrals.pyx":308
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):             # <<<<<<<<<<<<<<
  *     p = a + b
  *     u = a*b/p
  */
-struct __pyx_opt_args_3mmd_9integrals_E {
+struct __pyx_opt_args_9integrals_E {
   int __pyx_n;
   int n;
   double Ax;
 };
 
-/* "mmd/integrals.pyx":398
+/* "integrals.pyx":398
  * @cython.wraparound(False)
  * @cython.nonecheck(False)
  * cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  */
-struct __pyx_opt_args_3mmd_9integrals_electron_repulsionX {
+struct __pyx_opt_args_9integrals_electron_repulsionX {
   int __pyx_n;
   int x;
   PyObject *center;
@@ -2063,12 +2063,12 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 static __pyx_t_double_complex (*__pyx_fuse_0__pyx_f_5scipy_7special_14cython_special_hyp1f1)(double, double, __pyx_t_double_complex, int __pyx_skip_dispatch); /*proto*/
 static double (*__pyx_fuse_1__pyx_f_5scipy_7special_14cython_special_hyp1f1)(double, double, double, int __pyx_skip_dispatch); /*proto*/
 
-/* Module declarations from 'mmd.integrals' */
+/* Module declarations from 'integrals' */
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
 static PyTypeObject *__pyx_memoryviewslice_type = 0;
-static double __pyx_v_3mmd_9integrals_pi;
+static double __pyx_v_9integrals_pi;
 static PyObject *generic = 0;
 static PyObject *strided = 0;
 static PyObject *indirect = 0;
@@ -2076,24 +2076,24 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static double __pyx_f_3mmd_9integrals_S(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_S *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_Sx(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Sx *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_Mu(PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Mu *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_T(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_T *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_Tx(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Tx *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_V(PyObject *, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_V *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_VxA(PyObject *, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_VxA *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_VxB(PyObject *, PyObject *, PyArrayObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_VxB *__pyx_optional_args); /*proto*/
-static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long, __Pyx_memviewslice, PyObject *, int __pyx_skip_dispatch); /*proto*/
-static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static double __pyx_f_3mmd_9integrals_ERI(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_ERI *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_ERIx(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_ERIx *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_Ex(int, int, int, double, double, double, struct __pyx_opt_args_3mmd_9integrals_Ex *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_E(int, int, int, double, double, double, struct __pyx_opt_args_3mmd_9integrals_E *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_R(int, int, int, int, double, double, double, double, double); /*proto*/
-static double __pyx_f_3mmd_9integrals_electron_repulsion(double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
-static double __pyx_f_3mmd_9integrals_electron_repulsionX(double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, struct __pyx_opt_args_3mmd_9integrals_electron_repulsionX *__pyx_optional_args); /*proto*/
-static double __pyx_f_3mmd_9integrals_boys(double, double); /*proto*/
+static double __pyx_f_9integrals_S(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_S *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_Sx(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Sx *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_Mu(PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Mu *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_T(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_T *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_Tx(PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Tx *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_V(PyObject *, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_V *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_VxA(PyObject *, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_VxA *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_VxB(PyObject *, PyObject *, PyArrayObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_VxB *__pyx_optional_args); /*proto*/
+static __Pyx_memviewslice __pyx_f_9integrals_doERIs(long, __Pyx_memviewslice, PyObject *, int __pyx_skip_dispatch); /*proto*/
+static __Pyx_memviewslice __pyx_f_9integrals_do2eGIAO(long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, PyObject *, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static double __pyx_f_9integrals_ERI(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_ERI *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_ERIx(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_ERIx *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_Ex(int, int, int, double, double, double, struct __pyx_opt_args_9integrals_Ex *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_E(int, int, int, double, double, double, struct __pyx_opt_args_9integrals_E *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_R(int, int, int, int, double, double, double, double, double); /*proto*/
+static double __pyx_f_9integrals_electron_repulsion(double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
+static double __pyx_f_9integrals_electron_repulsionX(double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, double, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, struct __pyx_opt_args_9integrals_electron_repulsionX *__pyx_optional_args); /*proto*/
+static double __pyx_f_9integrals_boys(double, double); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo *); /*proto*/
@@ -2128,10 +2128,10 @@ static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_long = { "long", NULL, sizeof(long), { 0 }, 0, IS_UNSIGNED(long) ? 'U' : 'I', IS_UNSIGNED(long), 0 };
-#define __Pyx_MODULE_NAME "mmd.integrals"
-int __pyx_module_is_main_mmd__integrals = 0;
+#define __Pyx_MODULE_NAME "integrals"
+int __pyx_module_is_main_integrals = 0;
 
-/* Implementation of 'mmd.integrals' */
+/* Implementation of 'integrals' */
 static PyObject *__pyx_builtin_enumerate;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_xrange;
@@ -2267,6 +2267,7 @@ static const char __pyx_k_overlapX[] = "overlapX";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_direction[] = "direction";
 static const char __pyx_k_enumerate[] = "enumerate";
+static const char __pyx_k_integrals[] = "integrals";
 static const char __pyx_k_IndexError[] = "IndexError";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_factorial2[] = "factorial2";
@@ -2276,7 +2277,6 @@ static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_gauge_origin[] = "gauge_origin";
-static const char __pyx_k_mmd_integrals[] = "mmd.integrals";
 static const char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
 static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
@@ -2296,7 +2296,7 @@ static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cyt
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
-static const char __pyx_k_Users_jjgoings_Dropbox_Code_McM[] = "/Users/jjgoings/Dropbox/Code/McMurchie-Davidson/mmd/integrals.pyx";
+static const char __pyx_k_Users_jjgoings_Dropbox_Code_McM[] = "/Users/jjgoings/Dropbox/Code/McMurchie-Davidson/cython/integrals.pyx";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -2416,6 +2416,7 @@ static PyObject *__pyx_n_s_ib;
 static PyObject *__pyx_n_s_id;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_int;
+static PyObject *__pyx_n_s_integrals;
 static PyObject *__pyx_n_s_itemsize;
 static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
 static PyObject *__pyx_n_s_kinetic;
@@ -2432,7 +2433,6 @@ static PyObject *__pyx_n_s_m1;
 static PyObject *__pyx_n_s_m2;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
-static PyObject *__pyx_n_s_mmd_integrals;
 static PyObject *__pyx_n_s_mode;
 static PyObject *__pyx_n_s_n;
 static PyObject *__pyx_n_s_n1;
@@ -2485,29 +2485,29 @@ static PyObject *__pyx_n_s_xrange;
 static PyObject *__pyx_n_s_y;
 static PyObject *__pyx_n_s_z;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
-static PyObject *__pyx_pf_3mmd_9integrals_44gaussian_product_center(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_B); /* proto */
+static PyObject *__pyx_pf_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london); /* proto */
+static PyObject *__pyx_pf_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs); /* proto */
+static PyObject *__pyx_pf_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin); /* proto */
+static PyObject *__pyx_pf_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_26overlap(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_28overlapX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_32kinetic(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_34kineticX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_36angular(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london); /* proto */
+static PyObject *__pyx_pf_9integrals_38nuclear_attraction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin); /* proto */
+static PyObject *__pyx_pf_9integrals_40nuclear_attractionXa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x); /* proto */
+static PyObject *__pyx_pf_9integrals_42nuclear_attractionXb(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center); /* proto */
+static PyObject *__pyx_pf_9integrals_44gaussian_product_center(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_B); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -2692,7 +2692,7 @@ static PyObject *__pyx_codeobj__126;
 static PyObject *__pyx_codeobj__129;
 static PyObject *__pyx_codeobj__131;
 
-/* "mmd/integrals.pyx":16
+/* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -2700,8 +2700,8 @@ static PyObject *__pyx_codeobj__131;
  *     # for basis function a centered at (Ax, Ay, Az)
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_S *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_S *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple_);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__2;
   double __pyx_v_s;
@@ -2744,7 +2744,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     }
   }
 
-  /* "mmd/integrals.pyx":21
+  /* "integrals.pyx":21
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0             # <<<<<<<<<<<<<<
@@ -2753,7 +2753,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
  */
   __pyx_v_s = 0.0;
 
-  /* "mmd/integrals.pyx":22
+  /* "integrals.pyx":22
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":23
+    /* "integrals.pyx":23
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -2875,7 +2875,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":24
+      /* "integrals.pyx":24
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -2905,7 +2905,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":25
+      /* "integrals.pyx":25
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      overlap(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -2924,7 +2924,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 25, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":26
+      /* "integrals.pyx":26
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      overlap(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin)             # <<<<<<<<<<<<<<
@@ -3020,7 +3020,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":24
+      /* "integrals.pyx":24
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -3039,7 +3039,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_s = __pyx_t_23;
 
-      /* "mmd/integrals.pyx":23
+      /* "integrals.pyx":23
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -3050,7 +3050,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":22
+    /* "integrals.pyx":22
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -3061,7 +3061,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":27
+  /* "integrals.pyx":27
  *                      overlap(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin)
  *     return s             # <<<<<<<<<<<<<<
@@ -3071,7 +3071,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __pyx_r = __pyx_v_s;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":16
+  /* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -3098,7 +3098,7 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_XDECREF(__pyx_t_19);
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_22);
-  __Pyx_WriteUnraisable("mmd.integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -3110,8 +3110,8 @@ static double __pyx_f_3mmd_9integrals_S(PyObject *__pyx_v_a, PyObject *__pyx_v_b
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_1S(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_n = 0;
@@ -3182,12 +3182,12 @@ static PyObject *__pyx_pw_3mmd_9integrals_1S(PyObject *__pyx_self, PyObject *__p
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("S", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 16, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 16, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_S(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_S(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3198,11 +3198,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_1S(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_S __pyx_t_2;
+  struct __pyx_opt_args_9integrals_S __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("S", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -3210,7 +3210,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, 
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.n = __pyx_v_n;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_S(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_S(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -3220,7 +3220,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.S", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -3229,7 +3229,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":32
+/* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -3237,8 +3237,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_S(CYTHON_UNUSED PyObject *__pyx_self, 
  *     # for basis function a centered at (Ax, Ay, Az)
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Sx *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Sx *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__4);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__5;
   int __pyx_v_x = ((int)0);
@@ -3290,7 +3290,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     }
   }
 
-  /* "mmd/integrals.pyx":37
+  /* "integrals.pyx":37
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0             # <<<<<<<<<<<<<<
@@ -3299,7 +3299,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
  */
   __pyx_v_s = 0.0;
 
-  /* "mmd/integrals.pyx":38
+  /* "integrals.pyx":38
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -3360,7 +3360,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":39
+    /* "integrals.pyx":39
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -3421,7 +3421,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":40
+      /* "integrals.pyx":40
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -3451,7 +3451,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":41
+      /* "integrals.pyx":41
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      overlapX(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -3470,7 +3470,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":42
+      /* "integrals.pyx":42
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      overlapX(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin,x,center)             # <<<<<<<<<<<<<<
@@ -3576,7 +3576,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":40
+      /* "integrals.pyx":40
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             s += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -3595,7 +3595,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_s = __pyx_t_24;
 
-      /* "mmd/integrals.pyx":39
+      /* "integrals.pyx":39
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":38
+    /* "integrals.pyx":38
  *     # normal overlap is just n = (0,0,0) case
  *     cdef double s = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -3617,7 +3617,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":43
+  /* "integrals.pyx":43
  *                      overlapX(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin,x,center)
  *     return s             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __pyx_r = __pyx_v_s;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":32
+  /* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -3655,7 +3655,7 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_21);
   __Pyx_XDECREF(__pyx_t_23);
-  __Pyx_WriteUnraisable("mmd.integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -3667,8 +3667,8 @@ static double __pyx_f_3mmd_9integrals_Sx(PyObject *__pyx_v_a, PyObject *__pyx_v_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_3Sx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_n = 0;
@@ -3762,13 +3762,13 @@ static PyObject *__pyx_pw_3mmd_9integrals_3Sx(PyObject *__pyx_self, PyObject *__
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("Sx", 0, 2, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 32, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 32, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_center), (&PyString_Type), 1, "center", 1))) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_2Sx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_2Sx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3779,11 +3779,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_3Sx(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_Sx __pyx_t_2;
+  struct __pyx_opt_args_9integrals_Sx __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("Sx", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -3793,7 +3793,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
   __pyx_t_2.x = __pyx_v_x;
   __pyx_t_2.center = __pyx_v_center;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_Sx(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_Sx(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -3803,7 +3803,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Sx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -3812,7 +3812,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":48
+/* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -3820,8 +3820,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_2Sx(CYTHON_UNUSED PyObject *__pyx_self
  *     for ia, ca in enumerate(a.coefs):
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Mu *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Mu *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__7);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__8;
   double __pyx_v_mu;
@@ -3864,7 +3864,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
     }
   }
 
-  /* "mmd/integrals.pyx":49
+  /* "integrals.pyx":49
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):
  *     cdef double mu = 0.0             # <<<<<<<<<<<<<<
@@ -3873,7 +3873,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
  */
   __pyx_v_mu = 0.0;
 
-  /* "mmd/integrals.pyx":50
+  /* "integrals.pyx":50
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):
  *     cdef double mu = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -3934,7 +3934,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":51
+    /* "integrals.pyx":51
  *     cdef double mu = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -3995,7 +3995,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":52
+      /* "integrals.pyx":52
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             mu += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -4025,7 +4025,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":53
+      /* "integrals.pyx":53
  *         for ib, cb in enumerate(b.coefs):
  *             mu += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      dipole(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -4044,7 +4044,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":54
+      /* "integrals.pyx":54
  *             mu += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      dipole(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,direction,n,gOrigin)             # <<<<<<<<<<<<<<
@@ -4143,7 +4143,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":52
+      /* "integrals.pyx":52
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             mu += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -4162,7 +4162,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_mu = __pyx_t_23;
 
-      /* "mmd/integrals.pyx":51
+      /* "integrals.pyx":51
  *     cdef double mu = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -4173,7 +4173,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":50
+    /* "integrals.pyx":50
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):
  *     cdef double mu = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -4184,7 +4184,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":55
+  /* "integrals.pyx":55
  *                      dipole(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,direction,n,gOrigin)
  *     return mu             # <<<<<<<<<<<<<<
@@ -4194,7 +4194,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __pyx_r = __pyx_v_mu;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":48
+  /* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -4221,7 +4221,7 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_XDECREF(__pyx_t_19);
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_22);
-  __Pyx_WriteUnraisable("mmd.integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -4233,8 +4233,8 @@ static double __pyx_f_3mmd_9integrals_Mu(PyObject *__pyx_v_a, PyObject *__pyx_v_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_5Mu(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_direction = 0;
@@ -4314,13 +4314,13 @@ static PyObject *__pyx_pw_3mmd_9integrals_5Mu(PyObject *__pyx_self, PyObject *__
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("Mu", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 48, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_direction), (&PyString_Type), 1, "direction", 1))) __PYX_ERR(0, 48, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 48, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_4Mu(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_direction, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_4Mu(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_direction, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4331,11 +4331,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_5Mu(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_Mu __pyx_t_2;
+  struct __pyx_opt_args_9integrals_Mu __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("Mu", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -4343,7 +4343,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.n = __pyx_v_n;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_Mu(__pyx_v_a, __pyx_v_b, __pyx_v_direction, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_Mu(__pyx_v_a, __pyx_v_b, __pyx_v_direction, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -4353,7 +4353,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Mu", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -4362,7 +4362,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":57
+/* "integrals.pyx":57
  *     return mu
  * 
  * def RxDel(a, b, C, direction, london=False):             # <<<<<<<<<<<<<<
@@ -4371,9 +4371,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_4Mu(CYTHON_UNUSED PyObject *__pyx_self
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_7RxDel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_7RxDel = {"RxDel", (PyCFunction)__pyx_pw_3mmd_9integrals_7RxDel, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_7RxDel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_7RxDel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_7RxDel = {"RxDel", (PyCFunction)__pyx_pw_9integrals_7RxDel, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_7RxDel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_C = 0;
@@ -4448,18 +4448,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_7RxDel(PyObject *__pyx_self, PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("RxDel", 0, 4, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 57, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.RxDel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.RxDel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_6RxDel(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_direction, __pyx_v_london);
+  __pyx_r = __pyx_pf_9integrals_6RxDel(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_direction, __pyx_v_london);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london) {
+static PyObject *__pyx_pf_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london) {
   PyObject *__pyx_v_l = NULL;
   PyObject *__pyx_v_ia = NULL;
   PyObject *__pyx_v_ca = NULL;
@@ -4489,7 +4489,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   PyObject *__pyx_t_20 = NULL;
   __Pyx_RefNannySetupContext("RxDel", 0);
 
-  /* "mmd/integrals.pyx":58
+  /* "integrals.pyx":58
  * 
  * def RxDel(a, b, C, direction, london=False):
  *     l = 0.0             # <<<<<<<<<<<<<<
@@ -4499,7 +4499,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_INCREF(__pyx_float_0_0);
   __pyx_v_l = __pyx_float_0_0;
 
-  /* "mmd/integrals.pyx":59
+  /* "integrals.pyx":59
  * def RxDel(a, b, C, direction, london=False):
  *     l = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -4560,7 +4560,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":60
+    /* "integrals.pyx":60
  *     l = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -4621,7 +4621,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":61
+      /* "integrals.pyx":61
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             l += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":62
+      /* "integrals.pyx":62
  *         for ib, cb in enumerate(b.coefs):
  *             l += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      angular(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -4668,7 +4668,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 62, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
 
-      /* "mmd/integrals.pyx":63
+      /* "integrals.pyx":63
  *             l += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      angular(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,direction,london)             # <<<<<<<<<<<<<<
@@ -4763,7 +4763,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
       }
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "mmd/integrals.pyx":61
+      /* "integrals.pyx":61
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             l += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -4780,7 +4780,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
       __Pyx_DECREF_SET(__pyx_v_l, __pyx_t_11);
       __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":60
+      /* "integrals.pyx":60
  *     l = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -4791,7 +4791,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":59
+    /* "integrals.pyx":59
  * def RxDel(a, b, C, direction, london=False):
  *     l = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -4802,7 +4802,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":64
+  /* "integrals.pyx":64
  *                      angular(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,direction,london)
  *     return l             # <<<<<<<<<<<<<<
@@ -4814,7 +4814,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_r = __pyx_v_l;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":57
+  /* "integrals.pyx":57
  *     return mu
  * 
  * def RxDel(a, b, C, direction, london=False):             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_XDECREF(__pyx_t_17);
   __Pyx_XDECREF(__pyx_t_18);
   __Pyx_XDECREF(__pyx_t_20);
-  __Pyx_AddTraceback("mmd.integrals.RxDel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.RxDel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l);
@@ -4852,7 +4852,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":69
+/* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -4860,8 +4860,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_6RxDel(CYTHON_UNUSED PyObject *__pyx_s
  *     # for basis function a centered at (Ax, Ay, Az)
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_T *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_T *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__10);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__11;
   double __pyx_v_t;
@@ -4904,7 +4904,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     }
   }
 
-  /* "mmd/integrals.pyx":74
+  /* "integrals.pyx":74
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * del^2
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0             # <<<<<<<<<<<<<<
@@ -4913,7 +4913,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
  */
   __pyx_v_t = 0.0;
 
-  /* "mmd/integrals.pyx":75
+  /* "integrals.pyx":75
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -4974,7 +4974,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":76
+    /* "integrals.pyx":76
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -5035,7 +5035,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":77
+      /* "integrals.pyx":77
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -5065,7 +5065,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":78
+      /* "integrals.pyx":78
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      kinetic(a.exps[ia],a.shell,a.origin,\             # <<<<<<<<<<<<<<
@@ -5084,7 +5084,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 78, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":79
+      /* "integrals.pyx":79
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      kinetic(a.exps[ia],a.shell,a.origin,\
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin)             # <<<<<<<<<<<<<<
@@ -5180,7 +5180,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":77
+      /* "integrals.pyx":77
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -5199,7 +5199,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_t = __pyx_t_23;
 
-      /* "mmd/integrals.pyx":76
+      /* "integrals.pyx":76
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -5210,7 +5210,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":75
+    /* "integrals.pyx":75
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -5221,7 +5221,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":80
+  /* "integrals.pyx":80
  *                      kinetic(a.exps[ia],a.shell,a.origin,\
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin)
  *     return t             # <<<<<<<<<<<<<<
@@ -5231,7 +5231,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __pyx_r = __pyx_v_t;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":69
+  /* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -5258,7 +5258,7 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_XDECREF(__pyx_t_19);
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_22);
-  __Pyx_WriteUnraisable("mmd.integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -5270,8 +5270,8 @@ static double __pyx_f_3mmd_9integrals_T(PyObject *__pyx_v_a, PyObject *__pyx_v_b
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_9T(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_n = 0;
@@ -5342,12 +5342,12 @@ static PyObject *__pyx_pw_3mmd_9integrals_9T(PyObject *__pyx_self, PyObject *__p
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("T", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 69, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 69, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_8T(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_8T(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5358,11 +5358,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_9T(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_T __pyx_t_2;
+  struct __pyx_opt_args_9integrals_T __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("T", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -5370,7 +5370,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self,
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.n = __pyx_v_n;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_T(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_T(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -5380,7 +5380,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self,
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.T", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -5389,7 +5389,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":85
+/* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -5397,8 +5397,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_8T(CYTHON_UNUSED PyObject *__pyx_self,
  *     # for basis function a centered at (Ax, Ay, Az)
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_Tx *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_Tx *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__13);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__14;
   int __pyx_v_x = ((int)0);
@@ -5450,7 +5450,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     }
   }
 
-  /* "mmd/integrals.pyx":90
+  /* "integrals.pyx":90
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * del^2
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0             # <<<<<<<<<<<<<<
@@ -5459,7 +5459,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
  */
   __pyx_v_t = 0.0;
 
-  /* "mmd/integrals.pyx":91
+  /* "integrals.pyx":91
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -5520,7 +5520,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":92
+    /* "integrals.pyx":92
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -5581,7 +5581,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":93
+      /* "integrals.pyx":93
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -5611,7 +5611,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":94
+      /* "integrals.pyx":94
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      kineticX(a.exps[ia],a.shell,a.origin,\             # <<<<<<<<<<<<<<
@@ -5630,7 +5630,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 94, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":95
+      /* "integrals.pyx":95
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      kineticX(a.exps[ia],a.shell,a.origin,\
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin,x, center)             # <<<<<<<<<<<<<<
@@ -5736,7 +5736,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":93
+      /* "integrals.pyx":93
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             t += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -5755,7 +5755,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_t = __pyx_t_24;
 
-      /* "mmd/integrals.pyx":92
+      /* "integrals.pyx":92
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -5766,7 +5766,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":91
+    /* "integrals.pyx":91
  *     # normal kinetic is just n = (0,0,0) case
  *     cdef double t = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -5777,7 +5777,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":96
+  /* "integrals.pyx":96
  *                      kineticX(a.exps[ia],a.shell,a.origin,\
  *                      b.exps[ib],b.shell,b.origin,n,gOrigin,x, center)
  *     return t             # <<<<<<<<<<<<<<
@@ -5787,7 +5787,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __pyx_r = __pyx_v_t;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":85
+  /* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -5815,7 +5815,7 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_21);
   __Pyx_XDECREF(__pyx_t_23);
-  __Pyx_WriteUnraisable("mmd.integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -5827,8 +5827,8 @@ static double __pyx_f_3mmd_9integrals_Tx(PyObject *__pyx_v_a, PyObject *__pyx_v_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_11Tx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_n = 0;
@@ -5922,13 +5922,13 @@ static PyObject *__pyx_pw_3mmd_9integrals_11Tx(PyObject *__pyx_self, PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("Tx", 0, 2, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 85, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 85, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_center), (&PyString_Type), 1, "center", 1))) __PYX_ERR(0, 85, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_10Tx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_10Tx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5939,11 +5939,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_11Tx(PyObject *__pyx_self, PyObject *_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_Tx __pyx_t_2;
+  struct __pyx_opt_args_9integrals_Tx __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("Tx", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -5953,7 +5953,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
   __pyx_t_2.x = __pyx_v_x;
   __pyx_t_2.center = __pyx_v_center;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_Tx(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_Tx(__pyx_v_a, __pyx_v_b, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -5963,7 +5963,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_sel
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.Tx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -5972,7 +5972,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":102
+/* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -5980,8 +5980,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_10Tx(CYTHON_UNUSED PyObject *__pyx_sel
  *     # nucleus is centered at 'C'
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_V *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_V *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__16);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__17;
   double __pyx_v_v;
@@ -6025,7 +6025,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     }
   }
 
-  /* "mmd/integrals.pyx":106
+  /* "integrals.pyx":106
  *     # nucleus is centered at 'C'
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0             # <<<<<<<<<<<<<<
@@ -6034,7 +6034,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
  */
   __pyx_v_v = 0.0;
 
-  /* "mmd/integrals.pyx":107
+  /* "integrals.pyx":107
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":108
+    /* "integrals.pyx":108
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -6156,7 +6156,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":109
+      /* "integrals.pyx":109
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -6186,7 +6186,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":110
+      /* "integrals.pyx":110
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attraction(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -6205,7 +6205,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 110, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":111
+      /* "integrals.pyx":111
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attraction(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin)             # <<<<<<<<<<<<<<
@@ -6308,7 +6308,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":109
+      /* "integrals.pyx":109
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -6327,7 +6327,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_v = __pyx_t_24;
 
-      /* "mmd/integrals.pyx":108
+      /* "integrals.pyx":108
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -6338,7 +6338,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":107
+    /* "integrals.pyx":107
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -6349,7 +6349,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":112
+  /* "integrals.pyx":112
  *                      nuclear_attraction(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin)
  *     return v             # <<<<<<<<<<<<<<
@@ -6359,7 +6359,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":102
+  /* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -6387,7 +6387,7 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_21);
   __Pyx_XDECREF(__pyx_t_23);
-  __Pyx_WriteUnraisable("mmd.integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -6399,8 +6399,8 @@ static double __pyx_f_3mmd_9integrals_V(PyObject *__pyx_v_a, PyObject *__pyx_v_b
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_13V(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   __Pyx_memviewslice __pyx_v_C = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6480,12 +6480,12 @@ static PyObject *__pyx_pw_3mmd_9integrals_13V(PyObject *__pyx_self, PyObject *__
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("V", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 102, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 102, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_12V(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_12V(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6496,11 +6496,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_13V(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_V __pyx_t_2;
+  struct __pyx_opt_args_9integrals_V __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("V", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -6509,7 +6509,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.n = __pyx_v_n;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_V(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_V(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -6519,7 +6519,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.V", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_C, 1);
@@ -6529,7 +6529,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":117
+/* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
@@ -6537,8 +6537,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_12V(CYTHON_UNUSED PyObject *__pyx_self
  *     # Generalized nuclear attraction integrals for derivatives of GIAOs
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_VxA *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_VxA *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__19);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__20;
   int __pyx_v_x = ((int)0);
@@ -6587,7 +6587,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
     }
   }
 
-  /* "mmd/integrals.pyx":122
+  /* "integrals.pyx":122
  *     # nucleus is centered at 'C'
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0             # <<<<<<<<<<<<<<
@@ -6596,7 +6596,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
   __pyx_v_v = 0.0;
 
-  /* "mmd/integrals.pyx":123
+  /* "integrals.pyx":123
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -6657,7 +6657,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":124
+    /* "integrals.pyx":124
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -6718,7 +6718,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":125
+      /* "integrals.pyx":125
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -6748,7 +6748,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":126
+      /* "integrals.pyx":126
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attractionXa(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -6767,7 +6767,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 126, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":127
+      /* "integrals.pyx":127
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attractionXa(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin,x)             # <<<<<<<<<<<<<<
@@ -6877,7 +6877,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":125
+      /* "integrals.pyx":125
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -6896,7 +6896,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_v = __pyx_t_25;
 
-      /* "mmd/integrals.pyx":124
+      /* "integrals.pyx":124
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -6907,7 +6907,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":123
+    /* "integrals.pyx":123
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -6918,7 +6918,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":128
+  /* "integrals.pyx":128
  *                      nuclear_attractionXa(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin,x)
  *     return v             # <<<<<<<<<<<<<<
@@ -6928,7 +6928,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":117
+  /* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
@@ -6957,7 +6957,7 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_XDECREF(__pyx_t_21);
   __Pyx_XDECREF(__pyx_t_22);
   __Pyx_XDECREF(__pyx_t_24);
-  __Pyx_WriteUnraisable("mmd.integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -6969,8 +6969,8 @@ static double __pyx_f_3mmd_9integrals_VxA(PyObject *__pyx_v_a, PyObject *__pyx_v
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_15VxA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   __Pyx_memviewslice __pyx_v_C = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -7063,12 +7063,12 @@ static PyObject *__pyx_pw_3mmd_9integrals_15VxA(PyObject *__pyx_self, PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("VxA", 0, 3, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 117, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 117, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_14VxA(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x);
+  __pyx_r = __pyx_pf_9integrals_14VxA(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x);
 
   /* function exit code */
   goto __pyx_L0;
@@ -7079,11 +7079,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_15VxA(PyObject *__pyx_self, PyObject *
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x) {
+static PyObject *__pyx_pf_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, __Pyx_memviewslice __pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_VxA __pyx_t_2;
+  struct __pyx_opt_args_9integrals_VxA __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("VxA", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -7093,7 +7093,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_2.n = __pyx_v_n;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
   __pyx_t_2.x = __pyx_v_x;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_VxA(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_VxA(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -7103,7 +7103,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_se
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.VxA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_C, 1);
@@ -7113,7 +7113,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_se
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":133
+/* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -7121,8 +7121,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_14VxA(CYTHON_UNUSED PyObject *__pyx_se
  *     # Generalized nuclear attraction integrals for derivatives of GIAOs
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_VxB *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_VxB *__pyx_optional_args) {
   PyObject *__pyx_v_n = ((PyObject*)__pyx_tuple__22);
   __Pyx_memviewslice __pyx_v_gOrigin = __pyx_k__23;
   int __pyx_v_x = ((int)0);
@@ -7174,7 +7174,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
     }
   }
 
-  /* "mmd/integrals.pyx":138
+  /* "integrals.pyx":138
  *     # nucleus is centered at 'C'
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0             # <<<<<<<<<<<<<<
@@ -7183,7 +7183,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
   __pyx_v_v = 0.0;
 
-  /* "mmd/integrals.pyx":139
+  /* "integrals.pyx":139
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -7244,7 +7244,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":140
+    /* "integrals.pyx":140
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -7305,7 +7305,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
       __pyx_t_2 = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":141
+      /* "integrals.pyx":141
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -7335,7 +7335,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-      /* "mmd/integrals.pyx":142
+      /* "integrals.pyx":142
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attractionXb(a.exps[ia],a.shell,a.origin,             # <<<<<<<<<<<<<<
@@ -7354,7 +7354,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
       __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_origin); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_15);
 
-      /* "mmd/integrals.pyx":143
+      /* "integrals.pyx":143
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\
  *                      nuclear_attractionXb(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin,x,center)             # <<<<<<<<<<<<<<
@@ -7463,7 +7463,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "mmd/integrals.pyx":141
+      /* "integrals.pyx":141
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):
  *             v += a.norm[ia]*b.norm[ib]*ca*cb*\             # <<<<<<<<<<<<<<
@@ -7482,7 +7482,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_v = __pyx_t_24;
 
-      /* "mmd/integrals.pyx":140
+      /* "integrals.pyx":140
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):
  *         for ib, cb in enumerate(b.coefs):             # <<<<<<<<<<<<<<
@@ -7493,7 +7493,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mmd/integrals.pyx":139
+    /* "integrals.pyx":139
  *     # normal nuclear attraction corresponse to n = (0,0,0) case
  *     cdef double v = 0.0
  *     for ia, ca in enumerate(a.coefs):             # <<<<<<<<<<<<<<
@@ -7504,7 +7504,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":144
+  /* "integrals.pyx":144
  *                      nuclear_attractionXb(a.exps[ia],a.shell,a.origin,
  *                      b.exps[ib],b.shell,b.origin,C,n,gOrigin,x,center)
  *     return v             # <<<<<<<<<<<<<<
@@ -7514,7 +7514,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_r = __pyx_v_v;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":133
+  /* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -7542,7 +7542,7 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_XDECREF(__pyx_t_20);
   __Pyx_XDECREF(__pyx_t_21);
   __Pyx_XDECREF(__pyx_t_23);
-  __Pyx_WriteUnraisable("mmd.integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ia);
@@ -7554,8 +7554,8 @@ static double __pyx_f_3mmd_9integrals_VxB(PyObject *__pyx_v_a, PyObject *__pyx_v
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_17VxB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyArrayObject *__pyx_v_C = 0;
@@ -7658,14 +7658,14 @@ static PyObject *__pyx_pw_3mmd_9integrals_17VxB(PyObject *__pyx_self, PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("VxB", 0, 3, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 133, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_C), __pyx_ptype_5numpy_ndarray, 1, "C", 0))) __PYX_ERR(0, 133, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n), (&PyTuple_Type), 1, "n", 1))) __PYX_ERR(0, 133, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_center), (&PyString_Type), 1, "center", 1))) __PYX_ERR(0, 133, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_16VxB(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_16VxB(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   goto __pyx_L0;
@@ -7676,11 +7676,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_17VxB(PyObject *__pyx_self, PyObject *
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyArrayObject *__pyx_v_C, PyObject *__pyx_v_n, __Pyx_memviewslice __pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_VxB __pyx_t_2;
+  struct __pyx_opt_args_9integrals_VxB __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("VxB", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -7690,7 +7690,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
   __pyx_t_2.x = __pyx_v_x;
   __pyx_t_2.center = __pyx_v_center;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_VxB(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_VxB(__pyx_v_a, __pyx_v_b, __pyx_v_C, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -7700,7 +7700,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_se
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.VxB", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_gOrigin, 1);
@@ -7709,7 +7709,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_se
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":150
+/* "integrals.pyx":150
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, object bfs):             # <<<<<<<<<<<<<<
@@ -7717,8 +7717,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_16VxB(CYTHON_UNUSED PyObject *__pyx_se
  *     for i in (range(N)):
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static __Pyx_memviewslice __pyx_f_9integrals_doERIs(long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_i;
   long __pyx_v_j;
   long __pyx_v_k;
@@ -7775,7 +7775,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
   Py_ssize_t __pyx_t_45;
   __Pyx_RefNannySetupContext("doERIs", 0);
 
-  /* "mmd/integrals.pyx":152
+  /* "integrals.pyx":152
  * cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, object bfs):
  *     cdef long i,j,k,l,ij,kl
  *     for i in (range(N)):             # <<<<<<<<<<<<<<
@@ -7786,7 +7786,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "mmd/integrals.pyx":153
+    /* "integrals.pyx":153
  *     cdef long i,j,k,l,ij,kl
  *     for i in (range(N)):
  *         for j in range(i+1):             # <<<<<<<<<<<<<<
@@ -7797,7 +7797,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_j = __pyx_t_4;
 
-      /* "mmd/integrals.pyx":154
+      /* "integrals.pyx":154
  *     for i in (range(N)):
  *         for j in range(i+1):
  *             ij = (i*(i+1)//2 + j)             # <<<<<<<<<<<<<<
@@ -7806,7 +7806,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
  */
       __pyx_v_ij = (((__pyx_v_i * (__pyx_v_i + 1)) / 2) + __pyx_v_j);
 
-      /* "mmd/integrals.pyx":155
+      /* "integrals.pyx":155
  *         for j in range(i+1):
  *             ij = (i*(i+1)//2 + j)
  *             for k in range(N):             # <<<<<<<<<<<<<<
@@ -7817,7 +7817,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_k = __pyx_t_6;
 
-        /* "mmd/integrals.pyx":156
+        /* "integrals.pyx":156
  *             ij = (i*(i+1)//2 + j)
  *             for k in range(N):
  *                 for l in range(k+1):             # <<<<<<<<<<<<<<
@@ -7828,7 +7828,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
         for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_l = __pyx_t_8;
 
-          /* "mmd/integrals.pyx":157
+          /* "integrals.pyx":157
  *             for k in range(N):
  *                 for l in range(k+1):
  *                     kl = (k*(k+1)//2 + l)             # <<<<<<<<<<<<<<
@@ -7837,7 +7837,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
  */
           __pyx_v_kl = (((__pyx_v_k * (__pyx_v_k + 1)) / 2) + __pyx_v_l);
 
-          /* "mmd/integrals.pyx":158
+          /* "integrals.pyx":158
  *                 for l in range(k+1):
  *                     kl = (k*(k+1)//2 + l)
  *                     if ij >= kl:             # <<<<<<<<<<<<<<
@@ -7847,7 +7847,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
           __pyx_t_9 = ((__pyx_v_ij >= __pyx_v_kl) != 0);
           if (__pyx_t_9) {
 
-            /* "mmd/integrals.pyx":159
+            /* "integrals.pyx":159
  *                     kl = (k*(k+1)//2 + l)
  *                     if ij >= kl:
  *                        val = ERI(bfs[i],bfs[j],bfs[k],bfs[l])             # <<<<<<<<<<<<<<
@@ -7862,13 +7862,13 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __Pyx_GOTREF(__pyx_t_12);
             __pyx_t_13 = __Pyx_GetItemInt(__pyx_v_bfs, __pyx_v_l, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 159, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_13);
-            __pyx_v_val = __pyx_f_3mmd_9integrals_ERI(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, 0, NULL);
+            __pyx_v_val = __pyx_f_9integrals_ERI(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, 0, NULL);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-            /* "mmd/integrals.pyx":160
+            /* "integrals.pyx":160
  *                     if ij >= kl:
  *                        val = ERI(bfs[i],bfs[j],bfs[k],bfs[l])
  *                        TwoE[i,j,k,l] = val             # <<<<<<<<<<<<<<
@@ -7881,7 +7881,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_17 = __pyx_v_l;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_14 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_15 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_16 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_17 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":161
+            /* "integrals.pyx":161
  *                        val = ERI(bfs[i],bfs[j],bfs[k],bfs[l])
  *                        TwoE[i,j,k,l] = val
  *                        TwoE[k,l,i,j] = val             # <<<<<<<<<<<<<<
@@ -7894,7 +7894,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_21 = __pyx_v_j;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_18 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_19 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_20 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_21 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":162
+            /* "integrals.pyx":162
  *                        TwoE[i,j,k,l] = val
  *                        TwoE[k,l,i,j] = val
  *                        TwoE[j,i,l,k] = val             # <<<<<<<<<<<<<<
@@ -7907,7 +7907,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_25 = __pyx_v_k;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_22 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_23 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_24 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_25 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":163
+            /* "integrals.pyx":163
  *                        TwoE[k,l,i,j] = val
  *                        TwoE[j,i,l,k] = val
  *                        TwoE[l,k,j,i] = val             # <<<<<<<<<<<<<<
@@ -7920,7 +7920,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_29 = __pyx_v_i;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_26 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_27 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_28 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_29 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":164
+            /* "integrals.pyx":164
  *                        TwoE[j,i,l,k] = val
  *                        TwoE[l,k,j,i] = val
  *                        TwoE[j,i,k,l] = val             # <<<<<<<<<<<<<<
@@ -7933,7 +7933,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_33 = __pyx_v_l;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_30 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_31 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_32 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_33 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":165
+            /* "integrals.pyx":165
  *                        TwoE[l,k,j,i] = val
  *                        TwoE[j,i,k,l] = val
  *                        TwoE[l,k,i,j] = val             # <<<<<<<<<<<<<<
@@ -7946,7 +7946,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_37 = __pyx_v_j;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_34 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_35 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_36 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_37 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":166
+            /* "integrals.pyx":166
  *                        TwoE[j,i,k,l] = val
  *                        TwoE[l,k,i,j] = val
  *                        TwoE[i,j,l,k] = val             # <<<<<<<<<<<<<<
@@ -7959,7 +7959,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_41 = __pyx_v_k;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_38 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_39 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_40 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_41 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":167
+            /* "integrals.pyx":167
  *                        TwoE[l,k,i,j] = val
  *                        TwoE[i,j,l,k] = val
  *                        TwoE[k,l,j,i] = val             # <<<<<<<<<<<<<<
@@ -7972,7 +7972,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
             __pyx_t_45 = __pyx_v_i;
             *((double *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_TwoE.data + __pyx_t_42 * __pyx_v_TwoE.strides[0]) ) + __pyx_t_43 * __pyx_v_TwoE.strides[1]) ) + __pyx_t_44 * __pyx_v_TwoE.strides[2]) ) + __pyx_t_45 * __pyx_v_TwoE.strides[3]) )) = __pyx_v_val;
 
-            /* "mmd/integrals.pyx":158
+            /* "integrals.pyx":158
  *                 for l in range(k+1):
  *                     kl = (k*(k+1)//2 + l)
  *                     if ij >= kl:             # <<<<<<<<<<<<<<
@@ -7985,7 +7985,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
     }
   }
 
-  /* "mmd/integrals.pyx":168
+  /* "integrals.pyx":168
  *                        TwoE[i,j,l,k] = val
  *                        TwoE[k,l,j,i] = val
  *     return TwoE             # <<<<<<<<<<<<<<
@@ -7996,7 +7996,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
   __pyx_r = __pyx_v_TwoE;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":150
+  /* "integrals.pyx":150
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, object bfs):             # <<<<<<<<<<<<<<
@@ -8012,7 +8012,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
   __Pyx_XDECREF(__pyx_t_13);
   __pyx_r.data = NULL;
   __pyx_r.memview = NULL;
-  __Pyx_AddTraceback("mmd.integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
 
   goto __pyx_L2;
   __pyx_L0:;
@@ -8025,8 +8025,8 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_doERIs(long __pyx_v_N, __Pyx_m
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_19doERIs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   long __pyx_v_N;
   __Pyx_memviewslice __pyx_v_TwoE = { 0, 0, { 0 }, { 0 }, { 0 } };
   PyObject *__pyx_v_bfs = 0;
@@ -8080,18 +8080,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_19doERIs(PyObject *__pyx_self, PyObjec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("doERIs", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 150, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_18doERIs(__pyx_self, __pyx_v_N, __pyx_v_TwoE, __pyx_v_bfs);
+  __pyx_r = __pyx_pf_9integrals_18doERIs(__pyx_self, __pyx_v_N, __pyx_v_TwoE, __pyx_v_bfs);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs) {
+static PyObject *__pyx_pf_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_TwoE, PyObject *__pyx_v_bfs) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_memviewslice __pyx_t_1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -8099,7 +8099,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx
   __Pyx_RefNannySetupContext("doERIs", 0);
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_v_TwoE.memview)) { __Pyx_RaiseUnboundLocalError("TwoE"); __PYX_ERR(0, 150, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_doERIs(__pyx_v_N, __pyx_v_TwoE, __pyx_v_bfs, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9integrals_doERIs(__pyx_v_N, __pyx_v_TwoE, __pyx_v_bfs, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 150, __pyx_L1_error)
   __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_1, 4, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
@@ -8113,7 +8113,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("mmd.integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.doERIs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_TwoE, 1);
@@ -8122,7 +8122,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":174
+/* "integrals.pyx":174
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double [:,:,:,:,:] do2eGIAO(long N,double [:,:,:,:,:] GR1, double [:,:,:,:,:] GR2, double [:,:,:,:,:] dgdb, object bfs,double [:] gauge_origin):             # <<<<<<<<<<<<<<
@@ -8130,8 +8130,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_18doERIs(CYTHON_UNUSED PyObject *__pyx
  *     cdef long i,j,k,l,kl,ik
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static __Pyx_memviewslice __pyx_f_9integrals_do2eGIAO(long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_ij;
   long __pyx_v_i;
   long __pyx_v_j;
@@ -8170,7 +8170,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
   double __pyx_t_15;
   PyObject *__pyx_t_16 = NULL;
   PyObject *__pyx_t_17 = NULL;
-  struct __pyx_opt_args_3mmd_9integrals_ERI __pyx_t_18;
+  struct __pyx_opt_args_9integrals_ERI __pyx_t_18;
   Py_ssize_t __pyx_t_19;
   Py_ssize_t __pyx_t_20;
   Py_ssize_t __pyx_t_21;
@@ -8308,7 +8308,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
   Py_ssize_t __pyx_t_153;
   __Pyx_RefNannySetupContext("do2eGIAO", 0);
 
-  /* "mmd/integrals.pyx":175
+  /* "integrals.pyx":175
  * @cython.wraparound(False)
  * cpdef double [:,:,:,:,:] do2eGIAO(long N,double [:,:,:,:,:] GR1, double [:,:,:,:,:] GR2, double [:,:,:,:,:] dgdb, object bfs,double [:] gauge_origin):
  *     cdef long ij = 0             # <<<<<<<<<<<<<<
@@ -8317,7 +8317,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
  */
   __pyx_v_ij = 0;
 
-  /* "mmd/integrals.pyx":179
+  /* "integrals.pyx":179
  *     cdef double XMN,YMN,ZMN,XPQ,YPQ,ZPQ
  *     cdef double GR1x,GR1y,GR1z,GR2x,GR2y,GR2z
  *     for i in (range(N)):             # <<<<<<<<<<<<<<
@@ -8328,7 +8328,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "mmd/integrals.pyx":180
+    /* "integrals.pyx":180
  *     cdef double GR1x,GR1y,GR1z,GR2x,GR2y,GR2z
  *     for i in (range(N)):
  *         for j in range(N):             # <<<<<<<<<<<<<<
@@ -8339,7 +8339,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_j = __pyx_t_4;
 
-      /* "mmd/integrals.pyx":181
+      /* "integrals.pyx":181
  *     for i in (range(N)):
  *         for j in range(N):
  *             ij += 1             # <<<<<<<<<<<<<<
@@ -8348,7 +8348,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
  */
       __pyx_v_ij = (__pyx_v_ij + 1);
 
-      /* "mmd/integrals.pyx":182
+      /* "integrals.pyx":182
  *         for j in range(N):
  *             ij += 1
  *             kl = 0             # <<<<<<<<<<<<<<
@@ -8357,7 +8357,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
  */
       __pyx_v_kl = 0;
 
-      /* "mmd/integrals.pyx":183
+      /* "integrals.pyx":183
  *             ij += 1
  *             kl = 0
  *             for k in range(N):             # <<<<<<<<<<<<<<
@@ -8368,7 +8368,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_k = __pyx_t_6;
 
-        /* "mmd/integrals.pyx":184
+        /* "integrals.pyx":184
  *             kl = 0
  *             for k in range(N):
  *                 ik = i + k             # <<<<<<<<<<<<<<
@@ -8377,7 +8377,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
  */
         __pyx_v_ik = (__pyx_v_i + __pyx_v_k);
 
-        /* "mmd/integrals.pyx":185
+        /* "integrals.pyx":185
  *             for k in range(N):
  *                 ik = i + k
  *                 for l in range(N):             # <<<<<<<<<<<<<<
@@ -8388,7 +8388,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
         for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_l = __pyx_t_8;
 
-          /* "mmd/integrals.pyx":186
+          /* "integrals.pyx":186
  *                 ik = i + k
  *                 for l in range(N):
  *                     kl += 1             # <<<<<<<<<<<<<<
@@ -8397,7 +8397,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
  */
           __pyx_v_kl = (__pyx_v_kl + 1);
 
-          /* "mmd/integrals.pyx":187
+          /* "integrals.pyx":187
  *                 for l in range(N):
  *                     kl += 1
  *                     if (ij >= kl and ik >= j+l and not (i==j and k==l)):             # <<<<<<<<<<<<<<
@@ -8430,7 +8430,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
           __pyx_L12_bool_binop_done:;
           if (__pyx_t_9) {
 
-            /* "mmd/integrals.pyx":189
+            /* "integrals.pyx":189
  *                     if (ij >= kl and ik >= j+l and not (i==j and k==l)):
  *                         #QMN matrix elements
  *                         XMN  = bfs[i].origin[0] - bfs[j].origin[0]             # <<<<<<<<<<<<<<
@@ -8461,7 +8461,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
             __pyx_v_XMN = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":190
+            /* "integrals.pyx":190
  *                         #QMN matrix elements
  *                         XMN  = bfs[i].origin[0] - bfs[j].origin[0]
  *                         YMN  = bfs[i].origin[1] - bfs[j].origin[1]             # <<<<<<<<<<<<<<
@@ -8492,7 +8492,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_YMN = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":191
+            /* "integrals.pyx":191
  *                         XMN  = bfs[i].origin[0] - bfs[j].origin[0]
  *                         YMN  = bfs[i].origin[1] - bfs[j].origin[1]
  *                         ZMN  = bfs[i].origin[2] - bfs[j].origin[2]             # <<<<<<<<<<<<<<
@@ -8523,7 +8523,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
             __pyx_v_ZMN = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":193
+            /* "integrals.pyx":193
  *                         ZMN  = bfs[i].origin[2] - bfs[j].origin[2]
  *                         #QPQ matrix elements
  *                         XPQ  = bfs[k].origin[0] - bfs[l].origin[0]             # <<<<<<<<<<<<<<
@@ -8554,7 +8554,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_XPQ = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":194
+            /* "integrals.pyx":194
  *                         #QPQ matrix elements
  *                         XPQ  = bfs[k].origin[0] - bfs[l].origin[0]
  *                         YPQ  = bfs[k].origin[1] - bfs[l].origin[1]             # <<<<<<<<<<<<<<
@@ -8585,7 +8585,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
             __pyx_v_YPQ = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":195
+            /* "integrals.pyx":195
  *                         XPQ  = bfs[k].origin[0] - bfs[l].origin[0]
  *                         YPQ  = bfs[k].origin[1] - bfs[l].origin[1]
  *                         ZPQ  = bfs[k].origin[2] - bfs[l].origin[2]             # <<<<<<<<<<<<<<
@@ -8616,7 +8616,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_ZPQ = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":197
+            /* "integrals.pyx":197
  *                         ZPQ  = bfs[k].origin[2] - bfs[l].origin[2]
  * 
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8637,7 +8637,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__25;
             __pyx_t_18.n2 = __pyx_tuple__26;
             __pyx_t_18.gOrigin = __pyx_t_17;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8645,7 +8645,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_v_GR1x = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":198
+            /* "integrals.pyx":198
  * 
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8666,7 +8666,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__27;
             __pyx_t_18.n2 = __pyx_tuple__28;
             __pyx_t_18.gOrigin = __pyx_t_12;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8674,7 +8674,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_GR1y = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":199
+            /* "integrals.pyx":199
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8695,7 +8695,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__29;
             __pyx_t_18.n2 = __pyx_tuple__30;
             __pyx_t_18.gOrigin = __pyx_t_17;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8703,7 +8703,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_v_GR1z = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":200
+            /* "integrals.pyx":200
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8724,7 +8724,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__31;
             __pyx_t_18.n2 = __pyx_tuple__32;
             __pyx_t_18.gOrigin = __pyx_t_12;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8732,7 +8732,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_GR2x = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":201
+            /* "integrals.pyx":201
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)
  *                         GR2y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8753,7 +8753,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__33;
             __pyx_t_18.n2 = __pyx_tuple__34;
             __pyx_t_18.gOrigin = __pyx_t_17;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_16, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8761,7 +8761,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_v_GR2y = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":202
+            /* "integrals.pyx":202
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)
  *                         GR2y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=gauge_origin)
  *                         GR2z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,0,1), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -8782,7 +8782,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_18.n1 = __pyx_tuple__35;
             __pyx_t_18.n2 = __pyx_tuple__36;
             __pyx_t_18.gOrigin = __pyx_t_12;
-            __pyx_t_15 = __pyx_f_3mmd_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
+            __pyx_t_15 = __pyx_f_9integrals_ERI(__pyx_t_17, __pyx_t_16, __pyx_t_14, __pyx_t_13, 0, &__pyx_t_18); 
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -8790,7 +8790,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __pyx_v_GR2z = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":205
+            /* "integrals.pyx":205
  * 
  *                         # add QMN contribution
  *                         GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)             # <<<<<<<<<<<<<<
@@ -8804,7 +8804,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_23 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR1.data + __pyx_t_19 * __pyx_v_GR1.strides[0]) ) + __pyx_t_20 * __pyx_v_GR1.strides[1]) ) + __pyx_t_21 * __pyx_v_GR1.strides[2]) ) + __pyx_t_22 * __pyx_v_GR1.strides[3]) ) + __pyx_t_23 * __pyx_v_GR1.strides[4]) )) = (0.5 * (((-__pyx_v_ZMN) * __pyx_v_GR1y) + (__pyx_v_YMN * __pyx_v_GR1z)));
 
-            /* "mmd/integrals.pyx":206
+            /* "integrals.pyx":206
  *                         # add QMN contribution
  *                         GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)
  *                         GR1[1,i,j,k,l] = 0.5*( ZMN*GR1x - XMN*GR1z)             # <<<<<<<<<<<<<<
@@ -8818,7 +8818,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_28 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR1.data + __pyx_t_24 * __pyx_v_GR1.strides[0]) ) + __pyx_t_25 * __pyx_v_GR1.strides[1]) ) + __pyx_t_26 * __pyx_v_GR1.strides[2]) ) + __pyx_t_27 * __pyx_v_GR1.strides[3]) ) + __pyx_t_28 * __pyx_v_GR1.strides[4]) )) = (0.5 * ((__pyx_v_ZMN * __pyx_v_GR1x) - (__pyx_v_XMN * __pyx_v_GR1z)));
 
-            /* "mmd/integrals.pyx":207
+            /* "integrals.pyx":207
  *                         GR1[0,i,j,k,l] = 0.5*(-ZMN*GR1y + YMN*GR1z)
  *                         GR1[1,i,j,k,l] = 0.5*( ZMN*GR1x - XMN*GR1z)
  *                         GR1[2,i,j,k,l] = 0.5*(-YMN*GR1x + XMN*GR1y)             # <<<<<<<<<<<<<<
@@ -8832,7 +8832,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_33 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR1.data + __pyx_t_29 * __pyx_v_GR1.strides[0]) ) + __pyx_t_30 * __pyx_v_GR1.strides[1]) ) + __pyx_t_31 * __pyx_v_GR1.strides[2]) ) + __pyx_t_32 * __pyx_v_GR1.strides[3]) ) + __pyx_t_33 * __pyx_v_GR1.strides[4]) )) = (0.5 * (((-__pyx_v_YMN) * __pyx_v_GR1x) + (__pyx_v_XMN * __pyx_v_GR1y)));
 
-            /* "mmd/integrals.pyx":209
+            /* "integrals.pyx":209
  *                         GR1[2,i,j,k,l] = 0.5*(-YMN*GR1x + XMN*GR1y)
  *                         # add QPQ contribution
  *                         GR2[0,i,j,k,l] = 0.5*(-ZPQ*GR2y + YPQ*GR2z)             # <<<<<<<<<<<<<<
@@ -8846,7 +8846,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_38 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR2.data + __pyx_t_34 * __pyx_v_GR2.strides[0]) ) + __pyx_t_35 * __pyx_v_GR2.strides[1]) ) + __pyx_t_36 * __pyx_v_GR2.strides[2]) ) + __pyx_t_37 * __pyx_v_GR2.strides[3]) ) + __pyx_t_38 * __pyx_v_GR2.strides[4]) )) = (0.5 * (((-__pyx_v_ZPQ) * __pyx_v_GR2y) + (__pyx_v_YPQ * __pyx_v_GR2z)));
 
-            /* "mmd/integrals.pyx":210
+            /* "integrals.pyx":210
  *                         # add QPQ contribution
  *                         GR2[0,i,j,k,l] = 0.5*(-ZPQ*GR2y + YPQ*GR2z)
  *                         GR2[1,i,j,k,l] = 0.5*( ZPQ*GR2x - XPQ*GR2z)             # <<<<<<<<<<<<<<
@@ -8860,7 +8860,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_43 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR2.data + __pyx_t_39 * __pyx_v_GR2.strides[0]) ) + __pyx_t_40 * __pyx_v_GR2.strides[1]) ) + __pyx_t_41 * __pyx_v_GR2.strides[2]) ) + __pyx_t_42 * __pyx_v_GR2.strides[3]) ) + __pyx_t_43 * __pyx_v_GR2.strides[4]) )) = (0.5 * ((__pyx_v_ZPQ * __pyx_v_GR2x) - (__pyx_v_XPQ * __pyx_v_GR2z)));
 
-            /* "mmd/integrals.pyx":211
+            /* "integrals.pyx":211
  *                         GR2[0,i,j,k,l] = 0.5*(-ZPQ*GR2y + YPQ*GR2z)
  *                         GR2[1,i,j,k,l] = 0.5*( ZPQ*GR2x - XPQ*GR2z)
  *                         GR2[2,i,j,k,l] = 0.5*(-YPQ*GR2x + XPQ*GR2y)             # <<<<<<<<<<<<<<
@@ -8874,7 +8874,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_48 = __pyx_v_l;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_GR2.data + __pyx_t_44 * __pyx_v_GR2.strides[0]) ) + __pyx_t_45 * __pyx_v_GR2.strides[1]) ) + __pyx_t_46 * __pyx_v_GR2.strides[2]) ) + __pyx_t_47 * __pyx_v_GR2.strides[3]) ) + __pyx_t_48 * __pyx_v_GR2.strides[4]) )) = (0.5 * (((-__pyx_v_YPQ) * __pyx_v_GR2x) + (__pyx_v_XPQ * __pyx_v_GR2y)));
 
-            /* "mmd/integrals.pyx":213
+            /* "integrals.pyx":213
  *                         GR2[2,i,j,k,l] = 0.5*(-YPQ*GR2x + XPQ*GR2y)
  * 
  *                         dgdb[0,i,j,k,l] = dgdb[0,k,l,i,j] = GR1[0,i,j,k,l] + GR2[0,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -8905,7 +8905,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_68 = __pyx_v_j;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_64 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_65 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_66 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_67 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_68 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":214
+            /* "integrals.pyx":214
  * 
  *                         dgdb[0,i,j,k,l] = dgdb[0,k,l,i,j] = GR1[0,i,j,k,l] + GR2[0,i,j,k,l]
  *                         dgdb[1,i,j,k,l] = dgdb[1,k,l,i,j] = GR1[1,i,j,k,l] + GR2[1,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -8936,7 +8936,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_88 = __pyx_v_j;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_84 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_85 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_86 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_87 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_88 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":215
+            /* "integrals.pyx":215
  *                         dgdb[0,i,j,k,l] = dgdb[0,k,l,i,j] = GR1[0,i,j,k,l] + GR2[0,i,j,k,l]
  *                         dgdb[1,i,j,k,l] = dgdb[1,k,l,i,j] = GR1[1,i,j,k,l] + GR2[1,i,j,k,l]
  *                         dgdb[2,i,j,k,l] = dgdb[2,k,l,i,j] = GR1[2,i,j,k,l] + GR2[2,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -8967,7 +8967,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_108 = __pyx_v_j;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_104 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_105 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_106 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_107 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_108 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":217
+            /* "integrals.pyx":217
  *                         dgdb[2,i,j,k,l] = dgdb[2,k,l,i,j] = GR1[2,i,j,k,l] + GR2[2,i,j,k,l]
  * 
  *                         dgdb[0,j,i,l,k] = dgdb[0,l,k,j,i] = -dgdb[0,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -8993,7 +8993,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_123 = __pyx_v_i;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_119 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_120 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_121 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_122 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_123 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":218
+            /* "integrals.pyx":218
  * 
  *                         dgdb[0,j,i,l,k] = dgdb[0,l,k,j,i] = -dgdb[0,i,j,k,l]
  *                         dgdb[1,j,i,l,k] = dgdb[1,l,k,j,i] = -dgdb[1,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -9019,7 +9019,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_138 = __pyx_v_i;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_134 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_135 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_136 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_137 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_138 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":219
+            /* "integrals.pyx":219
  *                         dgdb[0,j,i,l,k] = dgdb[0,l,k,j,i] = -dgdb[0,i,j,k,l]
  *                         dgdb[1,j,i,l,k] = dgdb[1,l,k,j,i] = -dgdb[1,i,j,k,l]
  *                         dgdb[2,j,i,l,k] = dgdb[2,l,k,j,i] = -dgdb[2,i,j,k,l]             # <<<<<<<<<<<<<<
@@ -9045,7 +9045,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
             __pyx_t_153 = __pyx_v_i;
             *((double *) ( /* dim=4 */ (( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dgdb.data + __pyx_t_149 * __pyx_v_dgdb.strides[0]) ) + __pyx_t_150 * __pyx_v_dgdb.strides[1]) ) + __pyx_t_151 * __pyx_v_dgdb.strides[2]) ) + __pyx_t_152 * __pyx_v_dgdb.strides[3]) ) + __pyx_t_153 * __pyx_v_dgdb.strides[4]) )) = __pyx_t_15;
 
-            /* "mmd/integrals.pyx":187
+            /* "integrals.pyx":187
  *                 for l in range(N):
  *                     kl += 1
  *                     if (ij >= kl and ik >= j+l and not (i==j and k==l)):             # <<<<<<<<<<<<<<
@@ -9058,7 +9058,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
     }
   }
 
-  /* "mmd/integrals.pyx":220
+  /* "integrals.pyx":220
  *                         dgdb[1,j,i,l,k] = dgdb[1,l,k,j,i] = -dgdb[1,i,j,k,l]
  *                         dgdb[2,j,i,l,k] = dgdb[2,l,k,j,i] = -dgdb[2,i,j,k,l]
  *     return dgdb             # <<<<<<<<<<<<<<
@@ -9069,7 +9069,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
   __pyx_r = __pyx_v_dgdb;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":174
+  /* "integrals.pyx":174
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double [:,:,:,:,:] do2eGIAO(long N,double [:,:,:,:,:] GR1, double [:,:,:,:,:] GR2, double [:,:,:,:,:] dgdb, object bfs,double [:] gauge_origin):             # <<<<<<<<<<<<<<
@@ -9086,7 +9086,7 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
   __Pyx_XDECREF(__pyx_t_17);
   __pyx_r.data = NULL;
   __pyx_r.memview = NULL;
-  __Pyx_AddTraceback("mmd.integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
 
   goto __pyx_L2;
   __pyx_L0:;
@@ -9099,8 +9099,8 @@ static __Pyx_memviewslice __pyx_f_3mmd_9integrals_do2eGIAO(long __pyx_v_N, __Pyx
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   long __pyx_v_N;
   __Pyx_memviewslice __pyx_v_GR1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_GR2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -9181,18 +9181,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_21do2eGIAO(PyObject *__pyx_self, PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("do2eGIAO", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 174, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_20do2eGIAO(__pyx_self, __pyx_v_N, __pyx_v_GR1, __pyx_v_GR2, __pyx_v_dgdb, __pyx_v_bfs, __pyx_v_gauge_origin);
+  __pyx_r = __pyx_pf_9integrals_20do2eGIAO(__pyx_self, __pyx_v_N, __pyx_v_GR1, __pyx_v_GR2, __pyx_v_dgdb, __pyx_v_bfs, __pyx_v_gauge_origin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin) {
+static PyObject *__pyx_pf_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__pyx_self, long __pyx_v_N, __Pyx_memviewslice __pyx_v_GR1, __Pyx_memviewslice __pyx_v_GR2, __Pyx_memviewslice __pyx_v_dgdb, PyObject *__pyx_v_bfs, __Pyx_memviewslice __pyx_v_gauge_origin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_memviewslice __pyx_t_1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -9203,7 +9203,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__p
   if (unlikely(!__pyx_v_GR2.memview)) { __Pyx_RaiseUnboundLocalError("GR2"); __PYX_ERR(0, 174, __pyx_L1_error) }
   if (unlikely(!__pyx_v_dgdb.memview)) { __Pyx_RaiseUnboundLocalError("dgdb"); __PYX_ERR(0, 174, __pyx_L1_error) }
   if (unlikely(!__pyx_v_gauge_origin.memview)) { __Pyx_RaiseUnboundLocalError("gauge_origin"); __PYX_ERR(0, 174, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_do2eGIAO(__pyx_v_N, __pyx_v_GR1, __pyx_v_GR2, __pyx_v_dgdb, __pyx_v_bfs, __pyx_v_gauge_origin, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9integrals_do2eGIAO(__pyx_v_N, __pyx_v_GR1, __pyx_v_GR2, __pyx_v_dgdb, __pyx_v_bfs, __pyx_v_gauge_origin, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 174, __pyx_L1_error)
   __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_1, 5, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
@@ -9217,7 +9217,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__p
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("mmd.integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.do2eGIAO", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_GR1, 1);
@@ -9229,7 +9229,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__p
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":229
+/* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
@@ -9237,8 +9237,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_20do2eGIAO(CYTHON_UNUSED PyObject *__p
  *     cdef int ja, jb, jc, jd
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_ERI *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_ERI *__pyx_optional_args) {
   PyObject *__pyx_v_n1 = ((PyObject*)__pyx_tuple__37);
   PyObject *__pyx_v_n2 = ((PyObject*)__pyx_tuple__38);
   PyObject *__pyx_v_gOrigin = __pyx_k__39;
@@ -9317,7 +9317,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
     }
   }
 
-  /* "mmd/integrals.pyx":230
+  /* "integrals.pyx":230
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):
  *     cdef double eri = 0.0             # <<<<<<<<<<<<<<
@@ -9326,7 +9326,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
   __pyx_v_eri = 0.0;
 
-  /* "mmd/integrals.pyx":233
+  /* "integrals.pyx":233
  *     cdef int ja, jb, jc, jd
  *     cdef double ca, cb, cc, cd
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)             # <<<<<<<<<<<<<<
@@ -9570,7 +9570,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":234
+  /* "integrals.pyx":234
  *     cdef double ca, cb, cc, cd
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)             # <<<<<<<<<<<<<<
@@ -9814,7 +9814,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":235
+  /* "integrals.pyx":235
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)             # <<<<<<<<<<<<<<
@@ -10058,7 +10058,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":236
+  /* "integrals.pyx":236
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell             # <<<<<<<<<<<<<<
@@ -10098,7 +10098,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":237
+  /* "integrals.pyx":237
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin             # <<<<<<<<<<<<<<
@@ -10138,7 +10138,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":238
+  /* "integrals.pyx":238
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)             # <<<<<<<<<<<<<<
@@ -10166,7 +10166,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_D = __pyx_t_8;
 
-  /* "mmd/integrals.pyx":239
+  /* "integrals.pyx":239
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')             # <<<<<<<<<<<<<<
@@ -10198,7 +10198,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":240
+  /* "integrals.pyx":240
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')             # <<<<<<<<<<<<<<
@@ -10230,7 +10230,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":241
+  /* "integrals.pyx":241
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')
  *     cdef double [:] GO = gOrigin             # <<<<<<<<<<<<<<
@@ -10243,7 +10243,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":242
+  /* "integrals.pyx":242
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')
  *     cdef double [:] GO = gOrigin
  *     for ja in range(A):             # <<<<<<<<<<<<<<
@@ -10254,7 +10254,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_ja = __pyx_t_10;
 
-    /* "mmd/integrals.pyx":243
+    /* "integrals.pyx":243
  *     cdef double [:] GO = gOrigin
  *     for ja in range(A):
  *         for jb in range(B):             # <<<<<<<<<<<<<<
@@ -10265,7 +10265,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_jb = __pyx_t_12;
 
-      /* "mmd/integrals.pyx":244
+      /* "integrals.pyx":244
  *     for ja in range(A):
  *         for jb in range(B):
  *             for jc in range(C):             # <<<<<<<<<<<<<<
@@ -10276,7 +10276,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
       for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
         __pyx_v_jc = __pyx_t_14;
 
-        /* "mmd/integrals.pyx":245
+        /* "integrals.pyx":245
  *         for jb in range(B):
  *             for jc in range(C):
  *                 for jd in range(D):             # <<<<<<<<<<<<<<
@@ -10287,7 +10287,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
         for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
           __pyx_v_jd = __pyx_t_16;
 
-          /* "mmd/integrals.pyx":246
+          /* "integrals.pyx":246
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
@@ -10299,7 +10299,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
           __pyx_t_19 = __pyx_v_jc;
           __pyx_t_20 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":247
+          /* "integrals.pyx":247
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\             # <<<<<<<<<<<<<<
@@ -10308,7 +10308,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_21 = __pyx_v_ja;
 
-          /* "mmd/integrals.pyx":246
+          /* "integrals.pyx":246
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
@@ -10317,7 +10317,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_22 = __pyx_v_jb;
 
-          /* "mmd/integrals.pyx":247
+          /* "integrals.pyx":247
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\             # <<<<<<<<<<<<<<
@@ -10327,7 +10327,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
           __pyx_t_23 = __pyx_v_jc;
           __pyx_t_24 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":248
+          /* "integrals.pyx":248
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsion(aExps[ja],aShell,aOrigin,\             # <<<<<<<<<<<<<<
@@ -10336,7 +10336,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_25 = __pyx_v_ja;
 
-          /* "mmd/integrals.pyx":249
+          /* "integrals.pyx":249
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsion(aExps[ja],aShell,aOrigin,\
  *                                                 bExps[jb],bShell,bOrigin,\             # <<<<<<<<<<<<<<
@@ -10345,7 +10345,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_26 = __pyx_v_jb;
 
-          /* "mmd/integrals.pyx":250
+          /* "integrals.pyx":250
  *                              electron_repulsion(aExps[ja],aShell,aOrigin,\
  *                                                 bExps[jb],bShell,bOrigin,\
  *                                                 cExps[jc],cShell,cOrigin,\             # <<<<<<<<<<<<<<
@@ -10354,7 +10354,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_27 = __pyx_v_jc;
 
-          /* "mmd/integrals.pyx":251
+          /* "integrals.pyx":251
  *                                                 bExps[jb],bShell,bOrigin,\
  *                                                 cExps[jc],cShell,cOrigin,\
  *                                                 dExps[jd],dShell,dOrigin,\             # <<<<<<<<<<<<<<
@@ -10363,20 +10363,20 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
  */
           __pyx_t_28 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":246
+          /* "integrals.pyx":246
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsion(aExps[ja],aShell,aOrigin,\
  */
-          __pyx_v_eri = (__pyx_v_eri + (((((((((*((double *) ( /* dim=0 */ (__pyx_v_aNorm.data + __pyx_t_17 * __pyx_v_aNorm.strides[0]) ))) * (*((double *) ( /* dim=0 */ (__pyx_v_bNorm.data + __pyx_t_18 * __pyx_v_bNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_cNorm.data + __pyx_t_19 * __pyx_v_cNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_dNorm.data + __pyx_t_20 * __pyx_v_dNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_aCoefs.data + __pyx_t_21 * __pyx_v_aCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_bCoefs.data + __pyx_t_22 * __pyx_v_bCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_cCoefs.data + __pyx_t_23 * __pyx_v_cCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_dCoefs.data + __pyx_t_24 * __pyx_v_dCoefs.strides[0]) )))) * __pyx_f_3mmd_9integrals_electron_repulsion((*((double *) ( /* dim=0 */ (__pyx_v_aExps.data + __pyx_t_25 * __pyx_v_aExps.strides[0]) ))), __pyx_v_aShell, __pyx_v_aOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_bExps.data + __pyx_t_26 * __pyx_v_bExps.strides[0]) ))), __pyx_v_bShell, __pyx_v_bOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_cExps.data + __pyx_t_27 * __pyx_v_cExps.strides[0]) ))), __pyx_v_cShell, __pyx_v_cOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_dExps.data + __pyx_t_28 * __pyx_v_dExps.strides[0]) ))), __pyx_v_dShell, __pyx_v_dOrigin, __pyx_v_N1, __pyx_v_N2, __pyx_v_GO)));
+          __pyx_v_eri = (__pyx_v_eri + (((((((((*((double *) ( /* dim=0 */ (__pyx_v_aNorm.data + __pyx_t_17 * __pyx_v_aNorm.strides[0]) ))) * (*((double *) ( /* dim=0 */ (__pyx_v_bNorm.data + __pyx_t_18 * __pyx_v_bNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_cNorm.data + __pyx_t_19 * __pyx_v_cNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_dNorm.data + __pyx_t_20 * __pyx_v_dNorm.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_aCoefs.data + __pyx_t_21 * __pyx_v_aCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_bCoefs.data + __pyx_t_22 * __pyx_v_bCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_cCoefs.data + __pyx_t_23 * __pyx_v_cCoefs.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_dCoefs.data + __pyx_t_24 * __pyx_v_dCoefs.strides[0]) )))) * __pyx_f_9integrals_electron_repulsion((*((double *) ( /* dim=0 */ (__pyx_v_aExps.data + __pyx_t_25 * __pyx_v_aExps.strides[0]) ))), __pyx_v_aShell, __pyx_v_aOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_bExps.data + __pyx_t_26 * __pyx_v_bExps.strides[0]) ))), __pyx_v_bShell, __pyx_v_bOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_cExps.data + __pyx_t_27 * __pyx_v_cExps.strides[0]) ))), __pyx_v_cShell, __pyx_v_cOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_dExps.data + __pyx_t_28 * __pyx_v_dExps.strides[0]) ))), __pyx_v_dShell, __pyx_v_dOrigin, __pyx_v_N1, __pyx_v_N2, __pyx_v_GO)));
         }
       }
     }
   }
 
-  /* "mmd/integrals.pyx":264
+  /* "integrals.pyx":264
  * #   #                                             d.exps[jd],d.shell,d.origin,\
  * #   #                                             np.asarray(n1,dtype='int'),np.asarray(n2,dtype='int'), gOrigin)
  *     return eri             # <<<<<<<<<<<<<<
@@ -10386,7 +10386,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __pyx_r = __pyx_v_eri;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":229
+  /* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
@@ -10403,7 +10403,7 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
   __Pyx_XDECREF(__pyx_t_5);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
-  __Pyx_WriteUnraisable("mmd.integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_aExps, 1);
@@ -10434,8 +10434,8 @@ static double __pyx_f_3mmd_9integrals_ERI(PyObject *__pyx_v_a, PyObject *__pyx_v
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_23ERI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_c = 0;
@@ -10530,13 +10530,13 @@ static PyObject *__pyx_pw_3mmd_9integrals_23ERI(PyObject *__pyx_self, PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("ERI", 0, 4, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 229, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n1), (&PyTuple_Type), 1, "n1", 1))) __PYX_ERR(0, 229, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n2), (&PyTuple_Type), 1, "n2", 1))) __PYX_ERR(0, 229, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_22ERI(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, __pyx_v_n1, __pyx_v_n2, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_22ERI(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, __pyx_v_n1, __pyx_v_n2, __pyx_v_gOrigin);
 
   /* function exit code */
   goto __pyx_L0;
@@ -10547,11 +10547,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_23ERI(PyObject *__pyx_self, PyObject *
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_ERI __pyx_t_2;
+  struct __pyx_opt_args_9integrals_ERI __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("ERI", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -10559,7 +10559,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_2.n1 = __pyx_v_n1;
   __pyx_t_2.n2 = __pyx_v_n2;
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_ERI(__pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_ERI(__pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -10569,7 +10569,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_se
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.ERI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -10577,7 +10577,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_se
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":268
+/* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -10585,8 +10585,8 @@ static PyObject *__pyx_pf_3mmd_9integrals_22ERI(CYTHON_UNUSED PyObject *__pyx_se
  *     cdef int ja, jb, jc, jd
  */
 
-static PyObject *__pyx_pw_3mmd_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_3mmd_9integrals_ERIx *__pyx_optional_args) {
+static PyObject *__pyx_pw_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static double __pyx_f_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9integrals_ERIx *__pyx_optional_args) {
   PyObject *__pyx_v_n1 = ((PyObject*)__pyx_tuple__42);
   PyObject *__pyx_v_n2 = ((PyObject*)__pyx_tuple__43);
   PyObject *__pyx_v_gOrigin = __pyx_k__44;
@@ -10655,7 +10655,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   Py_ssize_t __pyx_t_27;
   Py_ssize_t __pyx_t_28;
   double __pyx_t_29;
-  struct __pyx_opt_args_3mmd_9integrals_electron_repulsionX __pyx_t_30;
+  struct __pyx_opt_args_9integrals_electron_repulsionX __pyx_t_30;
   __Pyx_RefNannySetupContext("ERIx", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
@@ -10675,7 +10675,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
     }
   }
 
-  /* "mmd/integrals.pyx":269
+  /* "integrals.pyx":269
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):
  *     cdef double eri = 0.0             # <<<<<<<<<<<<<<
@@ -10684,7 +10684,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
   __pyx_v_eri = 0.0;
 
-  /* "mmd/integrals.pyx":272
+  /* "integrals.pyx":272
  *     cdef int ja, jb, jc, jd
  *     cdef double ca, cb, cc, cd
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)             # <<<<<<<<<<<<<<
@@ -10928,7 +10928,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":273
+  /* "integrals.pyx":273
  *     cdef double ca, cb, cc, cd
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)             # <<<<<<<<<<<<<<
@@ -11172,7 +11172,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":274
+  /* "integrals.pyx":274
  *     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)             # <<<<<<<<<<<<<<
@@ -11416,7 +11416,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":275
+  /* "integrals.pyx":275
  *     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell             # <<<<<<<<<<<<<<
@@ -11456,7 +11456,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":276
+  /* "integrals.pyx":276
  *     cdef double [:] aNorm = np.asarray(a.norm), bNorm = np.asarray(b.norm), cNorm = np.asarray(c.norm), dNorm = np.asarray(d.norm)
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin             # <<<<<<<<<<<<<<
@@ -11496,7 +11496,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":277
+  /* "integrals.pyx":277
  *     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)             # <<<<<<<<<<<<<<
@@ -11524,7 +11524,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_D = __pyx_t_8;
 
-  /* "mmd/integrals.pyx":278
+  /* "integrals.pyx":278
  *     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')             # <<<<<<<<<<<<<<
@@ -11556,7 +11556,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":279
+  /* "integrals.pyx":279
  *     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')             # <<<<<<<<<<<<<<
@@ -11588,7 +11588,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "mmd/integrals.pyx":280
+  /* "integrals.pyx":280
  *     cdef long [:] N1 = np.asarray(n1,dtype='int')
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')
  *     cdef double [:] GO = gOrigin             # <<<<<<<<<<<<<<
@@ -11601,7 +11601,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "mmd/integrals.pyx":281
+  /* "integrals.pyx":281
  *     cdef long [:] N2 = np.asarray(n2,dtype='int')
  *     cdef double [:] GO = gOrigin
  *     for ja in range(A):             # <<<<<<<<<<<<<<
@@ -11612,7 +11612,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_ja = __pyx_t_10;
 
-    /* "mmd/integrals.pyx":282
+    /* "integrals.pyx":282
  *     cdef double [:] GO = gOrigin
  *     for ja in range(A):
  *         for jb in range(B):             # <<<<<<<<<<<<<<
@@ -11623,7 +11623,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_jb = __pyx_t_12;
 
-      /* "mmd/integrals.pyx":283
+      /* "integrals.pyx":283
  *     for ja in range(A):
  *         for jb in range(B):
  *             for jc in range(C):             # <<<<<<<<<<<<<<
@@ -11634,7 +11634,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
       for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
         __pyx_v_jc = __pyx_t_14;
 
-        /* "mmd/integrals.pyx":284
+        /* "integrals.pyx":284
  *         for jb in range(B):
  *             for jc in range(C):
  *                 for jd in range(D):             # <<<<<<<<<<<<<<
@@ -11645,7 +11645,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
         for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
           __pyx_v_jd = __pyx_t_16;
 
-          /* "mmd/integrals.pyx":285
+          /* "integrals.pyx":285
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
@@ -11657,7 +11657,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
           __pyx_t_19 = __pyx_v_jc;
           __pyx_t_20 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":286
+          /* "integrals.pyx":286
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\             # <<<<<<<<<<<<<<
@@ -11666,7 +11666,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_21 = __pyx_v_ja;
 
-          /* "mmd/integrals.pyx":285
+          /* "integrals.pyx":285
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
@@ -11675,7 +11675,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_22 = __pyx_v_jb;
 
-          /* "mmd/integrals.pyx":286
+          /* "integrals.pyx":286
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\             # <<<<<<<<<<<<<<
@@ -11685,7 +11685,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
           __pyx_t_23 = __pyx_v_jc;
           __pyx_t_24 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":287
+          /* "integrals.pyx":287
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsionX(aExps[ja],aShell,aOrigin,\             # <<<<<<<<<<<<<<
@@ -11694,7 +11694,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_25 = __pyx_v_ja;
 
-          /* "mmd/integrals.pyx":288
+          /* "integrals.pyx":288
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsionX(aExps[ja],aShell,aOrigin,\
  *                                                 bExps[jb],bShell,bOrigin,\             # <<<<<<<<<<<<<<
@@ -11703,7 +11703,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_26 = __pyx_v_jb;
 
-          /* "mmd/integrals.pyx":289
+          /* "integrals.pyx":289
  *                              electron_repulsionX(aExps[ja],aShell,aOrigin,\
  *                                                 bExps[jb],bShell,bOrigin,\
  *                                                 cExps[jc],cShell,cOrigin,\             # <<<<<<<<<<<<<<
@@ -11712,7 +11712,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_27 = __pyx_v_jc;
 
-          /* "mmd/integrals.pyx":290
+          /* "integrals.pyx":290
  *                                                 bExps[jb],bShell,bOrigin,\
  *                                                 cExps[jc],cShell,cOrigin,\
  *                                                 dExps[jd],dShell,dOrigin,\             # <<<<<<<<<<<<<<
@@ -11721,7 +11721,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
  */
           __pyx_t_28 = __pyx_v_jd;
 
-          /* "mmd/integrals.pyx":291
+          /* "integrals.pyx":291
  *                                                 cExps[jc],cShell,cOrigin,\
  *                                                 dExps[jd],dShell,dOrigin,\
  *                                                 N1,N2, GO, x, center.lower())             # <<<<<<<<<<<<<<
@@ -11750,7 +11750,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 291, __pyx_L1_error)
 
-          /* "mmd/integrals.pyx":287
+          /* "integrals.pyx":287
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\
  *                              aCoefs[ja]*bCoefs[jb]*cCoefs[jc]*dCoefs[jd]*\
  *                              electron_repulsionX(aExps[ja],aShell,aOrigin,\             # <<<<<<<<<<<<<<
@@ -11760,10 +11760,10 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
           __pyx_t_30.__pyx_n = 2;
           __pyx_t_30.x = __pyx_v_x;
           __pyx_t_30.center = ((PyObject*)__pyx_t_2);
-          __pyx_t_29 = __pyx_f_3mmd_9integrals_electron_repulsionX((*((double *) ( /* dim=0 */ (__pyx_v_aExps.data + __pyx_t_25 * __pyx_v_aExps.strides[0]) ))), __pyx_v_aShell, __pyx_v_aOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_bExps.data + __pyx_t_26 * __pyx_v_bExps.strides[0]) ))), __pyx_v_bShell, __pyx_v_bOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_cExps.data + __pyx_t_27 * __pyx_v_cExps.strides[0]) ))), __pyx_v_cShell, __pyx_v_cOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_dExps.data + __pyx_t_28 * __pyx_v_dExps.strides[0]) ))), __pyx_v_dShell, __pyx_v_dOrigin, __pyx_v_N1, __pyx_v_N2, __pyx_v_GO, &__pyx_t_30); 
+          __pyx_t_29 = __pyx_f_9integrals_electron_repulsionX((*((double *) ( /* dim=0 */ (__pyx_v_aExps.data + __pyx_t_25 * __pyx_v_aExps.strides[0]) ))), __pyx_v_aShell, __pyx_v_aOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_bExps.data + __pyx_t_26 * __pyx_v_bExps.strides[0]) ))), __pyx_v_bShell, __pyx_v_bOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_cExps.data + __pyx_t_27 * __pyx_v_cExps.strides[0]) ))), __pyx_v_cShell, __pyx_v_cOrigin, (*((double *) ( /* dim=0 */ (__pyx_v_dExps.data + __pyx_t_28 * __pyx_v_dExps.strides[0]) ))), __pyx_v_dShell, __pyx_v_dOrigin, __pyx_v_N1, __pyx_v_N2, __pyx_v_GO, &__pyx_t_30); 
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":285
+          /* "integrals.pyx":285
  *             for jc in range(C):
  *                 for jd in range(D):
  *                     eri += aNorm[ja]*bNorm[jb]*cNorm[jc]*dNorm[jd]*\             # <<<<<<<<<<<<<<
@@ -11776,7 +11776,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
     }
   }
 
-  /* "mmd/integrals.pyx":292
+  /* "integrals.pyx":292
  *                                                 dExps[jd],dShell,dOrigin,\
  *                                                 N1,N2, GO, x, center.lower())
  *     return eri             # <<<<<<<<<<<<<<
@@ -11786,7 +11786,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __pyx_r = __pyx_v_eri;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":268
+  /* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -11803,7 +11803,7 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
   __Pyx_XDECREF(__pyx_t_5);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
-  __Pyx_WriteUnraisable("mmd.integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_aExps, 1);
@@ -11834,8 +11834,8 @@ static double __pyx_f_3mmd_9integrals_ERIx(PyObject *__pyx_v_a, PyObject *__pyx_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3mmd_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9integrals_25ERIx(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_b = 0;
   PyObject *__pyx_v_c = 0;
@@ -11953,14 +11953,14 @@ static PyObject *__pyx_pw_3mmd_9integrals_25ERIx(PyObject *__pyx_self, PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("ERIx", 0, 4, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 268, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n1), (&PyTuple_Type), 1, "n1", 1))) __PYX_ERR(0, 268, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n2), (&PyTuple_Type), 1, "n2", 1))) __PYX_ERR(0, 268, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_center), (&PyString_Type), 1, "center", 1))) __PYX_ERR(0, 268, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3mmd_9integrals_24ERIx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, __pyx_v_n1, __pyx_v_n2, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_24ERIx(__pyx_self, __pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, __pyx_v_n1, __pyx_v_n2, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   goto __pyx_L0;
@@ -11971,11 +11971,11 @@ static PyObject *__pyx_pw_3mmd_9integrals_25ERIx(PyObject *__pyx_self, PyObject 
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_n1, PyObject *__pyx_v_n2, PyObject *__pyx_v_gOrigin, int __pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
-  struct __pyx_opt_args_3mmd_9integrals_ERIx __pyx_t_2;
+  struct __pyx_opt_args_9integrals_ERIx __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("ERIx", 0);
   __Pyx_XDECREF(__pyx_r);
@@ -11985,7 +11985,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_2.gOrigin = __pyx_v_gOrigin;
   __pyx_t_2.x = __pyx_v_x;
   __pyx_t_2.center = __pyx_v_center;
-  __pyx_t_1 = __pyx_f_3mmd_9integrals_ERIx(__pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, 0, &__pyx_t_2); 
+  __pyx_t_1 = __pyx_f_9integrals_ERIx(__pyx_v_a, __pyx_v_b, __pyx_v_c, __pyx_v_d, 0, &__pyx_t_2); 
   __pyx_t_3 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
@@ -11995,7 +11995,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_s
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.ERIx", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12003,7 +12003,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":298
+/* "integrals.pyx":298
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):             # <<<<<<<<<<<<<<
@@ -12011,7 +12011,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_24ERIx(CYTHON_UNUSED PyObject *__pyx_s
  *     if q == 1:
  */
 
-static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx_v_t, double __pyx_v_Qx, double __pyx_v_a, double __pyx_v_b, struct __pyx_opt_args_3mmd_9integrals_Ex *__pyx_optional_args) {
+static double __pyx_f_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx_v_t, double __pyx_v_Qx, double __pyx_v_a, double __pyx_v_b, struct __pyx_opt_args_9integrals_Ex *__pyx_optional_args) {
   int __pyx_v_n = ((int)0);
   double __pyx_v_Ax = ((double)0.0);
   int __pyx_v_q = ((int)0);
@@ -12020,7 +12020,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   double __pyx_t_2;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_3;
+  struct __pyx_opt_args_9integrals_E __pyx_t_3;
   double __pyx_t_4;
   __Pyx_RefNannySetupContext("Ex", 0);
   if (__pyx_optional_args) {
@@ -12038,7 +12038,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
     }
   }
 
-  /* "mmd/integrals.pyx":300
+  /* "integrals.pyx":300
  * cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):
  *     # only handling first derivatives
  *     if q == 1:             # <<<<<<<<<<<<<<
@@ -12048,7 +12048,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
   __pyx_t_1 = ((__pyx_v_q == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "mmd/integrals.pyx":301
+    /* "integrals.pyx":301
  *     # only handling first derivatives
  *     if q == 1:
  *         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)             # <<<<<<<<<<<<<<
@@ -12058,15 +12058,15 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
     __pyx_t_3.__pyx_n = 2;
     __pyx_t_3.n = __pyx_v_n;
     __pyx_t_3.Ax = __pyx_v_Ax;
-    __pyx_t_2 = __pyx_f_3mmd_9integrals_E((__pyx_v_i + 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
+    __pyx_t_2 = __pyx_f_9integrals_E((__pyx_v_i + 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
     __pyx_t_3.__pyx_n = 2;
     __pyx_t_3.n = __pyx_v_n;
     __pyx_t_3.Ax = __pyx_v_Ax;
-    __pyx_t_4 = __pyx_f_3mmd_9integrals_E((__pyx_v_i - 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
+    __pyx_t_4 = __pyx_f_9integrals_E((__pyx_v_i - 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
     __pyx_r = (((2.0 * __pyx_v_a) * __pyx_t_2) - (__pyx_v_i * __pyx_t_4));
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":300
+    /* "integrals.pyx":300
  * cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):
  *     # only handling first derivatives
  *     if q == 1:             # <<<<<<<<<<<<<<
@@ -12075,7 +12075,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
  */
   }
 
-  /* "mmd/integrals.pyx":302
+  /* "integrals.pyx":302
  *     if q == 1:
  *         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)
  *     elif r == 1:             # <<<<<<<<<<<<<<
@@ -12085,7 +12085,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
   __pyx_t_1 = ((__pyx_v_r == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "mmd/integrals.pyx":303
+    /* "integrals.pyx":303
  *         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)
  *     elif r == 1:
  *         return 2*b*E(i,j+1,t,Qx,a,b,n,Ax) - j*E(i,j-1,t,Qx,a,b,n,Ax)             # <<<<<<<<<<<<<<
@@ -12095,15 +12095,15 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
     __pyx_t_3.__pyx_n = 2;
     __pyx_t_3.n = __pyx_v_n;
     __pyx_t_3.Ax = __pyx_v_Ax;
-    __pyx_t_4 = __pyx_f_3mmd_9integrals_E(__pyx_v_i, (__pyx_v_j + 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
+    __pyx_t_4 = __pyx_f_9integrals_E(__pyx_v_i, (__pyx_v_j + 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
     __pyx_t_3.__pyx_n = 2;
     __pyx_t_3.n = __pyx_v_n;
     __pyx_t_3.Ax = __pyx_v_Ax;
-    __pyx_t_2 = __pyx_f_3mmd_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
+    __pyx_t_2 = __pyx_f_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_3); 
     __pyx_r = (((2.0 * __pyx_v_b) * __pyx_t_4) - (__pyx_v_j * __pyx_t_2));
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":302
+    /* "integrals.pyx":302
  *     if q == 1:
  *         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)
  *     elif r == 1:             # <<<<<<<<<<<<<<
@@ -12112,7 +12112,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
  */
   }
 
-  /* "mmd/integrals.pyx":298
+  /* "integrals.pyx":298
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):             # <<<<<<<<<<<<<<
@@ -12127,7 +12127,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":308
+/* "integrals.pyx":308
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):             # <<<<<<<<<<<<<<
@@ -12135,7 +12135,7 @@ static double __pyx_f_3mmd_9integrals_Ex(int __pyx_v_i, int __pyx_v_j, int __pyx
  *     u = a*b/p
  */
 
-static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_v_t, double __pyx_v_Qx, double __pyx_v_a, double __pyx_v_b, struct __pyx_opt_args_3mmd_9integrals_E *__pyx_optional_args) {
+static double __pyx_f_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_v_t, double __pyx_v_Qx, double __pyx_v_a, double __pyx_v_b, struct __pyx_opt_args_9integrals_E *__pyx_optional_args) {
   int __pyx_v_n = ((int)0);
   double __pyx_v_Ax = ((double)0.0);
   double __pyx_v_p;
@@ -12145,7 +12145,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
   int __pyx_t_1;
   int __pyx_t_2;
   double __pyx_t_3;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_4;
+  struct __pyx_opt_args_9integrals_E __pyx_t_4;
   double __pyx_t_5;
   __Pyx_RefNannySetupContext("E", 0);
   if (__pyx_optional_args) {
@@ -12157,7 +12157,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
     }
   }
 
-  /* "mmd/integrals.pyx":309
+  /* "integrals.pyx":309
  * @cython.wraparound(False)
  * cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):
  *     p = a + b             # <<<<<<<<<<<<<<
@@ -12166,7 +12166,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
   __pyx_v_p = (__pyx_v_a + __pyx_v_b);
 
-  /* "mmd/integrals.pyx":310
+  /* "integrals.pyx":310
  * cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):
  *     p = a + b
  *     u = a*b/p             # <<<<<<<<<<<<<<
@@ -12175,7 +12175,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
   __pyx_v_u = ((__pyx_v_a * __pyx_v_b) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":311
+  /* "integrals.pyx":311
  *     p = a + b
  *     u = a*b/p
  *     if n == 0:             # <<<<<<<<<<<<<<
@@ -12185,7 +12185,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
   __pyx_t_1 = ((__pyx_v_n == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "mmd/integrals.pyx":312
+    /* "integrals.pyx":312
  *     u = a*b/p
  *     if n == 0:
  *         if (t < 0) or (t > (i + j)):             # <<<<<<<<<<<<<<
@@ -12203,7 +12203,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
     __pyx_L5_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "mmd/integrals.pyx":313
+      /* "integrals.pyx":313
  *     if n == 0:
  *         if (t < 0) or (t > (i + j)):
  *             return 0.0             # <<<<<<<<<<<<<<
@@ -12213,7 +12213,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
       __pyx_r = 0.0;
       goto __pyx_L0;
 
-      /* "mmd/integrals.pyx":312
+      /* "integrals.pyx":312
  *     u = a*b/p
  *     if n == 0:
  *         if (t < 0) or (t > (i + j)):             # <<<<<<<<<<<<<<
@@ -12222,7 +12222,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":314
+    /* "integrals.pyx":314
  *         if (t < 0) or (t > (i + j)):
  *             return 0.0
  *         elif i == j == t == 0:             # <<<<<<<<<<<<<<
@@ -12239,7 +12239,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "mmd/integrals.pyx":315
+      /* "integrals.pyx":315
  *             return 0.0
  *         elif i == j == t == 0:
  *             return exp(-u*Qx*Qx)             # <<<<<<<<<<<<<<
@@ -12249,7 +12249,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
       __pyx_r = exp((((-__pyx_v_u) * __pyx_v_Qx) * __pyx_v_Qx));
       goto __pyx_L0;
 
-      /* "mmd/integrals.pyx":314
+      /* "integrals.pyx":314
  *         if (t < 0) or (t > (i + j)):
  *             return 0.0
  *         elif i == j == t == 0:             # <<<<<<<<<<<<<<
@@ -12258,7 +12258,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":316
+    /* "integrals.pyx":316
  *         elif i == j == t == 0:
  *             return exp(-u*Qx*Qx)
  *         elif j == 0:             # <<<<<<<<<<<<<<
@@ -12268,17 +12268,17 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
     __pyx_t_2 = ((__pyx_v_j == 0) != 0);
     if (__pyx_t_2) {
 
-      /* "mmd/integrals.pyx":317
+      /* "integrals.pyx":317
  *             return exp(-u*Qx*Qx)
  *         elif j == 0:
  *             return (1/(2*p))*E(i-1,j,t-1,Qx,a,b) - (u*Qx/a)*E(i-1,j,t,Qx,a,b) + \             # <<<<<<<<<<<<<<
  *                    (t+1)*E(i-1,j,t+1,Qx,a,b)
  *         else:
  */
-      __pyx_r = ((((1.0 / (2.0 * __pyx_v_p)) * __pyx_f_3mmd_9integrals_E((__pyx_v_i - 1), __pyx_v_j, (__pyx_v_t - 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)) - (((__pyx_v_u * __pyx_v_Qx) / __pyx_v_a) * __pyx_f_3mmd_9integrals_E((__pyx_v_i - 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL))) + ((__pyx_v_t + 1) * __pyx_f_3mmd_9integrals_E((__pyx_v_i - 1), __pyx_v_j, (__pyx_v_t + 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)));
+      __pyx_r = ((((1.0 / (2.0 * __pyx_v_p)) * __pyx_f_9integrals_E((__pyx_v_i - 1), __pyx_v_j, (__pyx_v_t - 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)) - (((__pyx_v_u * __pyx_v_Qx) / __pyx_v_a) * __pyx_f_9integrals_E((__pyx_v_i - 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL))) + ((__pyx_v_t + 1) * __pyx_f_9integrals_E((__pyx_v_i - 1), __pyx_v_j, (__pyx_v_t + 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)));
       goto __pyx_L0;
 
-      /* "mmd/integrals.pyx":316
+      /* "integrals.pyx":316
  *         elif i == j == t == 0:
  *             return exp(-u*Qx*Qx)
  *         elif j == 0:             # <<<<<<<<<<<<<<
@@ -12287,7 +12287,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":320
+    /* "integrals.pyx":320
  *                    (t+1)*E(i-1,j,t+1,Qx,a,b)
  *         else:
  *             return (1/(2*p))*E(i,j-1,t-1,Qx,a,b) + (u*Qx/b)*E(i,j-1,t,Qx,a,b) + \             # <<<<<<<<<<<<<<
@@ -12296,18 +12296,18 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":321
+      /* "integrals.pyx":321
  *         else:
  *             return (1/(2*p))*E(i,j-1,t-1,Qx,a,b) + (u*Qx/b)*E(i,j-1,t,Qx,a,b) + \
  *                    (t+1)*E(i,j-1,t+1,Qx,a,b)             # <<<<<<<<<<<<<<
  *     else:
  *         return E(i+1,j,t,Qx,a,b,n-1,Ax) + Ax*E(i,j,t,Qx,a,b,n-1,Ax)
  */
-      __pyx_r = ((((1.0 / (2.0 * __pyx_v_p)) * __pyx_f_3mmd_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), (__pyx_v_t - 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)) + (((__pyx_v_u * __pyx_v_Qx) / __pyx_v_b) * __pyx_f_3mmd_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL))) + ((__pyx_v_t + 1) * __pyx_f_3mmd_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), (__pyx_v_t + 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)));
+      __pyx_r = ((((1.0 / (2.0 * __pyx_v_p)) * __pyx_f_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), (__pyx_v_t - 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)) + (((__pyx_v_u * __pyx_v_Qx) / __pyx_v_b) * __pyx_f_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL))) + ((__pyx_v_t + 1) * __pyx_f_9integrals_E(__pyx_v_i, (__pyx_v_j - 1), (__pyx_v_t + 1), __pyx_v_Qx, __pyx_v_a, __pyx_v_b, NULL)));
       goto __pyx_L0;
     }
 
-    /* "mmd/integrals.pyx":311
+    /* "integrals.pyx":311
  *     p = a + b
  *     u = a*b/p
  *     if n == 0:             # <<<<<<<<<<<<<<
@@ -12316,7 +12316,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  */
   }
 
-  /* "mmd/integrals.pyx":323
+  /* "integrals.pyx":323
  *                    (t+1)*E(i,j-1,t+1,Qx,a,b)
  *     else:
  *         return E(i+1,j,t,Qx,a,b,n-1,Ax) + Ax*E(i,j,t,Qx,a,b,n-1,Ax)             # <<<<<<<<<<<<<<
@@ -12327,16 +12327,16 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
     __pyx_t_4.__pyx_n = 2;
     __pyx_t_4.n = (__pyx_v_n - 1);
     __pyx_t_4.Ax = __pyx_v_Ax;
-    __pyx_t_3 = __pyx_f_3mmd_9integrals_E((__pyx_v_i + 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_4); 
+    __pyx_t_3 = __pyx_f_9integrals_E((__pyx_v_i + 1), __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_4); 
     __pyx_t_4.__pyx_n = 2;
     __pyx_t_4.n = (__pyx_v_n - 1);
     __pyx_t_4.Ax = __pyx_v_Ax;
-    __pyx_t_5 = __pyx_f_3mmd_9integrals_E(__pyx_v_i, __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_4); 
+    __pyx_t_5 = __pyx_f_9integrals_E(__pyx_v_i, __pyx_v_j, __pyx_v_t, __pyx_v_Qx, __pyx_v_a, __pyx_v_b, &__pyx_t_4); 
     __pyx_r = (__pyx_t_3 + (__pyx_v_Ax * __pyx_t_5));
     goto __pyx_L0;
   }
 
-  /* "mmd/integrals.pyx":308
+  /* "integrals.pyx":308
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):             # <<<<<<<<<<<<<<
@@ -12350,7 +12350,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":328
+/* "integrals.pyx":328
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):             # <<<<<<<<<<<<<<
@@ -12358,7 +12358,7 @@ static double __pyx_f_3mmd_9integrals_E(int __pyx_v_i, int __pyx_v_j, int __pyx_
  *     cdef double val = 0.0
  */
 
-static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_v_v, int __pyx_v_n, double __pyx_v_p, double __pyx_v_PCx, double __pyx_v_PCy, double __pyx_v_PCz, double __pyx_v_RPC) {
+static double __pyx_f_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_v_v, int __pyx_v_n, double __pyx_v_p, double __pyx_v_PCx, double __pyx_v_PCy, double __pyx_v_PCz, double __pyx_v_RPC) {
   double __pyx_v_T;
   double __pyx_v_val;
   double __pyx_r;
@@ -12367,7 +12367,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("R", 0);
 
-  /* "mmd/integrals.pyx":329
+  /* "integrals.pyx":329
  * @cython.wraparound(False)
  * cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):
  *     cdef double T = p*RPC*RPC             # <<<<<<<<<<<<<<
@@ -12376,7 +12376,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  */
   __pyx_v_T = ((__pyx_v_p * __pyx_v_RPC) * __pyx_v_RPC);
 
-  /* "mmd/integrals.pyx":330
+  /* "integrals.pyx":330
  * cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):
  *     cdef double T = p*RPC*RPC
  *     cdef double val = 0.0             # <<<<<<<<<<<<<<
@@ -12385,7 +12385,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  */
   __pyx_v_val = 0.0;
 
-  /* "mmd/integrals.pyx":331
+  /* "integrals.pyx":331
  *     cdef double T = p*RPC*RPC
  *     cdef double val = 0.0
  *     if t == u == v == 0:             # <<<<<<<<<<<<<<
@@ -12402,16 +12402,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "mmd/integrals.pyx":332
+    /* "integrals.pyx":332
  *     cdef double val = 0.0
  *     if t == u == v == 0:
  *         val += pow(-2*p,n)*boys(n,T)             # <<<<<<<<<<<<<<
  *     elif t == u == 0:
  *         if v > 1:
  */
-    __pyx_v_val = (__pyx_v_val + (pow((-2.0 * __pyx_v_p), __pyx_v_n) * __pyx_f_3mmd_9integrals_boys(__pyx_v_n, __pyx_v_T)));
+    __pyx_v_val = (__pyx_v_val + (pow((-2.0 * __pyx_v_p), __pyx_v_n) * __pyx_f_9integrals_boys(__pyx_v_n, __pyx_v_T)));
 
-    /* "mmd/integrals.pyx":331
+    /* "integrals.pyx":331
  *     cdef double T = p*RPC*RPC
  *     cdef double val = 0.0
  *     if t == u == v == 0:             # <<<<<<<<<<<<<<
@@ -12421,7 +12421,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":333
+  /* "integrals.pyx":333
  *     if t == u == v == 0:
  *         val += pow(-2*p,n)*boys(n,T)
  *     elif t == u == 0:             # <<<<<<<<<<<<<<
@@ -12435,7 +12435,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "mmd/integrals.pyx":334
+    /* "integrals.pyx":334
  *         val += pow(-2*p,n)*boys(n,T)
  *     elif t == u == 0:
  *         if v > 1:             # <<<<<<<<<<<<<<
@@ -12445,16 +12445,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     __pyx_t_1 = ((__pyx_v_v > 1) != 0);
     if (__pyx_t_1) {
 
-      /* "mmd/integrals.pyx":335
+      /* "integrals.pyx":335
  *     elif t == u == 0:
  *         if v > 1:
  *             val += (v-1)*R(t,u,v-2,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)
  *     elif t == 0:
  */
-      __pyx_v_val = (__pyx_v_val + ((__pyx_v_v - 1) * __pyx_f_3mmd_9integrals_R(__pyx_v_t, __pyx_v_u, (__pyx_v_v - 2), (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+      __pyx_v_val = (__pyx_v_val + ((__pyx_v_v - 1) * __pyx_f_9integrals_R(__pyx_v_t, __pyx_v_u, (__pyx_v_v - 2), (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
 
-      /* "mmd/integrals.pyx":334
+      /* "integrals.pyx":334
  *         val += pow(-2*p,n)*boys(n,T)
  *     elif t == u == 0:
  *         if v > 1:             # <<<<<<<<<<<<<<
@@ -12463,16 +12463,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":336
+    /* "integrals.pyx":336
  *         if v > 1:
  *             val += (v-1)*R(t,u,v-2,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *     elif t == 0:
  *         if u > 1:
  */
-    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCz * __pyx_f_3mmd_9integrals_R(__pyx_v_t, __pyx_v_u, (__pyx_v_v - 1), (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCz * __pyx_f_9integrals_R(__pyx_v_t, __pyx_v_u, (__pyx_v_v - 1), (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
 
-    /* "mmd/integrals.pyx":333
+    /* "integrals.pyx":333
  *     if t == u == v == 0:
  *         val += pow(-2*p,n)*boys(n,T)
  *     elif t == u == 0:             # <<<<<<<<<<<<<<
@@ -12482,7 +12482,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":337
+  /* "integrals.pyx":337
  *             val += (v-1)*R(t,u,v-2,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)
  *     elif t == 0:             # <<<<<<<<<<<<<<
@@ -12492,7 +12492,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   __pyx_t_1 = ((__pyx_v_t == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "mmd/integrals.pyx":338
+    /* "integrals.pyx":338
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)
  *     elif t == 0:
  *         if u > 1:             # <<<<<<<<<<<<<<
@@ -12502,16 +12502,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     __pyx_t_1 = ((__pyx_v_u > 1) != 0);
     if (__pyx_t_1) {
 
-      /* "mmd/integrals.pyx":339
+      /* "integrals.pyx":339
  *     elif t == 0:
  *         if u > 1:
  *             val += (u-1)*R(t,u-2,v,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *         val += PCy*R(t,u-1,v,n+1,p,PCx,PCy,PCz,RPC)
  *     else:
  */
-      __pyx_v_val = (__pyx_v_val + ((__pyx_v_u - 1) * __pyx_f_3mmd_9integrals_R(__pyx_v_t, (__pyx_v_u - 2), __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+      __pyx_v_val = (__pyx_v_val + ((__pyx_v_u - 1) * __pyx_f_9integrals_R(__pyx_v_t, (__pyx_v_u - 2), __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
 
-      /* "mmd/integrals.pyx":338
+      /* "integrals.pyx":338
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)
  *     elif t == 0:
  *         if u > 1:             # <<<<<<<<<<<<<<
@@ -12520,16 +12520,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":340
+    /* "integrals.pyx":340
  *         if u > 1:
  *             val += (u-1)*R(t,u-2,v,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCy*R(t,u-1,v,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *     else:
  *         if t > 1:
  */
-    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCy * __pyx_f_3mmd_9integrals_R(__pyx_v_t, (__pyx_v_u - 1), __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCy * __pyx_f_9integrals_R(__pyx_v_t, (__pyx_v_u - 1), __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
 
-    /* "mmd/integrals.pyx":337
+    /* "integrals.pyx":337
  *             val += (v-1)*R(t,u,v-2,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCz*R(t,u,v-1,n+1,p,PCx,PCy,PCz,RPC)
  *     elif t == 0:             # <<<<<<<<<<<<<<
@@ -12539,7 +12539,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":342
+  /* "integrals.pyx":342
  *         val += PCy*R(t,u-1,v,n+1,p,PCx,PCy,PCz,RPC)
  *     else:
  *         if t > 1:             # <<<<<<<<<<<<<<
@@ -12550,16 +12550,16 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
     __pyx_t_1 = ((__pyx_v_t > 1) != 0);
     if (__pyx_t_1) {
 
-      /* "mmd/integrals.pyx":343
+      /* "integrals.pyx":343
  *     else:
  *         if t > 1:
  *             val += (t-1)*R(t-2,u,v,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *         val += PCx*R(t-1,u,v,n+1,p,PCx,PCy,PCz,RPC)
  *     return val
  */
-      __pyx_v_val = (__pyx_v_val + ((__pyx_v_t - 1) * __pyx_f_3mmd_9integrals_R((__pyx_v_t - 2), __pyx_v_u, __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+      __pyx_v_val = (__pyx_v_val + ((__pyx_v_t - 1) * __pyx_f_9integrals_R((__pyx_v_t - 2), __pyx_v_u, __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
 
-      /* "mmd/integrals.pyx":342
+      /* "integrals.pyx":342
  *         val += PCy*R(t,u-1,v,n+1,p,PCx,PCy,PCz,RPC)
  *     else:
  *         if t > 1:             # <<<<<<<<<<<<<<
@@ -12568,18 +12568,18 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  */
     }
 
-    /* "mmd/integrals.pyx":344
+    /* "integrals.pyx":344
  *         if t > 1:
  *             val += (t-1)*R(t-2,u,v,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCx*R(t-1,u,v,n+1,p,PCx,PCy,PCz,RPC)             # <<<<<<<<<<<<<<
  *     return val
  * 
  */
-    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCx * __pyx_f_3mmd_9integrals_R((__pyx_v_t - 1), __pyx_v_u, __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
+    __pyx_v_val = (__pyx_v_val + (__pyx_v_PCx * __pyx_f_9integrals_R((__pyx_v_t - 1), __pyx_v_u, __pyx_v_v, (__pyx_v_n + 1), __pyx_v_p, __pyx_v_PCx, __pyx_v_PCy, __pyx_v_PCz, __pyx_v_RPC)));
   }
   __pyx_L3:;
 
-  /* "mmd/integrals.pyx":345
+  /* "integrals.pyx":345
  *             val += (t-1)*R(t-2,u,v,n+1,p,PCx,PCy,PCz,RPC)
  *         val += PCx*R(t-1,u,v,n+1,p,PCx,PCy,PCz,RPC)
  *     return val             # <<<<<<<<<<<<<<
@@ -12589,7 +12589,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":328
+  /* "integrals.pyx":328
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):             # <<<<<<<<<<<<<<
@@ -12603,7 +12603,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":352
+/* "integrals.pyx":352
  * @cython.wraparound(False)
  * @cython.nonecheck(False)
  * cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin):             # <<<<<<<<<<<<<<
@@ -12611,7 +12611,7 @@ static double __pyx_f_3mmd_9integrals_R(int __pyx_v_t, int __pyx_v_u, int __pyx_
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  */
 
-static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx_memviewslice __pyx_v_lmn1, __Pyx_memviewslice __pyx_v_A, double __pyx_v_b, __Pyx_memviewslice __pyx_v_lmn2, __Pyx_memviewslice __pyx_v_B, double __pyx_v_c, __Pyx_memviewslice __pyx_v_lmn3, __Pyx_memviewslice __pyx_v_C, double __pyx_v_d, __Pyx_memviewslice __pyx_v_lmn4, __Pyx_memviewslice __pyx_v_D, __Pyx_memviewslice __pyx_v_r1, __Pyx_memviewslice __pyx_v_r2, __Pyx_memviewslice __pyx_v_gOrigin) {
+static double __pyx_f_9integrals_electron_repulsion(double __pyx_v_a, __Pyx_memviewslice __pyx_v_lmn1, __Pyx_memviewslice __pyx_v_A, double __pyx_v_b, __Pyx_memviewslice __pyx_v_lmn2, __Pyx_memviewslice __pyx_v_B, double __pyx_v_c, __Pyx_memviewslice __pyx_v_lmn3, __Pyx_memviewslice __pyx_v_C, double __pyx_v_d, __Pyx_memviewslice __pyx_v_lmn4, __Pyx_memviewslice __pyx_v_D, __Pyx_memviewslice __pyx_v_r1, __Pyx_memviewslice __pyx_v_r2, __Pyx_memviewslice __pyx_v_gOrigin) {
   int __pyx_v_l1;
   int __pyx_v_m1;
   int __pyx_v_n1;
@@ -12696,7 +12696,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   Py_ssize_t __pyx_t_45;
   Py_ssize_t __pyx_t_46;
   double __pyx_t_47;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_48;
+  struct __pyx_opt_args_9integrals_E __pyx_t_48;
   Py_ssize_t __pyx_t_49;
   Py_ssize_t __pyx_t_50;
   Py_ssize_t __pyx_t_51;
@@ -12724,7 +12724,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   double __pyx_t_73;
   __Pyx_RefNannySetupContext("electron_repulsion", 0);
 
-  /* "mmd/integrals.pyx":353
+  /* "integrals.pyx":353
  * @cython.nonecheck(False)
  * cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin):
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]             # <<<<<<<<<<<<<<
@@ -12738,7 +12738,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_3 = 2;
   __pyx_v_n1 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn1.data + __pyx_t_3 * __pyx_v_lmn1.strides[0]) )));
 
-  /* "mmd/integrals.pyx":354
+  /* "integrals.pyx":354
  * cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin):
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]             # <<<<<<<<<<<<<<
@@ -12752,7 +12752,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_6 = 2;
   __pyx_v_n2 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn2.data + __pyx_t_6 * __pyx_v_lmn2.strides[0]) )));
 
-  /* "mmd/integrals.pyx":355
+  /* "integrals.pyx":355
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]             # <<<<<<<<<<<<<<
@@ -12766,7 +12766,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_9 = 2;
   __pyx_v_n3 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn3.data + __pyx_t_9 * __pyx_v_lmn3.strides[0]) )));
 
-  /* "mmd/integrals.pyx":356
+  /* "integrals.pyx":356
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]             # <<<<<<<<<<<<<<
@@ -12780,7 +12780,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_12 = 2;
   __pyx_v_n4 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn4.data + __pyx_t_12 * __pyx_v_lmn4.strides[0]) )));
 
-  /* "mmd/integrals.pyx":357
+  /* "integrals.pyx":357
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
  *     cdef double p = a+b             # <<<<<<<<<<<<<<
@@ -12789,7 +12789,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  */
   __pyx_v_p = (__pyx_v_a + __pyx_v_b);
 
-  /* "mmd/integrals.pyx":358
+  /* "integrals.pyx":358
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
  *     cdef double p = a+b
  *     cdef double q = c+d             # <<<<<<<<<<<<<<
@@ -12798,7 +12798,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  */
   __pyx_v_q = (__pyx_v_c + __pyx_v_d);
 
-  /* "mmd/integrals.pyx":359
+  /* "integrals.pyx":359
  *     cdef double p = a+b
  *     cdef double q = c+d
  *     cdef double alpha = p*q/(p+q)             # <<<<<<<<<<<<<<
@@ -12807,7 +12807,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  */
   __pyx_v_alpha = ((__pyx_v_p * __pyx_v_q) / (__pyx_v_p + __pyx_v_q));
 
-  /* "mmd/integrals.pyx":360
+  /* "integrals.pyx":360
  *     cdef double q = c+d
  *     cdef double alpha = p*q/(p+q)
  *     cdef double Px = (a*A[0] + b*B[0])/p             # <<<<<<<<<<<<<<
@@ -12818,7 +12818,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_14 = 0;
   __pyx_v_Px = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_13 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_14 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":361
+  /* "integrals.pyx":361
  *     cdef double alpha = p*q/(p+q)
  *     cdef double Px = (a*A[0] + b*B[0])/p
  *     cdef double Py = (a*A[1] + b*B[1])/p             # <<<<<<<<<<<<<<
@@ -12829,7 +12829,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_16 = 1;
   __pyx_v_Py = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_15 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_16 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":362
+  /* "integrals.pyx":362
  *     cdef double Px = (a*A[0] + b*B[0])/p
  *     cdef double Py = (a*A[1] + b*B[1])/p
  *     cdef double Pz = (a*A[2] + b*B[2])/p             # <<<<<<<<<<<<<<
@@ -12840,7 +12840,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_18 = 2;
   __pyx_v_Pz = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_17 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_18 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":363
+  /* "integrals.pyx":363
  *     cdef double Py = (a*A[1] + b*B[1])/p
  *     cdef double Pz = (a*A[2] + b*B[2])/p
  *     cdef double Qx = (c*C[0] + d*D[0])/q             # <<<<<<<<<<<<<<
@@ -12851,7 +12851,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_20 = 0;
   __pyx_v_Qx = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_19 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_20 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":364
+  /* "integrals.pyx":364
  *     cdef double Pz = (a*A[2] + b*B[2])/p
  *     cdef double Qx = (c*C[0] + d*D[0])/q
  *     cdef double Qy = (c*C[1] + d*D[1])/q             # <<<<<<<<<<<<<<
@@ -12862,7 +12862,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_22 = 1;
   __pyx_v_Qy = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_21 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_22 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":365
+  /* "integrals.pyx":365
  *     cdef double Qx = (c*C[0] + d*D[0])/q
  *     cdef double Qy = (c*C[1] + d*D[1])/q
  *     cdef double Qz = (c*C[2] + d*D[2])/q             # <<<<<<<<<<<<<<
@@ -12873,7 +12873,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_24 = 2;
   __pyx_v_Qz = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_23 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_24 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":367
+  /* "integrals.pyx":367
  *     cdef double Qz = (c*C[2] + d*D[2])/q
  *     #cdef double RPQ = np.linalg.norm(P-Q)
  *     cdef double RPQ = sqrt(pow(Px-Qx,2) + \             # <<<<<<<<<<<<<<
@@ -12882,7 +12882,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  */
   __pyx_v_RPQ = sqrt(((pow((__pyx_v_Px - __pyx_v_Qx), 2.0) + pow((__pyx_v_Py - __pyx_v_Qy), 2.0)) + pow((__pyx_v_Pz - __pyx_v_Qz), 2.0)));
 
-  /* "mmd/integrals.pyx":372
+  /* "integrals.pyx":372
  * 
  *     cdef int t,u,v,tau,nu,phi
  *     cdef double val = 0.0             # <<<<<<<<<<<<<<
@@ -12891,7 +12891,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  */
   __pyx_v_val = 0.0;
 
-  /* "mmd/integrals.pyx":373
+  /* "integrals.pyx":373
  *     cdef int t,u,v,tau,nu,phi
  *     cdef double val = 0.0
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]             # <<<<<<<<<<<<<<
@@ -12905,7 +12905,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_27 = 2;
   __pyx_v_r1z = (*((long *) ( /* dim=0 */ (__pyx_v_r1.data + __pyx_t_27 * __pyx_v_r1.strides[0]) )));
 
-  /* "mmd/integrals.pyx":374
+  /* "integrals.pyx":374
  *     cdef double val = 0.0
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]             # <<<<<<<<<<<<<<
@@ -12919,7 +12919,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_t_30 = 2;
   __pyx_v_r2z = (*((long *) ( /* dim=0 */ (__pyx_v_r2.data + __pyx_t_30 * __pyx_v_r2.strides[0]) )));
 
-  /* "mmd/integrals.pyx":375
+  /* "integrals.pyx":375
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -12930,7 +12930,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_t = __pyx_t_32;
 
-    /* "mmd/integrals.pyx":376
+    /* "integrals.pyx":376
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     for t in range(l1+l2+1+r1x):
  *         for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -12941,7 +12941,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
     for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
       __pyx_v_u = __pyx_t_34;
 
-      /* "mmd/integrals.pyx":377
+      /* "integrals.pyx":377
  *     for t in range(l1+l2+1+r1x):
  *         for u in range(m1+m2+1+r1y):
  *             for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -12952,7 +12952,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
       for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
         __pyx_v_v = __pyx_t_36;
 
-        /* "mmd/integrals.pyx":378
+        /* "integrals.pyx":378
  *         for u in range(m1+m2+1+r1y):
  *             for v in range(n1+n2+1+r1z):
  *                 for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -12963,7 +12963,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
         for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
           __pyx_v_tau = __pyx_t_38;
 
-          /* "mmd/integrals.pyx":379
+          /* "integrals.pyx":379
  *             for v in range(n1+n2+1+r1z):
  *                 for tau in range(l3+l4+1+r2x):
  *                     for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -12974,7 +12974,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
           for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
             __pyx_v_nu = __pyx_t_40;
 
-            /* "mmd/integrals.pyx":380
+            /* "integrals.pyx":380
  *                 for tau in range(l3+l4+1+r2x):
  *                     for nu in range(m3+m4+1+r2y):
  *                         for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -12985,7 +12985,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
             for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
               __pyx_v_phi = __pyx_t_42;
 
-              /* "mmd/integrals.pyx":381
+              /* "integrals.pyx":381
  *                     for nu in range(m3+m4+1+r2y):
  *                         for phi in range(n3+n4+1+r2z):
  *                             val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -12999,9 +12999,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r1x;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_45 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_46 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_47 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_43 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_44 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
+              __pyx_t_47 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_43 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_44 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":382
+              /* "integrals.pyx":382
  *                         for phi in range(n3+n4+1+r2z):
  *                             val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                    E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -13015,9 +13015,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r1y;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_51 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_52 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_53 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_49 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_50 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
+              __pyx_t_53 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_49 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_50 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":383
+              /* "integrals.pyx":383
  *                             val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                    E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                    E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -13031,9 +13031,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r1z;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_56 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_57 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_58 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_54 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_55 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
+              __pyx_t_58 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_54 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_55 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":384
+              /* "integrals.pyx":384
  *                                    E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                    E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                    E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -13047,9 +13047,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r2x;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_61 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_62 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_63 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_59 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_60 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
+              __pyx_t_63 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_59 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_60 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":385
+              /* "integrals.pyx":385
  *                                    E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                    E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                    E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -13063,9 +13063,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r2y;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_66 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_67 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_68 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_64 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_65 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
+              __pyx_t_68 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_64 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_65 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":386
+              /* "integrals.pyx":386
  *                                    E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                    E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                    E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -13079,16 +13079,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
               __pyx_t_48.__pyx_n = 2;
               __pyx_t_48.n = __pyx_v_r2z;
               __pyx_t_48.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_71 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_72 * __pyx_v_gOrigin.strides[0]) ))));
-              __pyx_t_73 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_69 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_70 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
+              __pyx_t_73 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_69 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_70 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_48); 
 
-              /* "mmd/integrals.pyx":381
+              /* "integrals.pyx":381
  *                     for nu in range(m3+m4+1+r2y):
  *                         for phi in range(n3+n4+1+r2z):
  *                             val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                    E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                    E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-              __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_47 * __pyx_t_53) * __pyx_t_58) * __pyx_t_63) * __pyx_t_68) * __pyx_t_73) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+              __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_47 * __pyx_t_53) * __pyx_t_58) * __pyx_t_63) * __pyx_t_68) * __pyx_t_73) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
             }
           }
         }
@@ -13096,16 +13096,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
     }
   }
 
-  /* "mmd/integrals.pyx":391
+  /* "integrals.pyx":391
  *                                        alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     val *= 2*pow(pi,2.5)/(p*q*sqrt(p+q))             # <<<<<<<<<<<<<<
  *     return val
  * 
  */
-  __pyx_v_val = (__pyx_v_val * ((2.0 * pow(__pyx_v_3mmd_9integrals_pi, 2.5)) / ((__pyx_v_p * __pyx_v_q) * sqrt((__pyx_v_p + __pyx_v_q)))));
+  __pyx_v_val = (__pyx_v_val * ((2.0 * pow(__pyx_v_9integrals_pi, 2.5)) / ((__pyx_v_p * __pyx_v_q) * sqrt((__pyx_v_p + __pyx_v_q)))));
 
-  /* "mmd/integrals.pyx":392
+  /* "integrals.pyx":392
  * 
  *     val *= 2*pow(pi,2.5)/(p*q*sqrt(p+q))
  *     return val             # <<<<<<<<<<<<<<
@@ -13115,7 +13115,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":352
+  /* "integrals.pyx":352
  * @cython.wraparound(False)
  * @cython.nonecheck(False)
  * cdef double electron_repulsion(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin):             # <<<<<<<<<<<<<<
@@ -13129,7 +13129,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":398
+/* "integrals.pyx":398
  * @cython.wraparound(False)
  * @cython.nonecheck(False)
  * cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -13137,7 +13137,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsion(double __pyx_v_a, __Pyx
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  */
 
-static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Pyx_memviewslice __pyx_v_lmn1, __Pyx_memviewslice __pyx_v_A, double __pyx_v_b, __Pyx_memviewslice __pyx_v_lmn2, __Pyx_memviewslice __pyx_v_B, double __pyx_v_c, __Pyx_memviewslice __pyx_v_lmn3, __Pyx_memviewslice __pyx_v_C, double __pyx_v_d, __Pyx_memviewslice __pyx_v_lmn4, __Pyx_memviewslice __pyx_v_D, __Pyx_memviewslice __pyx_v_r1, __Pyx_memviewslice __pyx_v_r2, __Pyx_memviewslice __pyx_v_gOrigin, struct __pyx_opt_args_3mmd_9integrals_electron_repulsionX *__pyx_optional_args) {
+static double __pyx_f_9integrals_electron_repulsionX(double __pyx_v_a, __Pyx_memviewslice __pyx_v_lmn1, __Pyx_memviewslice __pyx_v_A, double __pyx_v_b, __Pyx_memviewslice __pyx_v_lmn2, __Pyx_memviewslice __pyx_v_B, double __pyx_v_c, __Pyx_memviewslice __pyx_v_lmn3, __Pyx_memviewslice __pyx_v_C, double __pyx_v_d, __Pyx_memviewslice __pyx_v_lmn4, __Pyx_memviewslice __pyx_v_D, __Pyx_memviewslice __pyx_v_r1, __Pyx_memviewslice __pyx_v_r2, __Pyx_memviewslice __pyx_v_gOrigin, struct __pyx_opt_args_9integrals_electron_repulsionX *__pyx_optional_args) {
   int __pyx_v_x = ((int)0);
   PyObject *__pyx_v_center = ((PyObject*)__pyx_n_s_a);
   int __pyx_v_l1;
@@ -13226,13 +13226,13 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   Py_ssize_t __pyx_t_47;
   Py_ssize_t __pyx_t_48;
   double __pyx_t_49;
-  struct __pyx_opt_args_3mmd_9integrals_Ex __pyx_t_50;
+  struct __pyx_opt_args_9integrals_Ex __pyx_t_50;
   Py_ssize_t __pyx_t_51;
   Py_ssize_t __pyx_t_52;
   Py_ssize_t __pyx_t_53;
   Py_ssize_t __pyx_t_54;
   double __pyx_t_55;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_56;
+  struct __pyx_opt_args_9integrals_E __pyx_t_56;
   Py_ssize_t __pyx_t_57;
   Py_ssize_t __pyx_t_58;
   Py_ssize_t __pyx_t_59;
@@ -13527,7 +13527,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     }
   }
 
-  /* "mmd/integrals.pyx":399
+  /* "integrals.pyx":399
  * @cython.nonecheck(False)
  * cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]             # <<<<<<<<<<<<<<
@@ -13541,7 +13541,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_3 = 2;
   __pyx_v_n1 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn1.data + __pyx_t_3 * __pyx_v_lmn1.strides[0]) )));
 
-  /* "mmd/integrals.pyx":400
+  /* "integrals.pyx":400
  * cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]             # <<<<<<<<<<<<<<
@@ -13555,7 +13555,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_6 = 2;
   __pyx_v_n2 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn2.data + __pyx_t_6 * __pyx_v_lmn2.strides[0]) )));
 
-  /* "mmd/integrals.pyx":401
+  /* "integrals.pyx":401
  *     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]             # <<<<<<<<<<<<<<
@@ -13569,7 +13569,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_9 = 2;
   __pyx_v_n3 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn3.data + __pyx_t_9 * __pyx_v_lmn3.strides[0]) )));
 
-  /* "mmd/integrals.pyx":402
+  /* "integrals.pyx":402
  *     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]             # <<<<<<<<<<<<<<
@@ -13583,7 +13583,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_12 = 2;
   __pyx_v_n4 = (*((long *) ( /* dim=0 */ (__pyx_v_lmn4.data + __pyx_t_12 * __pyx_v_lmn4.strides[0]) )));
 
-  /* "mmd/integrals.pyx":403
+  /* "integrals.pyx":403
  *     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
  *     cdef double p = a+b             # <<<<<<<<<<<<<<
@@ -13592,7 +13592,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
   __pyx_v_p = (__pyx_v_a + __pyx_v_b);
 
-  /* "mmd/integrals.pyx":404
+  /* "integrals.pyx":404
  *     cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
  *     cdef double p = a+b
  *     cdef double q = c+d             # <<<<<<<<<<<<<<
@@ -13601,7 +13601,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
   __pyx_v_q = (__pyx_v_c + __pyx_v_d);
 
-  /* "mmd/integrals.pyx":405
+  /* "integrals.pyx":405
  *     cdef double p = a+b
  *     cdef double q = c+d
  *     cdef double alpha = p*q/(p+q)             # <<<<<<<<<<<<<<
@@ -13610,7 +13610,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
   __pyx_v_alpha = ((__pyx_v_p * __pyx_v_q) / (__pyx_v_p + __pyx_v_q));
 
-  /* "mmd/integrals.pyx":406
+  /* "integrals.pyx":406
  *     cdef double q = c+d
  *     cdef double alpha = p*q/(p+q)
  *     cdef double Px = (a*A[0] + b*B[0])/p             # <<<<<<<<<<<<<<
@@ -13621,7 +13621,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_14 = 0;
   __pyx_v_Px = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_13 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_14 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":407
+  /* "integrals.pyx":407
  *     cdef double alpha = p*q/(p+q)
  *     cdef double Px = (a*A[0] + b*B[0])/p
  *     cdef double Py = (a*A[1] + b*B[1])/p             # <<<<<<<<<<<<<<
@@ -13632,7 +13632,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_16 = 1;
   __pyx_v_Py = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_15 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_16 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":408
+  /* "integrals.pyx":408
  *     cdef double Px = (a*A[0] + b*B[0])/p
  *     cdef double Py = (a*A[1] + b*B[1])/p
  *     cdef double Pz = (a*A[2] + b*B[2])/p             # <<<<<<<<<<<<<<
@@ -13643,7 +13643,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_18 = 2;
   __pyx_v_Pz = (((__pyx_v_a * (*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_17 * __pyx_v_A.strides[0]) )))) + (__pyx_v_b * (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_18 * __pyx_v_B.strides[0]) ))))) / __pyx_v_p);
 
-  /* "mmd/integrals.pyx":409
+  /* "integrals.pyx":409
  *     cdef double Py = (a*A[1] + b*B[1])/p
  *     cdef double Pz = (a*A[2] + b*B[2])/p
  *     cdef double Qx = (c*C[0] + d*D[0])/q             # <<<<<<<<<<<<<<
@@ -13654,7 +13654,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_20 = 0;
   __pyx_v_Qx = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_19 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_20 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":410
+  /* "integrals.pyx":410
  *     cdef double Pz = (a*A[2] + b*B[2])/p
  *     cdef double Qx = (c*C[0] + d*D[0])/q
  *     cdef double Qy = (c*C[1] + d*D[1])/q             # <<<<<<<<<<<<<<
@@ -13665,7 +13665,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_22 = 1;
   __pyx_v_Qy = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_21 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_22 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":411
+  /* "integrals.pyx":411
  *     cdef double Qx = (c*C[0] + d*D[0])/q
  *     cdef double Qy = (c*C[1] + d*D[1])/q
  *     cdef double Qz = (c*C[2] + d*D[2])/q             # <<<<<<<<<<<<<<
@@ -13676,7 +13676,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_24 = 2;
   __pyx_v_Qz = (((__pyx_v_c * (*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_23 * __pyx_v_C.strides[0]) )))) + (__pyx_v_d * (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_24 * __pyx_v_D.strides[0]) ))))) / __pyx_v_q);
 
-  /* "mmd/integrals.pyx":413
+  /* "integrals.pyx":413
  *     cdef double Qz = (c*C[2] + d*D[2])/q
  *     #cdef double RPQ = np.linalg.norm(P-Q)
  *     cdef double RPQ = sqrt(pow(Px-Qx,2) + \             # <<<<<<<<<<<<<<
@@ -13685,7 +13685,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
   __pyx_v_RPQ = sqrt(((pow((__pyx_v_Px - __pyx_v_Qx), 2.0) + pow((__pyx_v_Py - __pyx_v_Qy), 2.0)) + pow((__pyx_v_Pz - __pyx_v_Qz), 2.0)));
 
-  /* "mmd/integrals.pyx":418
+  /* "integrals.pyx":418
  * 
  *     cdef int t,u,v,tau,nu,phi
  *     cdef double val = 0.0             # <<<<<<<<<<<<<<
@@ -13694,7 +13694,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
   __pyx_v_val = 0.0;
 
-  /* "mmd/integrals.pyx":419
+  /* "integrals.pyx":419
  *     cdef int t,u,v,tau,nu,phi
  *     cdef double val = 0.0
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]             # <<<<<<<<<<<<<<
@@ -13708,7 +13708,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_27 = 2;
   __pyx_v_r1z = (*((long *) ( /* dim=0 */ (__pyx_v_r1.data + __pyx_t_27 * __pyx_v_r1.strides[0]) )));
 
-  /* "mmd/integrals.pyx":420
+  /* "integrals.pyx":420
  *     cdef double val = 0.0
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]             # <<<<<<<<<<<<<<
@@ -13722,7 +13722,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_30 = 2;
   __pyx_v_r2z = (*((long *) ( /* dim=0 */ (__pyx_v_r2.data + __pyx_t_30 * __pyx_v_r2.strides[0]) )));
 
-  /* "mmd/integrals.pyx":421
+  /* "integrals.pyx":421
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     if center == 'a':             # <<<<<<<<<<<<<<
@@ -13733,7 +13733,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_32 = (__pyx_t_31 != 0);
   if (__pyx_t_32) {
 
-    /* "mmd/integrals.pyx":422
+    /* "integrals.pyx":422
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     if center == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -13743,7 +13743,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     switch (__pyx_v_x) {
       case 0:
 
-      /* "mmd/integrals.pyx":423
+      /* "integrals.pyx":423
  *     if center == 'a':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -13752,7 +13752,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":424
+      /* "integrals.pyx":424
  *         if x == 0:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x+1):             # <<<<<<<<<<<<<<
@@ -13763,7 +13763,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":425
+        /* "integrals.pyx":425
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x+1):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -13774,7 +13774,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":426
+          /* "integrals.pyx":426
  *             for t in range(l1+l2+1+r1x+1):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -13785,7 +13785,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":427
+            /* "integrals.pyx":427
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -13796,7 +13796,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":428
+              /* "integrals.pyx":428
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -13807,7 +13807,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":429
+                /* "integrals.pyx":429
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -13818,7 +13818,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":430
+                  /* "integrals.pyx":430
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -13834,9 +13834,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_47 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_48 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_45 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_46 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_49 = __pyx_f_9integrals_Ex(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_45 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_46 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":431
+                  /* "integrals.pyx":431
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=1,r=0) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -13850,9 +13850,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_53 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_54 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_51 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_52 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_51 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_52 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":432
+                  /* "integrals.pyx":432
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=1,r=0) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -13866,9 +13866,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_59 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_60 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_57 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_58 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_57 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_58 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":433
+                  /* "integrals.pyx":433
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -13882,9 +13882,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_64 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_65 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_62 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_63 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_62 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_63 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":434
+                  /* "integrals.pyx":434
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -13898,9 +13898,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_69 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_70 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_67 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_68 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_67 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_68 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":435
+                  /* "integrals.pyx":435
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -13914,16 +13914,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_74 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_75 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_72 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_73 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_72 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_73 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":430
+                  /* "integrals.pyx":430
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=1,r=0) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -13931,7 +13931,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":422
+      /* "integrals.pyx":422
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     if center == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -13940,7 +13940,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":439
+      /* "integrals.pyx":439
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -13949,7 +13949,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 1:
 
-      /* "mmd/integrals.pyx":440
+      /* "integrals.pyx":440
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -13958,7 +13958,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":441
+      /* "integrals.pyx":441
  *         elif x == 1:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -13969,7 +13969,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":442
+        /* "integrals.pyx":442
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y+1):             # <<<<<<<<<<<<<<
@@ -13980,7 +13980,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":443
+          /* "integrals.pyx":443
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y+1):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -13991,7 +13991,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":444
+            /* "integrals.pyx":444
  *                 for u in range(m1+m2+1+r1y+1):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -14002,7 +14002,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":445
+              /* "integrals.pyx":445
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -14013,7 +14013,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":446
+                /* "integrals.pyx":446
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -14024,7 +14024,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":447
+                  /* "integrals.pyx":447
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14038,9 +14038,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_79 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_80 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_77 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_78 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_77 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_78 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":448
+                  /* "integrals.pyx":448
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -14056,9 +14056,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_83 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_84 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_81 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_82 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_71 = __pyx_f_9integrals_Ex(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_81 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_82 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":449
+                  /* "integrals.pyx":449
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=1,r=0) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14072,9 +14072,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_87 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_88 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_85 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_86 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_85 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_86 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":450
+                  /* "integrals.pyx":450
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=1,r=0) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14088,9 +14088,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_91 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_92 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_89 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_90 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_89 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_90 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":451
+                  /* "integrals.pyx":451
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14104,9 +14104,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_95 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_96 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_93 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_94 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_93 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_94 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":452
+                  /* "integrals.pyx":452
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14120,16 +14120,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_99 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_100 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_97 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_98 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_97 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_98 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":447
+                  /* "integrals.pyx":447
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=1,r=0) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -14137,7 +14137,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":439
+      /* "integrals.pyx":439
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -14146,7 +14146,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":456
+      /* "integrals.pyx":456
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -14155,7 +14155,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 2:
 
-      /* "mmd/integrals.pyx":457
+      /* "integrals.pyx":457
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -14164,7 +14164,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":458
+      /* "integrals.pyx":458
  *         elif x == 2:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -14175,7 +14175,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":459
+        /* "integrals.pyx":459
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -14186,7 +14186,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":460
+          /* "integrals.pyx":460
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):             # <<<<<<<<<<<<<<
@@ -14197,7 +14197,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":461
+            /* "integrals.pyx":461
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -14208,7 +14208,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":462
+              /* "integrals.pyx":462
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -14219,7 +14219,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":463
+                /* "integrals.pyx":463
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -14230,7 +14230,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":464
+                  /* "integrals.pyx":464
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14244,9 +14244,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_103 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_104 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_101 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_102 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_101 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_102 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":465
+                  /* "integrals.pyx":465
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14260,9 +14260,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_107 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_108 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_105 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_106 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_105 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_106 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":466
+                  /* "integrals.pyx":466
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -14278,9 +14278,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_111 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_112 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_109 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_110 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_61 = __pyx_f_9integrals_Ex(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_109 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_110 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":467
+                  /* "integrals.pyx":467
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=1,r=0) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14294,9 +14294,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_115 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_116 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_113 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_114 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_113 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_114 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":468
+                  /* "integrals.pyx":468
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=1,r=0) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14310,9 +14310,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_119 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_120 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_117 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_118 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_117 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_118 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":469
+                  /* "integrals.pyx":469
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14326,16 +14326,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_123 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_124 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_121 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_122 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_121 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_122 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":464
+                  /* "integrals.pyx":464
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=1,r=0) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -14343,7 +14343,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":456
+      /* "integrals.pyx":456
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -14354,7 +14354,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       default: break;
     }
 
-    /* "mmd/integrals.pyx":421
+    /* "integrals.pyx":421
  *     cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
  *     cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
  *     if center == 'a':             # <<<<<<<<<<<<<<
@@ -14364,7 +14364,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":473
+  /* "integrals.pyx":473
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *     elif center == 'b':             # <<<<<<<<<<<<<<
@@ -14375,7 +14375,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_31 = (__pyx_t_32 != 0);
   if (__pyx_t_31) {
 
-    /* "mmd/integrals.pyx":474
+    /* "integrals.pyx":474
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *     elif center == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -14385,7 +14385,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     switch (__pyx_v_x) {
       case 0:
 
-      /* "mmd/integrals.pyx":475
+      /* "integrals.pyx":475
  *     elif center == 'b':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -14394,7 +14394,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":476
+      /* "integrals.pyx":476
  *         if x == 0:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x+1):             # <<<<<<<<<<<<<<
@@ -14405,7 +14405,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":477
+        /* "integrals.pyx":477
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x+1):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -14416,7 +14416,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":478
+          /* "integrals.pyx":478
  *             for t in range(l1+l2+1+r1x+1):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -14427,7 +14427,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":479
+            /* "integrals.pyx":479
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -14438,7 +14438,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":480
+              /* "integrals.pyx":480
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -14449,7 +14449,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":481
+                /* "integrals.pyx":481
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -14460,7 +14460,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":482
+                  /* "integrals.pyx":482
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -14476,9 +14476,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_127 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_128 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_125 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_126 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_76 = __pyx_f_9integrals_Ex(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_125 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_126 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":483
+                  /* "integrals.pyx":483
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=0,r=1) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14492,9 +14492,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_131 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_132 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_129 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_130 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_129 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_130 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":484
+                  /* "integrals.pyx":484
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=0,r=1) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14508,9 +14508,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_135 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_136 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_133 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_134 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_133 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_134 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":485
+                  /* "integrals.pyx":485
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14524,9 +14524,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_139 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_140 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_137 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_138 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_137 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_138 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":486
+                  /* "integrals.pyx":486
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14540,9 +14540,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_143 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_144 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_141 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_142 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_141 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_142 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":487
+                  /* "integrals.pyx":487
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14556,16 +14556,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_147 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_148 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_145 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_146 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_145 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_146 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":482
+                  /* "integrals.pyx":482
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += Ex(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0],q=0,r=1) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -14573,7 +14573,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":474
+      /* "integrals.pyx":474
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *     elif center == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -14582,7 +14582,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":491
+      /* "integrals.pyx":491
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -14591,7 +14591,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 1:
 
-      /* "mmd/integrals.pyx":492
+      /* "integrals.pyx":492
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -14600,7 +14600,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":493
+      /* "integrals.pyx":493
  *         elif x == 1:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -14611,7 +14611,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":494
+        /* "integrals.pyx":494
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y+1):             # <<<<<<<<<<<<<<
@@ -14622,7 +14622,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":495
+          /* "integrals.pyx":495
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y+1):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -14633,7 +14633,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":496
+            /* "integrals.pyx":496
  *                 for u in range(m1+m2+1+r1y+1):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -14644,7 +14644,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":497
+              /* "integrals.pyx":497
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -14655,7 +14655,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":498
+                /* "integrals.pyx":498
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -14666,7 +14666,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":499
+                  /* "integrals.pyx":499
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14680,9 +14680,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_151 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_152 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_149 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_150 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_149 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_150 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":500
+                  /* "integrals.pyx":500
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -14698,9 +14698,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_155 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_156 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_153 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_154 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_55 = __pyx_f_9integrals_Ex(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_153 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_154 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":501
+                  /* "integrals.pyx":501
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=0,r=1) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14714,9 +14714,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_159 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_160 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_157 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_158 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_157 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_158 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":502
+                  /* "integrals.pyx":502
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=0,r=1) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14730,9 +14730,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_163 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_164 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_161 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_162 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_161 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_162 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":503
+                  /* "integrals.pyx":503
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14746,9 +14746,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_167 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_168 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_165 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_166 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_165 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_166 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":504
+                  /* "integrals.pyx":504
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14762,16 +14762,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_171 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_172 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_169 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_170 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_169 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_170 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":499
+                  /* "integrals.pyx":499
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            Ex(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1],q=0,r=1) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -14779,7 +14779,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":491
+      /* "integrals.pyx":491
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -14788,7 +14788,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":508
+      /* "integrals.pyx":508
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -14797,7 +14797,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 2:
 
-      /* "mmd/integrals.pyx":509
+      /* "integrals.pyx":509
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -14806,7 +14806,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":510
+      /* "integrals.pyx":510
  *         elif x == 2:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -14817,7 +14817,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":511
+        /* "integrals.pyx":511
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -14828,7 +14828,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":512
+          /* "integrals.pyx":512
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):             # <<<<<<<<<<<<<<
@@ -14839,7 +14839,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":513
+            /* "integrals.pyx":513
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -14850,7 +14850,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":514
+              /* "integrals.pyx":514
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -14861,7 +14861,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":515
+                /* "integrals.pyx":515
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -14872,7 +14872,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":516
+                  /* "integrals.pyx":516
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14886,9 +14886,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_175 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_176 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_173 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_174 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_173 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_174 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":517
+                  /* "integrals.pyx":517
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14902,9 +14902,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_179 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_180 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_177 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_178 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_177 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_178 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":518
+                  /* "integrals.pyx":518
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -14920,9 +14920,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_183 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_184 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_181 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_182 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
+                  __pyx_t_66 = __pyx_f_9integrals_Ex(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_181 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_182 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":519
+                  /* "integrals.pyx":519
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=0,r=1) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -14936,9 +14936,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_187 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_188 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_185 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_186 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_185 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_186 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":520
+                  /* "integrals.pyx":520
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=0,r=1) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -14952,9 +14952,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_191 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_192 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_189 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_190 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_189 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_190 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":521
+                  /* "integrals.pyx":521
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -14968,16 +14968,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_195 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_196 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_193 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_194 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_193 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_194 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":516
+                  /* "integrals.pyx":516
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            Ex(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2],q=0,r=1) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -14985,7 +14985,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":508
+      /* "integrals.pyx":508
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -14996,7 +14996,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       default: break;
     }
 
-    /* "mmd/integrals.pyx":473
+    /* "integrals.pyx":473
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *     elif center == 'b':             # <<<<<<<<<<<<<<
@@ -15006,7 +15006,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":526
+  /* "integrals.pyx":526
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     elif center == 'c':             # <<<<<<<<<<<<<<
@@ -15017,7 +15017,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_32 = (__pyx_t_31 != 0);
   if (__pyx_t_32) {
 
-    /* "mmd/integrals.pyx":527
+    /* "integrals.pyx":527
  * 
  *     elif center == 'c':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -15027,7 +15027,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     switch (__pyx_v_x) {
       case 0:
 
-      /* "mmd/integrals.pyx":528
+      /* "integrals.pyx":528
  *     elif center == 'c':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -15036,7 +15036,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":529
+      /* "integrals.pyx":529
  *         if x == 0:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -15047,7 +15047,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":530
+        /* "integrals.pyx":530
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -15058,7 +15058,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":531
+          /* "integrals.pyx":531
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -15069,7 +15069,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":532
+            /* "integrals.pyx":532
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x+1):             # <<<<<<<<<<<<<<
@@ -15080,7 +15080,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":533
+              /* "integrals.pyx":533
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x+1):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -15091,7 +15091,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":534
+                /* "integrals.pyx":534
  *                         for tau in range(l3+l4+1+r2x+1):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -15102,7 +15102,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":535
+                  /* "integrals.pyx":535
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15116,9 +15116,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_199 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_200 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_197 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_198 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_197 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_198 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":536
+                  /* "integrals.pyx":536
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15132,9 +15132,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_203 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_204 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_201 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_202 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_201 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_202 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":537
+                  /* "integrals.pyx":537
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15148,9 +15148,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_207 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_208 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_205 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_206 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_205 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_206 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":538
+                  /* "integrals.pyx":538
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -15166,9 +15166,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_211 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_212 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_209 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_210 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_66 = __pyx_f_9integrals_Ex(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_209 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_210 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":539
+                  /* "integrals.pyx":539
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=1,r=0) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15182,9 +15182,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_215 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_216 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_213 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_214 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_213 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_214 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":540
+                  /* "integrals.pyx":540
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=1,r=0) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15198,16 +15198,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_219 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_220 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_217 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_218 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_217 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_218 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":535
+                  /* "integrals.pyx":535
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -15215,7 +15215,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":527
+      /* "integrals.pyx":527
  * 
  *     elif center == 'c':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -15224,7 +15224,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":544
+      /* "integrals.pyx":544
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -15233,7 +15233,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 1:
 
-      /* "mmd/integrals.pyx":545
+      /* "integrals.pyx":545
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -15242,7 +15242,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":546
+      /* "integrals.pyx":546
  *         elif x == 1:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -15253,7 +15253,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":547
+        /* "integrals.pyx":547
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -15264,7 +15264,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":548
+          /* "integrals.pyx":548
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -15275,7 +15275,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":549
+            /* "integrals.pyx":549
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -15286,7 +15286,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":550
+              /* "integrals.pyx":550
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y+1):             # <<<<<<<<<<<<<<
@@ -15297,7 +15297,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":551
+                /* "integrals.pyx":551
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -15308,7 +15308,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":552
+                  /* "integrals.pyx":552
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15322,9 +15322,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_223 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_224 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_221 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_222 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_221 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_222 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":553
+                  /* "integrals.pyx":553
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15338,9 +15338,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_227 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_228 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_225 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_226 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_225 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_226 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":554
+                  /* "integrals.pyx":554
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15354,9 +15354,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_231 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_232 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_229 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_230 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_229 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_230 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":555
+                  /* "integrals.pyx":555
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15370,9 +15370,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_235 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_236 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_233 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_234 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_233 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_234 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":556
+                  /* "integrals.pyx":556
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            Ex(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -15388,9 +15388,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_239 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_240 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_237 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_238 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_55 = __pyx_f_9integrals_Ex(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_237 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_238 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":557
+                  /* "integrals.pyx":557
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            Ex(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1],q=1,r=0) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15404,16 +15404,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_243 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_244 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_241 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_242 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_241 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_242 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":552
+                  /* "integrals.pyx":552
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -15421,7 +15421,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":544
+      /* "integrals.pyx":544
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -15430,7 +15430,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":561
+      /* "integrals.pyx":561
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -15439,7 +15439,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 2:
 
-      /* "mmd/integrals.pyx":562
+      /* "integrals.pyx":562
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -15448,7 +15448,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":563
+      /* "integrals.pyx":563
  *         elif x == 2:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -15459,7 +15459,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":564
+        /* "integrals.pyx":564
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -15470,7 +15470,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":565
+          /* "integrals.pyx":565
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):             # <<<<<<<<<<<<<<
@@ -15481,7 +15481,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":566
+            /* "integrals.pyx":566
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -15492,7 +15492,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":567
+              /* "integrals.pyx":567
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -15503,7 +15503,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":568
+                /* "integrals.pyx":568
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):             # <<<<<<<<<<<<<<
@@ -15514,7 +15514,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":569
+                  /* "integrals.pyx":569
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15528,9 +15528,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_247 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_248 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_245 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_246 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_245 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_246 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":570
+                  /* "integrals.pyx":570
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15544,9 +15544,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_251 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_252 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_249 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_250 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_249 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_250 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":571
+                  /* "integrals.pyx":571
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15560,9 +15560,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_255 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_256 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_253 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_254 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_253 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_254 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":572
+                  /* "integrals.pyx":572
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15576,9 +15576,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_259 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_260 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_257 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_258 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_257 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_258 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":573
+                  /* "integrals.pyx":573
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15592,9 +15592,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_263 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_264 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_261 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_262 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_261 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_262 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":574
+                  /* "integrals.pyx":574
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            Ex(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -15610,16 +15610,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_267 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_268 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 1;
                   __pyx_t_50.r = 0;
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_265 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_266 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_76 = __pyx_f_9integrals_Ex(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_265 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_266 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":569
+                  /* "integrals.pyx":569
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -15627,7 +15627,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":561
+      /* "integrals.pyx":561
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -15638,7 +15638,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       default: break;
     }
 
-    /* "mmd/integrals.pyx":526
+    /* "integrals.pyx":526
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     elif center == 'c':             # <<<<<<<<<<<<<<
@@ -15648,7 +15648,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     goto __pyx_L3;
   }
 
-  /* "mmd/integrals.pyx":579
+  /* "integrals.pyx":579
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     elif center == 'd':             # <<<<<<<<<<<<<<
@@ -15659,7 +15659,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_t_31 = (__pyx_t_32 != 0);
   if (__pyx_t_31) {
 
-    /* "mmd/integrals.pyx":580
+    /* "integrals.pyx":580
  * 
  *     elif center == 'd':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -15669,7 +15669,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
     switch (__pyx_v_x) {
       case 0:
 
-      /* "mmd/integrals.pyx":581
+      /* "integrals.pyx":581
  *     elif center == 'd':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -15678,7 +15678,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":582
+      /* "integrals.pyx":582
  *         if x == 0:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -15689,7 +15689,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":583
+        /* "integrals.pyx":583
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -15700,7 +15700,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":584
+          /* "integrals.pyx":584
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -15711,7 +15711,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":585
+            /* "integrals.pyx":585
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x+1):             # <<<<<<<<<<<<<<
@@ -15722,7 +15722,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":586
+              /* "integrals.pyx":586
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x+1):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -15733,7 +15733,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":587
+                /* "integrals.pyx":587
  *                         for tau in range(l3+l4+1+r2x+1):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -15744,7 +15744,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":588
+                  /* "integrals.pyx":588
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15758,9 +15758,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_271 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_272 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_269 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_270 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_269 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_270 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":589
+                  /* "integrals.pyx":589
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15774,9 +15774,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_275 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_276 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_273 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_274 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_273 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_274 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":590
+                  /* "integrals.pyx":590
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15790,9 +15790,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_279 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_280 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_277 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_278 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_277 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_278 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":591
+                  /* "integrals.pyx":591
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -15808,9 +15808,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_283 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_284 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_281 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_282 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_61 = __pyx_f_9integrals_Ex(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_281 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_282 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":592
+                  /* "integrals.pyx":592
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=0,r=1) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15824,9 +15824,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_287 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_288 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_285 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_286 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_285 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_286 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":593
+                  /* "integrals.pyx":593
  *                                            Ex(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0],q=0,r=1) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15840,16 +15840,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_291 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_292 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_289 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_290 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_289 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_290 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":588
+                  /* "integrals.pyx":588
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -15857,7 +15857,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":580
+      /* "integrals.pyx":580
  * 
  *     elif center == 'd':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -15866,7 +15866,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":597
+      /* "integrals.pyx":597
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -15875,7 +15875,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 1:
 
-      /* "mmd/integrals.pyx":598
+      /* "integrals.pyx":598
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -15884,7 +15884,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":599
+      /* "integrals.pyx":599
  *         elif x == 1:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -15895,7 +15895,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":600
+        /* "integrals.pyx":600
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -15906,7 +15906,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":601
+          /* "integrals.pyx":601
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):             # <<<<<<<<<<<<<<
@@ -15917,7 +15917,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":602
+            /* "integrals.pyx":602
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -15928,7 +15928,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":603
+              /* "integrals.pyx":603
  *                     for v in range(n1+n2+1+r1z):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y+1):             # <<<<<<<<<<<<<<
@@ -15939,7 +15939,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":604
+                /* "integrals.pyx":604
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):             # <<<<<<<<<<<<<<
@@ -15950,7 +15950,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":605
+                  /* "integrals.pyx":605
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -15964,9 +15964,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_295 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_296 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_293 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_294 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_49 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_293 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_294 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":606
+                  /* "integrals.pyx":606
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -15980,9 +15980,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_299 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_300 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_297 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_298 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_297 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_298 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":607
+                  /* "integrals.pyx":607
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -15996,9 +15996,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_303 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_304 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_301 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_302 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_301 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_302 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":608
+                  /* "integrals.pyx":608
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -16012,9 +16012,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_307 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_308 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_305 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_306 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_305 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_306 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":609
+                  /* "integrals.pyx":609
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            Ex(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -16030,9 +16030,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_311 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_312 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_309 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_310 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_71 = __pyx_f_9integrals_Ex(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_309 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_310 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":610
+                  /* "integrals.pyx":610
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            Ex(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1],q=0,r=1) * \
  *                                            E(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -16046,16 +16046,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_315 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_316 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_313 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_314 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_313 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_314 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":605
+                  /* "integrals.pyx":605
  *                             for nu in range(m3+m4+1+r2y+1):
  *                                 for phi in range(n3+n4+1+r2z):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_49 * __pyx_t_55) * __pyx_t_61) * __pyx_t_66) * __pyx_t_71) * __pyx_t_76) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -16063,7 +16063,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":597
+      /* "integrals.pyx":597
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -16072,7 +16072,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       break;
 
-      /* "mmd/integrals.pyx":614
+      /* "integrals.pyx":614
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -16081,7 +16081,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       case 2:
 
-      /* "mmd/integrals.pyx":615
+      /* "integrals.pyx":615
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -16090,7 +16090,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  */
       __pyx_v_val = 0.0;
 
-      /* "mmd/integrals.pyx":616
+      /* "integrals.pyx":616
  *         elif x == 2:
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):             # <<<<<<<<<<<<<<
@@ -16101,7 +16101,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
         __pyx_v_t = __pyx_t_34;
 
-        /* "mmd/integrals.pyx":617
+        /* "integrals.pyx":617
  *             val = 0.0
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):             # <<<<<<<<<<<<<<
@@ -16112,7 +16112,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_35; __pyx_t_36+=1) {
           __pyx_v_u = __pyx_t_36;
 
-          /* "mmd/integrals.pyx":618
+          /* "integrals.pyx":618
  *             for t in range(l1+l2+1+r1x):
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):             # <<<<<<<<<<<<<<
@@ -16123,7 +16123,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
           for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_37; __pyx_t_38+=1) {
             __pyx_v_v = __pyx_t_38;
 
-            /* "mmd/integrals.pyx":619
+            /* "integrals.pyx":619
  *                 for u in range(m1+m2+1+r1y):
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):             # <<<<<<<<<<<<<<
@@ -16134,7 +16134,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
             for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
               __pyx_v_tau = __pyx_t_40;
 
-              /* "mmd/integrals.pyx":620
+              /* "integrals.pyx":620
  *                     for v in range(n1+n2+1+r1z+1):
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):             # <<<<<<<<<<<<<<
@@ -16145,7 +16145,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
               for (__pyx_t_42 = 0; __pyx_t_42 < __pyx_t_41; __pyx_t_42+=1) {
                 __pyx_v_nu = __pyx_t_42;
 
-                /* "mmd/integrals.pyx":621
+                /* "integrals.pyx":621
  *                         for tau in range(l3+l4+1+r2x):
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):             # <<<<<<<<<<<<<<
@@ -16156,7 +16156,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                 for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
                   __pyx_v_phi = __pyx_t_44;
 
-                  /* "mmd/integrals.pyx":622
+                  /* "integrals.pyx":622
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -16170,9 +16170,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_319 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_320 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_76 = __pyx_f_3mmd_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_317 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_318 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_76 = __pyx_f_9integrals_E(__pyx_v_l1, __pyx_v_l2, __pyx_v_t, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_317 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_318 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":623
+                  /* "integrals.pyx":623
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -16186,9 +16186,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_323 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_324 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_71 = __pyx_f_3mmd_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_321 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_322 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_71 = __pyx_f_9integrals_E(__pyx_v_m1, __pyx_v_m2, __pyx_v_u, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_321 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_322 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":624
+                  /* "integrals.pyx":624
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -16202,9 +16202,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r1z;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_327 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_328 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_66 = __pyx_f_3mmd_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_325 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_326 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
+                  __pyx_t_66 = __pyx_f_9integrals_E(__pyx_v_n1, __pyx_v_n2, __pyx_v_v, ((*((double *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_325 * __pyx_v_A.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_326 * __pyx_v_B.strides[0]) )))), __pyx_v_a, __pyx_v_b, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":625
+                  /* "integrals.pyx":625
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -16218,9 +16218,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2x;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_331 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_332 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_61 = __pyx_f_3mmd_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_329 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_330 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_61 = __pyx_f_9integrals_E(__pyx_v_l3, __pyx_v_l4, __pyx_v_tau, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_329 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_330 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":626
+                  /* "integrals.pyx":626
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -16234,9 +16234,9 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_56.__pyx_n = 2;
                   __pyx_t_56.n = __pyx_v_r2y;
                   __pyx_t_56.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_335 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_336 * __pyx_v_gOrigin.strides[0]) ))));
-                  __pyx_t_55 = __pyx_f_3mmd_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_333 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_334 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
+                  __pyx_t_55 = __pyx_f_9integrals_E(__pyx_v_m3, __pyx_v_m4, __pyx_v_nu, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_333 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_334 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_56); 
 
-                  /* "mmd/integrals.pyx":627
+                  /* "integrals.pyx":627
  *                                            E(l3,l4,tau,C[0]-D[0],c,d,r2x,C[0] - gOrigin[0]) * \
  *                                            E(m3,m4,nu ,C[1]-D[1],c,d,r2y,C[1] - gOrigin[1]) * \
  *                                            Ex(n3,n4,phi,C[2]-D[2],c,d,r2z,C[2] - gOrigin[2],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -16252,16 +16252,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
                   __pyx_t_50.Ax = ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_339 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_gOrigin.data + __pyx_t_340 * __pyx_v_gOrigin.strides[0]) ))));
                   __pyx_t_50.q = 0;
                   __pyx_t_50.r = 1;
-                  __pyx_t_49 = __pyx_f_3mmd_9integrals_Ex(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_337 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_338 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
+                  __pyx_t_49 = __pyx_f_9integrals_Ex(__pyx_v_n3, __pyx_v_n4, __pyx_v_phi, ((*((double *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_337 * __pyx_v_C.strides[0]) ))) - (*((double *) ( /* dim=0 */ (__pyx_v_D.data + __pyx_t_338 * __pyx_v_D.strides[0]) )))), __pyx_v_c, __pyx_v_d, &__pyx_t_50); 
 
-                  /* "mmd/integrals.pyx":622
+                  /* "integrals.pyx":622
  *                             for nu in range(m3+m4+1+r2y):
  *                                 for phi in range(n3+n4+1+r2z+1):
  *                                     val += E(l1,l2,t,A[0]-B[0],a,b,r1x,A[0] - gOrigin[0]) * \             # <<<<<<<<<<<<<<
  *                                            E(m1,m2,u,A[1]-B[1],a,b,r1y,A[1] - gOrigin[1]) * \
  *                                            E(n1,n2,v,A[2]-B[2],a,b,r1z,A[2] - gOrigin[2]) * \
  */
-                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_3mmd_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
+                  __pyx_v_val = (__pyx_v_val + (((((((__pyx_t_76 * __pyx_t_71) * __pyx_t_66) * __pyx_t_61) * __pyx_t_55) * __pyx_t_49) * pow(-1.0, ((__pyx_v_tau + __pyx_v_nu) + __pyx_v_phi))) * __pyx_f_9integrals_R((__pyx_v_t + __pyx_v_tau), (__pyx_v_u + __pyx_v_nu), (__pyx_v_v + __pyx_v_phi), 0, __pyx_v_alpha, (__pyx_v_Px - __pyx_v_Qx), (__pyx_v_Py - __pyx_v_Qy), (__pyx_v_Pz - __pyx_v_Qz), __pyx_v_RPQ)));
                 }
               }
             }
@@ -16269,7 +16269,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
         }
       }
 
-      /* "mmd/integrals.pyx":614
+      /* "integrals.pyx":614
  *                                            R(t+tau,u+nu,v+phi,0,\
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -16280,7 +16280,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
       default: break;
     }
 
-    /* "mmd/integrals.pyx":579
+    /* "integrals.pyx":579
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     elif center == 'd':             # <<<<<<<<<<<<<<
@@ -16290,16 +16290,16 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   }
   __pyx_L3:;
 
-  /* "mmd/integrals.pyx":632
+  /* "integrals.pyx":632
  *                                                alpha,Px-Qx,Py-Qy,Pz-Qz,RPQ)
  * 
  *     val *= 2*pow(pi,2.5)/(p*q*sqrt(p+q))             # <<<<<<<<<<<<<<
  *     return val
  * 
  */
-  __pyx_v_val = (__pyx_v_val * ((2.0 * pow(__pyx_v_3mmd_9integrals_pi, 2.5)) / ((__pyx_v_p * __pyx_v_q) * sqrt((__pyx_v_p + __pyx_v_q)))));
+  __pyx_v_val = (__pyx_v_val * ((2.0 * pow(__pyx_v_9integrals_pi, 2.5)) / ((__pyx_v_p * __pyx_v_q) * sqrt((__pyx_v_p + __pyx_v_q)))));
 
-  /* "mmd/integrals.pyx":633
+  /* "integrals.pyx":633
  * 
  *     val *= 2*pow(pi,2.5)/(p*q*sqrt(p+q))
  *     return val             # <<<<<<<<<<<<<<
@@ -16309,7 +16309,7 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":398
+  /* "integrals.pyx":398
  * @cython.wraparound(False)
  * @cython.nonecheck(False)
  * cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -16319,14 +16319,14 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("mmd.integrals.electron_repulsionX", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
+  __Pyx_WriteUnraisable("integrals.electron_repulsionX", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":636
+/* "integrals.pyx":636
  * 
  * @cython.cdivision(True)
  * cdef double boys(double m,double T):             # <<<<<<<<<<<<<<
@@ -16334,12 +16334,12 @@ static double __pyx_f_3mmd_9integrals_electron_repulsionX(double __pyx_v_a, __Py
  * 
  */
 
-static double __pyx_f_3mmd_9integrals_boys(double __pyx_v_m, double __pyx_v_T) {
+static double __pyx_f_9integrals_boys(double __pyx_v_m, double __pyx_v_T) {
   double __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("boys", 0);
 
-  /* "mmd/integrals.pyx":637
+  /* "integrals.pyx":637
  * @cython.cdivision(True)
  * cdef double boys(double m,double T):
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)             # <<<<<<<<<<<<<<
@@ -16349,7 +16349,7 @@ static double __pyx_f_3mmd_9integrals_boys(double __pyx_v_m, double __pyx_v_T) {
   __pyx_r = (__pyx_fuse_1__pyx_f_5scipy_7special_14cython_special_hyp1f1((__pyx_v_m + 0.5), (__pyx_v_m + 1.5), (-__pyx_v_T), 0) / ((2.0 * __pyx_v_m) + 1.0));
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":636
+  /* "integrals.pyx":636
  * 
  * @cython.cdivision(True)
  * cdef double boys(double m,double T):             # <<<<<<<<<<<<<<
@@ -16363,7 +16363,7 @@ static double __pyx_f_3mmd_9integrals_boys(double __pyx_v_m, double __pyx_v_T) {
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":639
+/* "integrals.pyx":639
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -16372,9 +16372,9 @@ static double __pyx_f_3mmd_9integrals_boys(double __pyx_v_m, double __pyx_v_T) {
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_27overlap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_27overlap = {"overlap", (PyCFunction)__pyx_pw_3mmd_9integrals_27overlap, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_27overlap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_27overlap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_27overlap = {"overlap", (PyCFunction)__pyx_pw_9integrals_27overlap, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_27overlap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -16477,18 +16477,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_27overlap(PyObject *__pyx_self, PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("overlap", 0, 6, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 639, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.overlap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.overlap", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_26overlap(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_26overlap(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_26overlap(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -16513,12 +16513,12 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   int __pyx_t_11;
   double __pyx_t_12;
   double __pyx_t_13;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_14;
+  struct __pyx_opt_args_9integrals_E __pyx_t_14;
   PyObject *__pyx_t_15 = NULL;
   PyObject *__pyx_t_16 = NULL;
   __Pyx_RefNannySetupContext("overlap", 0);
 
-  /* "mmd/integrals.pyx":640
+  /* "integrals.pyx":640
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -16587,7 +16587,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":641
+  /* "integrals.pyx":641
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -16656,7 +16656,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":642
+  /* "integrals.pyx":642
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -16694,10 +16694,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_t_14.__pyx_n = 2;
   __pyx_t_14.n = __pyx_t_11;
   __pyx_t_14.Ax = __pyx_t_12;
-  __pyx_t_13 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, &__pyx_t_14); 
+  __pyx_t_13 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, &__pyx_t_14); 
   __pyx_v_S1 = __pyx_t_13;
 
-  /* "mmd/integrals.pyx":643
+  /* "integrals.pyx":643
  *     l2,m2,n2 = lmn2
  *     S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -16735,10 +16735,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_t_14.__pyx_n = 2;
   __pyx_t_14.n = __pyx_t_6;
   __pyx_t_14.Ax = __pyx_t_9;
-  __pyx_t_8 = __pyx_f_3mmd_9integrals_E(__pyx_t_11, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_10, &__pyx_t_14); 
+  __pyx_t_8 = __pyx_f_9integrals_E(__pyx_t_11, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_10, &__pyx_t_14); 
   __pyx_v_S2 = __pyx_t_8;
 
-  /* "mmd/integrals.pyx":644
+  /* "integrals.pyx":644
  *     S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *     S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -16776,10 +16776,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_t_14.__pyx_n = 2;
   __pyx_t_14.n = __pyx_t_11;
   __pyx_t_14.Ax = __pyx_t_12;
-  __pyx_t_13 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, &__pyx_t_14); 
+  __pyx_t_13 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, &__pyx_t_14); 
   __pyx_v_S3 = __pyx_t_13;
 
-  /* "mmd/integrals.pyx":645
+  /* "integrals.pyx":645
  *     S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *     S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -16794,7 +16794,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_power); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 645, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_15 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
@@ -16857,7 +16857,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":639
+  /* "integrals.pyx":639
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -16873,7 +16873,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_15);
   __Pyx_XDECREF(__pyx_t_16);
-  __Pyx_AddTraceback("mmd.integrals.overlap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.overlap", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -16887,7 +16887,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":647
+/* "integrals.pyx":647
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
  * 
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):             # <<<<<<<<<<<<<<
@@ -16896,9 +16896,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_26overlap(CYTHON_UNUSED PyObject *__py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_29overlapX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_29overlapX = {"overlapX", (PyCFunction)__pyx_pw_3mmd_9integrals_29overlapX, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_29overlapX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_29overlapX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_29overlapX = {"overlapX", (PyCFunction)__pyx_pw_9integrals_29overlapX, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_29overlapX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -17021,18 +17021,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_29overlapX(PyObject *__pyx_self, PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("overlapX", 0, 6, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 647, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.overlapX", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.overlapX", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_28overlapX(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_28overlapX(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_28overlapX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -17058,13 +17058,13 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   int __pyx_t_12;
   double __pyx_t_13;
   double __pyx_t_14;
-  struct __pyx_opt_args_3mmd_9integrals_Ex __pyx_t_15;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_16;
+  struct __pyx_opt_args_9integrals_Ex __pyx_t_15;
+  struct __pyx_opt_args_9integrals_E __pyx_t_16;
   PyObject *__pyx_t_17 = NULL;
   PyObject *__pyx_t_18 = NULL;
   __Pyx_RefNannySetupContext("overlapX", 0);
 
-  /* "mmd/integrals.pyx":649
+  /* "integrals.pyx":649
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):
  *     # can only handle first derivatives
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -17133,7 +17133,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":650
+  /* "integrals.pyx":650
  *     # can only handle first derivatives
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -17202,7 +17202,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":651
+  /* "integrals.pyx":651
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -17233,7 +17233,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mmd/integrals.pyx":652
+    /* "integrals.pyx":652
  *     l2,m2,n2 = lmn2
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -17246,7 +17246,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":653
+      /* "integrals.pyx":653
  *     if center.lower() == 'a':
  *         if x == 0:
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -17286,10 +17286,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_13;
       __pyx_t_15.q = 1;
       __pyx_t_15.r = 0;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_14 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S1 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":654
+      /* "integrals.pyx":654
  *         if x == 0:
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -17327,10 +17327,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S2 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":655
+      /* "integrals.pyx":655
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -17368,10 +17368,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S3 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":652
+      /* "integrals.pyx":652
  *     l2,m2,n2 = lmn2
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -17381,7 +17381,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L8;
     }
 
-    /* "mmd/integrals.pyx":656
+    /* "integrals.pyx":656
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -17394,7 +17394,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":657
+      /* "integrals.pyx":657
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -17432,10 +17432,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S1 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":658
+      /* "integrals.pyx":658
  *         elif x == 1:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -17475,10 +17475,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_13;
       __pyx_t_15.q = 1;
       __pyx_t_15.r = 0;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_14 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S2 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":659
+      /* "integrals.pyx":659
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -17516,10 +17516,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S3 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":656
+      /* "integrals.pyx":656
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -17529,7 +17529,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L8;
     }
 
-    /* "mmd/integrals.pyx":660
+    /* "integrals.pyx":660
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -17542,7 +17542,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":661
+      /* "integrals.pyx":661
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -17580,10 +17580,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S1 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":662
+      /* "integrals.pyx":662
  *         elif x == 2:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -17621,10 +17621,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S2 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":663
+      /* "integrals.pyx":663
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -17664,10 +17664,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_13;
       __pyx_t_15.q = 1;
       __pyx_t_15.r = 0;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_14 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S3 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":660
+      /* "integrals.pyx":660
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -17677,7 +17677,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L8;
     }
 
-    /* "mmd/integrals.pyx":666
+    /* "integrals.pyx":666
  *         else:
  *             # to appease the Cython
  *             S1 = 0.0             # <<<<<<<<<<<<<<
@@ -17687,7 +17687,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     /*else*/ {
       __pyx_v_S1 = 0.0;
 
-      /* "mmd/integrals.pyx":667
+      /* "integrals.pyx":667
  *             # to appease the Cython
  *             S1 = 0.0
  *             S2 = 0.0             # <<<<<<<<<<<<<<
@@ -17696,7 +17696,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
  */
       __pyx_v_S2 = 0.0;
 
-      /* "mmd/integrals.pyx":668
+      /* "integrals.pyx":668
  *             S1 = 0.0
  *             S2 = 0.0
  *             S3 = 0.0             # <<<<<<<<<<<<<<
@@ -17707,7 +17707,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L8:;
 
-    /* "mmd/integrals.pyx":651
+    /* "integrals.pyx":651
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -17717,7 +17717,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     goto __pyx_L7;
   }
 
-  /* "mmd/integrals.pyx":670
+  /* "integrals.pyx":670
  *             S3 = 0.0
  * 
  *     elif center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -17748,7 +17748,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mmd/integrals.pyx":671
+    /* "integrals.pyx":671
  * 
  *     elif center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -17761,7 +17761,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":672
+      /* "integrals.pyx":672
  *     elif center.lower() == 'b':
  *         if x == 0:
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -17801,10 +17801,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_10;
       __pyx_t_15.q = 0;
       __pyx_t_15.r = 1;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_9 = __pyx_f_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S1 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":673
+      /* "integrals.pyx":673
  *         if x == 0:
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -17842,10 +17842,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S2 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":674
+      /* "integrals.pyx":674
  *             S1 = Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -17883,10 +17883,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S3 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":671
+      /* "integrals.pyx":671
  * 
  *     elif center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -17896,7 +17896,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L9;
     }
 
-    /* "mmd/integrals.pyx":675
+    /* "integrals.pyx":675
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -17909,7 +17909,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":676
+      /* "integrals.pyx":676
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -17947,10 +17947,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S1 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":677
+      /* "integrals.pyx":677
  *         elif x == 1:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -17990,10 +17990,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_10;
       __pyx_t_15.q = 0;
       __pyx_t_15.r = 1;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_9 = __pyx_f_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S2 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":678
+      /* "integrals.pyx":678
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -18031,10 +18031,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S3 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":675
+      /* "integrals.pyx":675
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -18044,7 +18044,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L9;
     }
 
-    /* "mmd/integrals.pyx":679
+    /* "integrals.pyx":679
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -18057,7 +18057,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_6) {
 
-      /* "mmd/integrals.pyx":680
+      /* "integrals.pyx":680
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -18095,10 +18095,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_7;
       __pyx_t_16.Ax = __pyx_t_10;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S1 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":681
+      /* "integrals.pyx":681
  *         elif x == 2:
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -18136,10 +18136,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.__pyx_n = 2;
       __pyx_t_16.n = __pyx_t_12;
       __pyx_t_16.Ax = __pyx_t_13;
-      __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
+      __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_16); 
       __pyx_v_S2 = __pyx_t_14;
 
-      /* "mmd/integrals.pyx":682
+      /* "integrals.pyx":682
  *             S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             S3 = Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -18179,10 +18179,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       __pyx_t_15.Ax = __pyx_t_10;
       __pyx_t_15.q = 0;
       __pyx_t_15.r = 1;
-      __pyx_t_9 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+      __pyx_t_9 = __pyx_f_9integrals_Ex(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
       __pyx_v_S3 = __pyx_t_9;
 
-      /* "mmd/integrals.pyx":679
+      /* "integrals.pyx":679
  *             S2 = Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *             S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -18192,7 +18192,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L9;
     }
 
-    /* "mmd/integrals.pyx":685
+    /* "integrals.pyx":685
  *         else:
  *             # to appease the Cython
  *             S1 = 0.0             # <<<<<<<<<<<<<<
@@ -18202,7 +18202,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     /*else*/ {
       __pyx_v_S1 = 0.0;
 
-      /* "mmd/integrals.pyx":686
+      /* "integrals.pyx":686
  *             # to appease the Cython
  *             S1 = 0.0
  *             S2 = 0.0             # <<<<<<<<<<<<<<
@@ -18211,7 +18211,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
  */
       __pyx_v_S2 = 0.0;
 
-      /* "mmd/integrals.pyx":687
+      /* "integrals.pyx":687
  *             S1 = 0.0
  *             S2 = 0.0
  *             S3 = 0.0             # <<<<<<<<<<<<<<
@@ -18222,7 +18222,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L9:;
 
-    /* "mmd/integrals.pyx":670
+    /* "integrals.pyx":670
  *             S3 = 0.0
  * 
  *     elif center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -18232,7 +18232,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
     goto __pyx_L7;
   }
 
-  /* "mmd/integrals.pyx":690
+  /* "integrals.pyx":690
  *     else:
  *         # to appease the Cython
  *         S1 = 0.0             # <<<<<<<<<<<<<<
@@ -18242,7 +18242,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   /*else*/ {
     __pyx_v_S1 = 0.0;
 
-    /* "mmd/integrals.pyx":691
+    /* "integrals.pyx":691
  *         # to appease the Cython
  *         S1 = 0.0
  *         S2 = 0.0             # <<<<<<<<<<<<<<
@@ -18251,7 +18251,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
  */
     __pyx_v_S2 = 0.0;
 
-    /* "mmd/integrals.pyx":692
+    /* "integrals.pyx":692
  *         S1 = 0.0
  *         S2 = 0.0
  *         S3 = 0.0             # <<<<<<<<<<<<<<
@@ -18262,7 +18262,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   }
   __pyx_L7:;
 
-  /* "mmd/integrals.pyx":693
+  /* "integrals.pyx":693
  *         S2 = 0.0
  *         S3 = 0.0
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -18277,7 +18277,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_power); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 693, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 693, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 693, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_17 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 693, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_17);
@@ -18340,7 +18340,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":647
+  /* "integrals.pyx":647
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
  * 
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):             # <<<<<<<<<<<<<<
@@ -18356,7 +18356,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_17);
   __Pyx_XDECREF(__pyx_t_18);
-  __Pyx_AddTraceback("mmd.integrals.overlapX", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.overlapX", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -18370,7 +18370,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":696
+/* "integrals.pyx":696
  * 
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -18379,9 +18379,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_28overlapX(CYTHON_UNUSED PyObject *__p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_31dipole(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_31dipole = {"dipole", (PyCFunction)__pyx_pw_3mmd_9integrals_31dipole, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_31dipole(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_31dipole(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_31dipole = {"dipole", (PyCFunction)__pyx_pw_9integrals_31dipole, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_31dipole(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -18493,18 +18493,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_31dipole(PyObject *__pyx_self, PyObjec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("dipole", 0, 7, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 696, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.dipole", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.dipole", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_30dipole(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_direction, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_30dipole(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_direction, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_direction, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -18532,12 +18532,12 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   int __pyx_t_12;
   double __pyx_t_13;
   double __pyx_t_14;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_15;
+  struct __pyx_opt_args_9integrals_E __pyx_t_15;
   PyObject *__pyx_t_16 = NULL;
   PyObject *__pyx_t_17 = NULL;
   __Pyx_RefNannySetupContext("dipole", 0);
 
-  /* "mmd/integrals.pyx":697
+  /* "integrals.pyx":697
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -18606,7 +18606,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":698
+  /* "integrals.pyx":698
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -18675,7 +18675,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":699
+  /* "integrals.pyx":699
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     P = gaussian_product_center(a,A,b,B)             # <<<<<<<<<<<<<<
@@ -18738,7 +18738,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __pyx_v_P = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":700
+  /* "integrals.pyx":700
  *     l2,m2,n2 = lmn2
  *     P = gaussian_product_center(a,A,b,B)
  *     if direction.lower() == 'x':             # <<<<<<<<<<<<<<
@@ -18769,7 +18769,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_7) {
 
-    /* "mmd/integrals.pyx":705
+    /* "integrals.pyx":705
  *         # but the gauge-origin is different so the AO ints differ.
  *         #D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
  *         D  = E(l1,l2,0,A[0]-B[0],a,b,1+n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -18810,10 +18810,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_12;
     __pyx_t_15.Ax = __pyx_t_13;
-    __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_D = __pyx_t_14;
 
-    /* "mmd/integrals.pyx":706
+    /* "integrals.pyx":706
  *         #D  = E(l1,l2,1,A[0]-B[0],a,b) + XPC*E(l1,l2,0,A[0]-B[0],a,b)
  *         D  = E(l1,l2,0,A[0]-B[0],a,b,1+n[0],A[0]-gOrigin[0])
  *         S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -18851,10 +18851,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_6;
     __pyx_t_15.Ax = __pyx_t_10;
-    __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S2 = __pyx_t_9;
 
-    /* "mmd/integrals.pyx":707
+    /* "integrals.pyx":707
  *         D  = E(l1,l2,0,A[0]-B[0],a,b,1+n[0],A[0]-gOrigin[0])
  *         S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2] -gOrigin[2])             # <<<<<<<<<<<<<<
@@ -18892,10 +18892,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_12;
     __pyx_t_15.Ax = __pyx_t_13;
-    __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S3 = __pyx_t_14;
 
-    /* "mmd/integrals.pyx":708
+    /* "integrals.pyx":708
  *         S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2] -gOrigin[2])
  *         return D*S2*S3*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -18910,7 +18910,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_power); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 708, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 708, __pyx_L1_error)
+    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 708, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_16 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 708, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
@@ -18973,7 +18973,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":700
+    /* "integrals.pyx":700
  *     l2,m2,n2 = lmn2
  *     P = gaussian_product_center(a,A,b,B)
  *     if direction.lower() == 'x':             # <<<<<<<<<<<<<<
@@ -18982,7 +18982,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "mmd/integrals.pyx":709
+  /* "integrals.pyx":709
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2] -gOrigin[2])
  *         return D*S2*S3*np.power(pi/(a+b),1.5)
  *     elif direction.lower() == 'y':             # <<<<<<<<<<<<<<
@@ -19013,7 +19013,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_7) {
 
-    /* "mmd/integrals.pyx":711
+    /* "integrals.pyx":711
  *     elif direction.lower() == 'y':
  *         #YPC = P[1] - C[1]
  *         S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -19051,10 +19051,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_6;
     __pyx_t_15.Ax = __pyx_t_10;
-    __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S1 = __pyx_t_9;
 
-    /* "mmd/integrals.pyx":713
+    /* "integrals.pyx":713
  *         S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *         #D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
  *         D  = E(m1,m2,0,A[1]-B[1],a,b,1+n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -19095,10 +19095,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_12;
     __pyx_t_15.Ax = __pyx_t_13;
-    __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_D = __pyx_t_14;
 
-    /* "mmd/integrals.pyx":714
+    /* "integrals.pyx":714
  *         #D  = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
  *         D  = E(m1,m2,0,A[1]-B[1],a,b,1+n[1],A[1]-gOrigin[1])
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -19136,10 +19136,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_6;
     __pyx_t_15.Ax = __pyx_t_10;
-    __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S3 = __pyx_t_9;
 
-    /* "mmd/integrals.pyx":715
+    /* "integrals.pyx":715
  *         D  = E(m1,m2,0,A[1]-B[1],a,b,1+n[1],A[1]-gOrigin[1])
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         return S1*D*S3*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -19154,7 +19154,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_power); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 715, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 715, __pyx_L1_error)
+    __pyx_t_4 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 715, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_17 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 715, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
@@ -19217,7 +19217,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":709
+    /* "integrals.pyx":709
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2] -gOrigin[2])
  *         return D*S2*S3*np.power(pi/(a+b),1.5)
  *     elif direction.lower() == 'y':             # <<<<<<<<<<<<<<
@@ -19226,7 +19226,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "mmd/integrals.pyx":716
+  /* "integrals.pyx":716
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         return S1*D*S3*np.power(pi/(a+b),1.5)
  *     elif direction.lower() == 'z':             # <<<<<<<<<<<<<<
@@ -19257,7 +19257,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_7) {
 
-    /* "mmd/integrals.pyx":718
+    /* "integrals.pyx":718
  *     elif direction.lower() == 'z':
  *         #ZPC = P[2] - C[2]
  *         S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -19295,10 +19295,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_12;
     __pyx_t_15.Ax = __pyx_t_13;
-    __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S1 = __pyx_t_14;
 
-    /* "mmd/integrals.pyx":719
+    /* "integrals.pyx":719
  *         #ZPC = P[2] - C[2]
  *         S1 = E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *         S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -19336,10 +19336,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_6;
     __pyx_t_15.Ax = __pyx_t_10;
-    __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_S2 = __pyx_t_9;
 
-    /* "mmd/integrals.pyx":721
+    /* "integrals.pyx":721
  *         S2 = E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *         #D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
  *         D  = E(n1,n2,0,A[2]-B[2],a,b,1+n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -19380,10 +19380,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_15.__pyx_n = 2;
     __pyx_t_15.n = __pyx_t_12;
     __pyx_t_15.Ax = __pyx_t_13;
-    __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+    __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
     __pyx_v_D = __pyx_t_14;
 
-    /* "mmd/integrals.pyx":722
+    /* "integrals.pyx":722
  *         #D  = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
  *         D  = E(n1,n2,0,A[2]-B[2],a,b,1+n[2],A[2]-gOrigin[2])
  *         return S1*S2*D*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -19398,7 +19398,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_power); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_16 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 722, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
@@ -19461,7 +19461,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":716
+    /* "integrals.pyx":716
  *         S3 = E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *         return S1*D*S3*np.power(pi/(a+b),1.5)
  *     elif direction.lower() == 'z':             # <<<<<<<<<<<<<<
@@ -19470,7 +19470,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "mmd/integrals.pyx":696
+  /* "integrals.pyx":696
  * 
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -19488,7 +19488,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_16);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("mmd.integrals.dipole", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.dipole", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -19503,7 +19503,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":724
+/* "integrals.pyx":724
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
  * 
  * def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -19512,9 +19512,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_30dipole(CYTHON_UNUSED PyObject *__pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_33kinetic(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_33kinetic = {"kinetic", (PyCFunction)__pyx_pw_3mmd_9integrals_33kinetic, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_33kinetic(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_33kinetic(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_33kinetic = {"kinetic", (PyCFunction)__pyx_pw_9integrals_33kinetic, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_33kinetic(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -19617,18 +19617,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_33kinetic(PyObject *__pyx_self, PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("kinetic", 0, 6, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 724, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.kinetic", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.kinetic", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_32kinetic(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_32kinetic(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_32kinetic(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -19663,11 +19663,11 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   int __pyx_t_12;
   double __pyx_t_13;
   double __pyx_t_14;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_15;
+  struct __pyx_opt_args_9integrals_E __pyx_t_15;
   PyObject *__pyx_t_16 = NULL;
   __Pyx_RefNannySetupContext("kinetic", 0);
 
-  /* "mmd/integrals.pyx":727
+  /* "integrals.pyx":727
  *     # explicit kinetic in terms of "E" operator
  *     # generalized to include GIAO derivatives
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -19736,7 +19736,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":728
+  /* "integrals.pyx":728
  *     # generalized to include GIAO derivatives
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -19805,7 +19805,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":729
+  /* "integrals.pyx":729
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b             # <<<<<<<<<<<<<<
@@ -19933,7 +19933,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Az = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mmd/integrals.pyx":730
+  /* "integrals.pyx":730
  *     l2,m2,n2 = lmn2
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b
  *     Bx = By = Bz = -2*np.power(b,2) # redundant, I know             # <<<<<<<<<<<<<<
@@ -20001,7 +20001,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Bz = __pyx_t_4;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":731
+  /* "integrals.pyx":731
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b
  *     Bx = By = Bz = -2*np.power(b,2) # redundant, I know
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)             # <<<<<<<<<<<<<<
@@ -20178,7 +20178,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Cz = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "mmd/integrals.pyx":733
+  /* "integrals.pyx":733
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)
  * 
  *     Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -20216,14 +20216,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ax, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":734
+  /* "integrals.pyx":734
  * 
  *     Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *          Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -20264,14 +20264,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 734, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bx, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 734, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":733
+  /* "integrals.pyx":733
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)
  * 
  *     Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -20283,7 +20283,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":735
+  /* "integrals.pyx":735
  *     Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *          Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *          Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -20324,14 +20324,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cx, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":734
+  /* "integrals.pyx":734
  * 
  *     Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *          Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -20345,7 +20345,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Tx = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":736
+  /* "integrals.pyx":736
  *          Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *          Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -20383,7 +20383,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 736, __pyx_L1_error)
@@ -20392,7 +20392,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "mmd/integrals.pyx":737
+  /* "integrals.pyx":737
  *          Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *     Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -20430,7 +20430,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_6 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_1 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 737, __pyx_L1_error)
@@ -20439,7 +20439,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":739
+  /* "integrals.pyx":739
  *     Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -20477,14 +20477,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ay, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":740
+  /* "integrals.pyx":740
  * 
  *     Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *          By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -20525,14 +20525,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = PyNumber_Multiply(__pyx_v_By, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":739
+  /* "integrals.pyx":739
  *     Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -20544,7 +20544,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":741
+  /* "integrals.pyx":741
  *     Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *          By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *          Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -20585,14 +20585,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cy, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":740
+  /* "integrals.pyx":740
  * 
  *     Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *          By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -20606,7 +20606,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Ty = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":742
+  /* "integrals.pyx":742
  *          By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *          Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *     Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -20644,7 +20644,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 742, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 742, __pyx_L1_error)
@@ -20653,7 +20653,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "mmd/integrals.pyx":743
+  /* "integrals.pyx":743
  *          Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *     Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -20691,7 +20691,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_6 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 743, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 743, __pyx_L1_error)
@@ -20700,7 +20700,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":745
+  /* "integrals.pyx":745
  *     Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -20738,14 +20738,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 745, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Az, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 745, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":746
+  /* "integrals.pyx":746
  * 
  *     Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *          Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -20786,14 +20786,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_4 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 746, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bz, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 746, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":745
+  /* "integrals.pyx":745
  *     Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -20805,7 +20805,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":747
+  /* "integrals.pyx":747
  *     Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *          Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *          Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -20846,14 +20846,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cz, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":746
+  /* "integrals.pyx":746
  * 
  *     Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *          Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -20867,7 +20867,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_v_Tz = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":748
+  /* "integrals.pyx":748
  *          Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *          Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *     Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -20905,7 +20905,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_7;
   __pyx_t_15.Ax = __pyx_t_10;
-  __pyx_t_9 = __pyx_f_3mmd_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_9 = __pyx_f_9integrals_E(__pyx_t_12, __pyx_t_8, 0, __pyx_t_14, __pyx_t_13, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_1 = PyFloat_FromDouble(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 748, __pyx_L1_error)
@@ -20914,7 +20914,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "mmd/integrals.pyx":749
+  /* "integrals.pyx":749
  *          Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *     Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *     Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -20952,7 +20952,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_15.__pyx_n = 2;
   __pyx_t_15.n = __pyx_t_12;
   __pyx_t_15.Ax = __pyx_t_13;
-  __pyx_t_14 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
+  __pyx_t_14 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_8, 0, __pyx_t_9, __pyx_t_10, __pyx_t_11, &__pyx_t_15); 
   __pyx_t_6 = PyFloat_FromDouble(__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_1 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 749, __pyx_L1_error)
@@ -20961,7 +20961,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":751
+  /* "integrals.pyx":751
  *     Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -20979,7 +20979,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_power); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 751, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_2 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -21042,7 +21042,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":724
+  /* "integrals.pyx":724
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
  * 
  * def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -21058,7 +21058,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_16);
-  __Pyx_AddTraceback("mmd.integrals.kinetic", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.kinetic", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -21084,7 +21084,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":753
+/* "integrals.pyx":753
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
  * 
  * def kineticX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -21093,9 +21093,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_32kinetic(CYTHON_UNUSED PyObject *__py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_35kineticX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_35kineticX = {"kineticX", (PyCFunction)__pyx_pw_3mmd_9integrals_35kineticX, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_35kineticX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_35kineticX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_35kineticX = {"kineticX", (PyCFunction)__pyx_pw_9integrals_35kineticX, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_35kineticX(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -21218,18 +21218,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_35kineticX(PyObject *__pyx_self, PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("kineticX", 0, 6, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 753, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.kineticX", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.kineticX", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_34kineticX(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_34kineticX(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_34kineticX(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -21265,12 +21265,12 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   int __pyx_t_13;
   double __pyx_t_14;
   double __pyx_t_15;
-  struct __pyx_opt_args_3mmd_9integrals_Ex __pyx_t_16;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_17;
+  struct __pyx_opt_args_9integrals_Ex __pyx_t_16;
+  struct __pyx_opt_args_9integrals_E __pyx_t_17;
   PyObject *__pyx_t_18 = NULL;
   __Pyx_RefNannySetupContext("kineticX", 0);
 
-  /* "mmd/integrals.pyx":756
+  /* "integrals.pyx":756
  *     # explicit kinetic in terms of "E" operator
  *     # generalized to include GIAO derivatives
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -21339,7 +21339,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":757
+  /* "integrals.pyx":757
  *     # generalized to include GIAO derivatives
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -21408,7 +21408,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":758
+  /* "integrals.pyx":758
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b             # <<<<<<<<<<<<<<
@@ -21536,7 +21536,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_v_Az = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mmd/integrals.pyx":759
+  /* "integrals.pyx":759
  *     l2,m2,n2 = lmn2
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b
  *     Bx = By = Bz = -2*np.power(b,2) # redundant, I know             # <<<<<<<<<<<<<<
@@ -21604,7 +21604,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_v_Bz = __pyx_t_4;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":760
+  /* "integrals.pyx":760
  *     Ax,Ay,Az = (2*np.asarray(lmn2) + 1)*b
  *     Bx = By = Bz = -2*np.power(b,2) # redundant, I know
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)             # <<<<<<<<<<<<<<
@@ -21781,7 +21781,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_v_Cz = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "mmd/integrals.pyx":762
+  /* "integrals.pyx":762
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)
  * 
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -21812,7 +21812,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":763
+    /* "integrals.pyx":763
  * 
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -21825,7 +21825,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":764
+      /* "integrals.pyx":764
  *     if center.lower() == 'a':
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -21865,14 +21865,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 764, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ax, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 764, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":765
+      /* "integrals.pyx":765
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -21915,14 +21915,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 765, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bx, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 765, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":764
+      /* "integrals.pyx":764
  *     if center.lower() == 'a':
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -21934,7 +21934,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":766
+      /* "integrals.pyx":766
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -21977,14 +21977,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 766, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cx, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 766, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":765
+      /* "integrals.pyx":765
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -21998,7 +21998,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_v_Tx = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":763
+      /* "integrals.pyx":763
  * 
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -22008,7 +22008,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L12;
     }
 
-    /* "mmd/integrals.pyx":769
+    /* "integrals.pyx":769
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -22017,7 +22017,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":768
+      /* "integrals.pyx":768
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -22055,14 +22055,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ax, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 768, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":769
+      /* "integrals.pyx":769
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -22103,14 +22103,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 769, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_Bx, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 769, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":768
+      /* "integrals.pyx":768
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -22122,7 +22122,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":770
+      /* "integrals.pyx":770
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -22163,14 +22163,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 770, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 770, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":769
+      /* "integrals.pyx":769
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -22186,7 +22186,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L12:;
 
-    /* "mmd/integrals.pyx":772
+    /* "integrals.pyx":772
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -22199,7 +22199,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":773
+      /* "integrals.pyx":773
  * 
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22239,14 +22239,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ay, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":774
+      /* "integrals.pyx":774
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22289,14 +22289,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_By, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":773
+      /* "integrals.pyx":773
  * 
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22308,7 +22308,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":775
+      /* "integrals.pyx":775
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -22351,14 +22351,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 775, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cy, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 775, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":774
+      /* "integrals.pyx":774
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22372,7 +22372,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_v_Ty = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":772
+      /* "integrals.pyx":772
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -22382,7 +22382,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L13;
     }
 
-    /* "mmd/integrals.pyx":778
+    /* "integrals.pyx":778
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -22391,7 +22391,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":777
+      /* "integrals.pyx":777
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -22429,14 +22429,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 777, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ay, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 777, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":778
+      /* "integrals.pyx":778
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -22477,14 +22477,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 778, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_By, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 778, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":777
+      /* "integrals.pyx":777
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -22496,7 +22496,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":779
+      /* "integrals.pyx":779
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -22537,14 +22537,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 779, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cy, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 779, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":778
+      /* "integrals.pyx":778
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -22560,7 +22560,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L13:;
 
-    /* "mmd/integrals.pyx":781
+    /* "integrals.pyx":781
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -22573,7 +22573,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":782
+      /* "integrals.pyx":782
  * 
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22613,14 +22613,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 782, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Az, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 782, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":783
+      /* "integrals.pyx":783
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22663,14 +22663,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 783, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bz, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 783, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":782
+      /* "integrals.pyx":782
  * 
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22682,7 +22682,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":784
+      /* "integrals.pyx":784
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -22725,14 +22725,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 784, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cz, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 784, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":783
+      /* "integrals.pyx":783
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) + \             # <<<<<<<<<<<<<<
@@ -22746,7 +22746,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_v_Tz = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":781
+      /* "integrals.pyx":781
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -22756,7 +22756,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L14;
     }
 
-    /* "mmd/integrals.pyx":787
+    /* "integrals.pyx":787
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -22765,7 +22765,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":786
+      /* "integrals.pyx":786
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -22803,14 +22803,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 786, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Az, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 786, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":787
+      /* "integrals.pyx":787
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -22851,14 +22851,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 787, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_Bz, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 787, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":786
+      /* "integrals.pyx":786
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -22870,7 +22870,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":788
+      /* "integrals.pyx":788
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -22911,14 +22911,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 788, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cz, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 788, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":787
+      /* "integrals.pyx":787
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -22934,7 +22934,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L14:;
 
-    /* "mmd/integrals.pyx":790
+    /* "integrals.pyx":790
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -22947,7 +22947,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":791
+      /* "integrals.pyx":791
  * 
  *         if x == 0:
  *             Ty *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -22987,7 +22987,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 791, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 791, __pyx_L1_error)
@@ -22996,7 +22996,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":792
+      /* "integrals.pyx":792
  *         if x == 0:
  *             Ty *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *             Tz *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -23036,7 +23036,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 792, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 792, __pyx_L1_error)
@@ -23045,7 +23045,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":790
+      /* "integrals.pyx":790
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -23055,7 +23055,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L15;
     }
 
-    /* "mmd/integrals.pyx":794
+    /* "integrals.pyx":794
  *             Tz *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0)
  *         else:
  *             Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -23094,7 +23094,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 794, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 794, __pyx_L1_error)
@@ -23103,7 +23103,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":795
+      /* "integrals.pyx":795
  *         else:
  *             Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -23141,7 +23141,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 795, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 795, __pyx_L1_error)
@@ -23152,7 +23152,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L15:;
 
-    /* "mmd/integrals.pyx":797
+    /* "integrals.pyx":797
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -23165,7 +23165,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":798
+      /* "integrals.pyx":798
  * 
  *         if x == 1:
  *             Tx *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -23205,7 +23205,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 798, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 798, __pyx_L1_error)
@@ -23214,7 +23214,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":799
+      /* "integrals.pyx":799
  *         if x == 1:
  *             Tx *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *             Tz *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -23254,7 +23254,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 799, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 799, __pyx_L1_error)
@@ -23263,7 +23263,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":797
+      /* "integrals.pyx":797
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -23273,7 +23273,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L16;
     }
 
-    /* "mmd/integrals.pyx":801
+    /* "integrals.pyx":801
  *             Tz *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0)
  *         else:
  *             Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -23312,7 +23312,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 801, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 801, __pyx_L1_error)
@@ -23321,7 +23321,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":802
+      /* "integrals.pyx":802
  *         else:
  *             Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -23359,7 +23359,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 802, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 802, __pyx_L1_error)
@@ -23370,7 +23370,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L16:;
 
-    /* "mmd/integrals.pyx":804
+    /* "integrals.pyx":804
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -23383,7 +23383,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":805
+      /* "integrals.pyx":805
  * 
  *         if x == 2:
  *             Tx *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -23423,7 +23423,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 805, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 805, __pyx_L1_error)
@@ -23432,7 +23432,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":806
+      /* "integrals.pyx":806
  *         if x == 2:
  *             Tx *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)
  *             Ty *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)             # <<<<<<<<<<<<<<
@@ -23472,7 +23472,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 1;
       __pyx_t_16.r = 0;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 806, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 806, __pyx_L1_error)
@@ -23481,7 +23481,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":804
+      /* "integrals.pyx":804
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -23491,7 +23491,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L17;
     }
 
-    /* "mmd/integrals.pyx":808
+    /* "integrals.pyx":808
  *             Ty *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0)
  *         else:
  *             Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -23530,7 +23530,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 808, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 808, __pyx_L1_error)
@@ -23539,7 +23539,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":809
+      /* "integrals.pyx":809
  *         else:
  *             Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *             Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -23577,7 +23577,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 809, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 809, __pyx_L1_error)
@@ -23588,7 +23588,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L17:;
 
-    /* "mmd/integrals.pyx":762
+    /* "integrals.pyx":762
  *     Cx,Cy,Cz = -0.5*np.asarray(lmn2)*(np.asarray(lmn2)-1)
  * 
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -23597,7 +23597,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
   }
 
-  /* "mmd/integrals.pyx":811
+  /* "integrals.pyx":811
  *             Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     if center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -23628,7 +23628,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":812
+    /* "integrals.pyx":812
  * 
  *     if center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -23641,7 +23641,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":813
+      /* "integrals.pyx":813
  *     if center.lower() == 'b':
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -23681,14 +23681,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ax, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":814
+      /* "integrals.pyx":814
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -23731,14 +23731,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 814, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bx, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 814, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":813
+      /* "integrals.pyx":813
  *     if center.lower() == 'b':
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -23750,7 +23750,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":815
+      /* "integrals.pyx":815
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -23793,14 +23793,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cx, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":814
+      /* "integrals.pyx":814
  *         if x == 0:
  *             Tx = Ax*Ex(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \
  *                  Bx*Ex(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -23814,7 +23814,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_XDECREF_SET(__pyx_v_Tx, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":812
+      /* "integrals.pyx":812
  * 
  *     if center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -23824,7 +23824,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L19;
     }
 
-    /* "mmd/integrals.pyx":818
+    /* "integrals.pyx":818
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -23833,7 +23833,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":817
+      /* "integrals.pyx":817
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -23871,14 +23871,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ax, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":818
+      /* "integrals.pyx":818
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -23919,14 +23919,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 818, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_Bx, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 818, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":817
+      /* "integrals.pyx":817
  *                  Cx*Ex(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -23938,7 +23938,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":819
+      /* "integrals.pyx":819
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -23979,14 +23979,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":818
+      /* "integrals.pyx":818
  *         else:
  *             Tx = Ax*E(l1,l2  ,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \
  *                  Bx*E(l1,l2+2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) + \             # <<<<<<<<<<<<<<
@@ -24002,7 +24002,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L19:;
 
-    /* "mmd/integrals.pyx":821
+    /* "integrals.pyx":821
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -24015,7 +24015,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":822
+      /* "integrals.pyx":822
  * 
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24055,14 +24055,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 822, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ay, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 822, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":823
+      /* "integrals.pyx":823
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24105,14 +24105,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 823, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_By, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 823, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":822
+      /* "integrals.pyx":822
  * 
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24124,7 +24124,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":824
+      /* "integrals.pyx":824
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -24167,14 +24167,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 824, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cy, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 824, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":823
+      /* "integrals.pyx":823
  *         if x == 1:
  *             Ty = Ay*Ex(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \
  *                  By*Ex(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24188,7 +24188,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_XDECREF_SET(__pyx_v_Ty, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":821
+      /* "integrals.pyx":821
  *                  Cx*E(l1,l2-2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -24198,7 +24198,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L20;
     }
 
-    /* "mmd/integrals.pyx":827
+    /* "integrals.pyx":827
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -24207,7 +24207,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":826
+      /* "integrals.pyx":826
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -24245,14 +24245,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 826, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Ay, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 826, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":827
+      /* "integrals.pyx":827
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -24293,14 +24293,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_By, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 827, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":826
+      /* "integrals.pyx":826
  *                  Cy*Ex(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -24312,7 +24312,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":828
+      /* "integrals.pyx":828
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -24353,14 +24353,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 828, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cy, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 828, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":827
+      /* "integrals.pyx":827
  *         else:
  *             Ty = Ay*E(m1,m2  ,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \
  *                  By*E(m1,m2+2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) + \             # <<<<<<<<<<<<<<
@@ -24376,7 +24376,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L20:;
 
-    /* "mmd/integrals.pyx":830
+    /* "integrals.pyx":830
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -24389,7 +24389,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":831
+      /* "integrals.pyx":831
  * 
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24429,14 +24429,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 831, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Az, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 831, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":832
+      /* "integrals.pyx":832
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24479,14 +24479,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 832, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_1 = PyNumber_Multiply(__pyx_v_Bz, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 832, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":831
+      /* "integrals.pyx":831
  * 
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24498,7 +24498,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":833
+      /* "integrals.pyx":833
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -24541,14 +24541,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 833, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cz, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 833, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":832
+      /* "integrals.pyx":832
  *         if x == 2:
  *             Tz = Az*Ex(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \
  *                  Bz*Ex(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) + \             # <<<<<<<<<<<<<<
@@ -24562,7 +24562,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_XDECREF_SET(__pyx_v_Tz, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":830
+      /* "integrals.pyx":830
  *                  Cy*E(m1,m2-2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -24572,7 +24572,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L21;
     }
 
-    /* "mmd/integrals.pyx":836
+    /* "integrals.pyx":836
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -24581,7 +24581,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
     /*else*/ {
 
-      /* "mmd/integrals.pyx":835
+      /* "integrals.pyx":835
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -24619,14 +24619,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Az, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 835, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":836
+      /* "integrals.pyx":836
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -24667,14 +24667,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_1 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_4 = PyNumber_Multiply(__pyx_v_Bz, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 836, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mmd/integrals.pyx":835
+      /* "integrals.pyx":835
  *                  Cz*Ex(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -24686,7 +24686,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":837
+      /* "integrals.pyx":837
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -24727,14 +24727,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_Multiply(__pyx_v_Cz, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 837, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":836
+      /* "integrals.pyx":836
  *         else:
  *             Tz = Az*E(n1,n2  ,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \
  *                  Bz*E(n1,n2+2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) + \             # <<<<<<<<<<<<<<
@@ -24750,7 +24750,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L21:;
 
-    /* "mmd/integrals.pyx":839
+    /* "integrals.pyx":839
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -24763,7 +24763,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":840
+      /* "integrals.pyx":840
  * 
  *         if x == 0:
  *             Ty *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -24803,7 +24803,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 840, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 840, __pyx_L1_error)
@@ -24812,7 +24812,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":841
+      /* "integrals.pyx":841
  *         if x == 0:
  *             Ty *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *             Tz *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -24852,7 +24852,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 841, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 841, __pyx_L1_error)
@@ -24861,7 +24861,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":839
+      /* "integrals.pyx":839
  *                  Cz*E(n1,n2-2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -24871,7 +24871,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L22;
     }
 
-    /* "mmd/integrals.pyx":843
+    /* "integrals.pyx":843
  *             Tz *= Ex(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1)
  *         else:
  *             Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -24910,7 +24910,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 843, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 843, __pyx_L1_error)
@@ -24919,7 +24919,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":844
+      /* "integrals.pyx":844
  *         else:
  *             Ty *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])             # <<<<<<<<<<<<<<
@@ -24957,7 +24957,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 844, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 844, __pyx_L1_error)
@@ -24968,7 +24968,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L22:;
 
-    /* "mmd/integrals.pyx":846
+    /* "integrals.pyx":846
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -24981,7 +24981,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":847
+      /* "integrals.pyx":847
  * 
  *         if x == 1:
  *             Tx *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -25021,7 +25021,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 847, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 847, __pyx_L1_error)
@@ -25030,7 +25030,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":848
+      /* "integrals.pyx":848
  *         if x == 1:
  *             Tx *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *             Tz *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -25070,7 +25070,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 848, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 848, __pyx_L1_error)
@@ -25079,7 +25079,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tz, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":846
+      /* "integrals.pyx":846
  *             Tz *= E(l1,l2,0,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0])
  * 
  *         if x == 1:             # <<<<<<<<<<<<<<
@@ -25089,7 +25089,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L23;
     }
 
-    /* "mmd/integrals.pyx":850
+    /* "integrals.pyx":850
  *             Tz *= Ex(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1)
  *         else:
  *             Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -25128,7 +25128,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 850, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 850, __pyx_L1_error)
@@ -25137,7 +25137,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":851
+      /* "integrals.pyx":851
  *         else:
  *             Tx *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])             # <<<<<<<<<<<<<<
@@ -25175,7 +25175,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 851, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Tz, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 851, __pyx_L1_error)
@@ -25186,7 +25186,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L23:;
 
-    /* "mmd/integrals.pyx":853
+    /* "integrals.pyx":853
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -25199,7 +25199,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":854
+      /* "integrals.pyx":854
  * 
  *         if x == 2:
  *             Tx *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -25239,7 +25239,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_14;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_15 = __pyx_f_9integrals_Ex(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 854, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 854, __pyx_L1_error)
@@ -25248,7 +25248,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":855
+      /* "integrals.pyx":855
  *         if x == 2:
  *             Tx *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)
  *             Ty *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)             # <<<<<<<<<<<<<<
@@ -25288,7 +25288,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_16.Ax = __pyx_t_11;
       __pyx_t_16.q = 0;
       __pyx_t_16.r = 1;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
+      __pyx_t_10 = __pyx_f_9integrals_Ex(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_16); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 855, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 855, __pyx_L1_error)
@@ -25297,7 +25297,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Ty, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":853
+      /* "integrals.pyx":853
  *             Tz *= E(m1,m2,0,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1])
  * 
  *         if x == 2:             # <<<<<<<<<<<<<<
@@ -25307,7 +25307,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       goto __pyx_L24;
     }
 
-    /* "mmd/integrals.pyx":857
+    /* "integrals.pyx":857
  *             Ty *= Ex(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1)
  *         else:
  *             Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -25346,7 +25346,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_13;
       __pyx_t_17.Ax = __pyx_t_14;
-      __pyx_t_15 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_15 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_9, 0, __pyx_t_10, __pyx_t_11, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_4 = PyFloat_FromDouble(__pyx_t_15); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 857, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyNumber_InPlaceMultiply(__pyx_v_Tx, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 857, __pyx_L1_error)
@@ -25355,7 +25355,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __Pyx_DECREF_SET(__pyx_v_Tx, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "mmd/integrals.pyx":858
+      /* "integrals.pyx":858
  *         else:
  *             Tx *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  *             Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])             # <<<<<<<<<<<<<<
@@ -25393,7 +25393,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
       __pyx_t_17.__pyx_n = 2;
       __pyx_t_17.n = __pyx_t_7;
       __pyx_t_17.Ax = __pyx_t_11;
-      __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
+      __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_13, __pyx_t_9, 0, __pyx_t_15, __pyx_t_14, __pyx_t_12, &__pyx_t_17); 
       __pyx_t_6 = PyFloat_FromDouble(__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 858, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = PyNumber_InPlaceMultiply(__pyx_v_Ty, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 858, __pyx_L1_error)
@@ -25404,7 +25404,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
     }
     __pyx_L24:;
 
-    /* "mmd/integrals.pyx":811
+    /* "integrals.pyx":811
  *             Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     if center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -25413,7 +25413,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
   }
 
-  /* "mmd/integrals.pyx":860
+  /* "integrals.pyx":860
  *             Ty *= E(n1,n2,0,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2])
  * 
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -25434,7 +25434,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_power); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -25497,7 +25497,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":753
+  /* "integrals.pyx":753
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
  * 
  * def kineticX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -25513,7 +25513,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_18);
-  __Pyx_AddTraceback("mmd.integrals.kineticX", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.kineticX", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -25539,7 +25539,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":864
+/* "integrals.pyx":864
  * 
  * 
  * def angular(a, lmn1, A, b, lmn2, B, C, direction,london):             # <<<<<<<<<<<<<<
@@ -25548,9 +25548,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_34kineticX(CYTHON_UNUSED PyObject *__p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_37angular(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_37angular = {"angular", (PyCFunction)__pyx_pw_3mmd_9integrals_37angular, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_37angular(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_37angular(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_37angular = {"angular", (PyCFunction)__pyx_pw_9integrals_37angular, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_37angular(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -25658,18 +25658,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_37angular(PyObject *__pyx_self, PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("angular", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 864, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.angular", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.angular", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_36angular(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_direction, __pyx_v_london);
+  __pyx_r = __pyx_pf_9integrals_36angular(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_direction, __pyx_v_london);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london) {
+static PyObject *__pyx_pf_9integrals_36angular(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_direction, PyObject *__pyx_v_london) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -25704,12 +25704,12 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   int __pyx_t_11;
   double __pyx_t_12;
   double __pyx_t_13;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_14;
+  struct __pyx_opt_args_9integrals_E __pyx_t_14;
   PyObject *__pyx_t_15 = NULL;
   PyObject *__pyx_t_16 = NULL;
   __Pyx_RefNannySetupContext("angular", 0);
 
-  /* "mmd/integrals.pyx":866
+  /* "integrals.pyx":866
  * def angular(a, lmn1, A, b, lmn2, B, C, direction,london):
  *     # a little extra work at the moment, but not all that more expensive
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -25778,7 +25778,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":867
+  /* "integrals.pyx":867
  *     # a little extra work at the moment, but not all that more expensive
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -25847,7 +25847,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":868
+  /* "integrals.pyx":868
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     P = gaussian_product_center(a,A,b,B)             # <<<<<<<<<<<<<<
@@ -25910,7 +25910,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_P = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":870
+  /* "integrals.pyx":870
  *     P = gaussian_product_center(a,A,b,B)
  * 
  *     XPC = P[0] - C[0]             # <<<<<<<<<<<<<<
@@ -25928,7 +25928,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_XPC = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":871
+  /* "integrals.pyx":871
  * 
  *     XPC = P[0] - C[0]
  *     YPC = P[1] - C[1]             # <<<<<<<<<<<<<<
@@ -25946,7 +25946,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_YPC = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":872
+  /* "integrals.pyx":872
  *     XPC = P[0] - C[0]
  *     YPC = P[1] - C[1]
  *     ZPC = P[2] - C[2]             # <<<<<<<<<<<<<<
@@ -25964,7 +25964,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_ZPC = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "mmd/integrals.pyx":874
+  /* "integrals.pyx":874
  *     ZPC = P[2] - C[2]
  * 
  *     S0x =    E(l1,l2,0,A[0]-B[0],a,b)             # <<<<<<<<<<<<<<
@@ -25985,9 +25985,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L1_error)
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L1_error)
-  __pyx_v_S0x = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL);
+  __pyx_v_S0x = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL);
 
-  /* "mmd/integrals.pyx":875
+  /* "integrals.pyx":875
  * 
  *     S0x =    E(l1,l2,0,A[0]-B[0],a,b)
  *     S0y =    E(m1,m2,0,A[1]-B[1],a,b)             # <<<<<<<<<<<<<<
@@ -26008,9 +26008,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 875, __pyx_L1_error)
   __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 875, __pyx_L1_error)
-  __pyx_v_S0y = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL);
+  __pyx_v_S0y = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL);
 
-  /* "mmd/integrals.pyx":876
+  /* "integrals.pyx":876
  *     S0x =    E(l1,l2,0,A[0]-B[0],a,b)
  *     S0y =    E(m1,m2,0,A[1]-B[1],a,b)
  *     S0z =    E(n1,n2,0,A[2]-B[2],a,b)             # <<<<<<<<<<<<<<
@@ -26031,9 +26031,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 876, __pyx_L1_error)
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 876, __pyx_L1_error)
-  __pyx_v_S0z = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL);
+  __pyx_v_S0z = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL);
 
-  /* "mmd/integrals.pyx":878
+  /* "integrals.pyx":878
  *     S0z =    E(n1,n2,0,A[2]-B[2],a,b)
  * 
  *     if london:             # <<<<<<<<<<<<<<
@@ -26043,7 +26043,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_v_london); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 878, __pyx_L1_error)
   if (__pyx_t_11) {
 
-    /* "mmd/integrals.pyx":880
+    /* "integrals.pyx":880
  *     if london:
  *         # pretty sure this works
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-B[0])             # <<<<<<<<<<<<<<
@@ -26077,10 +26077,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_12;
-    __pyx_t_13 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_13 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1x = __pyx_t_13;
 
-    /* "mmd/integrals.pyx":881
+    /* "integrals.pyx":881
  *         # pretty sure this works
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-B[0])
  *         S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-B[1])             # <<<<<<<<<<<<<<
@@ -26114,10 +26114,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_9;
-    __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1y = __pyx_t_10;
 
-    /* "mmd/integrals.pyx":882
+    /* "integrals.pyx":882
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-B[0])
  *         S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-B[1])
  *         S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-B[2])             # <<<<<<<<<<<<<<
@@ -26151,10 +26151,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_12;
-    __pyx_t_13 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_13 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1z = __pyx_t_13;
 
-    /* "mmd/integrals.pyx":878
+    /* "integrals.pyx":878
  *     S0z =    E(n1,n2,0,A[2]-B[2],a,b)
  * 
  *     if london:             # <<<<<<<<<<<<<<
@@ -26164,7 +26164,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     goto __pyx_L7;
   }
 
-  /* "mmd/integrals.pyx":891
+  /* "integrals.pyx":891
  *         #S1y = E(m1,m2,1,A[1]-B[1],a,b) + YPC*E(m1,m2,0,A[1]-B[1],a,b)
  *         #S1z = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])             # <<<<<<<<<<<<<<
@@ -26199,10 +26199,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_9;
-    __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1x = __pyx_t_10;
 
-    /* "mmd/integrals.pyx":892
+    /* "integrals.pyx":892
  *         #S1z = E(n1,n2,1,A[2]-B[2],a,b) + ZPC*E(n1,n2,0,A[2]-B[2],a,b)
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])
  *         S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-C[1])             # <<<<<<<<<<<<<<
@@ -26236,10 +26236,10 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_12;
-    __pyx_t_13 = __pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_13 = __pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1y = __pyx_t_13;
 
-    /* "mmd/integrals.pyx":893
+    /* "integrals.pyx":893
  *         S1x = E(l1,l2,0,A[0]-B[0],a,b,1,A[0]-C[0])
  *         S1y = E(m1,m2,0,A[1]-B[1],a,b,1,A[1]-C[1])
  *         S1z = E(n1,n2,0,A[2]-B[2],a,b,1,A[2]-C[2])             # <<<<<<<<<<<<<<
@@ -26273,12 +26273,12 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_14.__pyx_n = 2;
     __pyx_t_14.n = 1;
     __pyx_t_14.Ax = __pyx_t_9;
-    __pyx_t_10 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
+    __pyx_t_10 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_13, __pyx_t_12, __pyx_t_8, &__pyx_t_14); 
     __pyx_v_S1z = __pyx_t_10;
   }
   __pyx_L7:;
 
-  /* "mmd/integrals.pyx":896
+  /* "integrals.pyx":896
  * 
  * 
  *     D1x = l2*E(l1,l2-1,0,A[0]-B[0],a,b) - 2*b*E(l1,l2+1,0,A[0]-B[0],a,b)             # <<<<<<<<<<<<<<
@@ -26302,7 +26302,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 896, __pyx_L1_error)
   __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 896, __pyx_L1_error)
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 896, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_2 = PyNumber_Multiply(__pyx_v_l2, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -26326,7 +26326,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 896, __pyx_L1_error)
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 896, __pyx_L1_error)
-  __pyx_t_15 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 896, __pyx_L1_error)
+  __pyx_t_15 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __pyx_t_3 = PyNumber_Multiply(__pyx_t_4, __pyx_t_15); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -26339,7 +26339,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_D1x = __pyx_t_15;
   __pyx_t_15 = 0;
 
-  /* "mmd/integrals.pyx":897
+  /* "integrals.pyx":897
  * 
  *     D1x = l2*E(l1,l2-1,0,A[0]-B[0],a,b) - 2*b*E(l1,l2+1,0,A[0]-B[0],a,b)
  *     D1y = m2*E(m1,m2-1,0,A[1]-B[1],a,b) - 2*b*E(m1,m2+1,0,A[1]-B[1],a,b)             # <<<<<<<<<<<<<<
@@ -26363,7 +26363,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 897, __pyx_L1_error)
   __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 897, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = PyNumber_Multiply(__pyx_v_m2, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -26387,7 +26387,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 897, __pyx_L1_error)
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 897, __pyx_L1_error)
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 897, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 897, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = PyNumber_Multiply(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 897, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -26400,7 +26400,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_D1y = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":898
+  /* "integrals.pyx":898
  *     D1x = l2*E(l1,l2-1,0,A[0]-B[0],a,b) - 2*b*E(l1,l2+1,0,A[0]-B[0],a,b)
  *     D1y = m2*E(m1,m2-1,0,A[1]-B[1],a,b) - 2*b*E(m1,m2+1,0,A[1]-B[1],a,b)
  *     D1z = n2*E(n1,n2-1,0,A[2]-B[2],a,b) - 2*b*E(n1,n2+1,0,A[2]-B[2],a,b)             # <<<<<<<<<<<<<<
@@ -26424,7 +26424,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 898, __pyx_L1_error)
   __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 898, __pyx_L1_error)
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 898, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_7, __pyx_t_6, 0, __pyx_t_10, __pyx_t_9, __pyx_t_8, NULL)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = PyNumber_Multiply(__pyx_v_n2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -26448,7 +26448,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
   __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_a); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 898, __pyx_L1_error)
   __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_b); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 898, __pyx_L1_error)
-  __pyx_t_15 = PyFloat_FromDouble(__pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 898, __pyx_L1_error)
+  __pyx_t_15 = PyFloat_FromDouble(__pyx_f_9integrals_E(__pyx_t_6, __pyx_t_7, 0, __pyx_t_8, __pyx_t_9, __pyx_t_10, NULL)); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __pyx_t_2 = PyNumber_Multiply(__pyx_t_3, __pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -26461,7 +26461,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __pyx_v_D1z = __pyx_t_15;
   __pyx_t_15 = 0;
 
-  /* "mmd/integrals.pyx":900
+  /* "integrals.pyx":900
  *     D1z = n2*E(n1,n2-1,0,A[2]-B[2],a,b) - 2*b*E(n1,n2+1,0,A[2]-B[2],a,b)
  * 
  *     if direction.lower() == 'x':             # <<<<<<<<<<<<<<
@@ -26492,7 +26492,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
   if (__pyx_t_11) {
 
-    /* "mmd/integrals.pyx":901
+    /* "integrals.pyx":901
  * 
  *     if direction.lower() == 'x':
  *         return -S0x*(S1y*D1z - S1z*D1y)*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -26525,7 +26525,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_n_s_power); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-    __pyx_t_15 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 901, __pyx_L1_error)
+    __pyx_t_15 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_15);
     __pyx_t_1 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -26588,7 +26588,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":900
+    /* "integrals.pyx":900
  *     D1z = n2*E(n1,n2-1,0,A[2]-B[2],a,b) - 2*b*E(n1,n2+1,0,A[2]-B[2],a,b)
  * 
  *     if direction.lower() == 'x':             # <<<<<<<<<<<<<<
@@ -26597,7 +26597,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
  */
   }
 
-  /* "mmd/integrals.pyx":903
+  /* "integrals.pyx":903
  *         return -S0x*(S1y*D1z - S1z*D1y)*np.power(pi/(a+b),1.5)
  * 
  *     elif direction.lower() == 'y':             # <<<<<<<<<<<<<<
@@ -26628,7 +26628,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_11) {
 
-    /* "mmd/integrals.pyx":904
+    /* "integrals.pyx":904
  * 
  *     elif direction.lower() == 'y':
  *         return -S0y*(S1z*D1x - S1x*D1z)*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -26661,7 +26661,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_power); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 904, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 904, __pyx_L1_error)
+    __pyx_t_4 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 904, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_16 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 904, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
@@ -26724,7 +26724,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":903
+    /* "integrals.pyx":903
  *         return -S0x*(S1y*D1z - S1z*D1y)*np.power(pi/(a+b),1.5)
  * 
  *     elif direction.lower() == 'y':             # <<<<<<<<<<<<<<
@@ -26733,7 +26733,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
  */
   }
 
-  /* "mmd/integrals.pyx":906
+  /* "integrals.pyx":906
  *         return -S0y*(S1z*D1x - S1x*D1z)*np.power(pi/(a+b),1.5)
  * 
  *     elif direction.lower() == 'z':             # <<<<<<<<<<<<<<
@@ -26764,7 +26764,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_11) {
 
-    /* "mmd/integrals.pyx":907
+    /* "integrals.pyx":907
  * 
  *     elif direction.lower() == 'z':
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)             # <<<<<<<<<<<<<<
@@ -26797,7 +26797,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_power); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 907, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_15);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_3mmd_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_v_9integrals_pi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 907, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = PyNumber_Add(__pyx_v_a, __pyx_v_b); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -26860,7 +26860,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
     __pyx_t_15 = 0;
     goto __pyx_L0;
 
-    /* "mmd/integrals.pyx":906
+    /* "integrals.pyx":906
  *         return -S0y*(S1z*D1x - S1x*D1z)*np.power(pi/(a+b),1.5)
  * 
  *     elif direction.lower() == 'z':             # <<<<<<<<<<<<<<
@@ -26869,7 +26869,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
  */
   }
 
-  /* "mmd/integrals.pyx":864
+  /* "integrals.pyx":864
  * 
  * 
  * def angular(a, lmn1, A, b, lmn2, B, C, direction,london):             # <<<<<<<<<<<<<<
@@ -26887,7 +26887,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_15);
   __Pyx_XDECREF(__pyx_t_16);
-  __Pyx_AddTraceback("mmd.integrals.angular", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.angular", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -26908,7 +26908,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":909
+/* "integrals.pyx":909
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)
  * 
  * def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -26917,9 +26917,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_36angular(CYTHON_UNUSED PyObject *__py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_39nuclear_attraction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_39nuclear_attraction = {"nuclear_attraction", (PyCFunction)__pyx_pw_3mmd_9integrals_39nuclear_attraction, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_39nuclear_attraction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_39nuclear_attraction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_39nuclear_attraction = {"nuclear_attraction", (PyCFunction)__pyx_pw_9integrals_39nuclear_attraction, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_39nuclear_attraction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -27030,18 +27030,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_39nuclear_attraction(PyObject *__pyx_s
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("nuclear_attraction", 0, 8, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 909, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attraction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attraction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_38nuclear_attraction(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin);
+  __pyx_r = __pyx_pf_9integrals_38nuclear_attraction(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
+static PyObject *__pyx_pf_9integrals_38nuclear_attraction(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -27079,13 +27079,13 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   int __pyx_t_20;
   double __pyx_t_21;
   double __pyx_t_22;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_23;
+  struct __pyx_opt_args_9integrals_E __pyx_t_23;
   double __pyx_t_24;
   double __pyx_t_25;
   double __pyx_t_26;
   __Pyx_RefNannySetupContext("nuclear_attraction", 0);
 
-  /* "mmd/integrals.pyx":914
+  /* "integrals.pyx":914
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * 1/r
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -27154,7 +27154,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":915
+  /* "integrals.pyx":915
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -27223,7 +27223,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":916
+  /* "integrals.pyx":916
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     p = a + b             # <<<<<<<<<<<<<<
@@ -27235,7 +27235,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_v_p = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":917
+  /* "integrals.pyx":917
  *     l2,m2,n2 = lmn2
  *     p = a + b
  *     P = gaussian_product_center(a,A,b,B)             # <<<<<<<<<<<<<<
@@ -27298,7 +27298,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_v_P = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":918
+  /* "integrals.pyx":918
  *     p = a + b
  *     P = gaussian_product_center(a,A,b,B)
  *     RPC = np.linalg.norm(P-C)             # <<<<<<<<<<<<<<
@@ -27364,7 +27364,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_v_RPC = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":920
+  /* "integrals.pyx":920
  *     RPC = np.linalg.norm(P-C)
  * 
  *     val = 0.0             # <<<<<<<<<<<<<<
@@ -27374,7 +27374,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_float_0_0);
   __pyx_v_val = __pyx_float_0_0;
 
-  /* "mmd/integrals.pyx":921
+  /* "integrals.pyx":921
  * 
  *     val = 0.0
  *     for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -27443,7 +27443,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
     __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "mmd/integrals.pyx":922
+    /* "integrals.pyx":922
  *     val = 0.0
  *     for t in xrange(l1+l2+1+n[0]):
  *         for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -27512,7 +27512,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
       __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":923
+      /* "integrals.pyx":923
  *     for t in xrange(l1+l2+1+n[0]):
  *         for u in xrange(m1+m2+1+n[1]):
  *             for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -27581,7 +27581,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "mmd/integrals.pyx":924
+        /* "integrals.pyx":924
  *         for u in xrange(m1+m2+1+n[1]):
  *             for v in xrange(n1+n2+1+n[2]):
  *                 val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -27620,9 +27620,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __pyx_t_23.__pyx_n = 2;
         __pyx_t_23.n = __pyx_t_20;
         __pyx_t_23.Ax = __pyx_t_21;
-        __pyx_t_22 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_14, __pyx_t_15, __pyx_t_17, __pyx_t_18, __pyx_t_19, &__pyx_t_23); 
+        __pyx_t_22 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_14, __pyx_t_15, __pyx_t_17, __pyx_t_18, __pyx_t_19, &__pyx_t_23); 
 
-        /* "mmd/integrals.pyx":925
+        /* "integrals.pyx":925
  *             for v in xrange(n1+n2+1+n[2]):
  *                 val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                        E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -27661,9 +27661,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __pyx_t_23.__pyx_n = 2;
         __pyx_t_23.n = __pyx_t_6;
         __pyx_t_23.Ax = __pyx_t_17;
-        __pyx_t_24 = __pyx_f_3mmd_9integrals_E(__pyx_t_20, __pyx_t_15, __pyx_t_14, __pyx_t_21, __pyx_t_19, __pyx_t_18, &__pyx_t_23); 
+        __pyx_t_24 = __pyx_f_9integrals_E(__pyx_t_20, __pyx_t_15, __pyx_t_14, __pyx_t_21, __pyx_t_19, __pyx_t_18, &__pyx_t_23); 
 
-        /* "mmd/integrals.pyx":926
+        /* "integrals.pyx":926
  *                 val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                        E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                        E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -27702,9 +27702,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __pyx_t_23.__pyx_n = 2;
         __pyx_t_23.n = __pyx_t_20;
         __pyx_t_23.Ax = __pyx_t_21;
-        __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_14, __pyx_t_15, __pyx_t_17, __pyx_t_18, __pyx_t_19, &__pyx_t_23); 
+        __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_14, __pyx_t_15, __pyx_t_17, __pyx_t_18, __pyx_t_19, &__pyx_t_23); 
 
-        /* "mmd/integrals.pyx":927
+        /* "integrals.pyx":927
  *                        E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                        E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                        R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -27747,17 +27747,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
         __pyx_t_26 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_26 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 927, __pyx_L1_error)
 
-        /* "mmd/integrals.pyx":926
+        /* "integrals.pyx":926
  *                 val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                        E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                        E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                        R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  */
-        __pyx_t_16 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_24) * __pyx_t_25) * __pyx_f_3mmd_9integrals_R(__pyx_t_20, __pyx_t_15, __pyx_t_14, 0, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_17, __pyx_t_26))); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 926, __pyx_L1_error)
+        __pyx_t_16 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_24) * __pyx_t_25) * __pyx_f_9integrals_R(__pyx_t_20, __pyx_t_15, __pyx_t_14, 0, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_17, __pyx_t_26))); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 926, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_16);
 
-        /* "mmd/integrals.pyx":924
+        /* "integrals.pyx":924
  *         for u in xrange(m1+m2+1+n[1]):
  *             for v in xrange(n1+n2+1+n[2]):
  *                 val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -27770,7 +27770,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
         __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":923
+        /* "integrals.pyx":923
  *     for t in xrange(l1+l2+1+n[0]):
  *         for u in xrange(m1+m2+1+n[1]):
  *             for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -27780,7 +27780,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":922
+      /* "integrals.pyx":922
  *     val = 0.0
  *     for t in xrange(l1+l2+1+n[0]):
  *         for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -27790,7 +27790,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
     }
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "mmd/integrals.pyx":921
+    /* "integrals.pyx":921
  * 
  *     val = 0.0
  *     for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -27800,14 +27800,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":928
+  /* "integrals.pyx":928
  *                        E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                        R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)             # <<<<<<<<<<<<<<
  *     return val
  * 
  */
-  __pyx_t_1 = PyFloat_FromDouble((2.0 * __pyx_v_3mmd_9integrals_pi)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 928, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble((2.0 * __pyx_v_9integrals_pi)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 928, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 928, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
@@ -27818,7 +27818,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":929
+  /* "integrals.pyx":929
  *                        R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  *     return val             # <<<<<<<<<<<<<<
@@ -27830,7 +27830,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":909
+  /* "integrals.pyx":909
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)
  * 
  * def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -27846,7 +27846,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_16);
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attraction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attraction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -27867,7 +27867,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":931
+/* "integrals.pyx":931
  *     return val
  * 
  * def nuclear_attractionXa(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0):             # <<<<<<<<<<<<<<
@@ -27876,9 +27876,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_38nuclear_attraction(CYTHON_UNUSED PyO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_41nuclear_attractionXa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_41nuclear_attractionXa = {"nuclear_attractionXa", (PyCFunction)__pyx_pw_3mmd_9integrals_41nuclear_attractionXa, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_41nuclear_attractionXa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_41nuclear_attractionXa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_41nuclear_attractionXa = {"nuclear_attractionXa", (PyCFunction)__pyx_pw_9integrals_41nuclear_attractionXa, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_41nuclear_attractionXa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -27999,18 +27999,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_41nuclear_attractionXa(PyObject *__pyx
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("nuclear_attractionXa", 0, 8, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 931, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attractionXa", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attractionXa", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_40nuclear_attractionXa(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x);
+  __pyx_r = __pyx_pf_9integrals_40nuclear_attractionXa(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x) {
+static PyObject *__pyx_pf_9integrals_40nuclear_attractionXa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -28049,13 +28049,13 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   int __pyx_t_21;
   double __pyx_t_22;
   double __pyx_t_23;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_24;
+  struct __pyx_opt_args_9integrals_E __pyx_t_24;
   double __pyx_t_25;
   double __pyx_t_26;
   double __pyx_t_27;
   __Pyx_RefNannySetupContext("nuclear_attractionXa", 0);
 
-  /* "mmd/integrals.pyx":937
+  /* "integrals.pyx":937
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * 1/r
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -28124,7 +28124,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":938
+  /* "integrals.pyx":938
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -28193,7 +28193,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":939
+  /* "integrals.pyx":939
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     p = a + b             # <<<<<<<<<<<<<<
@@ -28205,7 +28205,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_v_p = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":940
+  /* "integrals.pyx":940
  *     l2,m2,n2 = lmn2
  *     p = a + b
  *     P = gaussian_product_center(a,A,b,B)             # <<<<<<<<<<<<<<
@@ -28268,7 +28268,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_v_P = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":941
+  /* "integrals.pyx":941
  *     p = a + b
  *     P = gaussian_product_center(a,A,b,B)
  *     RPC = np.linalg.norm(P-C)             # <<<<<<<<<<<<<<
@@ -28334,7 +28334,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_v_RPC = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":945
+  /* "integrals.pyx":945
  *     # FIXME need to restructure
  *     # see Eq(204) in Helgaker, Modern Elec. Struc Theory (p820)
  *     if x == 0:             # <<<<<<<<<<<<<<
@@ -28347,7 +28347,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":946
+    /* "integrals.pyx":946
  *     # see Eq(204) in Helgaker, Modern Elec. Struc Theory (p820)
  *     if x == 0:
  *         val = 0.0             # <<<<<<<<<<<<<<
@@ -28357,7 +28357,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     __Pyx_INCREF(__pyx_float_0_0);
     __pyx_v_val = __pyx_float_0_0;
 
-    /* "mmd/integrals.pyx":947
+    /* "integrals.pyx":947
  *     if x == 0:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -28426,7 +28426,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "mmd/integrals.pyx":948
+      /* "integrals.pyx":948
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -28495,7 +28495,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":949
+        /* "integrals.pyx":949
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -28564,7 +28564,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "mmd/integrals.pyx":950
+          /* "integrals.pyx":950
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -28603,9 +28603,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_21;
           __pyx_t_24.Ax = __pyx_t_22;
-          __pyx_t_23 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
+          __pyx_t_23 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":951
+          /* "integrals.pyx":951
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -28644,9 +28644,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_6;
           __pyx_t_24.Ax = __pyx_t_18;
-          __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_22, __pyx_t_20, __pyx_t_19, &__pyx_t_24); 
+          __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_22, __pyx_t_20, __pyx_t_19, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":952
+          /* "integrals.pyx":952
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -28685,9 +28685,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_21;
           __pyx_t_24.Ax = __pyx_t_22;
-          __pyx_t_26 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
+          __pyx_t_26 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":953
+          /* "integrals.pyx":953
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t+1,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -28733,17 +28733,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
           __pyx_t_27 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_27 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 953, __pyx_L1_error)
 
-          /* "mmd/integrals.pyx":952
+          /* "integrals.pyx":952
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                            R(t+1,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 1:
  */
-          __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_23 * __pyx_t_25) * __pyx_t_26) * __pyx_f_3mmd_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_27))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 952, __pyx_L1_error)
+          __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_23 * __pyx_t_25) * __pyx_t_26) * __pyx_f_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_27))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 952, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
 
-          /* "mmd/integrals.pyx":950
+          /* "integrals.pyx":950
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -28756,7 +28756,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":949
+          /* "integrals.pyx":949
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -28766,7 +28766,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":948
+        /* "integrals.pyx":948
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -28776,7 +28776,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "mmd/integrals.pyx":947
+      /* "integrals.pyx":947
  *     if x == 0:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -28786,7 +28786,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "mmd/integrals.pyx":945
+    /* "integrals.pyx":945
  *     # FIXME need to restructure
  *     # see Eq(204) in Helgaker, Modern Elec. Struc Theory (p820)
  *     if x == 0:             # <<<<<<<<<<<<<<
@@ -28796,7 +28796,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     goto __pyx_L7;
   }
 
-  /* "mmd/integrals.pyx":954
+  /* "integrals.pyx":954
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t+1,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 1:             # <<<<<<<<<<<<<<
@@ -28809,7 +28809,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":955
+    /* "integrals.pyx":955
  *                            R(t+1,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 1:
  *         val = 0.0             # <<<<<<<<<<<<<<
@@ -28819,7 +28819,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     __Pyx_INCREF(__pyx_float_0_0);
     __pyx_v_val = __pyx_float_0_0;
 
-    /* "mmd/integrals.pyx":956
+    /* "integrals.pyx":956
  *     elif x == 1:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -28888,7 +28888,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":957
+      /* "integrals.pyx":957
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -28957,7 +28957,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":958
+        /* "integrals.pyx":958
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -29026,7 +29026,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_17);
           __pyx_t_17 = 0;
 
-          /* "mmd/integrals.pyx":959
+          /* "integrals.pyx":959
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -29065,9 +29065,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_6;
           __pyx_t_24.Ax = __pyx_t_20;
-          __pyx_t_22 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_27, __pyx_t_18, __pyx_t_19, &__pyx_t_24); 
+          __pyx_t_22 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_27, __pyx_t_18, __pyx_t_19, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":960
+          /* "integrals.pyx":960
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -29106,9 +29106,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_15;
           __pyx_t_24.Ax = __pyx_t_27;
-          __pyx_t_26 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_20, __pyx_t_19, __pyx_t_18, &__pyx_t_24); 
+          __pyx_t_26 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_20, __pyx_t_19, __pyx_t_18, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":961
+          /* "integrals.pyx":961
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -29147,9 +29147,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_6;
           __pyx_t_24.Ax = __pyx_t_20;
-          __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_27, __pyx_t_18, __pyx_t_19, &__pyx_t_24); 
+          __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_27, __pyx_t_18, __pyx_t_19, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":962
+          /* "integrals.pyx":962
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t,u+1,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -29195,17 +29195,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __pyx_t_23 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_23 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 962, __pyx_L1_error)
 
-          /* "mmd/integrals.pyx":961
+          /* "integrals.pyx":961
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                            R(t,u+1,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 2:
  */
-          __pyx_t_3 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_26) * __pyx_t_25) * __pyx_f_3mmd_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_27, __pyx_t_23))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 961, __pyx_L1_error)
+          __pyx_t_3 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_26) * __pyx_t_25) * __pyx_f_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_27, __pyx_t_23))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 961, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
 
-          /* "mmd/integrals.pyx":959
+          /* "integrals.pyx":959
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -29218,7 +29218,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_7);
           __pyx_t_7 = 0;
 
-          /* "mmd/integrals.pyx":958
+          /* "integrals.pyx":958
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -29228,7 +29228,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":957
+        /* "integrals.pyx":957
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -29238,7 +29238,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "mmd/integrals.pyx":956
+      /* "integrals.pyx":956
  *     elif x == 1:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -29248,7 +29248,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "mmd/integrals.pyx":954
+    /* "integrals.pyx":954
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t+1,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 1:             # <<<<<<<<<<<<<<
@@ -29258,7 +29258,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     goto __pyx_L7;
   }
 
-  /* "mmd/integrals.pyx":963
+  /* "integrals.pyx":963
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t,u+1,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 2:             # <<<<<<<<<<<<<<
@@ -29271,7 +29271,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":964
+    /* "integrals.pyx":964
  *                            R(t,u+1,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 2:
  *         val = 0.0             # <<<<<<<<<<<<<<
@@ -29281,7 +29281,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     __Pyx_INCREF(__pyx_float_0_0);
     __pyx_v_val = __pyx_float_0_0;
 
-    /* "mmd/integrals.pyx":965
+    /* "integrals.pyx":965
  *     elif x == 2:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -29350,7 +29350,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "mmd/integrals.pyx":966
+      /* "integrals.pyx":966
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -29419,7 +29419,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_7);
         __pyx_t_7 = 0;
 
-        /* "mmd/integrals.pyx":967
+        /* "integrals.pyx":967
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -29488,7 +29488,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "mmd/integrals.pyx":968
+          /* "integrals.pyx":968
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -29527,9 +29527,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_15;
           __pyx_t_24.Ax = __pyx_t_19;
-          __pyx_t_20 = __pyx_f_3mmd_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_27, __pyx_t_18, &__pyx_t_24); 
+          __pyx_t_20 = __pyx_f_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_27, __pyx_t_18, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":969
+          /* "integrals.pyx":969
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -29568,9 +29568,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_16;
           __pyx_t_24.Ax = __pyx_t_23;
-          __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_6, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_27, &__pyx_t_24); 
+          __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_6, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_27, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":970
+          /* "integrals.pyx":970
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -29609,9 +29609,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __pyx_t_24.__pyx_n = 2;
           __pyx_t_24.n = __pyx_t_15;
           __pyx_t_24.Ax = __pyx_t_19;
-          __pyx_t_26 = __pyx_f_3mmd_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_27, __pyx_t_18, &__pyx_t_24); 
+          __pyx_t_26 = __pyx_f_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_27, __pyx_t_18, &__pyx_t_24); 
 
-          /* "mmd/integrals.pyx":971
+          /* "integrals.pyx":971
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t,u,v+1,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -29657,17 +29657,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
           __pyx_t_22 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_22 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 971, __pyx_L1_error)
 
-          /* "mmd/integrals.pyx":970
+          /* "integrals.pyx":970
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                            E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                            R(t,u,v+1,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  */
-          __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_20 * __pyx_t_25) * __pyx_t_26) * __pyx_f_3mmd_9integrals_R(__pyx_t_15, __pyx_t_6, __pyx_t_21, 0, __pyx_t_19, __pyx_t_18, __pyx_t_27, __pyx_t_23, __pyx_t_22))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 970, __pyx_L1_error)
+          __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_20 * __pyx_t_25) * __pyx_t_26) * __pyx_f_9integrals_R(__pyx_t_15, __pyx_t_6, __pyx_t_21, 0, __pyx_t_19, __pyx_t_18, __pyx_t_27, __pyx_t_23, __pyx_t_22))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 970, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
 
-          /* "mmd/integrals.pyx":968
+          /* "integrals.pyx":968
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):
  *                     val -= E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -29680,7 +29680,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
           __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_4);
           __pyx_t_4 = 0;
 
-          /* "mmd/integrals.pyx":967
+          /* "integrals.pyx":967
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):
  *                 for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -29690,7 +29690,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "mmd/integrals.pyx":966
+        /* "integrals.pyx":966
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):
  *             for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -29700,7 +29700,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "mmd/integrals.pyx":965
+      /* "integrals.pyx":965
  *     elif x == 2:
  *         val = 0.0
  *         for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -29710,7 +29710,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "mmd/integrals.pyx":963
+    /* "integrals.pyx":963
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t,u+1,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     elif x == 2:             # <<<<<<<<<<<<<<
@@ -29720,7 +29720,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   }
   __pyx_L7:;
 
-  /* "mmd/integrals.pyx":972
+  /* "integrals.pyx":972
  *                            E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                            R(t,u,v+1,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)             # <<<<<<<<<<<<<<
@@ -29728,7 +29728,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
  * 
  */
   if (unlikely(!__pyx_v_val)) { __Pyx_RaiseUnboundLocalError("val"); __PYX_ERR(0, 972, __pyx_L1_error) }
-  __pyx_t_1 = PyFloat_FromDouble((2.0 * __pyx_v_3mmd_9integrals_pi)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 972, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble((2.0 * __pyx_v_9integrals_pi)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 972, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_v_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 972, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -29739,7 +29739,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __Pyx_XDECREF_SET(__pyx_v_val, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":973
+  /* "integrals.pyx":973
  *                            R(t,u,v+1,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  *     return val             # <<<<<<<<<<<<<<
@@ -29751,7 +29751,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":931
+  /* "integrals.pyx":931
  *     return val
  * 
  * def nuclear_attractionXa(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0):             # <<<<<<<<<<<<<<
@@ -29767,7 +29767,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attractionXa", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attractionXa", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -29788,7 +29788,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":975
+/* "integrals.pyx":975
  *     return val
  * 
  * def nuclear_attractionXb(a, lmn1, A, b, lmn2, B, C,  n, gOrigin=np.zeros((3)), x = 0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -29797,9 +29797,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_40nuclear_attractionXa(CYTHON_UNUSED P
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_43nuclear_attractionXb(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_43nuclear_attractionXb = {"nuclear_attractionXb", (PyCFunction)__pyx_pw_3mmd_9integrals_43nuclear_attractionXb, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_43nuclear_attractionXb(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_43nuclear_attractionXb(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_43nuclear_attractionXb = {"nuclear_attractionXb", (PyCFunction)__pyx_pw_9integrals_43nuclear_attractionXb, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_43nuclear_attractionXb(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_lmn1 = 0;
   PyObject *__pyx_v_A = 0;
@@ -29930,18 +29930,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_43nuclear_attractionXb(PyObject *__pyx
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("nuclear_attractionXb", 0, 8, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 975, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attractionXb", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attractionXb", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_42nuclear_attractionXb(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
+  __pyx_r = __pyx_pf_9integrals_42nuclear_attractionXb(__pyx_self, __pyx_v_a, __pyx_v_lmn1, __pyx_v_A, __pyx_v_b, __pyx_v_lmn2, __pyx_v_B, __pyx_v_C, __pyx_v_n, __pyx_v_gOrigin, __pyx_v_x, __pyx_v_center);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
+static PyObject *__pyx_pf_9integrals_42nuclear_attractionXb(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_lmn1, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_lmn2, PyObject *__pyx_v_B, PyObject *__pyx_v_C, PyObject *__pyx_v_n, PyObject *__pyx_v_gOrigin, PyObject *__pyx_v_x, PyObject *__pyx_v_center) {
   PyObject *__pyx_v_l1 = NULL;
   PyObject *__pyx_v_m1 = NULL;
   PyObject *__pyx_v_n1 = NULL;
@@ -29980,14 +29980,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   int __pyx_t_21;
   double __pyx_t_22;
   double __pyx_t_23;
-  struct __pyx_opt_args_3mmd_9integrals_Ex __pyx_t_24;
+  struct __pyx_opt_args_9integrals_Ex __pyx_t_24;
   double __pyx_t_25;
-  struct __pyx_opt_args_3mmd_9integrals_E __pyx_t_26;
+  struct __pyx_opt_args_9integrals_E __pyx_t_26;
   double __pyx_t_27;
   double __pyx_t_28;
   __Pyx_RefNannySetupContext("nuclear_attractionXb", 0);
 
-  /* "mmd/integrals.pyx":981
+  /* "integrals.pyx":981
  *     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * 1/r
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1             # <<<<<<<<<<<<<<
@@ -30056,7 +30056,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_v_n1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":982
+  /* "integrals.pyx":982
  *     # normal nuclear attraction is just n = (0,0,0) case
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2             # <<<<<<<<<<<<<<
@@ -30125,7 +30125,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_v_n2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":983
+  /* "integrals.pyx":983
  *     l1,m1,n1 = lmn1
  *     l2,m2,n2 = lmn2
  *     p = a + b             # <<<<<<<<<<<<<<
@@ -30137,7 +30137,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_v_p = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":984
+  /* "integrals.pyx":984
  *     l2,m2,n2 = lmn2
  *     p = a + b
  *     val = 0.0             # <<<<<<<<<<<<<<
@@ -30147,7 +30147,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __Pyx_INCREF(__pyx_float_0_0);
   __pyx_v_val = __pyx_float_0_0;
 
-  /* "mmd/integrals.pyx":985
+  /* "integrals.pyx":985
  *     p = a + b
  *     val = 0.0
  *     P = gaussian_product_center(a,A,b,B)             # <<<<<<<<<<<<<<
@@ -30210,7 +30210,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_v_P = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":986
+  /* "integrals.pyx":986
  *     val = 0.0
  *     P = gaussian_product_center(a,A,b,B)
  *     RPC = np.linalg.norm(P-C)             # <<<<<<<<<<<<<<
@@ -30276,7 +30276,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_v_RPC = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mmd/integrals.pyx":992
+  /* "integrals.pyx":992
  *     # note that t,u,v must be incremented by one wrt correct derivative
  *     # for example, compare with regular nuclear attraction
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -30307,7 +30307,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":993
+    /* "integrals.pyx":993
  *     # for example, compare with regular nuclear attraction
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -30320,7 +30320,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":994
+      /* "integrals.pyx":994
  *     if center.lower() == 'a':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -30330,7 +30330,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":995
+      /* "integrals.pyx":995
  *         if x == 0:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):             # <<<<<<<<<<<<<<
@@ -30402,7 +30402,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "mmd/integrals.pyx":996
+        /* "integrals.pyx":996
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -30471,7 +30471,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_4);
           __pyx_t_4 = 0;
 
-          /* "mmd/integrals.pyx":997
+          /* "integrals.pyx":997
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -30540,7 +30540,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_3);
             __pyx_t_3 = 0;
 
-            /* "mmd/integrals.pyx":998
+            /* "integrals.pyx":998
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -30581,9 +30581,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_22;
             __pyx_t_24.q = 1;
             __pyx_t_24.r = 0;
-            __pyx_t_23 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
+            __pyx_t_23 = __pyx_f_9integrals_Ex(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":999
+            /* "integrals.pyx":999
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -30622,9 +30622,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_6;
             __pyx_t_26.Ax = __pyx_t_18;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_22, __pyx_t_20, __pyx_t_19, &__pyx_t_26); 
+            __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_22, __pyx_t_20, __pyx_t_19, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1000
+            /* "integrals.pyx":1000
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -30663,9 +30663,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_21;
             __pyx_t_26.Ax = __pyx_t_22;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_26); 
+            __pyx_t_27 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_18, __pyx_t_19, __pyx_t_20, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1001
+            /* "integrals.pyx":1001
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -30708,17 +30708,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_t_28 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_28 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1001, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1000
+            /* "integrals.pyx":1000
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:
  */
-            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_23 * __pyx_t_25) * __pyx_t_27) * __pyx_f_3mmd_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_28))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1000, __pyx_L1_error)
+            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_23 * __pyx_t_25) * __pyx_t_27) * __pyx_f_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_28))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1000, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_17);
 
-            /* "mmd/integrals.pyx":998
+            /* "integrals.pyx":998
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -30731,7 +30731,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_2);
             __pyx_t_2 = 0;
 
-            /* "mmd/integrals.pyx":997
+            /* "integrals.pyx":997
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -30741,7 +30741,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-          /* "mmd/integrals.pyx":996
+          /* "integrals.pyx":996
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -30751,7 +30751,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "mmd/integrals.pyx":995
+        /* "integrals.pyx":995
  *         if x == 0:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):             # <<<<<<<<<<<<<<
@@ -30761,7 +30761,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "mmd/integrals.pyx":993
+      /* "integrals.pyx":993
  *     # for example, compare with regular nuclear attraction
  *     if center.lower() == 'a':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -30771,7 +30771,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       goto __pyx_L8;
     }
 
-    /* "mmd/integrals.pyx":1002
+    /* "integrals.pyx":1002
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -30784,7 +30784,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":1003
+      /* "integrals.pyx":1003
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -30794,7 +30794,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":1004
+      /* "integrals.pyx":1004
  *         elif x == 1:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -30863,7 +30863,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":1005
+        /* "integrals.pyx":1005
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):             # <<<<<<<<<<<<<<
@@ -30935,7 +30935,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_4);
           __pyx_t_4 = 0;
 
-          /* "mmd/integrals.pyx":1006
+          /* "integrals.pyx":1006
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -31004,7 +31004,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_17);
             __pyx_t_17 = 0;
 
-            /* "mmd/integrals.pyx":1007
+            /* "integrals.pyx":1007
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -31043,9 +31043,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_6;
             __pyx_t_26.Ax = __pyx_t_20;
-            __pyx_t_22 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_28, __pyx_t_18, __pyx_t_19, &__pyx_t_26); 
+            __pyx_t_22 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_28, __pyx_t_18, __pyx_t_19, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1008
+            /* "integrals.pyx":1008
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -31086,9 +31086,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_28;
             __pyx_t_24.q = 1;
             __pyx_t_24.r = 0;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_20, __pyx_t_19, __pyx_t_18, &__pyx_t_24); 
+            __pyx_t_27 = __pyx_f_9integrals_Ex(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_20, __pyx_t_19, __pyx_t_18, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":1009
+            /* "integrals.pyx":1009
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -31127,9 +31127,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_6;
             __pyx_t_26.Ax = __pyx_t_20;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_28, __pyx_t_18, __pyx_t_19, &__pyx_t_26); 
+            __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_28, __pyx_t_18, __pyx_t_19, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1010
+            /* "integrals.pyx":1010
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -31172,17 +31172,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __pyx_t_23 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_23 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1010, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1009
+            /* "integrals.pyx":1009
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=1,r=0) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:
  */
-            __pyx_t_3 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_27) * __pyx_t_25) * __pyx_f_3mmd_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_28, __pyx_t_23))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1009, __pyx_L1_error)
+            __pyx_t_3 = PyFloat_FromDouble((((__pyx_t_22 * __pyx_t_27) * __pyx_t_25) * __pyx_f_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_20, __pyx_t_19, __pyx_t_18, __pyx_t_28, __pyx_t_23))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1009, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
 
-            /* "mmd/integrals.pyx":1007
+            /* "integrals.pyx":1007
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -31195,7 +31195,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_1);
             __pyx_t_1 = 0;
 
-            /* "mmd/integrals.pyx":1006
+            /* "integrals.pyx":1006
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -31205,7 +31205,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-          /* "mmd/integrals.pyx":1005
+          /* "integrals.pyx":1005
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):             # <<<<<<<<<<<<<<
@@ -31215,7 +31215,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":1004
+        /* "integrals.pyx":1004
  *         elif x == 1:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -31225,7 +31225,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "mmd/integrals.pyx":1002
+      /* "integrals.pyx":1002
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -31235,7 +31235,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       goto __pyx_L8;
     }
 
-    /* "mmd/integrals.pyx":1011
+    /* "integrals.pyx":1011
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -31248,7 +31248,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":1012
+      /* "integrals.pyx":1012
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -31258,7 +31258,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":1013
+      /* "integrals.pyx":1013
  *         elif x == 2:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -31327,7 +31327,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":1014
+        /* "integrals.pyx":1014
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -31396,7 +31396,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_1);
           __pyx_t_1 = 0;
 
-          /* "mmd/integrals.pyx":1015
+          /* "integrals.pyx":1015
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):             # <<<<<<<<<<<<<<
@@ -31468,7 +31468,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_1);
             __pyx_t_1 = 0;
 
-            /* "mmd/integrals.pyx":1016
+            /* "integrals.pyx":1016
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -31507,9 +31507,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_15;
             __pyx_t_26.Ax = __pyx_t_19;
-            __pyx_t_20 = __pyx_f_3mmd_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_28, __pyx_t_18, &__pyx_t_26); 
+            __pyx_t_20 = __pyx_f_9integrals_E(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_28, __pyx_t_18, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1017
+            /* "integrals.pyx":1017
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -31548,9 +31548,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_16;
             __pyx_t_26.Ax = __pyx_t_23;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_6, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_28, &__pyx_t_26); 
+            __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_6, __pyx_t_21, __pyx_t_19, __pyx_t_18, __pyx_t_28, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1018
+            /* "integrals.pyx":1018
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) * \             # <<<<<<<<<<<<<<
@@ -31591,9 +31591,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_19;
             __pyx_t_24.q = 1;
             __pyx_t_24.r = 0;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_28, __pyx_t_18, &__pyx_t_24); 
+            __pyx_t_27 = __pyx_f_9integrals_Ex(__pyx_t_16, __pyx_t_21, __pyx_t_6, __pyx_t_23, __pyx_t_28, __pyx_t_18, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":1019
+            /* "integrals.pyx":1019
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -31636,17 +31636,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_t_22 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_22 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1019, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1018
+            /* "integrals.pyx":1018
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     if center.lower() == 'b':
  */
-            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_20 * __pyx_t_25) * __pyx_t_27) * __pyx_f_3mmd_9integrals_R(__pyx_t_15, __pyx_t_6, __pyx_t_21, 0, __pyx_t_19, __pyx_t_18, __pyx_t_28, __pyx_t_23, __pyx_t_22))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1018, __pyx_L1_error)
+            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_20 * __pyx_t_25) * __pyx_t_27) * __pyx_f_9integrals_R(__pyx_t_15, __pyx_t_6, __pyx_t_21, 0, __pyx_t_19, __pyx_t_18, __pyx_t_28, __pyx_t_23, __pyx_t_22))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1018, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_17);
 
-            /* "mmd/integrals.pyx":1016
+            /* "integrals.pyx":1016
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -31659,7 +31659,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_2);
             __pyx_t_2 = 0;
 
-            /* "mmd/integrals.pyx":1015
+            /* "integrals.pyx":1015
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):             # <<<<<<<<<<<<<<
@@ -31669,7 +31669,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "mmd/integrals.pyx":1014
+          /* "integrals.pyx":1014
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -31679,7 +31679,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":1013
+        /* "integrals.pyx":1013
  *         elif x == 2:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -31689,7 +31689,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "mmd/integrals.pyx":1011
+      /* "integrals.pyx":1011
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -31699,7 +31699,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     }
     __pyx_L8:;
 
-    /* "mmd/integrals.pyx":992
+    /* "integrals.pyx":992
  *     # note that t,u,v must be incremented by one wrt correct derivative
  *     # for example, compare with regular nuclear attraction
  *     if center.lower() == 'a':             # <<<<<<<<<<<<<<
@@ -31708,7 +31708,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
  */
   }
 
-  /* "mmd/integrals.pyx":1020
+  /* "integrals.pyx":1020
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     if center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -31739,7 +31739,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__pyx_t_8) {
 
-    /* "mmd/integrals.pyx":1021
+    /* "integrals.pyx":1021
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     if center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -31752,7 +31752,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":1022
+      /* "integrals.pyx":1022
  *     if center.lower() == 'b':
  *         if x == 0:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -31762,7 +31762,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":1023
+      /* "integrals.pyx":1023
  *         if x == 0:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):             # <<<<<<<<<<<<<<
@@ -31834,7 +31834,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_7);
         __pyx_t_7 = 0;
 
-        /* "mmd/integrals.pyx":1024
+        /* "integrals.pyx":1024
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -31903,7 +31903,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":1025
+          /* "integrals.pyx":1025
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -31972,7 +31972,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_17);
             __pyx_t_17 = 0;
 
-            /* "mmd/integrals.pyx":1026
+            /* "integrals.pyx":1026
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -32013,9 +32013,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_18;
             __pyx_t_24.q = 0;
             __pyx_t_24.r = 1;
-            __pyx_t_19 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_21, __pyx_t_6, __pyx_t_15, __pyx_t_22, __pyx_t_23, __pyx_t_28, &__pyx_t_24); 
+            __pyx_t_19 = __pyx_f_9integrals_Ex(__pyx_t_21, __pyx_t_6, __pyx_t_15, __pyx_t_22, __pyx_t_23, __pyx_t_28, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":1027
+            /* "integrals.pyx":1027
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -32054,9 +32054,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_21;
             __pyx_t_26.Ax = __pyx_t_22;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_E(__pyx_t_16, __pyx_t_15, __pyx_t_6, __pyx_t_18, __pyx_t_28, __pyx_t_23, &__pyx_t_26); 
+            __pyx_t_27 = __pyx_f_9integrals_E(__pyx_t_16, __pyx_t_15, __pyx_t_6, __pyx_t_18, __pyx_t_28, __pyx_t_23, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1028
+            /* "integrals.pyx":1028
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -32095,9 +32095,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_16;
             __pyx_t_26.Ax = __pyx_t_18;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_E(__pyx_t_21, __pyx_t_6, __pyx_t_15, __pyx_t_22, __pyx_t_23, __pyx_t_28, &__pyx_t_26); 
+            __pyx_t_25 = __pyx_f_9integrals_E(__pyx_t_21, __pyx_t_6, __pyx_t_15, __pyx_t_22, __pyx_t_23, __pyx_t_28, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1029
+            /* "integrals.pyx":1029
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -32140,17 +32140,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __pyx_t_20 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_20 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1029, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1028
+            /* "integrals.pyx":1028
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:
  */
-            __pyx_t_1 = PyFloat_FromDouble((((__pyx_t_19 * __pyx_t_27) * __pyx_t_25) * __pyx_f_3mmd_9integrals_R(__pyx_t_16, __pyx_t_15, __pyx_t_6, 0, __pyx_t_18, __pyx_t_28, __pyx_t_23, __pyx_t_22, __pyx_t_20))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1028, __pyx_L1_error)
+            __pyx_t_1 = PyFloat_FromDouble((((__pyx_t_19 * __pyx_t_27) * __pyx_t_25) * __pyx_f_9integrals_R(__pyx_t_16, __pyx_t_15, __pyx_t_6, 0, __pyx_t_18, __pyx_t_28, __pyx_t_23, __pyx_t_22, __pyx_t_20))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1028, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
 
-            /* "mmd/integrals.pyx":1026
+            /* "integrals.pyx":1026
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += Ex(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -32163,7 +32163,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_4);
             __pyx_t_4 = 0;
 
-            /* "mmd/integrals.pyx":1025
+            /* "integrals.pyx":1025
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -32173,7 +32173,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":1024
+          /* "integrals.pyx":1024
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -32183,7 +32183,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "mmd/integrals.pyx":1023
+        /* "integrals.pyx":1023
  *         if x == 0:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]+1):             # <<<<<<<<<<<<<<
@@ -32193,7 +32193,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "mmd/integrals.pyx":1021
+      /* "integrals.pyx":1021
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     if center.lower() == 'b':
  *         if x == 0:             # <<<<<<<<<<<<<<
@@ -32203,7 +32203,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       goto __pyx_L28;
     }
 
-    /* "mmd/integrals.pyx":1030
+    /* "integrals.pyx":1030
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -32216,7 +32216,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":1031
+      /* "integrals.pyx":1031
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -32226,7 +32226,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":1032
+      /* "integrals.pyx":1032
  *         elif x == 1:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -32295,7 +32295,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":1033
+        /* "integrals.pyx":1033
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):             # <<<<<<<<<<<<<<
@@ -32367,7 +32367,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":1034
+          /* "integrals.pyx":1034
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -32436,7 +32436,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_1);
             __pyx_t_1 = 0;
 
-            /* "mmd/integrals.pyx":1035
+            /* "integrals.pyx":1035
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -32475,9 +32475,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_21;
             __pyx_t_26.Ax = __pyx_t_28;
-            __pyx_t_18 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_20, __pyx_t_22, __pyx_t_23, &__pyx_t_26); 
+            __pyx_t_18 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_20, __pyx_t_22, __pyx_t_23, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1036
+            /* "integrals.pyx":1036
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -32518,9 +32518,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_20;
             __pyx_t_24.q = 0;
             __pyx_t_24.r = 1;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_28, __pyx_t_23, __pyx_t_22, &__pyx_t_24); 
+            __pyx_t_25 = __pyx_f_9integrals_Ex(__pyx_t_21, __pyx_t_16, __pyx_t_15, __pyx_t_28, __pyx_t_23, __pyx_t_22, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":1037
+            /* "integrals.pyx":1037
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
@@ -32559,9 +32559,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_21;
             __pyx_t_26.Ax = __pyx_t_28;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_20, __pyx_t_22, __pyx_t_23, &__pyx_t_26); 
+            __pyx_t_27 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_15, __pyx_t_16, __pyx_t_20, __pyx_t_22, __pyx_t_23, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1038
+            /* "integrals.pyx":1038
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -32604,17 +32604,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
             __pyx_t_19 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_19 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1038, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1037
+            /* "integrals.pyx":1037
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                Ex(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1],q=0,r=1) * \
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:
  */
-            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_18 * __pyx_t_25) * __pyx_t_27) * __pyx_f_3mmd_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_28, __pyx_t_23, __pyx_t_22, __pyx_t_20, __pyx_t_19))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1037, __pyx_L1_error)
+            __pyx_t_17 = PyFloat_FromDouble((((__pyx_t_18 * __pyx_t_25) * __pyx_t_27) * __pyx_f_9integrals_R(__pyx_t_21, __pyx_t_16, __pyx_t_15, 0, __pyx_t_28, __pyx_t_23, __pyx_t_22, __pyx_t_20, __pyx_t_19))); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1037, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_17);
 
-            /* "mmd/integrals.pyx":1035
+            /* "integrals.pyx":1035
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -32627,7 +32627,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_7);
             __pyx_t_7 = 0;
 
-            /* "mmd/integrals.pyx":1034
+            /* "integrals.pyx":1034
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):
  *                     for v in xrange(n1+n2+1+n[2]):             # <<<<<<<<<<<<<<
@@ -32637,7 +32637,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "mmd/integrals.pyx":1033
+          /* "integrals.pyx":1033
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]+1):             # <<<<<<<<<<<<<<
@@ -32647,7 +32647,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "mmd/integrals.pyx":1032
+        /* "integrals.pyx":1032
  *         elif x == 1:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -32657,7 +32657,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "mmd/integrals.pyx":1030
+      /* "integrals.pyx":1030
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 1:             # <<<<<<<<<<<<<<
@@ -32667,7 +32667,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       goto __pyx_L28;
     }
 
-    /* "mmd/integrals.pyx":1039
+    /* "integrals.pyx":1039
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -32680,7 +32680,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_8) {
 
-      /* "mmd/integrals.pyx":1040
+      /* "integrals.pyx":1040
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:
  *             val = 0.0             # <<<<<<<<<<<<<<
@@ -32690,7 +32690,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_DECREF_SET(__pyx_v_val, __pyx_float_0_0);
 
-      /* "mmd/integrals.pyx":1041
+      /* "integrals.pyx":1041
  *         elif x == 2:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -32759,7 +32759,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":1042
+        /* "integrals.pyx":1042
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -32828,7 +32828,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           __Pyx_XDECREF_SET(__pyx_v_u, __pyx_t_7);
           __pyx_t_7 = 0;
 
-          /* "mmd/integrals.pyx":1043
+          /* "integrals.pyx":1043
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):             # <<<<<<<<<<<<<<
@@ -32900,7 +32900,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_7);
             __pyx_t_7 = 0;
 
-            /* "mmd/integrals.pyx":1044
+            /* "integrals.pyx":1044
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -32939,9 +32939,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_6;
             __pyx_t_26.Ax = __pyx_t_23;
-            __pyx_t_28 = __pyx_f_3mmd_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_19, __pyx_t_20, __pyx_t_22, &__pyx_t_26); 
+            __pyx_t_28 = __pyx_f_9integrals_E(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_19, __pyx_t_20, __pyx_t_22, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1045
+            /* "integrals.pyx":1045
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \             # <<<<<<<<<<<<<<
@@ -32980,9 +32980,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_26.__pyx_n = 2;
             __pyx_t_26.n = __pyx_t_15;
             __pyx_t_26.Ax = __pyx_t_19;
-            __pyx_t_27 = __pyx_f_3mmd_9integrals_E(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_23, __pyx_t_22, __pyx_t_20, &__pyx_t_26); 
+            __pyx_t_27 = __pyx_f_9integrals_E(__pyx_t_6, __pyx_t_21, __pyx_t_16, __pyx_t_23, __pyx_t_22, __pyx_t_20, &__pyx_t_26); 
 
-            /* "mmd/integrals.pyx":1046
+            /* "integrals.pyx":1046
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) * \             # <<<<<<<<<<<<<<
@@ -33023,9 +33023,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __pyx_t_24.Ax = __pyx_t_23;
             __pyx_t_24.q = 0;
             __pyx_t_24.r = 1;
-            __pyx_t_25 = __pyx_f_3mmd_9integrals_Ex(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_19, __pyx_t_20, __pyx_t_22, &__pyx_t_24); 
+            __pyx_t_25 = __pyx_f_9integrals_Ex(__pyx_t_15, __pyx_t_16, __pyx_t_21, __pyx_t_19, __pyx_t_20, __pyx_t_22, &__pyx_t_24); 
 
-            /* "mmd/integrals.pyx":1047
+            /* "integrals.pyx":1047
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)             # <<<<<<<<<<<<<<
@@ -33068,17 +33068,17 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __pyx_t_18 = __pyx_PyFloat_AsDouble(__pyx_v_RPC); if (unlikely((__pyx_t_18 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1047, __pyx_L1_error)
 
-            /* "mmd/integrals.pyx":1046
+            /* "integrals.pyx":1046
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \
  *                                E(m1,m2,u,A[1]-B[1],a,b,n[1],A[1]-gOrigin[1]) * \
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) * \             # <<<<<<<<<<<<<<
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  */
-            __pyx_t_1 = PyFloat_FromDouble((((__pyx_t_28 * __pyx_t_27) * __pyx_t_25) * __pyx_f_3mmd_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_23, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
+            __pyx_t_1 = PyFloat_FromDouble((((__pyx_t_28 * __pyx_t_27) * __pyx_t_25) * __pyx_f_9integrals_R(__pyx_t_6, __pyx_t_21, __pyx_t_16, 0, __pyx_t_23, __pyx_t_22, __pyx_t_20, __pyx_t_19, __pyx_t_18))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
 
-            /* "mmd/integrals.pyx":1044
+            /* "integrals.pyx":1044
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):
  *                         val += E(l1,l2,t,A[0]-B[0],a,b,n[0],A[0]-gOrigin[0]) * \             # <<<<<<<<<<<<<<
@@ -33091,7 +33091,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
             __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_4);
             __pyx_t_4 = 0;
 
-            /* "mmd/integrals.pyx":1043
+            /* "integrals.pyx":1043
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):
  *                     for v in xrange(n1+n2+1+n[2]+1):             # <<<<<<<<<<<<<<
@@ -33101,7 +33101,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
           }
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-          /* "mmd/integrals.pyx":1042
+          /* "integrals.pyx":1042
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):
  *                 for u in xrange(m1+m2+1+n[1]):             # <<<<<<<<<<<<<<
@@ -33111,7 +33111,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "mmd/integrals.pyx":1041
+        /* "integrals.pyx":1041
  *         elif x == 2:
  *             val = 0.0
  *             for t in xrange(l1+l2+1+n[0]):             # <<<<<<<<<<<<<<
@@ -33121,7 +33121,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "mmd/integrals.pyx":1039
+      /* "integrals.pyx":1039
  *                                E(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2]) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *         elif x == 2:             # <<<<<<<<<<<<<<
@@ -33131,7 +33131,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
     }
     __pyx_L28:;
 
-    /* "mmd/integrals.pyx":1020
+    /* "integrals.pyx":1020
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=1,r=0) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     if center.lower() == 'b':             # <<<<<<<<<<<<<<
@@ -33140,14 +33140,14 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
  */
   }
 
-  /* "mmd/integrals.pyx":1048
+  /* "integrals.pyx":1048
  *                                Ex(n1,n2,v,A[2]-B[2],a,b,n[2],A[2]-gOrigin[2],q=0,r=1) * \
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)             # <<<<<<<<<<<<<<
  *     return val
  * 
  */
-  __pyx_t_3 = PyFloat_FromDouble((2.0 * __pyx_v_3mmd_9integrals_pi)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1048, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((2.0 * __pyx_v_9integrals_pi)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1048, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_v_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1048, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -33158,7 +33158,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __Pyx_DECREF_SET(__pyx_v_val, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":1049
+  /* "integrals.pyx":1049
  *                                R(t,u,v,0,p,P[0]-C[0],P[1]-C[1],P[2]-C[2],RPC)
  *     val *= 2*pi/p # Pink book, Eq(9.9.40)
  *     return val             # <<<<<<<<<<<<<<
@@ -33170,7 +33170,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __pyx_r = __pyx_v_val;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":975
+  /* "integrals.pyx":975
  *     return val
  * 
  * def nuclear_attractionXb(a, lmn1, A, b, lmn2, B, C,  n, gOrigin=np.zeros((3)), x = 0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -33186,7 +33186,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("mmd.integrals.nuclear_attractionXb", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.nuclear_attractionXb", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_l1);
@@ -33207,7 +33207,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "mmd/integrals.pyx":1052
+/* "integrals.pyx":1052
  * 
  * 
  * def gaussian_product_center(a,A,b,B):             # <<<<<<<<<<<<<<
@@ -33216,9 +33216,9 @@ static PyObject *__pyx_pf_3mmd_9integrals_42nuclear_attractionXb(CYTHON_UNUSED P
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mmd_9integrals_45gaussian_product_center(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3mmd_9integrals_45gaussian_product_center = {"gaussian_product_center", (PyCFunction)__pyx_pw_3mmd_9integrals_45gaussian_product_center, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mmd_9integrals_45gaussian_product_center(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9integrals_45gaussian_product_center(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9integrals_45gaussian_product_center = {"gaussian_product_center", (PyCFunction)__pyx_pw_9integrals_45gaussian_product_center, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9integrals_45gaussian_product_center(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_a = 0;
   PyObject *__pyx_v_A = 0;
   PyObject *__pyx_v_b = 0;
@@ -33281,18 +33281,18 @@ static PyObject *__pyx_pw_3mmd_9integrals_45gaussian_product_center(PyObject *__
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("gaussian_product_center", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1052, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("mmd.integrals.gaussian_product_center", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.gaussian_product_center", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mmd_9integrals_44gaussian_product_center(__pyx_self, __pyx_v_a, __pyx_v_A, __pyx_v_b, __pyx_v_B);
+  __pyx_r = __pyx_pf_9integrals_44gaussian_product_center(__pyx_self, __pyx_v_a, __pyx_v_A, __pyx_v_b, __pyx_v_B);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mmd_9integrals_44gaussian_product_center(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_B) {
+static PyObject *__pyx_pf_9integrals_44gaussian_product_center(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_A, PyObject *__pyx_v_b, PyObject *__pyx_v_B) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -33300,7 +33300,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_44gaussian_product_center(CYTHON_UNUSE
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("gaussian_product_center", 0);
 
-  /* "mmd/integrals.pyx":1053
+  /* "integrals.pyx":1053
  * 
  * def gaussian_product_center(a,A,b,B):
  *     return (a*A+b*B)/(a+b)             # <<<<<<<<<<<<<<
@@ -33326,7 +33326,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_44gaussian_product_center(CYTHON_UNUSE
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "mmd/integrals.pyx":1052
+  /* "integrals.pyx":1052
  * 
  * 
  * def gaussian_product_center(a,A,b,B):             # <<<<<<<<<<<<<<
@@ -33339,7 +33339,7 @@ static PyObject *__pyx_pf_3mmd_9integrals_44gaussian_product_center(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("mmd.integrals.gaussian_product_center", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("integrals.gaussian_product_center", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -47637,7 +47637,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "mmd.integrals.array", /*tp_name*/
+  "integrals.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -47743,7 +47743,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "mmd.integrals.Enum", /*tp_name*/
+  "integrals.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -47991,7 +47991,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "mmd.integrals.memoryview", /*tp_name*/
+  "integrals.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -48116,7 +48116,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "mmd.integrals._memoryviewslice", /*tp_name*/
+  "integrals._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -48181,18 +48181,18 @@ static PyTypeObject __pyx_type___pyx_memoryviewslice = {
 };
 
 static PyMethodDef __pyx_methods[] = {
-  {"S", (PyCFunction)__pyx_pw_3mmd_9integrals_1S, METH_VARARGS|METH_KEYWORDS, 0},
-  {"Sx", (PyCFunction)__pyx_pw_3mmd_9integrals_3Sx, METH_VARARGS|METH_KEYWORDS, 0},
-  {"Mu", (PyCFunction)__pyx_pw_3mmd_9integrals_5Mu, METH_VARARGS|METH_KEYWORDS, 0},
-  {"T", (PyCFunction)__pyx_pw_3mmd_9integrals_9T, METH_VARARGS|METH_KEYWORDS, 0},
-  {"Tx", (PyCFunction)__pyx_pw_3mmd_9integrals_11Tx, METH_VARARGS|METH_KEYWORDS, 0},
-  {"V", (PyCFunction)__pyx_pw_3mmd_9integrals_13V, METH_VARARGS|METH_KEYWORDS, 0},
-  {"VxA", (PyCFunction)__pyx_pw_3mmd_9integrals_15VxA, METH_VARARGS|METH_KEYWORDS, 0},
-  {"VxB", (PyCFunction)__pyx_pw_3mmd_9integrals_17VxB, METH_VARARGS|METH_KEYWORDS, 0},
-  {"doERIs", (PyCFunction)__pyx_pw_3mmd_9integrals_19doERIs, METH_VARARGS|METH_KEYWORDS, 0},
-  {"do2eGIAO", (PyCFunction)__pyx_pw_3mmd_9integrals_21do2eGIAO, METH_VARARGS|METH_KEYWORDS, 0},
-  {"ERI", (PyCFunction)__pyx_pw_3mmd_9integrals_23ERI, METH_VARARGS|METH_KEYWORDS, 0},
-  {"ERIx", (PyCFunction)__pyx_pw_3mmd_9integrals_25ERIx, METH_VARARGS|METH_KEYWORDS, 0},
+  {"S", (PyCFunction)__pyx_pw_9integrals_1S, METH_VARARGS|METH_KEYWORDS, 0},
+  {"Sx", (PyCFunction)__pyx_pw_9integrals_3Sx, METH_VARARGS|METH_KEYWORDS, 0},
+  {"Mu", (PyCFunction)__pyx_pw_9integrals_5Mu, METH_VARARGS|METH_KEYWORDS, 0},
+  {"T", (PyCFunction)__pyx_pw_9integrals_9T, METH_VARARGS|METH_KEYWORDS, 0},
+  {"Tx", (PyCFunction)__pyx_pw_9integrals_11Tx, METH_VARARGS|METH_KEYWORDS, 0},
+  {"V", (PyCFunction)__pyx_pw_9integrals_13V, METH_VARARGS|METH_KEYWORDS, 0},
+  {"VxA", (PyCFunction)__pyx_pw_9integrals_15VxA, METH_VARARGS|METH_KEYWORDS, 0},
+  {"VxB", (PyCFunction)__pyx_pw_9integrals_17VxB, METH_VARARGS|METH_KEYWORDS, 0},
+  {"doERIs", (PyCFunction)__pyx_pw_9integrals_19doERIs, METH_VARARGS|METH_KEYWORDS, 0},
+  {"do2eGIAO", (PyCFunction)__pyx_pw_9integrals_21do2eGIAO, METH_VARARGS|METH_KEYWORDS, 0},
+  {"ERI", (PyCFunction)__pyx_pw_9integrals_23ERI, METH_VARARGS|METH_KEYWORDS, 0},
+  {"ERIx", (PyCFunction)__pyx_pw_9integrals_25ERIx, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
@@ -48318,6 +48318,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_int, __pyx_k_int, sizeof(__pyx_k_int), 0, 0, 1, 1},
+  {&__pyx_n_s_integrals, __pyx_k_integrals, sizeof(__pyx_k_integrals), 0, 0, 1, 1},
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
   {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
   {&__pyx_n_s_kinetic, __pyx_k_kinetic, sizeof(__pyx_k_kinetic), 0, 0, 1, 1},
@@ -48334,7 +48335,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_m2, __pyx_k_m2, sizeof(__pyx_k_m2), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
-  {&__pyx_n_s_mmd_integrals, __pyx_k_mmd_integrals, sizeof(__pyx_k_mmd_integrals), 0, 0, 1, 1},
   {&__pyx_n_s_mode, __pyx_k_mode, sizeof(__pyx_k_mode), 0, 0, 1, 1},
   {&__pyx_n_s_n, __pyx_k_n, sizeof(__pyx_k_n), 0, 0, 1, 1},
   {&__pyx_n_s_n1, __pyx_k_n1, sizeof(__pyx_k_n1), 0, 0, 1, 1},
@@ -48414,7 +48414,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "mmd/integrals.pyx":16
+  /* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48428,7 +48428,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "mmd/integrals.pyx":32
+  /* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -48442,7 +48442,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "mmd/integrals.pyx":48
+  /* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48456,7 +48456,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "mmd/integrals.pyx":69
+  /* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48470,7 +48470,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "mmd/integrals.pyx":85
+  /* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -48484,7 +48484,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "mmd/integrals.pyx":102
+  /* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48498,7 +48498,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "mmd/integrals.pyx":117
+  /* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
@@ -48512,7 +48512,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
-  /* "mmd/integrals.pyx":133
+  /* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -48526,7 +48526,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
 
-  /* "mmd/integrals.pyx":197
+  /* "integrals.pyx":197
  *                         ZPQ  = bfs[k].origin[2] - bfs[l].origin[2]
  * 
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48540,7 +48540,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
 
-  /* "mmd/integrals.pyx":198
+  /* "integrals.pyx":198
  * 
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48554,7 +48554,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
 
-  /* "mmd/integrals.pyx":199
+  /* "integrals.pyx":199
  *                         GR1x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(1,0,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48568,7 +48568,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
 
-  /* "mmd/integrals.pyx":200
+  /* "integrals.pyx":200
  *                         GR1y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,1,0),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48582,7 +48582,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
 
-  /* "mmd/integrals.pyx":201
+  /* "integrals.pyx":201
  *                         GR1z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,1),n2=(0,0,0), gOrigin=gauge_origin)
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)
  *                         GR2y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48596,7 +48596,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
 
-  /* "mmd/integrals.pyx":202
+  /* "integrals.pyx":202
  *                         GR2x = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(1,0,0), gOrigin=gauge_origin)
  *                         GR2y = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,1,0), gOrigin=gauge_origin)
  *                         GR2z = ERI(bfs[i],bfs[j],bfs[k],bfs[l],n1=(0,0,0),n2=(0,0,1), gOrigin=gauge_origin)             # <<<<<<<<<<<<<<
@@ -48610,7 +48610,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
 
-  /* "mmd/integrals.pyx":229
+  /* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
@@ -48630,7 +48630,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
 
-  /* "mmd/integrals.pyx":268
+  /* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -48650,7 +48650,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
 
-  /* "mmd/integrals.pyx":639
+  /* "integrals.pyx":639
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48661,7 +48661,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
 
-  /* "mmd/integrals.pyx":647
+  /* "integrals.pyx":647
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
  * 
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):             # <<<<<<<<<<<<<<
@@ -48672,7 +48672,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
 
-  /* "mmd/integrals.pyx":696
+  /* "integrals.pyx":696
  * 
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48683,7 +48683,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
 
-  /* "mmd/integrals.pyx":724
+  /* "integrals.pyx":724
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
  * 
  * def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48694,7 +48694,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__53);
   __Pyx_GIVEREF(__pyx_tuple__53);
 
-  /* "mmd/integrals.pyx":753
+  /* "integrals.pyx":753
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
  * 
  * def kineticX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -48948,7 +48948,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__81);
   __Pyx_GIVEREF(__pyx_tuple__81);
 
-  /* "mmd/integrals.pyx":16
+  /* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48962,7 +48962,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__83);
   __Pyx_GIVEREF(__pyx_tuple__83);
 
-  /* "mmd/integrals.pyx":32
+  /* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -48976,7 +48976,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__85);
   __Pyx_GIVEREF(__pyx_tuple__85);
 
-  /* "mmd/integrals.pyx":48
+  /* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -48990,7 +48990,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__87);
   __Pyx_GIVEREF(__pyx_tuple__87);
 
-  /* "mmd/integrals.pyx":57
+  /* "integrals.pyx":57
  *     return mu
  * 
  * def RxDel(a, b, C, direction, london=False):             # <<<<<<<<<<<<<<
@@ -49002,7 +49002,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__88);
   __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(5, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_RxDel, 57, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 57, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":69
+  /* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49016,7 +49016,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__91);
   __Pyx_GIVEREF(__pyx_tuple__91);
 
-  /* "mmd/integrals.pyx":85
+  /* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -49030,7 +49030,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__93);
   __Pyx_GIVEREF(__pyx_tuple__93);
 
-  /* "mmd/integrals.pyx":102
+  /* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49044,7 +49044,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__95);
   __Pyx_GIVEREF(__pyx_tuple__95);
 
-  /* "mmd/integrals.pyx":117
+  /* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
@@ -49058,7 +49058,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__97);
   __Pyx_GIVEREF(__pyx_tuple__97);
 
-  /* "mmd/integrals.pyx":133
+  /* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -49072,7 +49072,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__99);
   __Pyx_GIVEREF(__pyx_tuple__99);
 
-  /* "mmd/integrals.pyx":229
+  /* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
@@ -49086,7 +49086,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__101);
   __Pyx_GIVEREF(__pyx_tuple__101);
 
-  /* "mmd/integrals.pyx":268
+  /* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -49100,7 +49100,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__103);
   __Pyx_GIVEREF(__pyx_tuple__103);
 
-  /* "mmd/integrals.pyx":639
+  /* "integrals.pyx":639
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49115,7 +49115,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__105);
   __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(8, 0, 17, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__105, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_overlap, 639, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(0, 639, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":647
+  /* "integrals.pyx":647
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
  * 
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):             # <<<<<<<<<<<<<<
@@ -49130,7 +49130,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__108);
   __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(10, 0, 19, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_overlapX, 647, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 647, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":696
+  /* "integrals.pyx":696
  * 
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49145,7 +49145,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__111);
   __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(9, 0, 20, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__111, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_dipole, 696, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(0, 696, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":724
+  /* "integrals.pyx":724
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
  * 
  * def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49160,7 +49160,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__114);
   __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(8, 0, 26, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_kinetic, 724, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 724, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":753
+  /* "integrals.pyx":753
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
  * 
  * def kineticX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -49175,7 +49175,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__117);
   __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(10, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_kineticX, 753, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(0, 753, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":864
+  /* "integrals.pyx":864
  * 
  * 
  * def angular(a, lmn1, A, b, lmn2, B, C, direction,london):             # <<<<<<<<<<<<<<
@@ -49187,7 +49187,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__119);
   __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(9, 0, 28, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_angular, 864, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 864, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":909
+  /* "integrals.pyx":909
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)
  * 
  * def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49202,7 +49202,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__122);
   __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attraction, 909, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 909, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":931
+  /* "integrals.pyx":931
  *     return val
  * 
  * def nuclear_attractionXa(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0):             # <<<<<<<<<<<<<<
@@ -49217,7 +49217,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__125);
   __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(10, 0, 23, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attractionXa, 931, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(0, 931, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":975
+  /* "integrals.pyx":975
  *     return val
  * 
  * def nuclear_attractionXb(a, lmn1, A, b, lmn2, B, C,  n, gOrigin=np.zeros((3)), x = 0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -49232,7 +49232,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__128);
   __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(11, 0, 24, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jjgoings_Dropbox_Code_McM, __pyx_n_s_nuclear_attractionXb, 975, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 975, __pyx_L1_error)
 
-  /* "mmd/integrals.pyx":1052
+  /* "integrals.pyx":1052
  * 
  * 
  * def gaussian_product_center(a,A,b,B):             # <<<<<<<<<<<<<<
@@ -49397,14 +49397,14 @@ PyMODINIT_FUNC PyInit_integrals(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_mmd__integrals) {
+  if (__pyx_module_is_main_integrals) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "mmd.integrals")) {
-      if (unlikely(PyDict_SetItemString(modules, "mmd.integrals", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "integrals")) {
+      if (unlikely(PyDict_SetItemString(modules, "integrals", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -49475,7 +49475,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "mmd/integrals.pyx":5
+  /* "integrals.pyx":5
  * import cython
  * from cython.parallel import prange, parallel
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -49487,7 +49487,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mmd/integrals.pyx":9
+  /* "integrals.pyx":9
  * from libc.math cimport exp, pow, tgamma, sqrt, abs
  * from scipy.special.cython_special cimport hyp1f1
  * from scipy.misc import factorial2 as fact2             # <<<<<<<<<<<<<<
@@ -49508,16 +49508,16 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":11
+  /* "integrals.pyx":11
  * from scipy.misc import factorial2 as fact2
  * 
  * cdef double pi = 3.141592653589793238462643383279             # <<<<<<<<<<<<<<
  * 
  * @cython.cdivision(True)
  */
-  __pyx_v_3mmd_9integrals_pi = 3.141592653589793238462643383279;
+  __pyx_v_9integrals_pi = 3.141592653589793238462643383279;
 
-  /* "mmd/integrals.pyx":16
+  /* "integrals.pyx":16
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49553,7 +49553,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":32
+  /* "integrals.pyx":32
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -49589,7 +49589,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":48
+  /* "integrals.pyx":48
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Mu(object a, object b,str direction, tuple n=(0,0,0),double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49625,19 +49625,19 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":57
+  /* "integrals.pyx":57
  *     return mu
  * 
  * def RxDel(a, b, C, direction, london=False):             # <<<<<<<<<<<<<<
  *     l = 0.0
  *     for ia, ca in enumerate(a.coefs):
  */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_7RxDel, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_7RxDel, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_RxDel, __pyx_t_3) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":69
+  /* "integrals.pyx":69
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double T(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49673,7 +49673,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":85
+  /* "integrals.pyx":85
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -49709,7 +49709,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":102
+  /* "integrals.pyx":102
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double V(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49745,7 +49745,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":117
+  /* "integrals.pyx":117
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):             # <<<<<<<<<<<<<<
@@ -49781,7 +49781,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":133
+  /* "integrals.pyx":133
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):             # <<<<<<<<<<<<<<
@@ -49817,7 +49817,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
 
-  /* "mmd/integrals.pyx":229
+  /* "integrals.pyx":229
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERI(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)) ):             # <<<<<<<<<<<<<<
@@ -49847,7 +49847,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":268
+  /* "integrals.pyx":268
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):             # <<<<<<<<<<<<<<
@@ -49877,7 +49877,7 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":639
+  /* "integrals.pyx":639
  *     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0)
  * 
  * def overlap(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49895,12 +49895,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__48 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_27overlap, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 639, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_27overlap, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 639, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_overlap, __pyx_t_3) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":647
+  /* "integrals.pyx":647
  *     return S1*S2*S3*np.power(pi/(a+b),1.5)
  * 
  * def overlapX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0,center='A'):             # <<<<<<<<<<<<<<
@@ -49918,12 +49918,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__50 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_29overlapX, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 647, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_29overlapX, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 647, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_overlapX, __pyx_t_3) < 0) __PYX_ERR(0, 647, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":696
+  /* "integrals.pyx":696
  * 
  * 
  * def dipole(a,lmn1,A,b,lmn2,B,direction,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49941,12 +49941,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__52 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_31dipole, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 696, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_31dipole, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 696, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_dipole, __pyx_t_3) < 0) __PYX_ERR(0, 696, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":724
+  /* "integrals.pyx":724
  *         return S1*S2*D*np.power(pi/(a+b),1.5)
  * 
  * def kinetic(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -49964,12 +49964,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__54 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_33kinetic, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 724, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_33kinetic, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_kinetic, __pyx_t_3) < 0) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":753
+  /* "integrals.pyx":753
  *     return (Tx + Ty + Tz)*np.power(pi/(a+b),1.5)
  * 
  * def kineticX(a,lmn1,A,b,lmn2,B,n=(0,0,0),gOrigin=np.zeros((3)),x=0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -49987,24 +49987,24 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__56 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_35kineticX, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 753, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_35kineticX, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 753, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_kineticX, __pyx_t_3) < 0) __PYX_ERR(0, 753, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":864
+  /* "integrals.pyx":864
  * 
  * 
  * def angular(a, lmn1, A, b, lmn2, B, C, direction,london):             # <<<<<<<<<<<<<<
  *     # a little extra work at the moment, but not all that more expensive
  *     l1,m1,n1 = lmn1
  */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_37angular, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_37angular, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_angular, __pyx_t_3) < 0) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":909
+  /* "integrals.pyx":909
  *         return -S0z*(S1x*D1y - S1y*D1x)*np.power(pi/(a+b),1.5)
  * 
  * def nuclear_attraction(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3))):             # <<<<<<<<<<<<<<
@@ -50022,12 +50022,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__57 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_39nuclear_attraction, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_39nuclear_attraction, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_nuclear_attraction, __pyx_t_3) < 0) __PYX_ERR(0, 909, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":931
+  /* "integrals.pyx":931
  *     return val
  * 
  * def nuclear_attractionXa(a,lmn1,A,b,lmn2,B,C,n,gOrigin=np.zeros((3)),x = 0):             # <<<<<<<<<<<<<<
@@ -50045,12 +50045,12 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__58 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_41nuclear_attractionXa, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 931, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_41nuclear_attractionXa, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_nuclear_attractionXa, __pyx_t_3) < 0) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":975
+  /* "integrals.pyx":975
  *     return val
  * 
  * def nuclear_attractionXb(a, lmn1, A, b, lmn2, B, C,  n, gOrigin=np.zeros((3)), x = 0, center = 'A'):             # <<<<<<<<<<<<<<
@@ -50068,24 +50068,24 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __pyx_k__59 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_43nuclear_attractionXb, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 975, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_43nuclear_attractionXb, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_nuclear_attractionXb, __pyx_t_3) < 0) __PYX_ERR(0, 975, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":1052
+  /* "integrals.pyx":1052
  * 
  * 
  * def gaussian_product_center(a,A,b,B):             # <<<<<<<<<<<<<<
  *     return (a*A+b*B)/(a+b)
  * 
  */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_3mmd_9integrals_45gaussian_product_center, NULL, __pyx_n_s_mmd_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_9integrals_45gaussian_product_center, NULL, __pyx_n_s_integrals); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_gaussian_product_center, __pyx_t_3) < 0) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mmd/integrals.pyx":1
+  /* "integrals.pyx":1
  * from __future__ import division             # <<<<<<<<<<<<<<
  * #import data
  * import cython
@@ -50248,11 +50248,11 @@ PyMODINIT_FUNC PyInit_integrals(void)
   __PYX_XDEC_MEMVIEW(&__pyx_t_4, 1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init mmd.integrals", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init integrals", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init mmd.integrals");
+    PyErr_SetString(PyExc_ImportError, "init integrals");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

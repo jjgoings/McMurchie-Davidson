@@ -1,6 +1,7 @@
 from __future__ import division
+from __future__ import print_function
 import numpy as np
-from integrals import Sx, Tx, VxA, VxB, ERIx
+from mmd.integrals import Sx, Tx, VxA, VxB, ERIx
 
 class SCF(object):
     """Class for SCF object. Inherits Molecule objects."""
@@ -12,12 +13,12 @@ class SCF(object):
         self.P_old        = np.zeros((self.mol.nbasis,self.mol.nbasis)) 
         self.maxiter = 200
         if not self.mol.is_built:
-            print "You need to run Molecule.build() to generate integrals"
+            print("You need to run Molecule.build() to generate integrals")
             self.mol.build()
             
     def RHF(self,doPrint=True):
         """Routine to compute the RHF energy for a closed shell molecule"""
-        for step in xrange(self.maxiter):
+        for step in range(self.maxiter):
             if step == 0:
                 self.mol.P      = self.P_old
                 self.buildFock()
@@ -45,7 +46,7 @@ class SCF(object):
             error = np.linalg.norm(FPS - SPF)
             if np.abs(self.P_RMS) < 1e-12 or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
-                    print "NOT CONVERGED"
+                    print("NOT CONVERGED")
                 else:
                     self.mol.is_converged = True
                     FPS = np.dot(self.mol.F,np.dot(self.mol.P,self.mol.S))
@@ -53,15 +54,15 @@ class SCF(object):
                     error = FPS - SPF
                     self.computeDipole()
                     if doPrint:
-                        print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
-                              " in "+str(step)+" iterations"
-                        print "  Convergence:"
-                        print "    FPS-SPF  = ", np.linalg.norm(error)
-                        print "    RMS(P)   = ", "{0:.2e}".format(self.P_RMS.real)
-                        print "    dE(SCF)  = ", "{0:.2e}".format(self.delta_energy.real)
-                        print "  Dipole X = ", "{0:.8f}".format(self.mol.mu[0].real)
-                        print "  Dipole Y = ", "{0:.8f}".format(self.mol.mu[1].real)
-                        print "  Dipole Z = ", "{0:.8f}".format(self.mol.mu[2].real)
+                        print("E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
+                              " in "+str(step)+" iterations")
+                        print("  Convergence:")
+                        print("    FPS-SPF  = ", np.linalg.norm(error))
+                        print("    RMS(P)   = ", "{0:.2e}".format(self.P_RMS.real))
+                        print("    dE(SCF)  = ", "{0:.2e}".format(self.delta_energy.real))
+                        print("  Dipole X = ", "{0:.8f}".format(self.mol.mu[0].real))
+                        print("  Dipole Y = ", "{0:.8f}".format(self.mol.mu[1].real))
+                        print("  Dipole Z = ", "{0:.8f}".format(self.mol.mu[2].real))
                     break
 
     def buildFock(self):
@@ -119,7 +120,7 @@ class SCF(object):
         for atom in self.mol.atoms:
             # reset forces to zero
             atom.forces = np.zeros(3)
-            for direction in xrange(3):
+            for direction in range(3):
                 # init derivative arrays
                 dSx = np.zeros_like(self.mol.S)
                 dTx = np.zeros_like(self.mol.T)

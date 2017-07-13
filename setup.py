@@ -6,7 +6,7 @@ import os
 
 os.environ["CPPFLAGS"] = os.getenv("CPPFLAGS", "") + "-I" + numpy.get_include() 
 
-my_integrals = Extension('mmd.integrals',['mmd/integrals.pyx'])
+my_integrals = Extension('mmd.integrals',['cython/integrals.pyx'])
 #                 extra_compile_args=['-fopenmp'],
 #                 extra_link_args=['-fopenmp'])
 

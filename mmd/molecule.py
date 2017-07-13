@@ -1,6 +1,6 @@
 from __future__ import division
 import numpy as np
-from integrals import S,T,Mu,V,RxDel,doERIs,do2eGIAO
+from mmd.integrals import S,T,Mu,V,RxDel,doERIs,do2eGIAO
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 import itertools

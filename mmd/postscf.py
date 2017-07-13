@@ -1,4 +1,5 @@
 from __future__ import division
+from __future__ import print_function
 import numpy as np
 import sys
 import itertools
@@ -36,5 +37,5 @@ class PostSCF(object):
                     - self.mol.single_bar[i,b,j,a])
             EMP2 += numer/denom
         self.mol.emp2 = EMP2 + self.mol.energy   
-        print 'E(MP2) = ', self.mol.emp2.real 
+        print('E(MP2) = ', self.mol.emp2.real) 
 
