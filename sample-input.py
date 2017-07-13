@@ -1,5 +1,6 @@
 from mmd.molecule import * 
 from mmd.scf import * 
+from mmd.postscf import * 
 
 water = """
 0 1
@@ -13,8 +14,10 @@ mol = Molecule(geometry=water,basis='sto-3g')
 mol.build()
 
 # do the SCF
-scf = SCF(mol)
-scf.RHF()
+SCF(mol).RHF()
+
+# do MP2
+PostSCF(mol).MP2()
 
 
 

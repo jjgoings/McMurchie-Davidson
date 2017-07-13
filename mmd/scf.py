@@ -1,7 +1,6 @@
 from __future__ import division
 import numpy as np
-from scipy.linalg import eigh
-from integrals import *
+from integrals import Sx, Tx, VxA, VxB, ERIx
 
 class SCF(object):
     """Class for SCF object. Inherits Molecule objects."""

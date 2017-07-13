@@ -1,10 +1,8 @@
 from __future__ import division
 import numpy as np
-from integrals import *
+from integrals import S,T,Mu,V,RxDel,doERIs,do2eGIAO
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
-from scipy.linalg import eig, eigh 
-from scipy.misc import factorial
 import itertools
 
 class Atom(object):
@@ -241,7 +239,6 @@ class Molecule(object):
         # remove any empty lines
         f = filter(None,f) 
         # First line is charge and multiplicity
-        natoms = int(len(f) - 1)
         atomlist = []
         for line_number,line in enumerate(f):
             if line_number == 0:
