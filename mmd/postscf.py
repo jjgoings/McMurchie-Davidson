@@ -3,6 +3,7 @@ import numpy as np
 import sys
 
 class PostSCF(object):
+    """Class for post-scf routines"""
     def __init__(self,mol):
         self.mol = mol
         if not self.mol.is_converged:
@@ -10,6 +11,7 @@ class PostSCF(object):
         self.ao2mo()
 
     def ao2mo(self):
+        """Routine to convert AO integrals to MO integrals"""
         self.mol.single_bar = np.einsum('mp,mnlz->pnlz',self.mol.C,self.mol.TwoE)
         temp            = np.einsum('nq,pnlz->pqlz',self.mol.C,self.mol.single_bar)
         self.mol.single_bar = np.einsum('lr,pqlz->pqrz',self.mol.C,temp)
@@ -17,6 +19,7 @@ class PostSCF(object):
         self.mol.single_bar = temp
     
     def MP2(self):
+        """Routine to compute MP2 energy from RHF reference"""
         EMP2 = 0.0
         for i in range(self.mol.nocc):
             for j in range(self.mol.nocc):

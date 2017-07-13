@@ -4,6 +4,7 @@ from scipy.linalg import eigh
 from integrals import *
 
 class SCF(object):
+    """Class for SCF object. Inherits Molecule objects."""
     def __init__(self,mol):
         self.mol = mol
         self.mol.is_converged = False
@@ -16,6 +17,7 @@ class SCF(object):
             self.mol.build()
             
     def RHF(self,doPrint=True):
+        """Routine to compute the RHF energy for a closed shell molecule"""
         for step in xrange(self.maxiter):
             if step == 0:
                 self.mol.P      = self.P_old
@@ -52,40 +54,48 @@ class SCF(object):
                     error = FPS - SPF
                     self.computeDipole()
                     if doPrint:
-                        print "Error", np.linalg.norm(error)
                         print "E(SCF)    = ", "{0:.12f}".format(self.mol.energy.real)+ \
                               " in "+str(step)+" iterations"
-                        print " RMS(P)  = ", "{0:.2e}".format(self.P_RMS.real)
-                        print " dE(SCF) = ", "{0:.2e}".format(self.delta_energy.real)
-                        print " Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
-                        print " Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
-                        print " Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
+                        print "  Convergence:"
+                        print "    FPS-SPF  = ", np.linalg.norm(error)
+                        print "    RMS(P)   = ", "{0:.2e}".format(self.P_RMS.real)
+                        print "    dE(SCF)  = ", "{0:.2e}".format(self.delta_energy.real)
+                        print "  Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
+                        print "  Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
+                        print "  Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
                     break
 
     def buildFock(self):
+        """Routine to build the AO basis Fock matrix"""
         self.mol.J = np.einsum('pqrs,sr->pq', self.mol.TwoE.astype('complex'),self.mol.P)
         self.mol.K = np.einsum('psqr,sr->pq', self.mol.TwoE.astype('complex'),self.mol.P)
         self.mol.G = 2.*self.mol.J - self.mol.K
         self.mol.F = self.mol.Core.astype('complex') + self.mol.G
     
     def orthoFock(self):
+        """Routine to orthogonalize the AO Fock matrix to orthonormal basis"""
         self.mol.FO = np.dot(self.mol.X.T,np.dot(self.mol.F,self.mol.X))
     
     def unOrthoFock(self):
+        """Routine to unorthogonalize the orthonormal Fock matrix to AO basis"""
         self.mol.F = np.dot(self.mol.U.T,np.dot(self.mol.FO,self.mol.U))
     
     def orthoDen(self):
+        """Routine to orthogonalize the AO Density matrix to orthonormal basis"""
         self.mol.PO = np.dot(self.mol.U,np.dot(self.mol.P,self.mol.U.T))
     
     def unOrthoDen(self):
+        """Routine to unorthogonalize the orthonormal Density matrix to AO basis"""
         self.mol.P = np.dot(self.mol.X,np.dot(self.mol.PO,self.mol.X.T))
     
     def computeEnergy(self):
-        #self.mol.el_energy = np.einsum('pq,pq',self.mol.P.T,self.mol.Core+self.mol.F)
+        """Routine to compute the SCF energy"""
         self.mol.el_energy = np.einsum('pq,qp',self.mol.Core+self.mol.F,self.mol.P)
         self.mol.energy    = self.mol.el_energy + self.mol.nuc_energy
     
     def computeDipole(self):
+        """Routine to compute the SCF electronic dipole moment"""
+        self.mol.el_energy = np.einsum('pq,qp',self.mol.Core+self.mol.F,self.mol.P)
         self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([atom.charge*(atom.origin[0]-self.mol.gauge_origin[0]) for atom in self.mol.atoms])  
         self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([atom.charge*(atom.origin[1]-self.mol.gauge_origin[1]) for atom in self.mol.atoms])  
         self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([atom.charge*(atom.origin[2]-self.mol.gauge_origin[2]) for atom in self.mol.atoms])  
@@ -95,13 +105,16 @@ class SCF(object):
         self.mol.mu_z *= 2.541765
     
     def adj(self,x):
+        """Returns Hermitian adjoint of a matrix"""
+        assert x.shape[0] == x.shape[1]
         return np.conjugate(x).T       
     
     def comm(self,A,B):
+        """Returns commutator [A,B]"""
         return np.dot(A,B) - np.dot(B,A)
 
     def forces(self):
-        # compute nuclear energy gradient using analytic derivatives.
+        """Compute the nuclear forces"""
 
         if not self.mol.is_converged:
             self.exit('Need to converge SCF before computing gradient')
@@ -197,14 +210,3 @@ class SCF(object):
                 atom.forces[direction] = np.real(-force)
 
 
-
- 
-
-                
- 
-
-
-
-
-
-    
