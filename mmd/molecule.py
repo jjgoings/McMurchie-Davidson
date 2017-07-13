@@ -11,6 +11,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 
 class Atom(object):
+    """Class for an atom"""
     def __init__(self,charge,mass,origin=np.zeros(3)):
         self.charge = charge
         self.origin = origin
@@ -22,6 +23,7 @@ class Atom(object):
    
 
 class BasisFunction(object):
+    """Class for a contracted Gaussian basis function"""
     def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
         assert len(origin)==3
         assert len(shell)==3
@@ -32,14 +34,14 @@ class BasisFunction(object):
         self.normalize()
 
     def normalize(self):
-        ''' Routine to normalize the BasisFunction objects.
-            Returns self.norm, which is a list of doubles that
-            normalizes the contracted Gaussian basis functions (CGBFs) 
-            
-            First normalized the primitives, then takes the results and
-            normalizes the contracted functions. Both steps are required,
-            though I could make it one step if need be. 
-        '''
+        """Routine to normalize the BasisFunction objects.
+           Returns self.norm, which is a list of doubles that
+           normalizes the contracted Gaussian basis functions (CGBFs) 
+           
+           First normalized the primitives, then takes the results and
+           normalizes the contracted functions. Both steps are required,
+           though I could make it one step if need be. 
+        """
         l,m,n = self.shell
         L = l + m + n
         # normalize primitives first (PGBFs)
@@ -63,6 +65,10 @@ class BasisFunction(object):
         self.norm *= N
 
 class Molecule(object):
+    """Class for a molecule object, consisting of Atom objects
+       Requres that molecular geometry, charge, and multiplicity be given as
+       input on creation.
+    """
     def __init__(self,geometry,basis='sto-3g',gauge=None,giao=False):
         # geometry is now specified in imput file
         charge, multiplicity, atomlist = self.read_molecule(geometry)
@@ -84,13 +90,17 @@ class Molecule(object):
         self.formBasis()
 
     def formBasis(self):
+        """Routine to create the basis from the input molecular geometry and
+           basis set. On exit, you should have a basis in self.bfs, which is a 
+           list of BasisFunction objects. This routine also defines the center
+           of nuclear charge and sets the gauge origin for property integrals.
+        """
         self.bfs = []
         for atom in self.atoms:
             for momentum,prims in self.basis_data[atom.charge]:
                 exps = [e for e,c in prims]
                 coefs = [c for e,c in prims]
                 for shell in self.momentum2shell(momentum):
-                    #self.bfs.append(BasisFunction(atom[1],shell,exps,coefs))
                     self.bfs.append(BasisFunction(np.asarray(atom.origin),\
                         np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
@@ -103,7 +113,7 @@ class Molecule(object):
                     atom.mask[idx] = 1.0
                     idx += 1
 
-        # note this is center of positive charge
+        # note this is center of positive charge (atoms only, no electrons)
         self.center_of_charge =\
             np.asarray([sum([atom.charge*atom.origin[0] for atom in self.atoms]),
                         sum([atom.charge*atom.origin[1] for atom in self.atoms]),
@@ -116,7 +126,7 @@ class Molecule(object):
            
 
     def build(self):
-        # routine to build necessary integrals
+        """Routine to build necessary integrals"""
         self.one_electron_integrals()
         self.two_electron_integrals()
         if self.giao:
@@ -125,6 +135,9 @@ class Molecule(object):
         self.is_built = True
 
     def momentum2shell(self,momentum):
+        """Routine to convert angular momentum to Cartesian shell pair in order
+           to create the appropriate BasisFunction object (e.g. form px,py,pz)
+        """
         shells = {
             'S' : [(0,0,0)],
             'P' : [(1,0,0),(0,1,0),(0,0,1)],
@@ -135,6 +148,7 @@ class Molecule(object):
         return shells[str(momentum)]
         
     def sym2num(self,sym):
+        """Routine that converts atomic symbol to atomic number"""
         symbol = [
             "X","H","He",
             "Li","Be","B","C","N","O","F","Ne",
@@ -152,41 +166,57 @@ class Molecule(object):
         return symbol.index(str(sym))
 
     def getBasis(self,filename):
+        """Routine to read the basis set files (EMSL Gaussian 94 standard)
+           The file is first split into atoms, then iterated through (once).
+           At the end we get a basis, which is a dictionary of atoms and their
+           basis functions: a tuple of angular momentum and the primitives
+
+           Return: {atom: [('angmom',[(exp,coef),...]), ('angmom',[(exp,...} 
+        """
         basis = {}
     
         with open(filename, 'r') as basisset:
             data = basisset.read().split('****')
-    
+   
+        # Iterate through all atoms in basis set file 
         for i in range(1,len(data)):
             atomData = [x.split() for x in data[i].split('\n')[1:-1]]
             for idx,line in enumerate(atomData):
+                # Ignore empty lines
                 if not line:
                    pass
+                # first line gives atom
                 elif idx == 0:
+                    assert len(line) == 2
                     atom = self.sym2num(line[0])
                     basis[atom] = []
+                    # now set up primitives for particular angular momentum
                     newPrim = True
+                # Perform the set up once per angular momentum 
                 elif idx > 0 and newPrim:
                     momentum  = line[0]
-    
                     numPrims  = int(line[1])
                     newPrim   = False
                     count     = 0
                     prims     = []
-                    prims2    = []
+                    prims2    = [] # need second list for 'SP' case
                 else:
+                   # Combine primitives with its angular momentum, add to basis
                    if momentum == 'SP':
+                       # Many basis sets share exponents for S and P basis 
+                       # functions so unfortunately we have to account for this.
                        prims.append((float(line[0]),float(line[1])))
                        prims2.append((float(line[0]),float(line[2])))
                        count += 1
-                       if count >= numPrims:
+                       if count == numPrims:
                            basis[atom].append(('S',prims))
                            basis[atom].append(('P',prims2))
                            newPrim = True
                    else:
                        prims.append((float(line[0]),float(line[1])))
                        count += 1
-                       if count >= numPrims:
+                       if count == numPrims:
+                           print count, numPrims
                            basis[atom].append((momentum,prims))
                            newPrim = True
     
@@ -195,6 +225,18 @@ class Molecule(object):
 
         
     def read_molecule(self,geometry):
+        """Routine to read in the charge, multiplicity, and geometry from the 
+           input script. Coordinates are assumed to be Angstrom.
+           Example:
+
+           geometry = '''
+                      0 1
+                      H  0.0 0.0 1.2
+                      H  0.0 0.0 0.0
+                      '''
+           self.read_molecule(geometry)
+
+        """
         # atomic masses (isotop avg)
         masses = [0.0,1.008,4.003,6.941,9.012,10.812,12.011,14.007,5.999,
                   18.998,20.180,22.990,24.305,26.982,28.086,30.974,32.066,
@@ -226,6 +268,7 @@ class Molecule(object):
         return charge, multiplicity, atomlist
 
     def one_electron_integrals(self):
+        """Routine to set up and compute one-electron integrals"""
         N = self.nbasis
         # core integrals
         self.S = np.zeros((N,N)) 
@@ -233,15 +276,11 @@ class Molecule(object):
         self.V = np.zeros((N,N)) 
         self.T = np.zeros((N,N)) 
         # dipole integrals
+        # FIXME: get rid of separate objects for dipole
         self.Mx = np.zeros((N,N)) 
         self.My = np.zeros((N,N)) 
         self.Mz = np.zeros((N,N)) 
  
-        # GIAO quasienergy dipole intgrals
-        self.rDipX = np.zeros((3,N,N))
-        self.rDipY = np.zeros((3,N,N))
-        self.rDipZ = np.zeros((3,N,N))
-        
         # angular momentum
         self.L = np.zeros((3,N,N)) 
 
@@ -272,20 +311,19 @@ class Molecule(object):
                     = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
                 self.L[2,i,j] \
                     = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
-
                 self.L[:,j,i] = -1*self.L[:,i,j] 
 
-
-        # Also populate nuclear repulsion at this time
+        # Compute nuclear repulsion energy 
         for pair in itertools.combinations(self.atoms,2):
             self.nuc_energy += pair[0].charge*pair[1].charge/np.linalg.norm(pair[0].origin - pair[1].origin)
            
-        # preparing for SCF
+        # Preparing for SCF
         self.Core       = self.T + self.V
         self.X          = mat_pow(self.S,-0.5)
         self.U          = mat_pow(self.S,0.5)
 
     def GIAO_one_electron_integrals(self):
+        """Routine to compute some GIAO one electron integrals"""
         N = self.nbasis
 
         #GIAO overlap
@@ -300,7 +338,7 @@ class Molecule(object):
         # holds total dH/dB = 0.5*Ln + rH
         self.dhdb = np.zeros((3,N,N))
 
-        print "GIAO one-electron integrals"
+        #print "GIAO one-electron integrals"
         for i in (range(N)):
             for j in range(N):
                 #QAB matrix elements
@@ -346,6 +384,7 @@ class Molecule(object):
         self.dhdb[:] = 0.5*self.Ln[:] + self.rH[:]
 
     def two_electron_integrals(self):
+        """Routine to setup and compute two-electron integrals"""
         N = self.nbasis
         self.TwoE = np.zeros((N,N,N,N))  
         #print "Two-electron integrals"
@@ -353,11 +392,12 @@ class Molecule(object):
         self.TwoE = np.asarray(self.TwoE)
 
     def GIAO_two_electron_integrals(self):
+        """Routine to setup and compute some GIAO two-electron integrals"""
         N = self.nbasis
         self.GR1 = np.zeros((3,N,N,N,N))  
         self.GR2 = np.zeros((3,N,N,N,N))  
         self.dgdb = np.zeros((3,N,N,N,N))  
-        print "GIAO two-electron integrals"
+        #print "GIAO two-electron integrals"
         self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
         self.dgdb = np.asarray(self.dgdb)
 
