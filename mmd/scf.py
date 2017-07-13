@@ -60,9 +60,9 @@ class SCF(object):
                         print "    FPS-SPF  = ", np.linalg.norm(error)
                         print "    RMS(P)   = ", "{0:.2e}".format(self.P_RMS.real)
                         print "    dE(SCF)  = ", "{0:.2e}".format(self.delta_energy.real)
-                        print "  Dipole X = ", "{0:.8f}".format(self.mol.mu_x)
-                        print "  Dipole Y = ", "{0:.8f}".format(self.mol.mu_y)
-                        print "  Dipole Z = ", "{0:.8f}".format(self.mol.mu_z)
+                        print "  Dipole X = ", "{0:.8f}".format(self.mol.mu[0].real)
+                        print "  Dipole Y = ", "{0:.8f}".format(self.mol.mu[1].real)
+                        print "  Dipole Z = ", "{0:.8f}".format(self.mol.mu[2].real)
                     break
 
     def buildFock(self):
@@ -96,13 +96,10 @@ class SCF(object):
     def computeDipole(self):
         """Routine to compute the SCF electronic dipole moment"""
         self.mol.el_energy = np.einsum('pq,qp',self.mol.Core+self.mol.F,self.mol.P)
-        self.mol.mu_x = -2*np.trace(np.dot(self.mol.P,self.mol.Mx)) + sum([atom.charge*(atom.origin[0]-self.mol.gauge_origin[0]) for atom in self.mol.atoms])  
-        self.mol.mu_y = -2*np.trace(np.dot(self.mol.P,self.mol.My)) + sum([atom.charge*(atom.origin[1]-self.mol.gauge_origin[1]) for atom in self.mol.atoms])  
-        self.mol.mu_z = -2*np.trace(np.dot(self.mol.P,self.mol.Mz)) + sum([atom.charge*(atom.origin[2]-self.mol.gauge_origin[2]) for atom in self.mol.atoms])  
+        for i in range(2):
+            self.mol.mu[i] = -2*np.trace(np.dot(self.mol.P,self.mol.M[i])) + sum([atom.charge*(atom.origin[i]-self.mol.gauge_origin[i]) for atom in self.mol.atoms])  
         # to debye
-        self.mol.mu_x *= 2.541765
-        self.mol.mu_y *= 2.541765
-        self.mol.mu_z *= 2.541765
+        self.mol.mu *= 2.541765
     
     def adj(self,x):
         """Returns Hermitian adjoint of a matrix"""

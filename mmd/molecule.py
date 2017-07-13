@@ -213,7 +213,6 @@ class Molecule(object):
                        prims.append((float(line[0]),float(line[1])))
                        count += 1
                        if count == numPrims:
-                           print count, numPrims
                            basis[atom].append((momentum,prims))
                            newPrim = True
     
@@ -273,10 +272,8 @@ class Molecule(object):
         self.V = np.zeros((N,N)) 
         self.T = np.zeros((N,N)) 
         # dipole integrals
-        # FIXME: get rid of separate objects for dipole
-        self.Mx = np.zeros((N,N)) 
-        self.My = np.zeros((N,N)) 
-        self.Mz = np.zeros((N,N)) 
+        self.M = np.zeros((3,N,N)) 
+        self.mu = np.zeros(3,dtype='complex') 
  
         # angular momentum
         self.L = np.zeros((3,N,N)) 
@@ -291,11 +288,11 @@ class Molecule(object):
                     = S(self.bfs[i],self.bfs[j])
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
-                self.Mx[i,j] = self.Mx[j,i] \
+                self.M[0,i,j] = self.M[0,j,i] \
                     = Mu(self.bfs[i],self.bfs[j],'x',gOrigin=self.gauge_origin)
-                self.My[i,j] = self.My[j,i] \
+                self.M[1,i,j] = self.M[1,j,i] \
                     = Mu(self.bfs[i],self.bfs[j],'y',gOrigin=self.gauge_origin)
-                self.Mz[i,j] = self.Mz[j,i] \
+                self.M[2,i,j] = self.M[2,j,i] \
                     = Mu(self.bfs[i],self.bfs[j],'z',gOrigin=self.gauge_origin)
                 for atom in self.atoms:
                     self.V[i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin)
