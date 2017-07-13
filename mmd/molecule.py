@@ -5,10 +5,7 @@ from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from scipy.linalg import eig, eigh 
 from scipy.misc import factorial
-from tqdm import tqdm, trange 
 import itertools
-import matplotlib
-matplotlib.use('TkAgg')
 
 class Atom(object):
     """Class for an atom"""

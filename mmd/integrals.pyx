@@ -7,7 +7,6 @@ cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
 from scipy.special.cython_special cimport hyp1f1 
 from scipy.misc import factorial2 as fact2
-from tqdm import tqdm
 
 cdef double pi = 3.141592653589793238462643383279
 

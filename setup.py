@@ -20,8 +20,6 @@ setup(
           'cython',
           'numpy',
           'scipy',
-          'tqdm',
-          'matplotlib',
     ],
     long_description=open('README.md').read(),
     ext_modules=cythonize([my_integrals]),
