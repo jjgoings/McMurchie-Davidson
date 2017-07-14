@@ -72,8 +72,7 @@ mol = Molecule(geometry=water,basis='sto-3g')
 mol.build()
 
 # do the SCF
-scf = SCF(mol)
-scf.RHF()
+mol.RHF()
 ```
 
 The first lines import the `molecule` and `scf` modules, which we need to specify our molecule and the SCF routines. The molecular geometry follows afterward and is specified by the stuff in triple quotes. The first line is charge and multiplicity, followed by each atom and its Cartesian coordinates (in Angstrom).
