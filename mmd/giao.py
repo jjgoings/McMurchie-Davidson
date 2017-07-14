@@ -82,45 +82,45 @@ class GIAO(object):
         self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
         self.dgdb = np.asarray(self.dgdb)
 
-   def buildL(self,direction='x'):
-        """Build the GIAO magnetic dipole moment operator.
-           Returns complex float in self.LN, which depends on the input 
-           axis (x,y,z). 
-           self.LN = L_GIAO = 2*<dH/dB> + <dG/dB> - 2*<dS/dB> evaluated at B=0.
-           This expression is the similar to nuclear gradient terms, etc.
-        """
-        # W1 is equivalent to P*F*P
-        #self.orthoFock()
-        #E,CO = np.linalg.eigh(self.FO)
-        #C      = np.dot(self.X,CO)
-        #W1 = np.zeros((self.nbasis,self.nbasis),dtype='complex')
-        #for mu in range(self.nbasis):
-        #    for nu in range(self.nbasis):
-        #        for i in range(self.nocc):
-        #            W1[mu,nu] += E[i]*np.conjugate(C[mu,i])*C[nu,i]
-        #print E
+    def buildL(self,direction='x'):
+         """Build the GIAO magnetic dipole moment operator.
+            Returns complex float in self.LN, which depends on the input 
+            axis (x,y,z). 
+            self.LN = L_GIAO = 2*<dH/dB> + <dG/dB> - 2*<dS/dB> evaluated at B=0.
+            This expression is the similar to nuclear gradient terms, etc.
+         """
+         # W1 is equivalent to P*F*P
+         #self.orthoFock()
+         #E,CO = np.linalg.eigh(self.FO)
+         #C      = np.dot(self.X,CO)
+         #W1 = np.zeros((self.nbasis,self.nbasis),dtype='complex')
+         #for mu in range(self.nbasis):
+         #    for nu in range(self.nbasis):
+         #        for i in range(self.nocc):
+         #            W1[mu,nu] += E[i]*np.conjugate(C[mu,i])*C[nu,i]
+         #print E
 
-        if direction.lower() == 'x':
-            dHdB = 1j*self.dhdb[0]
-            dGdB = 1j*self.dgdb[0]
-            dSdB = 1j*self.Sb[0]
-        elif direction.lower() == 'y':
-            dHdB = 1j*self.dhdb[1]
-            dGdB = 1j*self.dgdb[1]
-            dSdB = 1j*self.Sb[1]
-        elif direction.lower() == 'z':
-            dHdB = 1j*self.dhdb[2]
-            dGdB = 1j*self.dgdb[2]
-            dSdB = 1j*self.Sb[2]
+         if direction.lower() == 'x':
+             dHdB = 1j*self.dhdb[0]
+             dGdB = 1j*self.dgdb[0]
+             dSdB = 1j*self.Sb[0]
+         elif direction.lower() == 'y':
+             dHdB = 1j*self.dhdb[1]
+             dGdB = 1j*self.dgdb[1]
+             dSdB = 1j*self.Sb[1]
+         elif direction.lower() == 'z':
+             dHdB = 1j*self.dhdb[2]
+             dGdB = 1j*self.dgdb[2]
+             dSdB = 1j*self.Sb[2]
 
-        J = np.einsum('pqrs,sr->pq', dGdB,self.P)
-        K = np.einsum('psqr,sr->pq', dGdB,self.P)
-        G = 2.*J - K
-        F = dHdB + G
-        self.LN = np.einsum('pq,qp',self.P,F + dHdB) # Correct for GS
-        PFP = np.dot(self.P,np.dot(self.F,self.P))
-        W = PFP
-        self.LN -= 2*np.einsum('pq,qp',dSdB,W)
+         J = np.einsum('pqrs,sr->pq', dGdB,self.P)
+         K = np.einsum('psqr,sr->pq', dGdB,self.P)
+         G = 2.*J - K
+         F = dHdB + G
+         self.LN = np.einsum('pq,qp',self.P,F + dHdB) # Correct for GS
+         PFP = np.dot(self.P,np.dot(self.F,self.P))
+         W = PFP
+         self.LN -= 2*np.einsum('pq,qp',dSdB,W)
 
 
 
