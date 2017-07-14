@@ -786,8 +786,7 @@ class Molecule(object):
                 self.F += -self.field*shape*self.Mz
             self.orthoFock()
 
-    def buildL(self,direction='x',P=None,time=None):
-        #self.LNy = 0.0
+    def buildL(self,direction='x'):
         # W1 is equivalent to P*F*P
         #self.orthoFock()
         #E,CO = np.linalg.eigh(self.FO)
@@ -799,60 +798,27 @@ class Molecule(object):
         #            W1[mu,nu] += E[i]*np.conjugate(C[mu,i])*C[nu,i] 
         #print E
 
-
         if direction.lower() == 'x':
             dHdB = 1j*self.dhdb[0]
             dGdB = 1j*self.dgdb[0]
             dSdB = 1j*self.Sb[0] 
-            #dVdB = 1j*self.rDipX[0]
         elif direction.lower() == 'y':
             dHdB = 1j*self.dhdb[1]
             dGdB = 1j*self.dgdb[1]
             dSdB = 1j*self.Sb[1] 
-            #dVdB = 1j*self.rDipY[1]
         elif direction.lower() == 'z':
             dHdB = 1j*self.dhdb[2]
             dGdB = 1j*self.dgdb[2]
             dSdB = 1j*self.Sb[2] 
-            #dVdB = 1j*self.rDipZ[2]
  
-        #J = np.einsum('pqrs,rs->pq', dGdB,self.P.T)
-        #K = np.einsum('prqs,rs->pq', dGdB,self.P)
         J = np.einsum('pqrs,sr->pq', dGdB,self.P)
         K = np.einsum('psqr,sr->pq', dGdB,self.P)
         G = 2.*J - K
         F = dHdB + G 
         self.LN = np.einsum('pq,qp',self.P,F + dHdB) # Correct for GS
-        #self.LN = np.einsum('pq,qp',self.P,F) # Correct for GS
-        #self.LN = np.einsum('pq,qp',self.P,dHdB) # Correct for GS
-        #self.LN = np.einsum('pq,qp',self.P,G) # Correct for GS
-        #self.LN = np.einsum('pq,pq',np.conjugate(self.P),G) # Correct for GS
-        # do I need to make W time dependent?
-        # i dP/dt = SinvFP - PFSinv
-        #Sinv = np.dot(self.X.T,self.X)
-        #dP = (np.dot(Sinv,np.dot(self.F,self.P)) - np.dot(self.P,np.dot(self.F,Sinv)))
         PFP = np.dot(self.P,np.dot(self.F,self.P)) 
         W = PFP
-        #W = 0.5*np.dot(dP,np.dot(self.S,self.P)) - 0.5*np.dot(self.P,np.dot(self.S,dP))
-        #W = Ws + Wt 
-        #T = 0.5*(PFP + dP - np.dot(self.P,np.dot(self.S,dP)))
-        #W = T + self.adj(T)
-        #W = 0.5*(np.dot(Sinv,np.dot(self.F,self.P)) + np.dot(self.P,np.dot(self.F,Sinv)))
-        self.LN += 2*np.einsum('pq,qp',dSdB,W)
-        #self.LN *= -1.0
-
-       # # indiv components
-        self.dSdB = np.einsum('pq,qp',dSdB,W)
-     #   print "dS: ",self.dSdB
-        self.dGdB = np.einsum('pq,qp',self.P,G)
-     #   print "dG: ",self.dGdB
-        self.dHdB = np.einsum('pq,qp',self.P,dHdB)
-     #   print "dH: ",self.dHdB
-     #  # #test = dHdB + F + 2j*np.dot(np.dot(self.F,self.P),dSdB)
-     #  # #test_orth = np.dot(self.X.T,np.dot(test,self.X))
-     #  # #print np.dot(CO.T,np.dot(test_orth,CO))[:,0].reshape(len(CO),1)
-     #   self.LN = np.trace(np.dot(self.P,1j*self.L[2]))
-     #   print "nonGIAO: ",self.LN
+        self.LN -= 2*np.einsum('pq,qp',dSdB,W)
 
 
     def Magnus2(self,direction='x'):

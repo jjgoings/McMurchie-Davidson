@@ -1,10 +1,11 @@
 from __future__ import division
 import numpy as np
-from mmd.integrals import S,T,Mu,V,RxDel,doERIs,do2eGIAO
+from mmd.integrals import S,T,Mu,V,RxDel,doERIs
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
 from mmd.forces import Forces
+from mmd.giao import GIAO 
 import itertools
 
 class Atom(object):
@@ -61,12 +62,12 @@ class BasisFunction(object):
         N = np.power(N,-0.5)
         self.norm *= N
 
-class Molecule(SCF,Forces):
+class Molecule(SCF,Forces,GIAO):
     """Class for a molecule object, consisting of Atom objects
        Requres that molecular geometry, charge, and multiplicity be given as
        input on creation.
     """
-    def __init__(self,geometry,basis='sto-3g',gauge=None,giao=False):
+    def __init__(self,geometry,basis='sto-3g',gauge=None):
         # geometry is now specified in imput file
         charge, multiplicity, atomlist = self.read_molecule(geometry)
         self.charge = charge
@@ -75,7 +76,6 @@ class Molecule(SCF,Forces):
         self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
         self.is_built = False
-        self.giao = giao
         self.gauge = gauge
         
         # Read in basis set data
@@ -120,15 +120,11 @@ class Molecule(SCF,Forces):
             self.gauge_origin = self.center_of_charge
         else:
             self.gauge_origin = np.asarray(self.gauge)
-           
 
     def build(self):
         """Routine to build necessary integrals"""
         self.one_electron_integrals()
         self.two_electron_integrals()
-        if self.giao:
-            self.GIAO_one_electron_integrals()
-            self.GIAO_two_electron_integrals()
         self.is_built = True
 
     def momentum2shell(self,momentum):
@@ -217,8 +213,6 @@ class Molecule(SCF,Forces):
                            newPrim = True
     
         return basis
-
-
         
     def read_molecule(self,geometry):
         """Routine to read in the charge, multiplicity, and geometry from the 
@@ -267,7 +261,6 @@ class Molecule(SCF,Forces):
         N = self.nbasis
         # core integrals
         self.S = np.zeros((N,N)) 
-        self.rH = np.zeros((3,N,N)) 
         self.V = np.zeros((N,N)) 
         self.T = np.zeros((N,N)) 
         # dipole integrals
@@ -308,90 +301,19 @@ class Molecule(SCF,Forces):
 
         # Compute nuclear repulsion energy 
         for pair in itertools.combinations(self.atoms,2):
-            self.nuc_energy += pair[0].charge*pair[1].charge/np.linalg.norm(pair[0].origin - pair[1].origin)
+            self.nuc_energy += pair[0].charge*pair[1].charge \
+                              / np.linalg.norm(pair[0].origin - pair[1].origin)
            
         # Preparing for SCF
         self.Core       = self.T + self.V
         self.X          = mat_pow(self.S,-0.5)
         self.U          = mat_pow(self.S,0.5)
 
-    def GIAO_one_electron_integrals(self):
-        """Routine to compute some GIAO one electron integrals"""
-        N = self.nbasis
-
-        #GIAO overlap
-        self.Sb = np.zeros((3,N,N))
-
-        # derivative of one-electron GIAO integrals wrt B at B = 0.
-        self.rH = np.zeros((3,N,N)) 
-
-        # London Angular momentum L_N
-        self.Ln = np.zeros((3,N,N))
-
-        # holds total dH/dB = 0.5*Ln + rH
-        self.dhdb = np.zeros((3,N,N))
-
-        #print "GIAO one-electron integrals"
-        for i in (range(N)):
-            for j in range(N):
-                #QAB matrix elements
-                XAB = self.bfs[i].origin[0] - self.bfs[j].origin[0]
-                YAB = self.bfs[i].origin[1] - self.bfs[j].origin[1]
-                ZAB = self.bfs[i].origin[2] - self.bfs[j].origin[2]
-                # GIAO T
-                self.rH[0,i,j] = T(self.bfs[i],self.bfs[j],n=(1,0,0),gOrigin=self.gauge_origin)
-                self.rH[1,i,j] = T(self.bfs[i],self.bfs[j],n=(0,1,0),gOrigin=self.gauge_origin)
-                self.rH[2,i,j] = T(self.bfs[i],self.bfs[j],n=(0,0,1),gOrigin=self.gauge_origin)
-
-                for atom in self.atoms:
-                    # GIAO V
-                    self.rH[0,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(1,0,0),gOrigin=self.gauge_origin)
-                    self.rH[1,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(0,1,0),gOrigin=self.gauge_origin)
-                    self.rH[2,i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin,n=(0,0,1),gOrigin=self.gauge_origin)
-
-                # Some temp copies for mult with QAB matrix 
-                xH = self.rH[0,i,j]
-                yH = self.rH[1,i,j]
-                zH = self.rH[2,i,j]
-               
-                # add QAB contribution 
-                self.rH[0,i,j] = 0.5*(-ZAB*yH + YAB*zH)
-                self.rH[1,i,j] = 0.5*( ZAB*xH - XAB*zH)
-                self.rH[2,i,j] = 0.5*(-YAB*xH + XAB*yH)
-
-                # add QAB contribution for overlaps 
-                #C = np.asarray([0,0,0])
-                Rx = S(self.bfs[i],self.bfs[j],n=(1,0,0),gOrigin=self.gauge_origin)
-                Ry = S(self.bfs[i],self.bfs[j],n=(0,1,0),gOrigin=self.gauge_origin)
-                Rz = S(self.bfs[i],self.bfs[j],n=(0,0,1),gOrigin=self.gauge_origin)
-                self.Sb[0,i,j] = 0.5*(-ZAB*Ry + YAB*Rz)
-                self.Sb[1,i,j] = 0.5*( ZAB*Rx - XAB*Rz)
-                self.Sb[2,i,j] = 0.5*(-YAB*Rx + XAB*Ry)
-
-                # now do Angular London Momentum
-                self.Ln[0,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'x',london=True)
-                self.Ln[1,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y',london=True)
-                self.Ln[2,i,j] = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z',london=True)
-
-        # below gives dH/dB accoriding to dalton
-        self.dhdb[:] = 0.5*self.Ln[:] + self.rH[:]
-
     def two_electron_integrals(self):
         """Routine to setup and compute two-electron integrals"""
         N = self.nbasis
         self.TwoE = np.zeros((N,N,N,N))  
-        #print "Two-electron integrals"
         self.TwoE = doERIs(N,self.TwoE,self.bfs)
         self.TwoE = np.asarray(self.TwoE)
-
-    def GIAO_two_electron_integrals(self):
-        """Routine to setup and compute some GIAO two-electron integrals"""
-        N = self.nbasis
-        self.GR1 = np.zeros((3,N,N,N,N))  
-        self.GR2 = np.zeros((3,N,N,N,N))  
-        self.dgdb = np.zeros((3,N,N,N,N))  
-        #print "GIAO two-electron integrals"
-        self.dgdb = do2eGIAO(N,self.GR1,self.GR2,self.dgdb,self.bfs,self.gauge_origin)
-        self.dgdb = np.asarray(self.dgdb)
 
 
