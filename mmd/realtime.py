@@ -28,6 +28,7 @@ class RealTime(object):
         self.shape = []
 
     def Magnus2(self,direction='x'):
+        """Propagate in time using the second order explicit Magnus"""
         self.reset()
         self.mol.orthoDen()
         self.mol.orthoFock()
@@ -63,6 +64,7 @@ class RealTime(object):
             self.Energy.append(np.real(self.mol.energy))
 
     def Magnus4(self,direction='x'):
+        """Propagate in time using the fourth order explicit Magnus"""
         self.reset()
         self.mol.orthoDen()
         self.mol.orthoFock()
