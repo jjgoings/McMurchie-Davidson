@@ -14,10 +14,10 @@ mol = Molecule(geometry=water,basis='sto-3g')
 mol.build()
 
 # do the SCF
-SCF(mol).RHF()
+mol.RHF()
 
 # do MP2
-PostSCF(mol).MP2()
+#PostSCF(mol).MP2()
 
 
 

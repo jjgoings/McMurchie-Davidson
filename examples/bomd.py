@@ -23,9 +23,8 @@ mol = Molecule(geometry=h2,basis='sto-3g')
 mol.build()
 
 # do the SCF, compute initial forces on the atoms
-scf = SCF(mol)
-scf.RHF()
-scf.forces()
+mol.RHF()
+mol.forces()
 
 # BOMD parameters
 dt = 0.1     # time step
@@ -48,8 +47,8 @@ for step in tqdm(xrange(steps)):
     # update forces in lieu of updated nuclear positions
     mol.formBasis()
     mol.build()
-    scf.RHF(doPrint=False)
-    scf.forces()
+    mol.RHF(doPrint=False)
+    mol.forces()
     # update velocities
     for atom in mol.atoms:
         for q in xrange(3):
