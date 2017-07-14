@@ -16,7 +16,6 @@ mol.build()
 # do the SCF
 mol.RHF()
 
-
 # do MP2
 #PostSCF(mol).MP2()
 

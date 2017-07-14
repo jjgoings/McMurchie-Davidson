@@ -4,6 +4,7 @@ from mmd.integrals import S,T,Mu,V,RxDel,doERIs,do2eGIAO
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
+from mmd.forces import Forces
 import itertools
 
 class Atom(object):
@@ -60,7 +61,7 @@ class BasisFunction(object):
         N = np.power(N,-0.5)
         self.norm *= N
 
-class Molecule(SCF):
+class Molecule(SCF,Forces):
     """Class for a molecule object, consisting of Atom objects
        Requres that molecular geometry, charge, and multiplicity be given as
        input on creation.

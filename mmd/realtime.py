@@ -8,8 +8,8 @@ import itertools
 class RealTime(object):
     """Class for real-time routines"""
     def __init__(self,mol,numsteps=1000,stepsize=0.1,field=0.0001,direction='x'):
-        #self.SCF(doPrint=False,save=False)
         self.mol        = mol
+        #self.mol.RHF(doPrint=False)
         self.dipole     = []
         self.angmom     = []
         self.Energy     = []
@@ -28,13 +28,13 @@ class RealTime(object):
         for idx,time in enumerate(self.time):
             if direction.lower() == 'x':
                 self.mol.computeDipole()
-                self.dipole.append(np.real(self.mol.M[0]))
+                self.dipole.append(np.real(self.mol.mu[0]))
             elif direction.lower() == 'y':
                 self.mol.computeDipole()
-                self.dipole.append(np.real(self.mol.M[1]))
+                self.dipole.append(np.real(self.mol.mu[1]))
             elif direction.lower() == 'z':
                 self.mol.computeDipole()
-                self.dipole.append(np.real(self.mol.M[2]))
+                self.dipole.append(np.real(self.mol.mu[2]))
             self.addField(time,addstep=True,direction=direction)
             curDen  = np.copy(self.mol.PO)
       
@@ -42,19 +42,18 @@ class RealTime(object):
             k1 = h*self.mol.FO 
             U = expm(k1)
             self.mol.PO = np.dot(U,np.dot(curDen,self.mol.adj(U))) 
-            self.updateFock()
+            self.mol.updateFock()
             
             self.addField(time + 1.0*self.stepsize,direction=direction)
             L  = 0.5*(k1 + h*self.mol.FO)
             U  = expm(L)
             self.mol.PO = np.dot(U,np.dot(curDen,self.mol.adj(U))) 
-            self.updateFock()
+            self.mol.updateFock()
             
             self.mol.unOrthoFock()    
             self.mol.unOrthoDen()    
             self.mol.computeEnergy()
             self.Energy.append(np.real(self.mol.energy))
-            print(self.mol.energy)
 
     def addField(self,time,addstep=False,direction='x'):
         if time == 0.0:
@@ -72,10 +71,5 @@ class RealTime(object):
             elif direction.lower() == 'z':
                 self.mol.F += -self.field*shape*self.mol.M[2]
             self.mol.orthoFock()
-
-    def updateFock(self):
-        self.mol.unOrthoDen()
-        self.mol.buildFock()
-        self.mol.orthoFock()
 
 
