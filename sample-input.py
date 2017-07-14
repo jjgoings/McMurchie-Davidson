@@ -1,5 +1,4 @@
 from mmd.molecule import * 
-from mmd.scf import * 
 from mmd.postscf import * 
 
 water = """
