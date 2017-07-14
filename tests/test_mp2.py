@@ -18,7 +18,7 @@ class test_SCF(unittest.TestCase):
     def test_methane_sto3g(self):
         mol = Molecule(geometry=methane,basis='3-21G')
         mol.build()
-        SCF(mol).RHF()
+        mol.RHF()
         PostSCF(mol).MP2()
         self.assertAlmostEqual(mol.energy.real,-39.9768654272)
         self.assertAlmostEqual(mol.emp2.real,-40.076963354817)
