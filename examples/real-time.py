@@ -25,12 +25,22 @@ mol.build()
 mol.RHF()
 
 # create realtime object
-rt = RealTime(mol,numsteps=50,stepsize=0.2,direction='z',field=0.001)
+rt = RealTime(mol,numsteps=100,stepsize=0.3,field=0.0001)
+
+# propagate with Magnus2
+rt.Magnus2(direction='z')
+m2 = rt.dipole
+# propagate with Magnus4
+rt.Magnus4(direction='z')
+m4 = rt.dipole
 
 #
 try:
    import matplotlib.pyplot as plt
-   plt.plot(rt.time,rt.dipole)
+   plt.plot(rt.time,m2,label='Magnus2')
+   plt.plot(rt.time,m4,label='Magnus4')
+   plt.plot(rt.time,np.asarray(rt.shape)*rt.field,label='Applied field')
+   plt.legend()
    plt.show()
 except ImportError:
    print('You need matplotlib to plot the time-evolving dipole')
