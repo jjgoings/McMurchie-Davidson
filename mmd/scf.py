@@ -1,7 +1,6 @@
 from __future__ import division
 from __future__ import print_function
 import numpy as np
-from mmd.integrals import Sx, Tx, VxA, VxB, ERIx
 
 class SCF(object):
     """SCF methods and routines for molecule object"""

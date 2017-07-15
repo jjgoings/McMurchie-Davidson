@@ -1,6 +1,7 @@
 from __future__ import division
 import numpy as np
-from mmd.integrals import S,T,V,RxDel,do2eGIAO
+from mmd.integrals.onee import S,T,V,RxDel
+from mmd.integrals.twoe import do2eGIAO
 
 class GIAO(object):
     """Class with additional routines for creation of (some) london orbitals
