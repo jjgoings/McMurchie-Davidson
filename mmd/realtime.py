@@ -4,16 +4,17 @@ import numpy as np
 from scipy.linalg import expm
 import sys
 import itertools
-import copy
+from tqdm import tqdm
 
 class RealTime(object):
     """Class for real-time routines"""
-    def __init__(self,mol,numsteps=1000,stepsize=0.1,field=0.0001):
+    def __init__(self,mol,numsteps=1000,stepsize=0.1,field=0.0001,pulse=None):
         self.mol = mol
         self.field = field
         self.stepsize = stepsize
         self.numSteps = numsteps
         self.time = np.arange(0,self.numSteps)*self.stepsize
+        self.pulse = pulse
         self.reset()
 
     def reset(self):
@@ -33,7 +34,7 @@ class RealTime(object):
         self.mol.orthoDen()
         self.mol.orthoFock()
         h = -1j*self.stepsize
-        for idx,time in enumerate(self.time):
+        for idx,time in enumerate((self.time)):
             if direction.lower() == 'x':
                 self.mol.computeDipole()
                 self.dipole.append(np.real(self.mol.mu[0]))
@@ -69,7 +70,7 @@ class RealTime(object):
         self.mol.orthoDen()
         self.mol.orthoFock()
         h = -1j*self.stepsize
-        for idx,time in enumerate(self.time):
+        for idx,time in enumerate((self.time)):
             if direction.lower() == 'x':
                 self.mol.computeDipole()
                 self.dipole.append(np.real(self.mol.mu[0]))
@@ -136,13 +137,8 @@ class RealTime(object):
             self.Energy.append(np.real(self.mol.energy))
 
     def addField(self,time,addstep=False,direction='x'):
-#        if time == 0.0:
-#            shape = 1.0
-#        else:
-#            shape = 0.0
-        t2 = 0.0 
-        sigma2 = self.stepsize
-        shape = (1.0/(sigma2*np.sqrt(2*np.pi)))*np.exp(-((time-t2)**2)/sigma2)
+
+        shape = self.pulse(time) 
 
         if addstep:
             self.shape.append(shape)
