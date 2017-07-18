@@ -23,13 +23,13 @@ def genSpectra(time,dipole,signal):
     denominator = np.real(np.conjugate(fw_sig)*fw_sig)
     #denominator = 1.0 
     spectra = ((4.0*27.21138602*2*frequency*np.pi*(numerator))/(3.0*137.036*denominator))
-    spectra *= 1.0/50.0
+    spectra *= 1.0/100.0
     #plt.plot(frequency*27.2114,fourier)
     #plt.show()
     return frequency, spectra
 
 def pade(time,dipole):
-    damp_const = 50.0
+    damp_const = 100.0
     dipole = np.asarray(dipole) - dipole[0]
       
     stepsize = time[1] - time[0]
@@ -78,7 +78,7 @@ def pade(time,dipole):
     # the default frequency range to something greater.
 
     #frequency = np.arange(0.00,2.0,0.00005)
-    frequency = np.arange(0.3,0.75,0.0001)
+    frequency = np.arange(0.3,0.75,0.0002)
 
     W = np.exp(-1j*frequency*stepsize)
 
