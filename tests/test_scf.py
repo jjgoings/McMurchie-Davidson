@@ -25,7 +25,19 @@ helium = """
 He 0.0 0.0 0.0
 """
 
+hydrogen = """
+0 1
+H 0.0 0.0 0.74
+H 0.0 0.0 0.00
+"""
+
+
 class test_SCF(unittest.TestCase):
+    def test_hydrogen_sto3g(self):
+        mol = Molecule(geometry=hydrogen,basis='sto-3g')
+        mol.build()
+        mol.RHF()
+        self.assertAlmostEqual(mol.energy.real,-1.11675930751)
     def test_water_sto3g(self):
         mol = Molecule(geometry=water,basis='sto-3g')
         mol.build()
