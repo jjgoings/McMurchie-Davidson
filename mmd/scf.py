@@ -1,10 +1,11 @@
 from __future__ import division
 from __future__ import print_function
 import numpy as np
+from numpy.linalg import multi_dot as dot
 
 class SCF(object):
     """SCF methods and routines for molecule object"""
-    def RHF(self,doPrint=True):
+    def RHF(self,doPrint=True,DIIS=True):
         """Routine to compute the RHF energy for a closed shell molecule"""
         self.is_converged = False
         self.delta_energy = 1e20
@@ -14,15 +15,54 @@ class SCF(object):
         if not self.is_built:
             print("You need to run Molecule.build() to generate integrals")
             self.build()
+
+        self.P      = self.P_old
+        self.buildFock()
+
+        if DIIS:
+            fockSet = []
+            errorSet = []
+
         for step in range(self.maxiter):
-            if step == 0:
-                self.P      = self.P_old
-                self.buildFock()
-                self.computeEnergy()
-            else:
+            if step > 0:
                 self.P_old      = self.P
                 energy_old = self.energy
                 self.buildFock()
+
+                if DIIS:
+                    FPS =   dot([self.F,self.P,self.S])
+                    SPF =   self.adj(FPS) 
+                    # error must be in orthonormal basis
+                    error = dot([self.X,FPS-SPF,self.X]) 
+                    fockSet.append(self.F)
+                    errorSet.append(error) 
+                    numFock = len(fockSet)
+                    # limit subspace, hardcoded for now
+                    if numFock > 8:
+                        del fockSet[0] 
+                        del errorSet[0] 
+                        numFock -= 1
+                    B = np.zeros((numFock + 1,numFock + 1)) 
+                    B[-1,:] = B[:,-1] = -1.0
+                    B[-1,-1] = 0.0
+                    # B is symmetric
+                    for i in range(numFock):
+                        for j in range(i+1):
+                            B[i,j] = B[j,i] = \
+                                np.real(np.trace(np.dot(self.adj(errorSet[i]),
+                                                                 errorSet[j])))
+                    residual = np.zeros(numFock + 1)
+                    residual[-1] = -1.0
+                    weights = np.linalg.solve(B,residual)
+
+                    # weights is 1 x numFock + 1, but first numFock values
+                    # should sum to one if we are doing DIIS correctly
+                    assert np.isclose(sum(weights[:-1]),1.0)
+ 
+                    F = np.zeros_like(self.F)
+                    for i, Fock in enumerate(fockSet):
+                        F += weights[i] * Fock
+                    self.F = F 
              
             self.orthoFock()
             E,self.CO   = np.linalg.eigh(self.FO)
@@ -37,16 +77,15 @@ class SCF(object):
                 self.delta_energy = self.energy - energy_old
                 self.P_RMS        = np.linalg.norm(self.P - self.P_old)
             FPS = np.dot(self.F,np.dot(self.P,self.S))
-            SPF = np.dot(self.S,np.dot(self.P,self.F))
-            SPF = np.conjugate(FPS).T
+            SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
-            if np.abs(self.P_RMS) < 1e-12 or step == (self.maxiter - 1):
+            if np.abs(self.P_RMS) < 1e-10 or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
                     print("NOT CONVERGED")
                 else:
                     self.is_converged = True
                     FPS = np.dot(self.F,np.dot(self.P,self.S))
-                    SPF = np.dot(self.S,np.dot(self.P,self.F))
+                    SPF = self.adj(FPS) 
                     error = FPS - SPF
                     self.computeDipole()
                     if doPrint:

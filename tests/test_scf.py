@@ -51,10 +51,10 @@ class test_SCF(unittest.TestCase):
         mol.build()
         mol.RHF()
         self.assertAlmostEqual(mol.energy.real, -2.86115357403)
-#    def test_methane_aug_cc_pvdz(self):
-#        mol = Molecule(geometry=methane,basis='aug-cc-pvdz')
-#        mol.build()
-#        scf = SCF(mol)
-#        scf.RHF()
-#        self.assertAlmostEqual(scf.mol.energy.real,-40.1996288090)
+    def test_water_631ppgss(self):
+        mol = Molecule(geometry=water,basis='6-31ppgss')
+        mol.build()
+        mol.RHF()
+        #p 6D int=acc2e=14 scf(conver=12) rhf/6-31++G** symmetry=none
+        self.assertAlmostEqual(mol.energy.real,-75.9924381487)
 
