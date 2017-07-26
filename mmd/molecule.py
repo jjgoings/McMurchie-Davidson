@@ -32,6 +32,15 @@ class BasisFunction(object):
         self.coefs = coefs
         self.normalize()
 
+    def __call__(self,x,y,z):
+        I,J,K = self.shell
+        dx,dy,dz = x-self.origin[0],y-self.origin[1],z-self.origin[2]
+        d2 = dx**2 + dy**2 + dz**2
+        value = 0.0
+        for ia,ca in enumerate(self.coefs):
+            value += self.norm[ia]*ca*dx**I*dy**J*dz**K*np.exp(-self.exps[ia]*d2)
+        return value
+
     def normalize(self):
         """Routine to normalize the BasisFunction objects.
            Returns self.norm, which is a list of doubles that

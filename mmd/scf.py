@@ -5,7 +5,7 @@ from numpy.linalg import multi_dot as dot
 
 class SCF(object):
     """SCF methods and routines for molecule object"""
-    def RHF(self,doPrint=True,DIIS=True):
+    def RHF(self,doPrint=True,DIIS=True,DFT=None):
         """Routine to compute the RHF energy for a closed shell molecule"""
         self.is_converged = False
         self.delta_energy = 1e20
@@ -17,6 +17,14 @@ class SCF(object):
             self.build()
 
         self.P      = self.P_old
+        if DFT:
+            from mmd.grid.grid import Grid
+            self.grid = Grid(self.atoms)
+            self.xcname = str(DFT)
+            self.grid.setbfamps(self.bfs)
+        else:
+            self.xcname = None
+
         self.buildFock()
 
         if DIIS:
@@ -77,7 +85,8 @@ class SCF(object):
                 self.delta_energy = self.energy - energy_old
                 self.P_RMS        = np.linalg.norm(self.P - self.P_old)
             FPS = np.dot(self.F,np.dot(self.P,self.S))
-            SPF = self.adj(FPS)
+            SPF = np.dot(self.S,np.dot(self.P,self.F))
+            #SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
             if np.abs(self.P_RMS) < 1e-10 or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
@@ -103,8 +112,13 @@ class SCF(object):
     def buildFock(self):
         """Routine to build the AO basis Fock matrix"""
         self.J = np.einsum('pqrs,sr->pq', self.TwoE.astype('complex'),self.P)
-        self.K = np.einsum('psqr,sr->pq', self.TwoE.astype('complex'),self.P)
-        self.G = 2.*self.J - self.K
+        if self.xcname:
+            from mmd.dft.dft import get_xc
+            self.Exc,self.Vxc = get_xc(self.grid,0.5*self.P,xcname=self.xcname)
+            self.G = 2.*self.J + self.Vxc
+        else:
+            self.K = np.einsum('psqr,sr->pq', self.TwoE.astype('complex'),self.P)
+            self.G = 2.*self.J - self.K
         self.F = self.Core.astype('complex') + self.G
     
     def orthoFock(self):
@@ -125,8 +139,15 @@ class SCF(object):
     
     def computeEnergy(self):
         """Routine to compute the SCF energy"""
-        self.el_energy = np.einsum('pq,qp',self.Core+self.F,self.P)
+        if self.xcname:
+            # compute DFT energy --- need to combine at some point
+            self.el_energy = (2*np.einsum('pq,qp',self.Core,self.P) +
+                      2*np.einsum('pq,qp',self.J,self.P) + self.Exc)
+        else:
+            # regular ol' hartree fock. 
+            self.el_energy = np.einsum('pq,qp',self.Core+self.F,self.P)
         self.energy    = self.el_energy + self.nuc_energy
+       
     
     def computeDipole(self):
         """Routine to compute the SCF electronic dipole moment"""
