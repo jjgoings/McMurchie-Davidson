@@ -2,19 +2,19 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 from numpy.linalg import multi_dot as dot
+from mmd.integrals.twoe import ERI
 
 class SCF(object):
     """SCF methods and routines for molecule object"""
-    def RHF(self,doPrint=True,DIIS=True):
+    def RHF(self,doPrint=True,DIIS=True,direct=False):
         """Routine to compute the RHF energy for a closed shell molecule"""
         self.is_converged = False
         self.delta_energy = 1e20
         self.P_RMS        = 1e20
         self.P_old        = np.zeros((self.nbasis,self.nbasis)) 
         self.maxiter = 200
-        if not self.is_built:
-            print("You need to run Molecule.build() to generate integrals")
-            self.build()
+        self.direct = direct
+        self.build(self.direct) # build integrals
 
         self.P      = self.P_old
         self.buildFock()
@@ -102,10 +102,63 @@ class SCF(object):
 
     def buildFock(self):
         """Routine to build the AO basis Fock matrix"""
-        self.J = np.einsum('pqrs,sr->pq', self.TwoE.astype('complex'),self.P)
-        self.K = np.einsum('psqr,sr->pq', self.TwoE.astype('complex'),self.P)
-        self.G = 2.*self.J - self.K
-        self.F = self.Core.astype('complex') + self.G
+        if self.direct:
+            N = self.nbasis
+            self.F = np.zeros((N,N),dtype='complex')
+            # Comments from LibInt hartreefock++
+            #  1) each shell set of integrals contributes up to 6 shell sets of
+            #  the Fock matrix:
+            #     F(a,b) += (ab|cd) * D(c,d)
+            #     F(c,d) += (ab|cd) * D(a,b)
+            #     F(b,d) -= 1/4 * (ab|cd) * D(a,c)
+            #     F(b,c) -= 1/4 * (ab|cd) * D(a,d)
+            #     F(a,c) -= 1/4 * (ab|cd) * D(b,d)
+            #     F(a,d) -= 1/4 * (ab|cd) * D(b,c)
+            #  2) each permutationally-unique integral (shell set) must be
+            #  scaled by its degeneracy,
+            #     i.e. the number of the integrals/sets equivalent to it
+            #  3) the end result must be symmetrized
+            for i in range(N):
+                for j in range(i+1):
+                    ij = (i*(i+1)//2 + j)
+                    for k in range(N):
+                        for l in range(k+1):
+                            kl = (k*(k+1)//2 + l)
+                            if ij >= kl:
+                                # work out degeneracy scaling
+                                s12_deg = 1.0 if (i == j) else 2.0
+                                s34_deg = 1.0 if (k == l) else 2.0
+                                if i == k:
+                                    if j == l:
+                                        s12_34_deg = 1.0
+                                    else:
+                                        s12_34_deg = 2.0
+                                else:
+                                    s12_34_deg = 2.0
+
+                                s1234_deg = s12_deg * s34_deg * s12_34_deg
+                                
+                                eri = s1234_deg * ERI(self.bfs[i],self.bfs[j],
+                                                      self.bfs[k],self.bfs[l])
+
+                                # See Almlof, Faegri, Korsell, 1981
+                                # Coulomb, Eq (4a,4b) of Korsell, 1981 
+                                self.F[i,j] += self.P[k,l]*eri
+                                self.F[k,l] += self.P[i,j]*eri
+                                # Exchange, Eq (5) of Korsell, 1981 
+                                self.F[i,k] += -0.25*self.P[j,l]*eri
+                                self.F[j,l] += -0.25*self.P[i,k]*eri
+                                self.F[i,l] += -0.25*self.P[j,k]*eri
+                                self.F[k,j] += -0.25*self.P[i,l]*eri
+                                
+            self.F = 0.5*(self.F + self.F.T) 
+            self.F += self.Core.astype('complex')
+
+        else:
+            self.J = np.einsum('pqrs,sr->pq', self.TwoE.astype('complex'),self.P)
+            self.K = np.einsum('psqr,sr->pq', self.TwoE.astype('complex'),self.P)
+            self.G = 2.*self.J - self.K
+            self.F = self.Core.astype('complex') + self.G
     
     def orthoFock(self):
         """Routine to orthogonalize the AO Fock matrix to orthonormal basis"""

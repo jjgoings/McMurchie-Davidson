@@ -8,12 +8,16 @@ H    0.866811829    0.601435779    0.000000
 H   -0.866811829    0.601435779    0.000000
 """
 
+hydrogen="""
+0 1
+H 0.0 0.0 0.74
+H 0.0 0.0 0.00
+"""
+
 # init molecule and build integrals
 mol = Molecule(geometry=water,basis='sto-3g')
-mol.build()
-
 # do the SCF
-mol.RHF()
+mol.RHF(direct=True)
 
 # do MP2
 #PostSCF(mol).MP2()

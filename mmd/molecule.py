@@ -122,10 +122,11 @@ class Molecule(SCF,Forces,GIAO):
         else:
             self.gauge_origin = np.asarray(self.gauge)
 
-    def build(self):
+    def build(self,direct):
         """Routine to build necessary integrals"""
         self.one_electron_integrals()
-        self.two_electron_integrals()
+        if not direct:
+            self.two_electron_integrals()
         self.is_built = True
 
     def momentum2shell(self,momentum):
