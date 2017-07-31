@@ -32,11 +32,11 @@ H 0.0 0.0 0.00
 """
 
 
-class test_SCF(unittest.TestCase):
-    def test_helium_sto3g_svwn5(self):
-        mol = Molecule(geometry=helium,basis='6-31G')
+class test_DFT(unittest.TestCase):
+    def test_helium_321g_svwn5(self):
+        mol = Molecule(geometry=helium,basis='3-21G')
         mol.build()
         mol.RHF(DFT='lda')
-        self.assertAlmostEqual(mol.energy.real,-2.826697838085)
+        self.assertAlmostEqual(mol.energy.real,-2.806017308)
 
 
