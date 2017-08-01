@@ -1,7 +1,7 @@
 from __future__ import division
 import numpy as np
 from mmd.integrals.onee import S,T,Mu,V,RxDel
-from mmd.integrals.twoe import doERIs
+from mmd.integrals.twoe import doERIs, ERI
 from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
@@ -125,7 +125,14 @@ class Molecule(SCF,Forces,GIAO):
     def build(self,direct):
         """Routine to build necessary integrals"""
         self.one_electron_integrals()
-        if not direct:
+        if direct:
+            # populate dict for screening
+            self.screen = {}
+            for p in range(self.nbasis):
+                for q in range(p + 1):
+                    pq = p*(p+1)//2 + q
+                    self.screen[pq] = ERI(self.bfs[p],self.bfs[q],self.bfs[p],self.bfs[q])
+        else:
             self.two_electron_integrals()
         self.is_built = True
 
