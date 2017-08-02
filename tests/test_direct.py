@@ -32,7 +32,7 @@ H 0.0 0.0 0.00
 """
 
 
-class test_SCF(unittest.TestCase):
+class test_direct(unittest.TestCase):
     def test_hydrogen_sto3g(self):
         mol = Molecule(geometry=hydrogen,basis='sto-3g')
         mol.RHF(direct=True)
