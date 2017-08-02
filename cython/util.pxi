@@ -1,4 +1,6 @@
 import cython
+import numpy as np
+cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
 from scipy.special.cython_special cimport hyp1f1 
 
@@ -54,7 +56,7 @@ cdef double boys(double m,double T):
 
 
 def gaussian_product_center(a, A, b, B):
-    return (a*A+b*B)/(a+b)
+    return (a*np.asarray(A)+b*np.asarray(B))/(a+b)
     
 
 

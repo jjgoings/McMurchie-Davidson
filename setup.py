@@ -9,6 +9,7 @@ os.environ["CPPFLAGS"] = os.getenv("CPPFLAGS", "") + "-I" + numpy.get_include()
 my_integrals = [Extension('mmd.integrals.onee',['cython/onee.pyx']),
                 Extension('mmd.integrals.twoe',['cython/twoe.pyx']),
                 Extension('mmd.integrals.grad',['cython/grad.pyx']),
+#                Extension('mmd.integrals.basis',['cython/basis.pyx']),
 #                 extra_compile_args=['-fopenmp'],
 #                 extra_link_args=['-fopenmp'])
                 ]

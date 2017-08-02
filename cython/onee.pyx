@@ -11,17 +11,14 @@ include "util.pxi"
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double S(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3))):
-    # Generalized overlap integrals for derivatives of GIAOs
-    # for basis function a centered at (Ax, Ay, Az)
-    # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
-    # normal overlap is just n = (0,0,0) case
+cpdef double S(object a, object b):
+    """ Returns overlap """
     cdef double s = 0.0
     for ia, ca in enumerate(a.coefs):
         for ib, cb in enumerate(b.coefs):
             s += a.norm[ia]*b.norm[ib]*ca*cb*\
                      overlap(a.exps[ia],a.shell,a.origin,
-                     b.exps[ib],b.shell,b.origin,n,gOrigin)
+                             b.exps[ib],b.shell,b.origin)
     return s
 
 @cython.cdivision(True)

@@ -6,7 +6,7 @@ from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
 from mmd.forces import Forces
-from mmd.giao import GIAO 
+from mmd.integrals.twoe import Basis
 import itertools
 
 class Atom(object):
@@ -21,49 +21,50 @@ class Atom(object):
         self.velocities  = np.zeros(3)
    
 
-class BasisFunction(object):
-    """Class for a contracted Gaussian basis function"""
-    def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
-        assert len(origin)==3
-        assert len(shell)==3
-        self.origin = np.asarray(origin,'d')#*1.889725989 # to bohr
-        self.shell = np.asarray(shell).astype(int)
-        self.exps  = exps
-        self.coefs = coefs
-        self.normalize()
+#class BasisFunction(object):
+#    """Class for a contracted Gaussian basis function"""
+#    def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
+#        assert len(origin)==3
+#        assert len(shell)==3
+#        self.origin = np.asarray(origin,'d')#*1.889725989 # to bohr
+#        self.shell = np.asarray(shell,'int')
+#        self.shell = shell 
+#        self.exps  = exps
+#        self.coefs = coefs
+#        self.normalize()
+#
+#    def normalize(self):
+#        """Routine to normalize the BasisFunction objects.
+#           Returns self.norm, which is a list of doubles that
+#           normalizes the contracted Gaussian basis functions (CGBFs) 
+#           
+#           First normalized the primitives, then takes the results and
+#           normalizes the contracted functions. Both steps are required,
+#           though I could make it one step if need be. 
+#        """
+#        l,m,n = self.shell
+#        L = l + m + n
+#        # normalize primitives first (PGBFs)
+#        self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
+#                        np.power(self.exps,l+m+n+1.5)/
+#                        fact2(2*l-1)/fact2(2*m-1)/
+#                        fact2(2*n-1)/np.power(np.pi,1.5))
+#
+#        # now normalize the contracted basis functions (CGBFs)
+#        # Eq. 1.44 of Valeev integral whitepaper
+#        prefactor = np.power(np.pi,1.5)*\
+#            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
+#
+#        N = 0.0
+#        for ia, ca in enumerate(self.coefs):
+#            for ib, cb in enumerate(self.coefs):
+#                N += self.norm[ia]*self.norm[ib]*ca*cb/np.power(self.exps[ia] + self.exps[ib],L+1.5)  
+#
+#        N *= prefactor
+#        N = np.power(N,-0.5)
+#        self.norm *= N
 
-    def normalize(self):
-        """Routine to normalize the BasisFunction objects.
-           Returns self.norm, which is a list of doubles that
-           normalizes the contracted Gaussian basis functions (CGBFs) 
-           
-           First normalized the primitives, then takes the results and
-           normalizes the contracted functions. Both steps are required,
-           though I could make it one step if need be. 
-        """
-        l,m,n = self.shell
-        L = l + m + n
-        # normalize primitives first (PGBFs)
-        self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
-                        np.power(self.exps,l+m+n+1.5)/
-                        fact2(2*l-1)/fact2(2*m-1)/
-                        fact2(2*n-1)/np.power(np.pi,1.5))
-
-        # now normalize the contracted basis functions (CGBFs)
-        # Eq. 1.44 of Valeev integral whitepaper
-        prefactor = np.power(np.pi,1.5)*\
-            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
-
-        N = 0.0
-        for ia, ca in enumerate(self.coefs):
-            for ib, cb in enumerate(self.coefs):
-                N += self.norm[ia]*self.norm[ib]*ca*cb/np.power(self.exps[ia] + self.exps[ib],L+1.5)  
-
-        N *= prefactor
-        N = np.power(N,-0.5)
-        self.norm *= N
-
-class Molecule(SCF,Forces,GIAO):
+class Molecule(SCF,Forces):
     """Class for a molecule object, consisting of Atom objects
        Requres that molecular geometry, charge, and multiplicity be given as
        input on creation.
@@ -99,8 +100,10 @@ class Molecule(SCF,Forces,GIAO):
                 exps = [e for e,c in prims]
                 coefs = [c for e,c in prims]
                 for shell in self.momentum2shell(momentum):
-                    self.bfs.append(BasisFunction(np.asarray(atom.origin),\
-                        np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    #self.bfs.append(BasisFunction(np.asarray(atom.origin),\
+                    #    np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    self.bfs.append(Basis(np.asarray(atom.origin),
+                        np.asarray(shell),len(exps),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
         # create masking vector for geometric derivatives
         idx = 0
