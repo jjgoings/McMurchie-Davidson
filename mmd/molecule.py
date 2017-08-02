@@ -19,50 +19,6 @@ class Atom(object):
         self.forces      = np.zeros(3)
         self.saved_forces  = np.zeros(3)
         self.velocities  = np.zeros(3)
-   
-
-#class BasisFunction(object):
-#    """Class for a contracted Gaussian basis function"""
-#    def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
-#        assert len(origin)==3
-#        assert len(shell)==3
-#        self.origin = np.asarray(origin,'d')#*1.889725989 # to bohr
-#        self.shell = np.asarray(shell,'int')
-#        self.shell = shell 
-#        self.exps  = exps
-#        self.coefs = coefs
-#        self.normalize()
-#
-#    def normalize(self):
-#        """Routine to normalize the BasisFunction objects.
-#           Returns self.norm, which is a list of doubles that
-#           normalizes the contracted Gaussian basis functions (CGBFs) 
-#           
-#           First normalized the primitives, then takes the results and
-#           normalizes the contracted functions. Both steps are required,
-#           though I could make it one step if need be. 
-#        """
-#        l,m,n = self.shell
-#        L = l + m + n
-#        # normalize primitives first (PGBFs)
-#        self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
-#                        np.power(self.exps,l+m+n+1.5)/
-#                        fact2(2*l-1)/fact2(2*m-1)/
-#                        fact2(2*n-1)/np.power(np.pi,1.5))
-#
-#        # now normalize the contracted basis functions (CGBFs)
-#        # Eq. 1.44 of Valeev integral whitepaper
-#        prefactor = np.power(np.pi,1.5)*\
-#            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
-#
-#        N = 0.0
-#        for ia, ca in enumerate(self.coefs):
-#            for ib, cb in enumerate(self.coefs):
-#                N += self.norm[ia]*self.norm[ib]*ca*cb/np.power(self.exps[ia] + self.exps[ib],L+1.5)  
-#
-#        N *= prefactor
-#        N = np.power(N,-0.5)
-#        self.norm *= N
 
 class Molecule(SCF,Forces):
     """Class for a molecule object, consisting of Atom objects

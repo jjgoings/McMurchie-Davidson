@@ -4,6 +4,7 @@ import numpy as np
 cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
 from libc.stdlib cimport malloc, free
+from cython.parallel import prange
 include "util.pxi"
 include "basis.pxi"
 
@@ -34,7 +35,7 @@ cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, list bfs):
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double ERI(Basis a, Basis b, Basis c, Basis d):
+cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
     cdef double eri = 0.0
     cdef int ja, jb, jc, jd
     cdef double ca, cb, cc, cd
@@ -54,7 +55,7 @@ cpdef double ERI(Basis a, Basis b, Basis c, Basis d):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsion(double a, int *lmn1, double *A, double b, int *lmn2, double *B,double c, int *lmn3, double *C,double d, int *lmn4, double *D):
+cdef double electron_repulsion(double a, int *lmn1, double *A, double b, int *lmn2, double *B,double c, int *lmn3, double *C,double d, int *lmn4, double *D) nogil:
     cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
     cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
     cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
