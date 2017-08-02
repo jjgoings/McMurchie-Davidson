@@ -13,8 +13,10 @@ class SCF(object):
         self.delta_energy = 1e20
         self.P_RMS        = 1e20
         self.P_old        = np.zeros((self.nbasis,self.nbasis),dtype='complex')
-        self.maxiter = 200
+        self.maxiter = 50
         self.direct = direct
+        if self.direct:
+            self.incFockRst = False
         self.build(self.direct) # build integrals
 
         self.P = self.P_old
@@ -32,11 +34,14 @@ class SCF(object):
                 self.buildFock()
                 # now update old P
                 self.P_old      = self.P
-                # FIXME: DIIS doesnt work with incremental fock build
+
+                # note that extrapolated Fock cannot be used with incrm. Fock
+                # build. We make a copy to get the new density only.
                 if DIIS: 
-                    self.F = self.updateDIIS(self.F,self.P)
-             
-            self.orthoFock()
+                    F_diis = self.updateDIIS(self.F,self.P)
+                    self.FO = np.dot(self.X.T,np.dot(F_diis,self.X)) 
+            if not DIIS or step == 0:
+                self.orthoFock()
             E,self.CO   = np.linalg.eigh(self.FO)
     
             C      = np.dot(self.X,self.CO)
@@ -51,7 +56,7 @@ class SCF(object):
             FPS = np.dot(self.F,np.dot(self.P,self.S))
             SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
-            if np.abs(self.P_RMS) < 1e-7 or step == (self.maxiter - 1):
+            if np.abs(self.P_RMS) < 1e-10 or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
                     print("NOT CONVERGED")
                 else:
@@ -150,9 +155,14 @@ class SCF(object):
            #                         self.G[i,l] += -0.25*dP[j,k]*eri
            #                         self.G[k,j] += -0.25*dP[i,l]*eri
            #                     
-            self.G = formPT(self.P,self.P_old,self.bfs,self.nbasis,self.screen,1e-10)
-            self.G = 0.5*(self.G + self.G.T) 
-            self.F = self.F_old + self.G
+            if self.incFockRst:
+                self.G = formPT(self.P,np.zeros_like(self.P),self.bfs,self.nbasis,self.screen,1e-12)
+                self.G = 0.5*(self.G + self.G.T) 
+                self.F = self.Core.astype('complex') + self.G
+            else:
+                self.G = formPT(self.P,self.P_old,self.bfs,self.nbasis,self.screen,1e-10)
+                self.G = 0.5*(self.G + self.G.T) 
+                self.F = self.F_old + self.G
 
         else:
             self.J = np.einsum('pqrs,sr->pq', self.TwoE.astype('complex'),self.P)
