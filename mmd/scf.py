@@ -13,10 +13,11 @@ class SCF(object):
         self.delta_energy = 1e20
         self.P_RMS        = 1e20
         self.P_old        = np.zeros((self.nbasis,self.nbasis),dtype='complex')
-        self.maxiter = 50
+        self.maxiter = 100
         self.direct = direct
         if self.direct:
-            self.incFockRst = False
+            self.incFockRst = False # restart; True shuts off incr. fock build
+            self.scrTol     = 1e-12 # integral screening tolerance
         self.build(self.direct) # build integrals
 
         self.P = self.P_old
@@ -156,11 +157,11 @@ class SCF(object):
            #                         self.G[k,j] += -0.25*dP[i,l]*eri
            #                     
             if self.incFockRst:
-                self.G = formPT(self.P,np.zeros_like(self.P),self.bfs,self.nbasis,self.screen,1e-12)
+                self.G = formPT(self.P,np.zeros_like(self.P),self.bfs,self.nbasis,self.screen,self.scrTol)
                 self.G = 0.5*(self.G + self.G.T) 
                 self.F = self.Core.astype('complex') + self.G
             else:
-                self.G = formPT(self.P,self.P_old,self.bfs,self.nbasis,self.screen,1e-10)
+                self.G = formPT(self.P,self.P_old,self.bfs,self.nbasis,self.screen,self.scrTol)
                 self.G = 0.5*(self.G + self.G.T) 
                 self.F = self.F_old + self.G
 

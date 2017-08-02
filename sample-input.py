@@ -13,7 +13,7 @@ H   -0.866811829    0.601435779    0.000000
 mol = Molecule(geometry=water,basis='sto-3g')
 
 # do the SCF
-mol.RHF()
+mol.RHF(direct=True)
 
 # do MP2
 #PostSCF(mol).MP2()
