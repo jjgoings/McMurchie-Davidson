@@ -31,7 +31,6 @@ H 0.0 0.0 0.74
 H 0.0 0.0 0.00
 """
 
-
 class test_direct(unittest.TestCase):
     def test_hydrogen_sto3g(self):
         mol = Molecule(geometry=hydrogen,basis='sto-3g')

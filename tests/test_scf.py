@@ -31,6 +31,16 @@ H 0.0 0.0 0.74
 H 0.0 0.0 0.00
 """
 
+formaldehyde = """
+0 1
+C          0.0000000000        0.0000000000       -0.5265526741
+O          0.0000000000        0.0000000000        0.6555124750
+H          0.0000000000       -0.9325664988       -1.1133424527
+H          0.0000000000        0.9325664988       -1.1133424527
+"""
+
+
+
 
 class test_SCF(unittest.TestCase):
     def test_hydrogen_sto3g(self):
@@ -41,6 +51,9 @@ class test_SCF(unittest.TestCase):
         mol = Molecule(geometry=water,basis='sto-3g')
         mol.RHF()
         self.assertAlmostEqual(mol.energy.real,-74.942079928192)
+        self.assertAlmostEqual(mol.mu[0].real,0.0,places=4)
+        self.assertAlmostEqual(mol.mu[1].real,1.5340,places=4)
+        self.assertAlmostEqual(mol.mu[2].real,0.0,places=4)
     def test_methane_sto3g(self):
         mol = Molecule(geometry=methane,basis='sto-3g')
         mol.RHF()
@@ -49,6 +62,9 @@ class test_SCF(unittest.TestCase):
         mol = Molecule(geometry=water,basis='DZ')
         mol.RHF()
         self.assertAlmostEqual(mol.energy.real,-75.977878975377)
+        self.assertAlmostEqual(mol.mu[0].real,0.0,places=4)
+        self.assertAlmostEqual(mol.mu[1].real,2.7222,places=4)
+        self.assertAlmostEqual(mol.mu[2].real,0.0,places=4)
     def test_water_321g(self):
         mol = Molecule(geometry=water,basis='3-21g')
         mol.RHF()
@@ -62,4 +78,15 @@ class test_SCF(unittest.TestCase):
         mol.RHF()
         #p 6D int=acc2e=14 scf(conver=12) rhf/6-31++G** symmetry=none
         self.assertAlmostEqual(mol.energy.real,-75.9924381487)
+        self.assertAlmostEqual(mol.mu[0].real,0.0,places=4)
+        self.assertAlmostEqual(mol.mu[1].real,2.4046,places=4)
+        self.assertAlmostEqual(mol.mu[2].real,0.0,places=4)
+    def test_formaldehyde_sto3g(self):
+        mol = Molecule(geometry=formaldehyde,basis='sto-3g')
+        mol.RHF()
+        #p 6D int=acc2e=14 scf(conver=12) rhf/6-31++G** symmetry=none
+        self.assertAlmostEqual(mol.energy.real,-112.351590112)
+        self.assertAlmostEqual(mol.mu[0].real,0.0,places=4)
+        self.assertAlmostEqual(mol.mu[1].real,0.0,places=4)
+        self.assertAlmostEqual(mol.mu[2].real,-1.4821,places=4)
 

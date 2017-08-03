@@ -2,7 +2,6 @@ from __future__ import division
 import numpy as np
 from mmd.integrals.onee import S,T,Mu,V,RxDel
 from mmd.integrals.twoe import doERIs, ERI
-from scipy.misc import factorial2 as fact2
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
 from mmd.forces import Forces
@@ -25,7 +24,7 @@ class Molecule(SCF,Forces):
        Requres that molecular geometry, charge, and multiplicity be given as
        input on creation.
     """
-    def __init__(self,geometry,basis='sto-3g',gauge=None):
+    def __init__(self,geometry,basis='sto-3g'):
         # geometry is now specified in imput file
         charge, multiplicity, atomlist = self.read_molecule(geometry)
         self.charge = charge
@@ -34,7 +33,6 @@ class Molecule(SCF,Forces):
         self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
         self.is_built = False
-        self.gauge = gauge
         
         # Read in basis set data
         import os
@@ -48,7 +46,7 @@ class Molecule(SCF,Forces):
         """Routine to create the basis from the input molecular geometry and
            basis set. On exit, you should have a basis in self.bfs, which is a 
            list of BasisFunction objects. This routine also defines the center
-           of nuclear charge and sets the gauge origin for property integrals.
+           of nuclear charge. 
         """
         self.bfs = []
         for atom in self.atoms:
@@ -76,10 +74,6 @@ class Molecule(SCF,Forces):
                         sum([atom.charge*atom.origin[1] for atom in self.atoms]),
                         sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
                         * (1./sum([atom.charge for atom in self.atoms]))
-        if not self.gauge:
-            self.gauge_origin = self.center_of_charge
-        else:
-            self.gauge_origin = np.asarray(self.gauge)
 
     def build(self,direct):
         """Routine to build necessary integrals"""
@@ -249,22 +243,22 @@ class Molecule(SCF,Forces):
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
                 self.M[0,i,j] = self.M[0,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'x',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
                 self.M[1,i,j] = self.M[1,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'y',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
                 self.M[2,i,j] = self.M[2,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'z',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
                 for atom in self.atoms:
                     self.V[i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin)
                 self.V[j,i] = self.V[i,j]
 
                 # RxDel is antisymmetric
                 self.L[0,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'x')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
                 self.L[1,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
                 self.L[2,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
                 self.L[:,j,i] = -1*self.L[:,i,j] 
 
         # Compute nuclear repulsion energy 

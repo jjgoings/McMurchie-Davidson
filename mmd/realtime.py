@@ -2,9 +2,6 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 from scipy.linalg import expm
-import sys
-import itertools
-import copy
 
 class RealTime(object):
     """Class for real-time routines"""

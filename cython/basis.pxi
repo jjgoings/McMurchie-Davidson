@@ -4,6 +4,7 @@ from libc.stdlib cimport malloc, free
 from scipy.misc import factorial2 as fact2 
 
 cdef class Basis:
+    """ Cython extension class to define primitive Gaussian basis functions"""
     cdef:
         double *origin
         int    *shell

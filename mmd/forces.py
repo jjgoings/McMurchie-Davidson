@@ -31,24 +31,20 @@ class Forces(object):
                         # differentiated, is 0 if not.
                         dSx[i,j] = dSx[j,i] \
                              = atom.mask[i]*Sx(self.bfs[i],self.bfs[j],
-                                               n=(0,0,0),
-                                               gOrigin=self.gauge_origin,
                                                x=direction,center='A') \
                              + atom.mask[j]*Sx(self.bfs[i],self.bfs[j],
-                                               n=(0,0,0),
-                                               gOrigin=self.gauge_origin,
                                                x=direction,center='B')
                         # dTij/dx is same form as differentiated overlaps, 
                         # since Del^2 does not depend on nuclear origin 
                         dTx[i,j] = dTx[j,i] \
-                             = atom.mask[i]*Tx(self.bfs[i],self.bfs[j],n=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='A') \
-                             + atom.mask[j]*Tx(self.bfs[i],self.bfs[j],n=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='B')
+                             = atom.mask[i]*Tx(self.bfs[i],self.bfs[j],x=direction,center='A') \
+                             + atom.mask[j]*Tx(self.bfs[i],self.bfs[j],x=direction,center='B')
                         # Hellman-feynman term: dVij /dx = < phi_i | d (1/r_c) / dx | phi_j >
-                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.bfs[i],self.bfs[j],atom.origin,n=(0,0,0),gOrigin=self.gauge_origin,x=direction)
+                        dVx[i,j] = dVx[j,i] = -atom.charge*VxA(self.bfs[i],self.bfs[j],atom.origin,x=direction)
                         # Terms from deriv of overlap, just like dS/dx and dT/dx
                         for atomic_center in self.atoms:
-                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.bfs[i],self.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='A')
-                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.bfs[i],self.bfs[j],atomic_center.origin,n=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='B')
+                            dVx[i,j] -= atom.mask[i]*atomic_center.charge*VxB(self.bfs[i],self.bfs[j],atomic_center.origin,x=direction,center='A')
+                            dVx[i,j] -= atom.mask[j]*atomic_center.charge*VxB(self.bfs[i],self.bfs[j],atomic_center.origin,x=direction,center='B')
                         dVx[j,i] = dVx[i,j]
 
                 # do nuclear repulsion contibution
@@ -71,10 +67,10 @@ class Forces(object):
                                 kl = (k*(k+1)//2 + l)
                                 if ij >= kl:
                                    # do the four terms for gradient two electron 
-                                   val = atom.mask[i]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='a')
-                                   val += atom.mask[j]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='b')
-                                   val += atom.mask[k]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='c')
-                                   val += atom.mask[l]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],n1=(0,0,0),n2=(0,0,0),gOrigin=self.gauge_origin,x=direction,center='d')
+                                   val = atom.mask[i]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],x=direction,center='a')
+                                   val += atom.mask[j]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],x=direction,center='b')
+                                   val += atom.mask[k]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],x=direction,center='c')
+                                   val += atom.mask[l]*ERIx(self.bfs[i],self.bfs[j],self.bfs[k],self.bfs[l],x=direction,center='d')
                                    # we have exploited 8-fold permutaitonal symmetry here
                                    dTwoEx[i,j,k,l] = val
                                    dTwoEx[k,l,i,j] = val

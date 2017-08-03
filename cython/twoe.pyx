@@ -3,8 +3,6 @@ import cython
 import numpy as np
 cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
-from libc.stdlib cimport malloc, free
-from cython.parallel import prange
 include "util.pxi"
 include "basis.pxi"
 
@@ -56,25 +54,26 @@ cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
 @cython.wraparound(False)
 @cython.nonecheck(False)
 cdef double electron_repulsion(double a, int *lmn1, double *A, double b, int *lmn2, double *B,double c, int *lmn3, double *C,double d, int *lmn4, double *D) nogil:
-    cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
-    cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
-    cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
-    cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
-    cdef double p = a+b
-    cdef double q = c+d
-    cdef double alpha = p*q/(p+q)
-    cdef double Px = (a*A[0] + b*B[0])/p
-    cdef double Py = (a*A[1] + b*B[1])/p
-    cdef double Pz = (a*A[2] + b*B[2])/p
-    cdef double Qx = (c*C[0] + d*D[0])/q
-    cdef double Qy = (c*C[1] + d*D[1])/q
-    cdef double Qz = (c*C[2] + d*D[2])/q
-    cdef double RPQ = sqrt(pow(Px-Qx,2) + \
+    cdef:
+        int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
+        int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
+        int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
+        int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
+        double p = a+b
+        double q = c+d
+        double alpha = p*q/(p+q)
+        double Px = (a*A[0] + b*B[0])/p
+        double Py = (a*A[1] + b*B[1])/p
+        double Pz = (a*A[2] + b*B[2])/p
+        double Qx = (c*C[0] + d*D[0])/q
+        double Qy = (c*C[1] + d*D[1])/q
+        double Qz = (c*C[2] + d*D[2])/q
+        double RPQ = sqrt(pow(Px-Qx,2) + \
                            pow(Py-Qy,2) + \
                            pow(Pz-Qz,2)) 
 
-    cdef int t,u,v,tau,nu,phi
-    cdef double val = 0.0
+        int t,u,v,tau,nu,phi
+        double val = 0.0
     for t in range(l1+l2+1):
         for u in range(m1+m2+1):
             for v in range(n1+n2+1):
