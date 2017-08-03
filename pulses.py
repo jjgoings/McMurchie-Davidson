@@ -17,7 +17,6 @@ H 0.0 0.0 0.0
 """
 # init molecule and build integrals
 mol = Molecule(geometry=h2,basis='6-31ppg')
-mol.build()
 
 # do the SCF
 mol.RHF()

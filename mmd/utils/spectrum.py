@@ -52,7 +52,7 @@ def pade(time,dipole):
     try:
         from scipy.linalg import toeplitz, solve_toeplitz
     except ImportError:
-        print "You'll need SciPy version >= 0.17.0"
+        print("You'll need SciPy version >= 0.17.0")
 
     try:
         # Instead, form G = (c,r) as toeplitz
@@ -102,10 +102,10 @@ def peaks(spectra,frequency,number=3,thresh=0.01):
         kdx = idx[0][jdx[0]] # indices of peaks matching criteria
         if number > len(kdx):
             number = len(kdx)
-        print "First "+str(number)+" peaks (eV) found: "
+        print("First "+str(number)+" peaks (eV) found: ")
         for i in xrange(number):
-            print "{0:.4f}".format(frequency[kdx][i]*27.2114),\
-                  "{0:.4f}".format(spectra[kdx][i])
+            print("{0:.4f}".format(frequency[kdx][i]*27.2114),
+                  "{0:.4f}".format(spectra[kdx][i]))
 
             
 

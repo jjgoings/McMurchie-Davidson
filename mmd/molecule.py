@@ -1,11 +1,11 @@
 from __future__ import division
 import numpy as np
-from mmd.integrals import S,T,Mu,V,RxDel,doERIs
-from scipy.misc import factorial2 as fact2
+from mmd.integrals.onee import S,T,Mu,V,RxDel
+from mmd.integrals.twoe import doERIs, ERI
 from scipy.linalg import fractional_matrix_power as mat_pow
 from mmd.scf import SCF
 from mmd.forces import Forces
-from mmd.giao import GIAO 
+from mmd.integrals.twoe import Basis
 import itertools
 
 class Atom(object):
@@ -18,56 +18,13 @@ class Atom(object):
         self.forces      = np.zeros(3)
         self.saved_forces  = np.zeros(3)
         self.velocities  = np.zeros(3)
-   
 
-class BasisFunction(object):
-    """Class for a contracted Gaussian basis function"""
-    def __init__(self,origin=(0,0,0),shell=(0,0,0),exps=[],coefs=[]):
-        assert len(origin)==3
-        assert len(shell)==3
-        self.origin = np.asarray(origin,'d')#*1.889725989 # to bohr
-        self.shell = np.asarray(shell).astype(int)
-        self.exps  = exps
-        self.coefs = coefs
-        self.normalize()
-
-    def normalize(self):
-        """Routine to normalize the BasisFunction objects.
-           Returns self.norm, which is a list of doubles that
-           normalizes the contracted Gaussian basis functions (CGBFs) 
-           
-           First normalized the primitives, then takes the results and
-           normalizes the contracted functions. Both steps are required,
-           though I could make it one step if need be. 
-        """
-        l,m,n = self.shell
-        L = l + m + n
-        # normalize primitives first (PGBFs)
-        self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
-                        np.power(self.exps,l+m+n+1.5)/
-                        fact2(2*l-1)/fact2(2*m-1)/
-                        fact2(2*n-1)/np.power(np.pi,1.5))
-
-        # now normalize the contracted basis functions (CGBFs)
-        # Eq. 1.44 of Valeev integral whitepaper
-        prefactor = np.power(np.pi,1.5)*\
-            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
-
-        N = 0.0
-        for ia, ca in enumerate(self.coefs):
-            for ib, cb in enumerate(self.coefs):
-                N += self.norm[ia]*self.norm[ib]*ca*cb/np.power(self.exps[ia] + self.exps[ib],L+1.5)  
-
-        N *= prefactor
-        N = np.power(N,-0.5)
-        self.norm *= N
-
-class Molecule(SCF,Forces,GIAO):
+class Molecule(SCF,Forces):
     """Class for a molecule object, consisting of Atom objects
        Requres that molecular geometry, charge, and multiplicity be given as
        input on creation.
     """
-    def __init__(self,geometry,basis='sto-3g',gauge=None):
+    def __init__(self,geometry,basis='sto-3g'):
         # geometry is now specified in imput file
         charge, multiplicity, atomlist = self.read_molecule(geometry)
         self.charge = charge
@@ -76,7 +33,6 @@ class Molecule(SCF,Forces,GIAO):
         self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
         self.is_built = False
-        self.gauge = gauge
         
         # Read in basis set data
         import os
@@ -90,7 +46,7 @@ class Molecule(SCF,Forces,GIAO):
         """Routine to create the basis from the input molecular geometry and
            basis set. On exit, you should have a basis in self.bfs, which is a 
            list of BasisFunction objects. This routine also defines the center
-           of nuclear charge and sets the gauge origin for property integrals.
+           of nuclear charge. 
         """
         self.bfs = []
         for atom in self.atoms:
@@ -98,8 +54,10 @@ class Molecule(SCF,Forces,GIAO):
                 exps = [e for e,c in prims]
                 coefs = [c for e,c in prims]
                 for shell in self.momentum2shell(momentum):
-                    self.bfs.append(BasisFunction(np.asarray(atom.origin),\
-                        np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    #self.bfs.append(BasisFunction(np.asarray(atom.origin),\
+                    #    np.asarray(shell),np.asarray(exps),np.asarray(coefs)))
+                    self.bfs.append(Basis(np.asarray(atom.origin),
+                        np.asarray(shell),len(exps),np.asarray(exps),np.asarray(coefs)))
         self.nbasis = len(self.bfs)
         # create masking vector for geometric derivatives
         idx = 0
@@ -116,15 +74,19 @@ class Molecule(SCF,Forces,GIAO):
                         sum([atom.charge*atom.origin[1] for atom in self.atoms]),
                         sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
                         * (1./sum([atom.charge for atom in self.atoms]))
-        if not self.gauge:
-            self.gauge_origin = self.center_of_charge
-        else:
-            self.gauge_origin = np.asarray(self.gauge)
 
-    def build(self):
+    def build(self,direct):
         """Routine to build necessary integrals"""
         self.one_electron_integrals()
-        self.two_electron_integrals()
+        if direct:
+            # populate dict for screening
+            self.screen = {}
+            for p in range(self.nbasis):
+                for q in range(p + 1):
+                    pq = p*(p+1)//2 + q
+                    self.screen[pq] = ERI(self.bfs[p],self.bfs[q],self.bfs[p],self.bfs[q])
+        else:
+            self.two_electron_integrals()
         self.is_built = True
 
     def momentum2shell(self,momentum):
@@ -281,22 +243,22 @@ class Molecule(SCF,Forces,GIAO):
                 self.T[i,j] = self.T[j,i] \
                     = T(self.bfs[i],self.bfs[j])
                 self.M[0,i,j] = self.M[0,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'x',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
                 self.M[1,i,j] = self.M[1,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'y',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
                 self.M[2,i,j] = self.M[2,j,i] \
-                    = Mu(self.bfs[i],self.bfs[j],'z',gOrigin=self.gauge_origin)
+                    = Mu(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
                 for atom in self.atoms:
                     self.V[i,j] += -atom.charge*V(self.bfs[i],self.bfs[j],atom.origin)
                 self.V[j,i] = self.V[i,j]
 
                 # RxDel is antisymmetric
                 self.L[0,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'x')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'x')
                 self.L[1,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'y')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'y')
                 self.L[2,i,j] \
-                    = RxDel(self.bfs[i],self.bfs[j],self.gauge_origin,'z')
+                    = RxDel(self.bfs[i],self.bfs[j],self.center_of_charge,'z')
                 self.L[:,j,i] = -1*self.L[:,i,j] 
 
         # Compute nuclear repulsion energy 
