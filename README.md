@@ -44,12 +44,14 @@ python sample-input.py
 which should do an SCF on water with an STO-3G basis and dump out to your terminal:
 
 ```
-E(SCF)    =  -74.942079928065 in 37 iterations
- RMS(P)   =  7.76e-13
- dE(SCF)  =  1.42e-13
- Dipole X =  -0.00000000+0.00000000j
- Dipole Y =  1.53400931+0.00000000j
- Dipole Z =  -0.00000000+0.00000000j
+E(SCF)    =  -74.942079928029 in 10 iterations
+  Convergence:
+    FPS-SPF  =  2.76108367031e-12
+    RMS(P)   =  1.79e-11
+    dE(SCF)  =  -9.34e-10
+  Dipole X =  0.00000000
+  Dipole Y =  1.53400931
+  Dipole Z =  -0.00000000
 ```
 
 ## Input file specification
@@ -69,7 +71,6 @@ H   -0.866811829    0.601435779    0.000000
 
 # init molecule and build integrals
 mol = Molecule(geometry=water,basis='sto-3g')
-mol.build()
 
 # do the SCF
 mol.RHF()
@@ -116,4 +117,4 @@ mp2.MP2()
 ```
 
 ## Examples
-In the `examples` folder you can find some different scripts for different things. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. Feel free to try them out.
+In the `examples` folder you can find some different scripts for setting p more complex jobs. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. There is also some real-time code that allows you to craft an arbitrary pulse sequence. Feel free to try them out.
