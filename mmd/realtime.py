@@ -32,6 +32,7 @@ class RealTime(object):
         self.mol.orthoFock()
         h = -1j*self.stepsize
         for idx,time in enumerate((self.time)):
+            self.idx = idx
             if direction.lower() == 'x':
                 self.mol.computeDipole()
                 self.dipole.append(np.real(self.mol.mu[0]))

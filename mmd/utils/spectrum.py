@@ -23,14 +23,14 @@ def genSpectra(time,dipole,signal):
     denominator = np.real(np.conjugate(fw_sig)*fw_sig)
     #denominator = 1.0 
     spectra = ((4.0*27.21138602*2*frequency*np.pi*(numerator))/(3.0*137.036*denominator))
-    spectra *= 1.0/100.0
+    spectra *= 1.0/500.0
     #plt.plot(frequency*27.2114,fourier)
     #plt.show()
     return frequency, spectra
 
-def pade(time,dipole):
+def pade(time,dipole,start=0.0,stop=2.0,step=0.0005):
     damp_const = 100.0
-    dipole = np.asarray(dipole) - dipole[0]
+    dipole = np.asarray(dipole)# - dipole[0]
       
     stepsize = time[1] - time[0]
     #print dipole
@@ -77,8 +77,8 @@ def pade(time,dipole):
     # If you want energies greater than 2*27.2114 eV, you'll need to change
     # the default frequency range to something greater.
 
-    #frequency = np.arange(0.00,2.0,0.00005)
-    frequency = np.arange(0.3,0.75,0.0002)
+    frequency = np.arange(start,stop,step)
+    #frequency = np.arange(0.35,0.75,0.0005)
 
     W = np.exp(-1j*frequency*stepsize)
 
