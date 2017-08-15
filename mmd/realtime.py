@@ -11,7 +11,11 @@ class RealTime(object):
         self.stepsize = stepsize
         self.numSteps = numsteps
         self.time = np.arange(0,self.numSteps)*self.stepsize
-        self.pulse = pulse
+        if pulse:
+            self.pulse = pulse
+        else:
+            # zero pulse envelope
+            self.pulse = lambda t: 0.0
         self.reset()
 
     def reset(self):
@@ -26,7 +30,12 @@ class RealTime(object):
         self.shape = []
 
     def Magnus2(self,direction='x'):
-        """Propagate in time using the second order explicit Magnus"""
+        """Propagate in time using the second order explicit Magnus.
+           See: Blanes, Sergio, and Fernando Casas. A concise introduction 
+           to geometric numerical integration. Vol. 23. CRC Press, 2016.
+
+           Magnus2 is Eq (4.61), page 128.
+        """
         self.reset()
         self.mol.orthoDen()
         self.mol.orthoFock()
@@ -41,7 +50,9 @@ class RealTime(object):
             elif direction.lower() == 'z':
                 self.mol.computeDipole()
                 self.dipole.append(np.real(self.mol.mu[2]))
-            self.addField(time,addstep=True,direction=direction)
+
+            # record pulse envelope for later plotting, etc.
+            self.shape.append(self.pulse(time))
             curDen  = np.copy(self.mol.PO)
       
             self.addField(time + 0.0*self.stepsize,direction=direction)
@@ -56,13 +67,19 @@ class RealTime(object):
             self.mol.PO = np.dot(U,np.dot(curDen,self.mol.adj(U))) 
             self.mol.updateFock()
             
+            # density and Fock are done updating, wrap things up
             self.mol.unOrthoFock()    
             self.mol.unOrthoDen()    
             self.mol.computeEnergy()
             self.Energy.append(np.real(self.mol.energy))
 
     def Magnus4(self,direction='x'):
-        """Propagate in time using the fourth order explicit Magnus"""
+        """Propagate in time using the fourth order explicit Magnus.
+           See: Blanes, Sergio, and Fernando Casas. A concise introduction 
+           to geometric numerical integration. Vol. 23. CRC Press, 2016.
+
+           Magnus4 is Eq (4.62), page 128.
+        """
         self.reset()
         self.mol.orthoDen()
         self.mol.orthoFock()
@@ -77,7 +94,8 @@ class RealTime(object):
             elif direction.lower() == 'z':
                 self.mol.computeDipole()
                 self.dipole.append(np.real(self.mol.mu[2]))
-            self.addField(time,addstep=True,direction=direction)
+            # record pulse envelope for later plotting, etc.
+            self.shape.append(self.pulse(time))
             curDen  = np.copy(self.mol.PO)
      
             self.addField(time + 0.0*self.stepsize,direction=direction)
@@ -128,24 +146,41 @@ class RealTime(object):
             self.mol.PO = np.dot(U,np.dot(curDen,self.mol.adj(U))) 
             self.mol.updateFock()
             
+            # density and Fock are done updating, wrap things up
             self.mol.unOrthoFock()    
             self.mol.unOrthoDen()    
             self.mol.computeEnergy()
             self.Energy.append(np.real(self.mol.energy))
 
-    def addField(self,time,addstep=False,direction='x'):
+    def addField(self,time,direction='x'):
+        """ Add the electric dipole contribution to the Fock matrix,
+            and then orthogonalize the results. The envelope (shape) of 
+            the interaction with the electric field (self.pulse) needs 
+            to be set externally in a job, since the desired pulse is 
+            specific to each type of realtime simulation.
+
+            self.pulse: function of time (t) that returns the envelope
+                        amplitude at a given time. 
+            Example: 
+                def gaussian(t):
+                    envelope = np.exp(-(t**2))
+                    return envelope
+
+                rt = RealTime(molecule, pulse=gaussian, field=0.001)
+           
+            The above example would set up a realtime simulations with
+            the external field to have the gaussian envelope defined above 
+            scaled by field=0.001.
+        """
 
         shape = self.pulse(time) 
 
-        if addstep:
-            self.shape.append(shape)
-        else:
-            if direction.lower() == 'x':
-                self.mol.F += -self.field*shape*self.mol.M[0]
-            elif direction.lower() == 'y':
-                self.mol.F += -self.field*shape*self.mol.M[1]
-            elif direction.lower() == 'z':
-                self.mol.F += -self.field*shape*self.mol.M[2]
-            self.mol.orthoFock()
+        if direction.lower() == 'x':
+            self.mol.F += -self.field*shape*self.mol.M[0]
+        elif direction.lower() == 'y':
+            self.mol.F += -self.field*shape*self.mol.M[1]
+        elif direction.lower() == 'z':
+            self.mol.F += -self.field*shape*self.mol.M[2]
+        self.mol.orthoFock()
 
 

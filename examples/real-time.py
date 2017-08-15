@@ -9,23 +9,20 @@ H  0.0 0.0 0.0
 H  0.0 0.0 0.74 
 """
 
-water = """
-0 1
-O    0.000000      -0.075791844    0.000000
-H    0.866811829    0.601435779    0.000000
-H   -0.866811829    0.601435779    0.000000
-"""
-
-
 # init molecule and build integrals
 mol = Molecule(geometry=hydrogen,basis='sto-3g')
-mol.build()
 
 # do the SCF
 mol.RHF()
 
-# create realtime object
-rt = RealTime(mol,numsteps=100,stepsize=0.3,field=0.0001)
+# define the applied field envelope as a function of time
+# here, is is a gaussian entered at t = 0.
+def envelope(t):
+    gaussian = np.exp(-(t**2)) 
+    return gaussian
+
+# create realtime object, setting parameters and pulse envelopes
+rt = RealTime(mol,numsteps=100,stepsize=0.2,field=0.0001,pulse=None)
 
 # propagate with Magnus2
 rt.Magnus2(direction='z')
@@ -34,7 +31,6 @@ m2 = rt.dipole
 rt.Magnus4(direction='z')
 m4 = rt.dipole
 
-#
 try:
    import matplotlib.pyplot as plt
    plt.plot(rt.time,m2,label='Magnus2')
