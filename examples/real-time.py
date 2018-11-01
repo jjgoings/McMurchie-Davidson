@@ -1,7 +1,5 @@
-from mmd.molecule import * 
-from mmd.scf import * 
-from mmd.postscf import * 
-from mmd.realtime import * 
+from mmd.molecule import Molecule 
+from mmd.realtime import RealTime
 
 hydrogen = """
 0 1
