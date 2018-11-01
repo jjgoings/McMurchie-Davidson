@@ -122,4 +122,4 @@ mp2.MP2()
 ```
 
 ## Examples
-In the `examples` folder you can find some different scripts for setting p more complex jobs. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. There is also some real-time code that allows you to craft an arbitrary pulse sequence. Feel free to try them out.
+In the `examples` folder you can find some different scripts for setting p more complex jobs. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. There is also some real-time code that allows you to craft an arbitrary pulse sequence. Feel free to try them out. 
