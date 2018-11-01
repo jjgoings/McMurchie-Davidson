@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/jjgoings/McMurchie-Davidson.svg?branch=master)](https://travis-ci.org/jjgoings/McMurchie-Davidson)
+[![Build Status](https://travis-ci.org/jjgoings/McMurchie-Davidson.svg?branch=master)](https://travis-ci.org/jjgoings/McMurchie-Davidson
+) 
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/jjgoings/McMurchie-Davidson.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jjgoings/McMurchie-Davidson/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/jjgoings/McMurchie-Davidson.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jjgoings/McMurchie-Davidson/context:python)
+
 # McMurchie-Davidson
 
 This contains some simple routines to compute one and two electron integrals 
