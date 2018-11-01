@@ -191,4 +191,7 @@ def nuclear_attraction(a,lmn1,A,b,lmn2,B,C):
     val *= 2*pi/p # Pink book, Eq(9.9.40) 
     return val 
 
+# expose boys function for testing purposes only
+def _boys(n,T):
+    return boys(n,T)
 
