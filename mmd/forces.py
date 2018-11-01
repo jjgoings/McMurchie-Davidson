@@ -58,7 +58,6 @@ class Forces(object):
                         dVNx += -XAB*ZA*ZB/(RAB*RAB*RAB)
                      
                 # now do two electron contributions
-                val = 0.0
                 for i in (range(self.nbasis)):
                     for j in range(i+1):
                         ij = (i*(i+1)//2 + j)

@@ -1,3 +1,4 @@
+from __future__ import division
 import numpy as np
 
 """Contains some routines to do the (Pade approximant) Fourier transform
@@ -8,7 +9,7 @@ import numpy as np
 def genSpectra(time,dipole,signal):
 
     fw, frequency = pade(time,dipole)
-    fw_sig, frequency = pade(time,signal,alternate=True)
+    fw_sig, frequency = pade(time,signal)#,alternate=True)
 
     fw_re = np.real(fw)
     fw_im = np.imag(fw)

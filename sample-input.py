@@ -1,6 +1,5 @@
-import numpy as np
-from mmd.molecule import * 
-from mmd.postscf import * 
+from mmd.molecule import Molecule 
+from mmd.postscf import PostSCF
 
 water = """
 0 1
@@ -16,7 +15,7 @@ mol = Molecule(geometry=water,basis='sto-3g')
 mol.RHF()
 
 # do MP2
-#PostSCF(mol).MP2()
+PostSCF(mol).MP2()
 
 
 

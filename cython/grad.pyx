@@ -8,7 +8,7 @@ include "util.pxi"
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
+cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),long x = 0, str center = 'A'):
     # Generalized overlap derivative integrals 
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * S
@@ -24,7 +24,7 @@ cpdef double Sx(object a, object b, tuple n=(0,0,0), double [:] gOrigin=np.zeros
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
+cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),long x = 0, str center = 'A'):
     # Generalized kinetic integrals for derivatives of GIAOs
     # for basis function a centered at (Ax, Ay, Az)
     # n = (nx,ny,nz) for x_A^nx * y_A^ny * z_A^nz * del^2
@@ -40,7 +40,7 @@ cpdef double Tx(object a, object b,tuple n=(0,0,0), double [:] gOrigin=np.zeros(
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0):
+cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),long x = 0):
     # handles operator derivative contribution, e.g. Hellman Feynman forces
     # Generalized nuclear attraction integrals for derivatives of GIAOs
     # nucleus is centered at 'C'
@@ -56,7 +56,7 @@ cpdef double VxA(object a, object b, double [:] C, tuple n=(0,0,0), double [:] g
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),int x = 0, str center = 'A'):
+cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] gOrigin=np.zeros((3)),long x = 0, str center = 'A'):
     # handles overlap derivative contribution to nuclear attraction derivatives
     # Generalized nuclear attraction integrals for derivatives of GIAOs
     # nucleus is centered at 'C'
@@ -71,9 +71,9 @@ cpdef double VxB(object a, object b, np.ndarray C, tuple n=(0,0,0), double [:] g
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), int x = 0, str center = 'a'):
+cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple n2 = (0,0,0), gOrigin = np.zeros((3)), long x = 0, str center = 'a'):
     cdef double eri = 0.0
-    cdef int ja, jb, jc, jd
+    cdef long ja, jb, jc, jd
     cdef double ca, cb, cc, cd
     cdef double [:] aExps = np.asarray(a.exps), bExps = np.asarray(b.exps), cExps = np.asarray(c.exps), dExps = np.asarray(d.exps)
     cdef double [:] aCoefs = np.asarray(a.coefs), bCoefs = np.asarray(b.coefs), cCoefs = np.asarray(c.coefs), dCoefs = np.asarray(d.coefs)
@@ -81,8 +81,8 @@ cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple
     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
-    cdef long [:] N1 = np.asarray(n1,dtype='int')
-    cdef long [:] N2 = np.asarray(n2,dtype='int')
+    cdef long [:] N1 = np.asarray(n1,dtype='long')
+    cdef long [:] N2 = np.asarray(n2,dtype='long')
     cdef double [:] GO = gOrigin
     for ja in range(A):
         for jb in range(B):
@@ -101,7 +101,7 @@ cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0, int q = 0, int r = 0):
+cdef double Ex(long i,long j,long t,double Qx,double a,double b, long n = 0, double Ax = 0.0, long q = 0, long r = 0):
     # only handling first derivatives
     if q == 1:
         return 2*a*E(i+1,j,t,Qx,a,b,n,Ax) - i*E(i-1,j,t,Qx,a,b,n,Ax)
@@ -112,11 +112,11 @@ cdef double Ex(int i,int j,int t,double Qx,double a,double b, int n = 0, double 
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, int x = 0, str center = 'a'):
-    cdef int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
-    cdef int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
-    cdef int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
-    cdef int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
+cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b, long [:] lmn2, double [:] B,double c, long [:] lmn3, double [:] C,double d, long [:] lmn4, double [:] D, long [:] r1, long [:] r2, double [:] gOrigin, long x = 0, str center = 'a'):
+    cdef long l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
+    cdef long l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
+    cdef long l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
+    cdef long l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
     cdef double p = a+b
     cdef double q = c+d
     cdef double alpha = p*q/(p+q)
@@ -131,10 +131,10 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
                            pow(Py-Qy,2) + \
                            pow(Pz-Qz,2)) 
 
-    cdef int t,u,v,tau,nu,phi
+    cdef long t,u,v,tau,nu,phi
     cdef double val = 0.0
-    cdef int r1x = r1[0], r1y = r1[1], r1z = r1[2]
-    cdef int r2x = r2[0], r2y = r2[1], r2z = r2[2]
+    cdef long r1x = r1[0], r1y = r1[1], r1z = r1[2]
+    cdef long r2x = r2[0], r2y = r2[1], r2z = r2[2]
     if center == 'a':
         if x == 0:
             val = 0.0

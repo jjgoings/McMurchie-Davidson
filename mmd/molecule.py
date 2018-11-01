@@ -75,7 +75,7 @@ class Molecule(SCF,Forces):
                         sum([atom.charge*atom.origin[2] for atom in self.atoms])])\
                         * (1./sum([atom.charge for atom in self.atoms]))
 
-    def build(self,direct):
+    def build(self,direct=False):
         """Routine to build necessary integrals"""
         self.one_electron_integrals()
         if direct:

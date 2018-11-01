@@ -1,6 +1,4 @@
-from mmd.molecule import * 
-from mmd.scf import * 
-from mmd.postscf import * 
+from mmd.molecule import Molecule
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -37,10 +35,10 @@ Z = []
 E = []
 
 # main BOMD loop
-for step in tqdm(xrange(steps)):
+for step in tqdm(range(steps)):
     # update positions
     for atom in mol.atoms:
-        for q in xrange(3):
+        for q in range(3):
             atom.origin[q] += atom.velocities[q]*dt + 0.5*dt*dt*atom.mass*atom.forces[q]
             # save forces at t before update to forces at t + dt
             atom.saved_forces[q] = atom.forces[q]
@@ -51,7 +49,7 @@ for step in tqdm(xrange(steps)):
     mol.forces()
     # update velocities
     for atom in mol.atoms:
-        for q in xrange(3):
+        for q in range(3):
             atom.velocities[q] += 0.5*dt*(atom.mass*atom.saved_forces[q] + atom.mass*atom.forces[q]) 
 
 

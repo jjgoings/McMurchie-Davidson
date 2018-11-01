@@ -32,14 +32,14 @@ rt.Magnus4(direction='z')
 m4 = rt.dipole
 
 try:
-   import matplotlib.pyplot as plt
-   plt.plot(rt.time,m2,label='Magnus2')
-   plt.plot(rt.time,m4,label='Magnus4')
-   plt.plot(rt.time,np.asarray(rt.shape)*rt.field,label='Applied field')
-   plt.legend()
-   plt.show()
+    import matplotlib.pyplot as plt
+    plt.plot(rt.time,m2,label='Magnus2')
+    plt.plot(rt.time,m4,label='Magnus4')
+    plt.plot(rt.time,np.asarray(rt.shape)*rt.field,label='Applied field')
+    plt.legend()
+    plt.show()
 except ImportError:
-   print('You need matplotlib to plot the time-evolving dipole')
+    print('You need matplotlib to plot the time-evolving dipole')
 
 
 
