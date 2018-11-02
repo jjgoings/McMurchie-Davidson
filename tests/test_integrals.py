@@ -29,18 +29,18 @@ s1   = BasisFunction([0,0,0],(0,0,0),len(Se),Se,Sc)
 p1x  = BasisFunction([0,0,0],(1,0,0),len(Pe),Pe,Pc)
 d1xx = BasisFunction([0,0,0],(2,0,0),len(De),De,Dc)
 # Atom 1 pure python
-olds1   = BasisFunction([0,0,0],(0,0,0),len(Se),Se,Sc)
-oldp1x  = BasisFunction([0,0,0],(1,0,0),len(Pe),Pe,Pc)
-oldd1xx = BasisFunction([0,0,0],(2,0,0),len(De),De,Dc)
+olds1   = oldBasisFunction([0,0,0],(0,0,0),len(Se),Se,Sc)
+oldp1x  = oldBasisFunction([0,0,0],(1,0,0),len(Pe),Pe,Pc)
+oldd1xx = oldBasisFunction([0,0,0],(2,0,0),len(De),De,Dc)
 
 # Atom 2
 s2   = BasisFunction([2,0,0],(0,0,0),len(Se),Se,Sc)
 p2x  = BasisFunction([2,0,0],(1,0,0),len(Pe),Pe,Pc)
 d2xx = BasisFunction([2,0,0],(2,0,0),len(De),De,Dc)
 # Atom 2 pure python
-olds2   = BasisFunction([2,0,0],(0,0,0),len(Se),Se,Sc)
-oldp2x  = BasisFunction([2,0,0],(1,0,0),len(Pe),Pe,Pc)
-oldd2xx = BasisFunction([2,0,0],(2,0,0),len(De),De,Dc)
+olds2   = oldBasisFunction([2,0,0],(0,0,0),len(Se),Se,Sc)
+oldp2x  = oldBasisFunction([2,0,0],(1,0,0),len(Pe),Pe,Pc)
+oldd2xx = oldBasisFunction([2,0,0],(2,0,0),len(De),De,Dc)
 
 class test_integrals(unittest.TestCase):
     def test_S(self):
