@@ -81,8 +81,8 @@ cpdef double ERIx(object a,object b,object c,object d, tuple n1 = (0,0,0), tuple
     cdef long   [:] aShell = a.shell, bShell = b.shell, cShell = c.shell, dShell = d.shell
     cdef double [:] aOrigin = a.origin, bOrigin = b.origin, cOrigin = c.origin, dOrigin = d.origin
     cdef long A = len(a.coefs), B = len(b.coefs), C = len(c.coefs), D = len(d.coefs)
-    cdef long [:] N1 = np.asarray(n1,dtype='long')
-    cdef long [:] N2 = np.asarray(n2,dtype='long')
+    cdef long [:] N1 = np.asarray(n1,dtype=np.int64)
+    cdef long [:] N2 = np.asarray(n2,dtype=np.int64)
     cdef double [:] GO = gOrigin
     for ja in range(A):
         for jb in range(B):
