@@ -7,6 +7,7 @@ from mmd.integrals.reference import ERI as oldERI
 from mmd.integrals.onee import S,T,V
 from mmd.integrals.twoe import ERI 
 from mmd.integrals.twoe import Basis as BasisFunction 
+from mmd.integrals.reference import BasisFunction as oldBasisFunction 
 
 # From Carbon 6-31G**
 # S exponents 
@@ -23,15 +24,23 @@ De = [0.8000000]
 Dc = [1.0000000]
 
 
-# Atom 1 pure python 
+# Atom 1  
 s1   = BasisFunction([0,0,0],(0,0,0),len(Se),Se,Sc)
 p1x  = BasisFunction([0,0,0],(1,0,0),len(Pe),Pe,Pc)
 d1xx = BasisFunction([0,0,0],(2,0,0),len(De),De,Dc)
+# Atom 1 pure python
+olds1   = BasisFunction([0,0,0],(0,0,0),len(Se),Se,Sc)
+oldp1x  = BasisFunction([0,0,0],(1,0,0),len(Pe),Pe,Pc)
+oldd1xx = BasisFunction([0,0,0],(2,0,0),len(De),De,Dc)
 
 # Atom 2
 s2   = BasisFunction([2,0,0],(0,0,0),len(Se),Se,Sc)
 p2x  = BasisFunction([2,0,0],(1,0,0),len(Pe),Pe,Pc)
 d2xx = BasisFunction([2,0,0],(2,0,0),len(De),De,Dc)
+# Atom 2 pure python
+olds2   = BasisFunction([2,0,0],(0,0,0),len(Se),Se,Sc)
+oldp2x  = BasisFunction([2,0,0],(1,0,0),len(Pe),Pe,Pc)
+oldd2xx = BasisFunction([2,0,0],(2,0,0),len(De),De,Dc)
 
 class test_integrals(unittest.TestCase):
     def test_S(self):
@@ -107,6 +116,19 @@ class test_integrals(unittest.TestCase):
                     for d in [s1,p1x,d2xx]:
                         self.assertAlmostEqual(ERI(a,b,c,d),oldERI(a,b,c,d))
        
+
+    def test_BasisFunction(self):
+        # testing pure python normalization is consistent 
+        assert s1.num_exps == olds1.num_exps
+        for exp in range(s1.num_exps):
+            self.assertAlmostEqual(s1.coefs[exp],olds1.coefs[exp])
+        assert p1x.num_exps == oldp1x.num_exps
+        for exp in range(p1x.num_exps):
+            self.assertAlmostEqual(p1x.coefs[exp],oldp1x.coefs[exp])
+        assert d1xx.num_exps == oldd1xx.num_exps
+        for exp in range(d1xx.num_exps):
+            self.assertAlmostEqual(d1xx.coefs[exp],oldd1xx.coefs[exp])
+        
         
         
         

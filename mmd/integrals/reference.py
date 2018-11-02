@@ -294,11 +294,3 @@ def ERI(a,b,c,d):
                                                 d.exps[jd],d.shell,d.origin)
     return eri
 
-if __name__ == '__main__':
-    myOrigin = [1.0, 2.0, 3.0]
-    myShell  = (0,0,0) # p-orbitals would be (1,0,0) or (0,1,0) or (0,0,1), etc.
-    myExps   = [3.42525091, 0.62391373, 0.16885540] 
-    myCoefs  = [0.15432897, 0.53532814, 0.44463454]
-    a = BasisFunction(origin=myOrigin,shell=myShell,exps=myExps,coefs=myCoefs)
-
-    print(S(a,a))
