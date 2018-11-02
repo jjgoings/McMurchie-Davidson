@@ -1,11 +1,12 @@
 import unittest
 import numpy as np
-from mmd.integrals.reference import BasisFunction
 from mmd.integrals.reference import S as oldS
 from mmd.integrals.reference import T as oldT
 from mmd.integrals.reference import V as oldV
+from mmd.integrals.reference import ERI as oldERI
 from mmd.integrals.onee import S,T,V
-#from mmd.integrals.twoe import Basis
+from mmd.integrals.twoe import ERI 
+from mmd.integrals.twoe import Basis as BasisFunction 
 
 # From Carbon 6-31G**
 # S exponents 
@@ -97,6 +98,15 @@ class test_integrals(unittest.TestCase):
         self.assertAlmostEqual(V(p1x,p2x,origin),oldV(p1x,p2x,origin))
         self.assertAlmostEqual(V(p1x,d2xx,origin),oldV(p1x,d2xx,origin))
         self.assertAlmostEqual(V(d1xx,d2xx,origin),oldV(d1xx,d2xx,origin))
+
+    def test_ERI(self):
+        # somewhat randomly chosen consistency test
+        for a in [s1,p2x,d1xx]:
+            for b in [s2,p2x,d1xx]:
+                for c in [s2,p1x,d2xx]:
+                    for d in [s1,p1x,d2xx]:
+                        self.assertAlmostEqual(ERI(a,b,c,d),oldERI(a,b,c,d))
+       
         
         
         
