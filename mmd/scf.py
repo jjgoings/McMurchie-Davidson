@@ -56,7 +56,7 @@ class SCF(object):
             FPS = np.dot(self.F,np.dot(self.P,self.S))
             SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
-            if np.abs(self.P_RMS) < 1e-10 or step == (self.maxiter - 1):
+            if np.abs(self.P_RMS) < tol or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
                     print("NOT CONVERGED")
                 else:

@@ -7,8 +7,8 @@ cdef class Basis:
     """ Cython extension class to define primitive Gaussian basis functions"""
     cdef:
         double *origin
-        int    *shell
-        int    num_exps
+        long    *shell
+        long    num_exps
         double *exps 
         double *coefs
         double *norm
@@ -20,13 +20,13 @@ cdef class Basis:
 
     property shell:
         def __get__(self):
-            cdef int[::1] view = <int[:3]> self.shell
+            cdef long[::1] view = <long[:3]> self.shell
             return np.asarray(view)
 
     property num_exps:
         def __get__(self):
-            cdef int view = <int> self.num_exps
-            return int(view) 
+            cdef long view = <long> self.num_exps
+            return long(view) 
 
     property exps:
         def __get__(self):
@@ -45,7 +45,7 @@ cdef class Basis:
 
     def __cinit__(self, origin, shell, num_exps, exps, coefs):
         self.origin = <double*>malloc(3 * sizeof(double))
-        self.shell  = <int*>malloc(3 * sizeof(int))
+        self.shell  = <long*>malloc(3 * sizeof(long))
         self.num_exps = num_exps
         self.exps = <double*>malloc(num_exps * sizeof(double))
         self.coefs = <double*>malloc(num_exps * sizeof(double))

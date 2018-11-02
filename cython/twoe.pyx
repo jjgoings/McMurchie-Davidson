@@ -35,7 +35,7 @@ cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, list bfs):
 @cython.wraparound(False)
 cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
     cdef double eri = 0.0
-    cdef int ja, jb, jc, jd
+    cdef long ja, jb, jc, jd
     cdef double ca, cb, cc, cd
     for ja in range(a.num_exps):
         for jb in range(b.num_exps):
@@ -53,12 +53,12 @@ cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsion(double a, int *lmn1, double *A, double b, int *lmn2, double *B,double c, int *lmn3, double *C,double d, int *lmn4, double *D) nogil:
+cdef double electron_repulsion(double a, long *lmn1, double *A, double b, long *lmn2, double *B,double c, long *lmn3, double *C,double d, long *lmn4, double *D) nogil:
     cdef:
-        int l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
-        int l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
-        int l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
-        int l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
+        long l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
+        long l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]
+        long l3 = lmn3[0], m3 = lmn3[1], n3 = lmn3[2]
+        long l4 = lmn4[0], m4 = lmn4[1], n4 = lmn4[2]
         double p = a+b
         double q = c+d
         double alpha = p*q/(p+q)
@@ -72,7 +72,7 @@ cdef double electron_repulsion(double a, int *lmn1, double *A, double b, int *lm
                            pow(Py-Qy,2) + \
                            pow(Pz-Qz,2)) 
 
-        int t,u,v,tau,nu,phi
+        long t,u,v,tau,nu,phi
         double val = 0.0
     for t in range(l1+l2+1):
         for u in range(m1+m2+1):

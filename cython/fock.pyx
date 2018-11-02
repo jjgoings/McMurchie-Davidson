@@ -10,11 +10,11 @@ from mmd.integrals.twoe import ERI
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def formPT(np.ndarray[complex, ndim=2] P, np.ndarray[complex, ndim=2] P_old, list bfs, int nbasis, dict screen, double tol):
+def formPT(np.ndarray[complex, ndim=2] P, np.ndarray[complex, ndim=2] P_old, list bfs, long nbasis, dict screen, double tol):
     """Routine to build the AO basis Fock matrix"""
     cdef:
-        int N = nbasis
-        int i,j,k,l,ij,il
+        long N = nbasis
+        long i,j,k,l,ij,il
         double s12_deg, s34_deg, s12_34_deg, s1234_deg
         double eri, bound, dmax
         #complex [:,:] G
@@ -22,7 +22,7 @@ def formPT(np.ndarray[complex, ndim=2] P, np.ndarray[complex, ndim=2] P_old, lis
     G = np.zeros((N,N),dtype='complex')
     
     cdef np.ndarray[complex, ndim=2] dP = P - P_old
-    # Comments from LibInt hartreefock++
+    # Comments from Liblong hartreefock++
     #  1) each shell set of integrals contributes up to 6 shell sets of
     #  the Fock matrix:
     #     F(a,b) += (ab|cd) * D(c,d)
