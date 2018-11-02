@@ -35,7 +35,7 @@ Z = []
 E = []
 
 # main BOMD loop
-for step in tqdm(range(steps)):
+for _ in tqdm(range(steps)):
     # update positions
     for atom in mol.atoms:
         for q in range(3):
