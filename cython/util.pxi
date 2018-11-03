@@ -10,7 +10,7 @@ cdef double pi = 3.141592653589793238462643383279
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0) nogil:
+cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double Ax = 0.0):
     p = a + b
     u = a*b/p
     if n == 0:
@@ -30,7 +30,7 @@ cdef double E(int i,int j,int t,double Qx,double a,double b, int n = 0, double A
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC) nogil:
+cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double PCz, double RPC):
     cdef double T = p*RPC*RPC
     cdef double val = 0.0
     if t == u == v == 0:
@@ -51,7 +51,7 @@ cdef double R(int t,int u,int v,int n, double p,double PCx, double PCy, double P
 
 
 @cython.cdivision(True)
-cdef double boys(double m,double T) nogil:
+cdef double boys(double m,double T):
     return hyp1f1(m+0.5,m+1.5,-T)/(2.0*m+1.0) 
 
 def gaussian_product_center(double a, A, double b, B):
