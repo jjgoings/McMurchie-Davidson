@@ -33,7 +33,7 @@ cpdef double [:,:,:,:] doERIs(long N,double [:,:,:,:] TwoE, list bfs):
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
+cpdef double ERI(Basis a, Basis b, Basis c, Basis d):
     cdef double eri = 0.0
     cdef long ja, jb, jc, jd
     cdef double ca, cb, cc, cd
@@ -53,7 +53,7 @@ cpdef double ERI(Basis a, Basis b, Basis c, Basis d) nogil:
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cdef double electron_repulsion(double a, long *lmn1, double *A, double b, long *lmn2, double *B,double c, long *lmn3, double *C,double d, long *lmn4, double *D) nogil:
+cdef double electron_repulsion(double a, long *lmn1, double *A, double b, long *lmn2, double *B,double c, long *lmn3, double *C,double d, long *lmn4, double *D):
     cdef:
         long l1 = lmn1[0], m1 = lmn1[1], n1 = lmn1[2]
         long l2 = lmn2[0], m2 = lmn2[1], n2 = lmn2[2]

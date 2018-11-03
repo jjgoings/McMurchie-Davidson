@@ -22,7 +22,7 @@ def formPT(np.ndarray[complex, ndim=2] P, np.ndarray[complex, ndim=2] P_old, lis
     G = np.zeros((N,N),dtype='complex')
     
     cdef np.ndarray[complex, ndim=2] dP = P - P_old
-    # Comments from Liblong hartreefock++
+    # Comments from LibInt hartreefock++
     #  1) each shell set of integrals contributes up to 6 shell sets of
     #  the Fock matrix:
     #     F(a,b) += (ab|cd) * D(c,d)

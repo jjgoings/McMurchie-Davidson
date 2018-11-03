@@ -26,7 +26,9 @@ setup(
           'scipy',
     ],
     long_description=open('README.md').read(),
-    ext_modules=cythonize(my_integrals),
+#   linetrace directive for cython profiling
+    ext_modules=cythonize(my_integrals,compiler_directives={'linetrace': True}),
+#    ext_modules=cythonize(my_integrals),
     include_dirs=[numpy.get_include()],
     include_package_data = True,
 )
