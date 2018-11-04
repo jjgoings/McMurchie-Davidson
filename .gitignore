@@ -9,4 +9,5 @@ dist
 *.egg-info
 coverage.xml
 .coverage
+tests/.coverage
 
