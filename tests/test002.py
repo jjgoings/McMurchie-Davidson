@@ -16,9 +16,9 @@ def test_water_sto3g():
     assert_allclose(mol.energy.real,-74.942079928192,atol=1e-12)
     ref_dipole = np.array([0.0,1.5340,0.0])
     assert_allclose(mol.mu,ref_dipole,atol=1e-4)
-    mol.forces()
-    ref_forces = np.array([[  0.000000000,  0.097441437,  0.000000000],
-                           [ -0.086300098, -0.048720718, -0.000000000],
-                           [  0.086300098, -0.048720718, -0.000000000]])
-    assert_allclose(mol._forces,ref_forces,atol=1e-12)
+#    mol.forces()
+#    ref_forces = np.array([[  0.000000000,  0.097441437,  0.000000000],
+#                           [ -0.086300098, -0.048720718, -0.000000000],
+#                           [  0.086300098, -0.048720718, -0.000000000]])
+#    assert_allclose(mol._forces,ref_forces,atol=1e-12)
 
