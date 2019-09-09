@@ -1,7 +1,7 @@
 import numpy as np
 cimport numpy as np
 from libc.stdlib cimport malloc, free
-from scipy.misc import factorial2 as fact2 
+from scipy.special import factorial2 as fact2 
 
 cdef class Basis:
     """ Cython extension class to define primitive Gaussian basis functions"""

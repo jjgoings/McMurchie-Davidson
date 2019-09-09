@@ -5,7 +5,7 @@ import numpy as np
 cimport numpy as np
 from libc.math cimport exp, pow, tgamma, sqrt, abs
 from scipy.special.cython_special cimport hyp1f1 
-from scipy.misc import factorial2 as fact2
+from scipy.special import factorial2 as fact2
 include "util.pxi"
 
 @cython.cdivision(True)
