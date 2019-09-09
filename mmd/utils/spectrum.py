@@ -30,7 +30,7 @@ def genSpectra(time,dipole,signal):
     return frequency, spectra
 
 def pade(time,dipole):
-    damp_const = 100.0
+    damp_const = 120.0
     dipole = np.asarray(dipole) - dipole[0]
       
     stepsize = time[1] - time[0]
