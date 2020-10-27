@@ -53,7 +53,6 @@ class SCF(object):
             if step > 0:
                 self.delta_energy = self.energy - energy_old
                 self.P_RMS        = np.linalg.norm(self.P - self.P_old)
-                print(self.energy,self.delta_energy,self.P_RMS)
             FPS = np.dot(self.F,np.dot(self.P,self.S))
             SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
