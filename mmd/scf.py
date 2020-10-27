@@ -6,7 +6,7 @@ from mmd.integrals.fock import formPT
 
 class SCF(object):
     """SCF methods and routines for molecule object"""
-    def RHF(self,doPrint=True,DIIS=True,direct=False,tol=1e-12):
+    def RHF(self,doPrint=True,DIIS=True,direct=False,conver=1e-8,acc2e=1e-12):
         """Routine to compute the RHF energy for a closed shell molecule"""
         self.is_converged = False
         self.delta_energy = 1e20
@@ -16,7 +16,7 @@ class SCF(object):
         self.direct = direct
         if self.direct:
             self.incFockRst = False # restart; True shuts off incr. fock build
-        self.scrTol     = tol # integral screening tolerance
+        self.scrTol     = acc2e # integral screening tolerance
         self.build(self.direct) # build integrals
 
         self.P = self.P_old
@@ -53,10 +53,11 @@ class SCF(object):
             if step > 0:
                 self.delta_energy = self.energy - energy_old
                 self.P_RMS        = np.linalg.norm(self.P - self.P_old)
+                print(self.energy,self.delta_energy,self.P_RMS)
             FPS = np.dot(self.F,np.dot(self.P,self.S))
             SPF = self.adj(FPS)
             error = np.linalg.norm(FPS - SPF)
-            if np.abs(self.P_RMS) < tol or step == (self.maxiter - 1):
+            if np.abs(self.P_RMS) < conver or step == (self.maxiter - 1):
                 if step == (self.maxiter - 1):
                     print("NOT CONVERGED")
                 else:
