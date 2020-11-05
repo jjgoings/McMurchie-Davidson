@@ -25,8 +25,8 @@ mol.RHF()
 mol.forces()
 
 # BOMD parameters
-dt = 0.1     # time step
-steps = 200  # number steps
+dt = 5     # time step
+steps = 100  # number steps
 
 # saved lists for plotting data
 X = []
@@ -39,7 +39,7 @@ for _ in tqdm(range(steps)):
     # update positions
     for atom in mol.atoms:
         for q in range(3):
-            atom.origin[q] += atom.velocities[q]*dt + 0.5*dt*dt*atom.mass*atom.forces[q]
+            atom.origin[q] += atom.velocities[q]*dt + 0.5*dt*dt*atom.forces[q]/atom.mass
             # save forces at t before update to forces at t + dt
             atom.saved_forces[q] = atom.forces[q]
     # update forces in lieu of updated nuclear positions
@@ -50,7 +50,7 @@ for _ in tqdm(range(steps)):
     # update velocities
     for atom in mol.atoms:
         for q in range(3):
-            atom.velocities[q] += 0.5*dt*(atom.mass*atom.saved_forces[q] + atom.mass*atom.forces[q]) 
+            atom.velocities[q] += 0.5*dt*(atom.saved_forces[q] + atom.forces[q])/atom.mass
 
 
     # append time-dependent positions and energies        
@@ -60,9 +60,10 @@ for _ in tqdm(range(steps)):
     E.append(mol.energy)
 
 # At completion, plot the energy as a function of time
-plt.plot(np.arange(steps)*dt,np.asarray(E))
+plt.plot(np.arange(steps)*dt*0.02418884254,np.asarray(Z)) # convert time to fs
+plt.xlabel('Time (fs)')
+plt.ylabel('Bond length (bohr)')
 plt.show()
-
 
 
 

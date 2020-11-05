@@ -222,6 +222,8 @@ class Molecule(SCF,Forces):
                 x   = float(line.split()[1])/0.52917721092
                 y   = float(line.split()[2])/0.52917721092
                 z   = float(line.split()[3])/0.52917721092
+                # Convert amu to atomic units
+                mass *= 1822.8885
                 atom = Atom(charge=sym,mass=mass,
                             origin=np.asarray([x,y,z]))
                 atomlist.append(atom)
