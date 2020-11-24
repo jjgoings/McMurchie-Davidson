@@ -12,7 +12,7 @@ H   -0.626425042    0.626425042   -0.626425042
 H   -0.626425042   -0.626425042    0.626425042
 """
 
-def test_methane_sto3g():
+def test_methane_321g():
     mol = Molecule(geometry=methane,basis='3-21G')
     mol.RHF(direct=False) # we need the two-electron integrals
     PostSCF(mol).MP2()

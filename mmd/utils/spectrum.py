@@ -9,42 +9,32 @@ import numpy as np
 def genSpectra(time,dipole,signal):
 
     fw, frequency = pade(time,dipole)
-    fw_sig, frequency = pade(time,signal)#,alternate=True)
+    fw_sig, frequency = pade(time,signal)
+    print(frequency.shape,fw.shape) 
 
     fw_re = np.real(fw)
     fw_im = np.imag(fw)
     fw_abs = fw_re**2 + fw_im**2
 
-    #spectra = (fw_re*17.32)/(np.pi*field*damp_const)
-    #spectra = (fw_re*17.32*514.220652)/(np.pi*field*damp_const)
-    #numerator = np.imag((fw*np.conjugate(fw_sig)))
-    numerator = np.imag(fw_abs*np.conjugate(fw_sig))
-    #numerator = np.abs((fw*np.conjugate(fw_sig)))
-    #numerator = np.abs(fw)
-    denominator = np.real(np.conjugate(fw_sig)*fw_sig)
-    #denominator = 1.0 
+    numerator = np.imag(fw_sig*fw)
+    denominator = (np.conj(fw_sig)*fw_sig)
     spectra = ((4.0*27.21138602*2*frequency*np.pi*(numerator))/(3.0*137.036*denominator))
-    spectra *= 1.0/100.0
-    #plt.plot(frequency*27.2114,fourier)
-    #plt.show()
+
     return frequency, spectra
 
 def pade(time,dipole):
-    damp_const = 120.0
+    damp_const = 150.0
     dipole = np.asarray(dipole) - dipole[0]
       
     stepsize = time[1] - time[0]
-    #print dipole
     damp = np.exp(-(stepsize*np.arange(len(dipole)))/float(damp_const))
     dipole *= damp
     M = len(dipole)
     N = int(np.floor(M / 2))
 
-    #print "N = ", N
     num_pts = 20000
     if N > num_pts:
         N = num_pts
-    #print "Trimmed points to: ", N
 
     # G and d are (N-1) x (N-1)
     # d[k] = -dipole[N+k] for k in range(1,N)
@@ -78,8 +68,7 @@ def pade(time,dipole):
     # If you want energies greater than 2*27.2114 eV, you'll need to change
     # the default frequency range to something greater.
 
-    #frequency = np.arange(0.00,2.0,0.00005)
-    frequency = np.arange(0.3,0.75,0.0002)
+    frequency = np.arange(0.00,2.0,0.0001)
 
     W = np.exp(-1j*frequency*stepsize)
 

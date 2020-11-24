@@ -1,3 +1,4 @@
+import numpy as np
 from mmd.molecule import Molecule 
 from mmd.realtime import RealTime
 
@@ -20,7 +21,7 @@ def envelope(t):
     return gaussian
 
 # create realtime object, setting parameters and pulse envelopes
-rt = RealTime(mol,numsteps=100,stepsize=0.2,field=0.0001,pulse=None)
+rt = RealTime(mol,numsteps=100,stepsize=0.2,field=0.0001,pulse=envelope)
 
 # propagate with Magnus2
 rt.Magnus2(direction='z')
