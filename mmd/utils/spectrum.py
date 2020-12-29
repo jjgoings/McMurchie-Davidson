@@ -10,20 +10,18 @@ def genSpectra(time,dipole,signal):
 
     fw, frequency = pade(time,dipole)
     fw_sig, frequency = pade(time,signal)
-    print(frequency.shape,fw.shape) 
 
     fw_re = np.real(fw)
     fw_im = np.imag(fw)
-    fw_abs = fw_re**2 + fw_im**2
 
-    numerator = np.imag(fw_sig*fw)
-    denominator = (np.conj(fw_sig)*fw_sig)
+    numerator = np.imag(fw)
+    denominator = np.abs(fw_sig)
     spectra = ((4.0*27.21138602*2*frequency*np.pi*(numerator))/(3.0*137.036*denominator))
 
     return frequency, spectra
 
 def pade(time,dipole):
-    damp_const = 150.0
+    damp_const = 50.0
     dipole = np.asarray(dipole) - dipole[0]
       
     stepsize = time[1] - time[0]

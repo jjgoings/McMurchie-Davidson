@@ -176,11 +176,11 @@ class RealTime(object):
         shape = self.pulse(time) 
 
         if direction.lower() == 'x':
-            self.mol.F -= self.field*shape*(self.mol.M[0])
+            self.mol.F += self.field*shape*(self.mol.M[0])
         elif direction.lower() == 'y':
-            self.mol.F -= self.field*shape*(self.mol.M[1])
+            self.mol.F += self.field*shape*(self.mol.M[1])
         elif direction.lower() == 'z':
-            self.mol.F -= self.field*shape*(self.mol.M[2])
+            self.mol.F += self.field*shape*(self.mol.M[2])
         self.mol.orthoFock()
 
 
