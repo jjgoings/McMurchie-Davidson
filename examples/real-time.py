@@ -36,7 +36,7 @@ try:
     fig, ax1 = plt.subplots()
     ax1.plot(rt.time,m2,label='Magnus2',color='tab:blue')
     ax1.plot(rt.time,m4,label='Magnus4',color='tab:green')
-    ax1.set_ylabel('z-dipole / au',color='tab:blue')
+    ax1.set_ylabel('z-dipole / Debye',color='tab:blue')
     ax1.tick_params(axis='y',labelcolor='tab:blue')
     ax1.set_xlabel('Time / au')
     ax1.legend(loc=1)
@@ -57,8 +57,6 @@ try:
     plt.xlabel('Energy / eV')
     plt.ylabel('$\sigma(\omega)$ / arb. units')
     plt.show()
-
-
 
 except ImportError:
     print('You need matplotlib to plot the time-evolving dipole')
