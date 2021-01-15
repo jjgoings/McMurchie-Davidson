@@ -22,8 +22,8 @@ def n_excitations(det1,det2,Nint):
           bin(det1[0,1] ^ det2[0,1]).count('1')
   
     for l in range(1,Nint):
-        exc = bin(det1[l,0] ^ det2[l,0]).count('1') +\
-              bin(det1[l,1] ^ det2[l,1]).count('1')
+        exc += bin(det1[l,0] ^ det2[l,0]).count('1') +\
+               bin(det1[l,1] ^ det2[l,1]).count('1')
 
     exc = exc >> 1 # right bitshift by 1 == divide by 2
 
