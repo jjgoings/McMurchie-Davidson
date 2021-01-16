@@ -30,4 +30,6 @@ test013.py : Test integrals S,T,V and ERI for subcases
 test014.py : METHANE 3-21G RMP2
 
 test015.py : Simple tests for Slater-Condon rules
+
+test016.py : Test MP2 in spatial and spin orbital (checks if integral tx OK)
 ```
