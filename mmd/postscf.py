@@ -3,6 +3,7 @@ from __future__ import print_function
 import numpy as np
 import sys
 import itertools
+from bitstring import BitArray
 from mmd.slater import *
 
 class PostSCF(object):
@@ -27,6 +28,9 @@ class PostSCF(object):
 
         # TODO: Make this tx more elegant?
         # tile spin to make spin orbitals from spatial (twice dimension)
+
+        self.mol.norb = self.mol.nbasis * 2 # spin orbital
+
         self.mol.double_bar = np.zeros([2*idx for idx in self.mol.single_bar.shape])
         for p in range(self.mol.double_bar.shape[0]):
             for q in range(self.mol.double_bar.shape[1]):
@@ -43,15 +47,14 @@ class PostSCF(object):
         # create fs, the spin basis fock matrix eigenvalues 
         self.mol.fs = np.kron(np.diag(self.mol.MO),spin)
 
-
     
     def MP2(self,spin_orbital=False):
         """Routine to compute MP2 energy from RHF reference"""
         if spin_orbital:
             # Use spin orbitals from RHF reference
             EMP2 = 0.0
-            occupied = range(2*self.mol.nocc)
-            virtual  = range(2*self.mol.nocc,2*self.mol.nbasis)
+            occupied = range(self.mol.nelec)
+            virtual  = range(self.mol.nelec,self.mol.norb)
             for i,j,a,b in itertools.product(occupied,occupied,virtual,virtual): 
                 denom = self.mol.fs[i,i] + self.mol.fs[j,j] \
                       - self.mol.fs[a,a] - self.mol.fs[b,b]
@@ -75,11 +78,37 @@ class PostSCF(object):
 
         print('E(MP2) = ', self.mol.emp2.real) 
 
+    @staticmethod
+    def tuple2bitstring(bit_tuple):
+        ''' From tuple of occupied orbitals, return bitstring representation '''
+        string = ['0']*(max(bit_tuple) + 1)
+        for i in bit_tuple:
+            string[i] = '1'
+        string = ''.join(string[::-1])
+        return BitArray(bin=string)
    
 
     def FCI(self):
         """Routine to compute FCI energy from RHF reference"""
 
+        nEle = self.mol.nelec
+        nOrb = self.mol.norb
+        det_list = []
+         
+        # FIXME: limited to 64 orbitals at the moment 
+        for occlist in itertools.combinations(range(nOrb), nEle):
+            string = PostSCF.tuple2bitstring(occlist)
+            det = np.array([string.uint])
+            det_list.append(det)
 
-        print("The End")
+        Nint = int(np.floor(nOrb/64) + 1)
+        H = np.zeros((len(det_list),len(det_list)))
+        for idx,det1 in enumerate(det_list):
+            for jdx,det2 in enumerate(det_list):
+               exc, degree, phase = get_excitation(det1,det2,Nint)
+               H[idx,jdx] = phase
+
+        print(H)
+
+        print("FCI Done")
 
