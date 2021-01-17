@@ -16,7 +16,3 @@ mol.RHF()
 
 # do MP2
 PostSCF(mol).MP2()
-
-
-
-

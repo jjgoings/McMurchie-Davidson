@@ -24,6 +24,7 @@ setup(
           'cython',
           'numpy',
           'scipy',
+          'bitstring',
     ],
     long_description=open('README.md').read(),
 #   linetrace directive for cython profiling
