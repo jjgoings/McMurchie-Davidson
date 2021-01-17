@@ -5,6 +5,7 @@ import sys
 import itertools
 from bitstring import BitArray
 from mmd.slater import *
+from scipy.special import comb
 
 class PostSCF(object):
     """Class for post-scf routines"""
@@ -94,6 +95,11 @@ class PostSCF(object):
         nEle = self.mol.nelec
         nOrb = self.mol.norb
         det_list = []
+ 
+        if comb(nEle,nOrb) > 5000:
+            print("Number determinants: ",comb(nEle,nOrb))
+            sys.exit("FCI too expensive. Quitting.")
+        
          
         # FIXME: limited to 64 orbitals at the moment 
         for occlist in itertools.combinations(range(nOrb), nEle):
@@ -103,12 +109,50 @@ class PostSCF(object):
 
         Nint = int(np.floor(nOrb/64) + 1)
         H = np.zeros((len(det_list),len(det_list)))
+        print("Building Hamiltonian...")
         for idx,det1 in enumerate(det_list):
-            for jdx,det2 in enumerate(det_list):
+            for jdx,det2 in enumerate(det_list[:(idx+1)]):
                exc, degree, phase = get_excitation(det1,det2,Nint)
-               H[idx,jdx] = phase
 
-        print(H)
+               if degree > 2:
+                   continue
+               elif degree == 2:
+                   # sign * <hole1,hole2||particle1,particle2>
+                   value = phase * self.mol.double_bar[exc[1,0], exc[2,0], exc[1,1], exc[2,1]] 
+               elif degree == 1:
+                   m = exc[1,0]
+                   p = exc[1,1]
+                   common = common_index(det1,det2,Nint)
+                   tmp = self.mol.Hp[m,p]
+                   for n in common:
+                       tmp += self.mol.double_bar[m, n, p, n] 
+                   value = phase * tmp
+               elif degree == 0:
+                   # kind of lazy to use common_index...
+                   common = common_index(det1,det2,Nint)
+                   tmp = 0.0
+                   for m in common:
+                       tmp += self.mol.Hp[m, m]
+                   # also lazy
+                   for m in common: 
+                       for n in common:
+                           tmp += 0.5*self.mol.double_bar[m,n,m,n]
+                              
+                   value = phase * tmp 
 
-        print("FCI Done")
+               H[idx,jdx] = value
+               H[jdx,idx] = value
+
+        print("Diagonalizing Hamiltonian...")
+        E,C = np.linalg.eigh(H)
+        self.mol.efci = E[0] + self.mol.nuc_energy
+        
+        print("\nFull Configuration Interaction")
+        print("------------------------------")
+        print("# Determinants: ",len(det_list))
+        print("SCF energy: %12.8f" % self.mol.energy.real)
+        print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
+        print("FCI energy: %12.8f" % self.mol.efci)
+
+
 
