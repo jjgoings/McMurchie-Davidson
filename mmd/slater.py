@@ -17,6 +17,20 @@ def trailz(i):
         count += 1        # increment count and repeat
     return count
 
+def common_index(det1,det2,Nint):
+    common = []
+    ishift = -64
+    for l in range(Nint):
+        tmp = det1[l] & det2[l]
+        ishift += 64
+        for n in range(63):
+            mask = 1 << n
+            idx_string = tmp & mask
+            if idx_string:
+                common.append(trailz(mask) + ishift)
+
+    return common
+
 def n_excitations(det1,det2,Nint):
 
     exc = bin(det1[0] ^ det2[0]).count('1') 
@@ -32,7 +46,7 @@ def get_excitation(det1,det2,Nint):
     degree = n_excitations(det1,det2,Nint)
     if degree > 2:
         phase = 0
-        degree = -1
+        pass
     elif degree == 2:
         exc, phase = get_double_excitation(det1,det2,Nint)
     elif degree == 1:
@@ -167,5 +181,9 @@ if __name__ == '__main__':
     assert exc[1,0] == 1
     assert exc[1,1] == 6
 
+    det1 = np.array([0b111,0b101,0b11000])
+    det2 = np.array([0b1110,0b1101,0b11000])
+    common = common_index(det1,det2,3)
+    assert set(common) == set([1,2,64,66,131,132])
 
 

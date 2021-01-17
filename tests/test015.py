@@ -35,3 +35,8 @@ def test_exc_index():
     assert exc[1,0] == 1
     assert exc[1,1] == 6
 
+def test_common_index():
+    det1 = np.array([0b111,0b101,0b11000])
+    det2 = np.array([0b1110,0b1101,0b11000])
+    common = common_index(det1,det2,3)
+    assert set(common) == set([1,2,64,66,131,132])
