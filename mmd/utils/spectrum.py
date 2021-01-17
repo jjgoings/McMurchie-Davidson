@@ -11,9 +11,6 @@ def genSpectra(time,dipole,signal):
     fw, frequency = pade(time,dipole)
     fw_sig, frequency = pade(time,signal)
 
-    fw_re = np.real(fw)
-    fw_im = np.imag(fw)
-
     numerator = np.imag(fw)
     denominator = np.abs(fw_sig)
     spectra = ((4.0*27.21138602*2*frequency*np.pi*(numerator))/(3.0*137.036*denominator))
