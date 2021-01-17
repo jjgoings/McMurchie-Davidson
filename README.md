@@ -97,7 +97,7 @@ Then we generate create the molecule (`Molecule` object) and build the integrals
 At any point you can inspect the molecule. For example, you can dump out the (full) integral arrays:
 
 ```
-print mol.S
+print(mol.S)
 ```
 
 which dumps out the overlap matrix:
