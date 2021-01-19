@@ -4,7 +4,7 @@ import numpy as np
 import sys
 import itertools
 from bitstring import BitArray
-from mmd.slater import *
+from mmd.slater import common_index, get_excitation
 from scipy.special import comb
 
 class PostSCF(object):
