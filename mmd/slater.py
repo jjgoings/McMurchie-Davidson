@@ -46,14 +46,12 @@ def get_excitation(det1,det2,Nint):
     degree = n_excitations(det1,det2,Nint)
     if degree > 2:
         phase = 0
-        pass
     elif degree == 2:
         exc, phase = get_double_excitation(det1,det2,Nint)
     elif degree == 1:
         exc, phase = get_single_excitation(det1,det2,Nint)
     elif degree == 0:
         phase = 1
-        pass 
 
     return exc, degree, phase
 
