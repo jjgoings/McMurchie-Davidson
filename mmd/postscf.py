@@ -87,7 +87,122 @@ class PostSCF(object):
             string[i] = '1'
         string = ''.join(string[::-1])
         return BitArray(bin=string)
-   
+
+
+    def hamiltonian_matrix_element(self,det1,det2,Nint):
+        """ return general Hamiltonian matrix element <det1|H|det2> """
+
+        exc, degree, phase = get_excitation(det1,det2,Nint)
+
+        if degree > 2:
+            return 0
+
+        elif degree == 2:
+            # sign * <hole1,hole2||particle1,particle2>
+            return phase * self.mol.double_bar[exc[1,0], exc[2,0], exc[1,1], exc[2,1]]
+
+        elif degree == 1:
+            m = exc[1,0]
+            p = exc[1,1]
+            common = common_index(det1,det2,Nint)
+            tmp = self.mol.Hp[m,p]
+            for n in common:
+                tmp += self.mol.double_bar[m, n, p, n]
+            return phase * tmp
+
+        elif degree == 0:
+            # kind of lazy to use common_index...
+            common = common_index(det1,det2,Nint)
+            tmp = 0.0
+            for m in common:
+                tmp += self.mol.Hp[m, m]
+            # also lazy
+            for m in common:
+                for n in common:
+                    tmp += 0.5*self.mol.double_bar[m,n,m,n]
+            return phase * tmp
+
+    def build_full_hamiltonian(self,det_list):
+        ''' Given a list of determinants, construct the full Hamiltonian matrix '''
+
+        Nint = int(np.floor(self.mol.norb/64) + 1)
+        H = np.zeros((len(det_list),len(det_list)))
+
+        print("Building Hamiltonian...")
+        for idx,det1 in enumerate(det_list):
+            for jdx,det2 in enumerate(det_list[:(idx+1)]):
+               value = self.hamiltonian_matrix_element(det1,det2,Nint)
+               H[idx,jdx] = value
+               H[jdx,idx] = value
+
+        return H
+
+    def residues(self,determinant):
+        ''' Returns list of residues, which is all possible ways to remove two
+            electrons from a given determinant with number of orbitals nOrb
+        '''
+        nOrb = self.mol.norb
+        residue_list = []
+        nonzero = bin(determinant).count('1')
+        for i in range(nOrb):
+            mask1 = (1 << i) 
+            for j in range(i):
+                mask2 = (1 << j) 
+                mask = mask1 ^ mask2
+                if bin(determinant & ~mask).count('1') == (nonzero - 2):
+                    residue_list.append(determinant & ~mask)
+        return residue_list
+    
+    def add_particles(self,residue_list):
+        ''' Returns list of determinants, which is all possible ways to add two
+            electrons from a given residue_list with number of orbitals nOrb
+        '''
+        nOrb = self.mol.norb
+        determinants = []
+        for residue in residue_list:
+            determinant = residue
+            for i in range(nOrb):
+                mask1 = (1 << i)
+                if not bool(determinant & mask1):
+                    one_particle = determinant | mask1
+                    for j in range(i):
+                        mask2 = (1 << j)
+                        if not bool(one_particle & mask2):
+                            two_particle = one_particle | mask2
+                            determinants.append(two_particle)
+        #return [format(det,'#0'+str(n_orbitals+2)+'b') for det in list(set(determinants))]
+        return list(set(determinants))
+    
+    def single_and_double_determinants(self,determinant):
+        return [np.array([i]) for i in self.add_particles(self.residues(determinant))]
+
+    def CISD(self):
+        ''' Do CISD from RHF reference '''
+
+        nEle = self.mol.nelec
+        reference_determinant = int(2**nEle - 1) # reference determinant, lowest nEle orbitals filled 
+        det_list = self.single_and_double_determinants(reference_determinant)
+
+        num_dets = len(det_list) 
+        
+        if num_dets > 5000:
+            print("Number determinants: ", num_dets)
+            sys.exit("CI too expensive. Quitting.")
+
+        H = self.build_full_hamiltonian(det_list)
+
+        print("Diagonalizing Hamiltonian...")
+        E,C = np.linalg.eigh(H)
+        self.mol.ecisd = E[0] + self.mol.nuc_energy
+        
+        print("\nConfiguration Interaction Singles and Doubles")
+        print("------------------------------")
+        print("# Determinants: ",len(det_list))
+        print("SCF energy:  %12.8f" % self.mol.energy.real)
+        print("CISD corr:   %12.8f" % (self.mol.ecisd - self.mol.energy.real))
+        print("CISD energy: %12.8f" % self.mol.ecisd)
+
+
 
     def FCI(self):
         """Routine to compute FCI energy from RHF reference"""
@@ -99,7 +214,6 @@ class PostSCF(object):
         if comb(nEle,nOrb) > 5000:
             print("Number determinants: ",comb(nEle,nOrb))
             sys.exit("FCI too expensive. Quitting.")
-        
          
         # FIXME: limited to 64 orbitals at the moment 
         for occlist in itertools.combinations(range(nOrb), nEle):
@@ -107,41 +221,7 @@ class PostSCF(object):
             det = np.array([string.uint])
             det_list.append(det)
 
-        Nint = int(np.floor(nOrb/64) + 1)
-        H = np.zeros((len(det_list),len(det_list)))
-        print("Building Hamiltonian...")
-        for idx,det1 in enumerate(det_list):
-            for jdx,det2 in enumerate(det_list[:(idx+1)]):
-               exc, degree, phase = get_excitation(det1,det2,Nint)
-
-               if degree > 2:
-                   continue
-               elif degree == 2:
-                   # sign * <hole1,hole2||particle1,particle2>
-                   value = phase * self.mol.double_bar[exc[1,0], exc[2,0], exc[1,1], exc[2,1]] 
-               elif degree == 1:
-                   m = exc[1,0]
-                   p = exc[1,1]
-                   common = common_index(det1,det2,Nint)
-                   tmp = self.mol.Hp[m,p]
-                   for n in common:
-                       tmp += self.mol.double_bar[m, n, p, n] 
-                   value = phase * tmp
-               elif degree == 0:
-                   # kind of lazy to use common_index...
-                   common = common_index(det1,det2,Nint)
-                   tmp = 0.0
-                   for m in common:
-                       tmp += self.mol.Hp[m, m]
-                   # also lazy
-                   for m in common: 
-                       for n in common:
-                           tmp += 0.5*self.mol.double_bar[m,n,m,n]
-                              
-                   value = phase * tmp 
-
-               H[idx,jdx] = value
-               H[jdx,idx] = value
+        H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
         E,C = np.linalg.eigh(H)

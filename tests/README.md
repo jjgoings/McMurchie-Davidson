@@ -34,4 +34,6 @@ test015.py : Simple tests for Slater-Condon rules
 test016.py : Test MP2 in spatial and spin orbital (checks if integral tx OK)
 
 test017.py : Test FCI for minimal basis water  
+
+test018.py : Test CISD for minimal basis water  
 ```
