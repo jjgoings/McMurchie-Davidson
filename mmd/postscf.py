@@ -2,7 +2,7 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 import sys
-import itertools
+from itertools import product, combinations
 from bitstring import BitArray
 from mmd.slater import common_index, get_excitation
 from scipy.special import comb
@@ -56,7 +56,7 @@ class PostSCF(object):
             EMP2 = 0.0
             occupied = range(self.mol.nelec)
             virtual  = range(self.mol.nelec,self.mol.norb)
-            for i,j,a,b in itertools.product(occupied,occupied,virtual,virtual): 
+            for i,j,a,b in product(occupied,occupied,virtual,virtual):
                 denom = self.mol.fs[i,i] + self.mol.fs[j,j] \
                       - self.mol.fs[a,a] - self.mol.fs[b,b]
                 numer = self.mol.double_bar[i,j,a,b]**2 
@@ -68,7 +68,7 @@ class PostSCF(object):
             EMP2 = 0.0
             occupied = range(self.mol.nocc)
             virtual  = range(self.mol.nocc,self.mol.nbasis)
-            for i,j,a,b in itertools.product(occupied,occupied,virtual,virtual): 
+            for i,j,a,b in product(occupied,occupied,virtual,virtual):
                 denom = self.mol.MO[i] + self.mol.MO[j] \
                       - self.mol.MO[a] - self.mol.MO[b]
                 numer = self.mol.single_bar[i,a,j,b] \
@@ -216,7 +216,7 @@ class PostSCF(object):
             sys.exit("FCI too expensive. Quitting.")
          
         # FIXME: limited to 64 orbitals at the moment 
-        for occlist in itertools.combinations(range(nOrb), nEle):
+        for occlist in combinations(range(nOrb), nEle):
             string = PostSCF.tuple2bitstring(occlist)
             det = np.array([string.uint])
             det_list.append(det)
@@ -233,6 +233,52 @@ class PostSCF(object):
         print("SCF energy: %12.8f" % self.mol.energy.real)
         print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
         print("FCI energy: %12.8f" % self.mol.efci)
+
+    def CIS(self):
+        """  Routine to compute CIS from RHF reference"""
+
+        nEle = self.mol.nelec
+        nOrb = self.mol.norb
+        det_list = []
+ 
+        if nEle*(nOrb-nEle) > 5000:
+            print("Number determinants: ",nEle*(nOrb-nEle))
+            sys.exit("FCI too expensive. Quitting.")
+         
+        # FIXME: limited to 64 orbitals at the moment 
+        occ = range(nEle)
+        vir = range(nEle,nOrb)
+        occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
+        occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
+        assert len(occlist_string) == nEle*(nOrb - nEle)
+        for occlist in occlist_string: 
+            string = PostSCF.tuple2bitstring(occlist)
+            det = np.array([string.uint])
+            det_list.append(det)
+
+        H = self.build_full_hamiltonian(det_list)
+
+        print("Diagonalizing Hamiltonian...")
+        E,C = np.linalg.eigh(H)
+
+        # represent as energy differences / excitation energies
+        E += - self.mol.energy.real + self.mol.nuc_energy 
+        E *= 27.211399 # to eV
+
+        self.mol.cis_omega = E
+        
+        print("\nConfiguration Interaction Singles (CIS)")
+        print("------------------------------")
+        print("# Determinants: ",len(det_list))
+        print("nOcc * nVirt:   ",nEle*((nOrb - nEle)))
+        for state in range(min(len(det_list),10)):
+            print("CIS state %2s (eV): %12.4f" % (state+1,E[state]))
+
+
+
+
+
+
 
 
 
