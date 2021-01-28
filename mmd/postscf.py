@@ -6,6 +6,7 @@ from itertools import product, combinations
 from bitstring import BitArray
 from mmd.slater import common_index, get_excitation
 from scipy.special import comb
+from scipy.linalg import sqrtm
 
 class PostSCF(object):
     """Class for post-scf routines"""
@@ -234,45 +235,131 @@ class PostSCF(object):
         print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
         print("FCI energy: %12.8f" % self.mol.efci)
 
-    def CIS(self):
-        """  Routine to compute CIS from RHF reference"""
+    def CIS(self,construction='einsum'):
+        """  Routine to compute CIS from RHF reference
+             construction: 'einsum' uses numpy.einsum to create "A" matrix
+                           'bitstring' uses arbitrary SD code to create "A" 
+                              matrix, but only works with Python >= 3.5.
+
+        """
 
         nEle = self.mol.nelec
         nOrb = self.mol.norb
-        det_list = []
+        nOV = nEle*(nOrb - nEle)
  
         if nEle*(nOrb-nEle) > 5000:
             print("Number determinants: ",nEle*(nOrb-nEle))
-            sys.exit("FCI too expensive. Quitting.")
-         
-        # FIXME: limited to 64 orbitals at the moment 
-        occ = range(nEle)
-        vir = range(nEle,nOrb)
-        occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
-        occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
-        assert len(occlist_string) == nEle*(nOrb - nEle)
-        for occlist in occlist_string: 
-            string = PostSCF.tuple2bitstring(occlist)
-            det = np.array([string.uint])
-            det_list.append(det)
+            sys.exit("CIS too expensive. Quitting.")
 
-        H = self.build_full_hamiltonian(det_list)
+        if construction == 'einsum':         
+            A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a
+            A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
+            A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
 
+            A = A.reshape(nOV,nOV)
+
+        elif construction == 'bitstring':
+            det_list = []
+            # FIXME: limited to 64 orbitals at the moment 
+            occ = range(nEle)
+            vir = range(nEle,nOrb)
+            occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
+            # FIXME: this will not work for Python < 3.5
+            occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
+            assert len(occlist_string) == nOV 
+            for occlist in occlist_string: 
+                string = PostSCF.tuple2bitstring(occlist)
+                det = np.array([string.uint])
+                det_list.append(det)
+    
+            A = self.build_full_hamiltonian(det_list)
+            # subtract reference to get true "A" matrix
+            A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
+
+ 
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(H)
+        E,C = np.linalg.eigh(A)
 
         # represent as energy differences / excitation energies
-        E += - self.mol.energy.real + self.mol.nuc_energy 
         E *= 27.211399 # to eV
 
         self.mol.cis_omega = E
         
         print("\nConfiguration Interaction Singles (CIS)")
         print("------------------------------")
-        print("# Determinants: ",len(det_list))
-        print("nOcc * nVirt:   ",nEle*((nOrb - nEle)))
-        for state in range(min(len(det_list),10)):
+        print("'A' matrix construction method: ",construction)
+        print("# Determinants: ",len(A))
+        print("nOcc * nVirt:   ",nOV)
+        for state in range(min(len(A),10)):
             print("CIS state %2s (eV): %12.4f" % (state+1,E[state]))
+
+
+    def TDHF(self,alg='hermitian'):
+        """  Routine to compute TDHF from RHF reference
+    
+             alg: 'hermitian' (does the Hermitian reduced variant, sqrt(A-B).(A+B).sqrt(A-B))
+                  'reduced' (does the non-Hermitian reduced variant, (A-B).(A+B))
+                  'full' (does the non-Hermitian [[A,B],[-B.T,-A.T]]')
+
+        """
+
+        nEle = self.mol.nelec
+        nOrb = self.mol.norb
+
+        nOV = nEle*(nOrb-nEle)
+
+        # form full A and B matrices
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a 
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+
+        B  = np.einsum('abij->iajb',self.mol.double_bar[nEle:nOrb,nEle:nOrb,:nEle,:nEle]) # + <ab||ij>
+
+        A = A.reshape(nOV,nOV)
+        B = B.reshape(nOV,nOV)
+
+        # doing Hermitian variant
+        if alg == 'hermitian':
+            sqrt_term = sqrtm(A-B) 
+            H = np.dot(sqrt_term,np.dot(A+B,sqrt_term))
+            E,C = np.linalg.eigh(H)
+            E = np.sqrt(E)
+
+        elif alg == 'reduced':
+            H = np.dot(A-B,A+B)
+            E,C = np.linalg.eig(H)
+            idx = E.argsort()
+            E = E[idx].real
+            C = C[:,idx]
+            E = np.sqrt(E)
+
+        elif alg == 'full':
+            H = np.block([[A,B],[-B.T,-A.T]])
+            E,C = np.linalg.eig(H)
+            idx = E.argsort()
+            E = E[idx].real
+            C = C[:,idx]
+            # take positive eigenvalues
+            E = E[nOV:]
+            C = C[:,nOV:]
+
+        E *= 27.211399 # to eV
+        self.mol.tdhf_omega = E
+        
+        print("\nTime-dependent Hartree-Fock (TDHF)")
+        print("------------------------------")
+        print("Algorithm:        ",alg)
+        print("Matrix shape:     ",len(H))
+        print("2 * nOcc * nVirt: ",2*nOV)
+        for state in range(min(len(A),10)):
+            print("TDHF state %2s (eV): %12.4f" % (state+1,E[state]))
+
+
+
+
+
+
+
 
 
 

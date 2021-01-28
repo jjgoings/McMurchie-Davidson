@@ -36,4 +36,8 @@ test016.py : Test MP2 in spatial and spin orbital (checks if integral tx OK)
 test017.py : Test FCI for minimal basis water  
 
 test018.py : Test CISD for minimal basis water  
+
+test019.py : Test CIS for 3-21G basis water  
+
+test020.py : Test TDHF for minimal basis water  
 ```
