@@ -235,13 +235,8 @@ class PostSCF(object):
         print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
         print("FCI energy: %12.8f" % self.mol.efci)
 
-    def CIS(self,construction='einsum'):
-        """  Routine to compute CIS from RHF reference
-             construction: 'einsum' uses numpy.einsum to create "A" matrix
-                           'bitstring' uses arbitrary SD code to create "A" 
-                              matrix, but only works with Python >= 3.5.
-
-        """
+    def CIS(self):
+        """  Routine to compute CIS from RHF reference """
 
         nEle = self.mol.nelec
         nOrb = self.mol.norb
@@ -251,30 +246,29 @@ class PostSCF(object):
             print("Number determinants: ",nEle*(nOrb-nEle))
             sys.exit("CIS too expensive. Quitting.")
 
-        if construction == 'einsum':         
-            A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a
-            A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
-            A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
 
-            A = A.reshape(nOV,nOV)
+        A = A.reshape(nOV,nOV)
 
-        elif construction == 'bitstring':
-            det_list = []
-            # FIXME: limited to 64 orbitals at the moment 
-            occ = range(nEle)
-            vir = range(nEle,nOrb)
-            occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
-            # FIXME: this will not work for Python < 3.5
-            occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
-            assert len(occlist_string) == nOV 
-            for occlist in occlist_string: 
-                string = PostSCF.tuple2bitstring(occlist)
-                det = np.array([string.uint])
-                det_list.append(det)
+        #if construction == 'bitstring':
+        #    det_list = []
+        #    # FIXME: limited to 64 orbitals at the moment 
+        #    occ = range(nEle)
+        #    vir = range(nEle,nOrb)
+        #    occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
+        #    # FIXME: this will not work for Python < 3.5
+        #    occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
+        #    assert len(occlist_string) == nOV 
+        #    for occlist in occlist_string: 
+        #        string = PostSCF.tuple2bitstring(occlist)
+        #        det = np.array([string.uint])
+        #        det_list.append(det)
     
-            A = self.build_full_hamiltonian(det_list)
-            # subtract reference to get true "A" matrix
-            A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
+        #    A = self.build_full_hamiltonian(det_list)
+        #    # subtract reference to get true "A" matrix
+        #    A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
 
  
         print("Diagonalizing Hamiltonian...")
@@ -287,7 +281,6 @@ class PostSCF(object):
         
         print("\nConfiguration Interaction Singles (CIS)")
         print("------------------------------")
-        print("'A' matrix construction method: ",construction)
         print("# Determinants: ",len(A))
         print("nOcc * nVirt:   ",nOV)
         for state in range(min(len(A),10)):
