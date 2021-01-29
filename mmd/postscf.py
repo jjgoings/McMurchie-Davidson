@@ -2,10 +2,11 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 import sys
-import itertools
+from itertools import product, combinations
 from bitstring import BitArray
 from mmd.slater import common_index, get_excitation
 from scipy.special import comb
+from scipy.linalg import sqrtm
 
 class PostSCF(object):
     """Class for post-scf routines"""
@@ -56,7 +57,7 @@ class PostSCF(object):
             EMP2 = 0.0
             occupied = range(self.mol.nelec)
             virtual  = range(self.mol.nelec,self.mol.norb)
-            for i,j,a,b in itertools.product(occupied,occupied,virtual,virtual): 
+            for i,j,a,b in product(occupied,occupied,virtual,virtual):
                 denom = self.mol.fs[i,i] + self.mol.fs[j,j] \
                       - self.mol.fs[a,a] - self.mol.fs[b,b]
                 numer = self.mol.double_bar[i,j,a,b]**2 
@@ -68,7 +69,7 @@ class PostSCF(object):
             EMP2 = 0.0
             occupied = range(self.mol.nocc)
             virtual  = range(self.mol.nocc,self.mol.nbasis)
-            for i,j,a,b in itertools.product(occupied,occupied,virtual,virtual): 
+            for i,j,a,b in product(occupied,occupied,virtual,virtual):
                 denom = self.mol.MO[i] + self.mol.MO[j] \
                       - self.mol.MO[a] - self.mol.MO[b]
                 numer = self.mol.single_bar[i,a,j,b] \
@@ -216,7 +217,7 @@ class PostSCF(object):
             sys.exit("FCI too expensive. Quitting.")
          
         # FIXME: limited to 64 orbitals at the moment 
-        for occlist in itertools.combinations(range(nOrb), nEle):
+        for occlist in combinations(range(nOrb), nEle):
             string = PostSCF.tuple2bitstring(occlist)
             det = np.array([string.uint])
             det_list.append(det)
@@ -233,6 +234,131 @@ class PostSCF(object):
         print("SCF energy: %12.8f" % self.mol.energy.real)
         print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
         print("FCI energy: %12.8f" % self.mol.efci)
+
+    def CIS(self):
+        """  Routine to compute CIS from RHF reference """
+
+        nEle = self.mol.nelec
+        nOrb = self.mol.norb
+        nOV = nEle*(nOrb - nEle)
+ 
+        if nEle*(nOrb-nEle) > 5000:
+            print("Number determinants: ",nEle*(nOrb-nEle))
+            sys.exit("CIS too expensive. Quitting.")
+
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+
+        A = A.reshape(nOV,nOV)
+
+        #if construction == 'bitstring':
+        #    det_list = []
+        #    # FIXME: limited to 64 orbitals at the moment 
+        #    occ = range(nEle)
+        #    vir = range(nEle,nOrb)
+        #    occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
+        #    # FIXME: this will not work for Python < 3.5
+        #    occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
+        #    assert len(occlist_string) == nOV 
+        #    for occlist in occlist_string: 
+        #        string = PostSCF.tuple2bitstring(occlist)
+        #        det = np.array([string.uint])
+        #        det_list.append(det)
+    
+        #    A = self.build_full_hamiltonian(det_list)
+        #    # subtract reference to get true "A" matrix
+        #    A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
+
+ 
+        print("Diagonalizing Hamiltonian...")
+        E,C = np.linalg.eigh(A)
+
+        # represent as energy differences / excitation energies
+        E *= 27.211399 # to eV
+
+        self.mol.cis_omega = E
+        
+        print("\nConfiguration Interaction Singles (CIS)")
+        print("------------------------------")
+        print("# Determinants: ",len(A))
+        print("nOcc * nVirt:   ",nOV)
+        for state in range(min(len(A),10)):
+            print("CIS state %2s (eV): %12.4f" % (state+1,E[state]))
+
+
+    def TDHF(self,alg='hermitian'):
+        """  Routine to compute TDHF from RHF reference
+    
+             alg: 'hermitian' (does the Hermitian reduced variant, sqrt(A-B).(A+B).sqrt(A-B))
+                  'reduced' (does the non-Hermitian reduced variant, (A-B).(A+B))
+                  'full' (does the non-Hermitian [[A,B],[-B.T,-A.T]]')
+
+        """
+
+        nEle = self.mol.nelec
+        nOrb = self.mol.norb
+
+        nOV = nEle*(nOrb-nEle)
+
+        # form full A and B matrices
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a 
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+
+        B  = np.einsum('abij->iajb',self.mol.double_bar[nEle:nOrb,nEle:nOrb,:nEle,:nEle]) # + <ab||ij>
+
+        A = A.reshape(nOV,nOV)
+        B = B.reshape(nOV,nOV)
+
+        # doing Hermitian variant
+        if alg == 'hermitian':
+            sqrt_term = sqrtm(A-B) 
+            H = np.dot(sqrt_term,np.dot(A+B,sqrt_term))
+            E,C = np.linalg.eigh(H)
+            E = np.sqrt(E)
+
+        elif alg == 'reduced':
+            H = np.dot(A-B,A+B)
+            E,C = np.linalg.eig(H)
+            idx = E.argsort()
+            E = E[idx].real
+            C = C[:,idx]
+            E = np.sqrt(E)
+
+        elif alg == 'full':
+            H = np.block([[A,B],[-B.T,-A.T]])
+            E,C = np.linalg.eig(H)
+            idx = E.argsort()
+            E = E[idx].real
+            C = C[:,idx]
+            # take positive eigenvalues
+            E = E[nOV:]
+            C = C[:,nOV:]
+
+        E *= 27.211399 # to eV
+        self.mol.tdhf_omega = E
+        
+        print("\nTime-dependent Hartree-Fock (TDHF)")
+        print("------------------------------")
+        print("Algorithm:        ",alg)
+        print("Matrix shape:     ",len(H))
+        print("2 * nOcc * nVirt: ",2*nOV)
+        for state in range(min(len(A),10)):
+            print("TDHF state %2s (eV): %12.4f" % (state+1,E[state]))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

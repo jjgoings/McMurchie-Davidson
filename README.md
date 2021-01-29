@@ -16,17 +16,17 @@ thinking about reorganizing so as to make it easy to add functionality in the
 future.
 
 ## Installation
-Installation should be simple, just
+Installation should be simple. For a local install, just
 
 ```
-python setup.py build_ext --inplace
+python setup.py build_ext --inplace install --user
 ```
 
 ### Dependencies
-You'll need `numpy`, `scipy`, and `cython` (for the integrals). The install script should yell at you if you don't have the requisite dependencies. You can install them all at once if you have `pip`:
+You'll need `numpy`, `scipy`, and `cython` (for the integrals). Some post-SCF functionality requires `bitstring`, in order to handle the bitstring/integer representations for Slater determinants and to allow for the evaluation of Slater-Condon rules between arbitrary determinants. The install script should yell at you if you don't have the requisite dependencies. You can install them all at once if you have `pip`:
 
 ```
-pip install numpy scipy cython
+pip install numpy scipy cython bitstring
 ```
 
 ### Testing
@@ -122,4 +122,4 @@ mp2.MP2()
 ```
 
 ## Examples
-In the `examples` folder you can find some different scripts for setting up more complex jobs. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. There is also some real-time code that allows you to craft an arbitrary pulse sequence, in the example `pulses.py`. Feel free to try them out.
+In the `examples` folder you can find some different scripts for setting up more complex jobs. For example, there is a simple script that does Born-Oppenheimer molecular dynamics on minimal basis hydrogen, aptly titled `bomd.py`. There are some real-time electronic dynamics in `real-time.py`. It's a good idea to check out the `tests` folder. In particular, `tests/README.md` contains an index to the different tests used, which gives some insight into the current functionality. 
