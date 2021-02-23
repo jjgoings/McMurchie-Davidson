@@ -22,7 +22,7 @@ def test_mp2_spinorbital():
     emp2_spin = mol.emp2.real
    
     # consistency check 
-    assert emp2_spatial == emp2_spin
+    assert np.allclose(emp2_spatial,emp2_spin)
     
     # G16 reference SCF energy
     assert np.allclose(-5.29648041091,mol.energy.real)
