@@ -5,6 +5,7 @@ import sys
 from itertools import product, combinations
 from bitstring import BitArray
 from mmd.slater import common_index, get_excitation
+from mmd.utils.davidson import davidson
 from scipy.special import comb
 from scipy.linalg import sqrtm, lu
 
@@ -191,7 +192,8 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(H)
+        #E,C = np.linalg.eigh(H)
+        E,C = davidson(H,3)
         self.mol.ecisd = E[0] + self.mol.nuc_energy
         
         print("\nConfiguration Interaction Singles and Doubles")
@@ -223,7 +225,8 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(H)
+        #E,C = np.linalg.eigh(H)
+        E,C = davidson(H,3)
         self.mol.efci = E[0] + self.mol.nuc_energy
         
         print("\nFull Configuration Interaction")
