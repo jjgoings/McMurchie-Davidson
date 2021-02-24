@@ -193,7 +193,7 @@ class PostSCF(object):
 
         print("Diagonalizing Hamiltonian...")
         #E,C = np.linalg.eigh(H)
-        E,C = davidson(H,5)
+        E,C = davidson(H,3)
         self.mol.ecisd = E[0] + self.mol.nuc_energy
         
         print("\nConfiguration Interaction Singles and Doubles")
@@ -226,7 +226,7 @@ class PostSCF(object):
 
         print("Diagonalizing Hamiltonian...")
         #E,C = np.linalg.eigh(H)
-        E,C = davidson(H,5)
+        E,C = davidson(H,3)
         self.mol.efci = E[0] + self.mol.nuc_energy
         
         print("\nFull Configuration Interaction")
