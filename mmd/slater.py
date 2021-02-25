@@ -179,9 +179,14 @@ if __name__ == '__main__':
     assert exc[1,0] == 1
     assert exc[1,1] == 6
 
-    det1 = np.array([0b111,0b101,0b11000])
-    det2 = np.array([0b1110,0b1101,0b11000])
+    det1 = np.array([0b111,0b1011,0b1110000])
+    det2 = np.array([0b11001,0b1011,0b00111])
     common = common_index(det1,det2,3)
-    assert set(common) == set([1,2,64,66,131,132])
+    assert set(common) == set([0,64,65,67])
+
+    d1 = np.array([1,1,1])
+    d2 = np.array([1,2,2])
+    exc, degree, phase = get_excitation(d1,d2,3)
+#    print(exc,degree,phase)
 
 

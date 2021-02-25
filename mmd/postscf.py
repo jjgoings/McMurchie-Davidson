@@ -5,8 +5,9 @@ import sys
 from itertools import product, combinations
 from bitstring import BitArray
 from mmd.slater import common_index, get_excitation
+from mmd.utils.davidson import davidson
 from scipy.special import comb
-from scipy.linalg import sqrtm
+from scipy.linalg import sqrtm, lu
 
 class PostSCF(object):
     """Class for post-scf routines"""
@@ -117,8 +118,6 @@ class PostSCF(object):
             tmp = 0.0
             for m in common:
                 tmp += self.mol.Hp[m, m]
-            # also lazy
-            for m in common:
                 for n in common:
                     tmp += 0.5*self.mol.double_bar[m,n,m,n]
             return phase * tmp
@@ -193,7 +192,8 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(H)
+        #E,C = np.linalg.eigh(H)
+        E,C = davidson(H,3)
         self.mol.ecisd = E[0] + self.mol.nuc_energy
         
         print("\nConfiguration Interaction Singles and Doubles")
@@ -225,7 +225,8 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(H)
+        #E,C = np.linalg.eigh(H)
+        E,C = davidson(H,3)
         self.mol.efci = E[0] + self.mol.nuc_energy
         
         print("\nFull Configuration Interaction")
@@ -238,17 +239,19 @@ class PostSCF(object):
     def CIS(self):
         """  Routine to compute CIS from RHF reference """
 
-        nEle = self.mol.nelec
-        nOrb = self.mol.norb
-        nOV = nEle*(nOrb - nEle)
+        nOcc = self.mol.nelec
+        nVir = self.mol.norb - self.mol.nelec
+        nOV = nOcc * nVir 
+        occ = slice(nOcc)
+        vir = slice(nOcc,self.mol.norb)
  
-        if nEle*(nOrb-nEle) > 5000:
-            print("Number determinants: ",nEle*(nOrb-nEle))
+        if nOV > 5000:
+            print("Number determinants: ",nOV)
             sys.exit("CIS too expensive. Quitting.")
 
-        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a
-        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
-        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[vir]),np.diag(np.ones(nOcc))) # + e_a
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[occ]),np.diag(np.ones(nVir))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[vir,occ,occ,vir]) # + <aj||ib>
 
         A = A.reshape(nOV,nOV)
 
@@ -272,19 +275,36 @@ class PostSCF(object):
 
  
         print("Diagonalizing Hamiltonian...")
-        E,C = np.linalg.eigh(A)
+        transition_energies, transition_densities = np.linalg.eigh(A)
+
+        # MO tx dipole integrals
+        spin = np.eye(2)
+        mo_basis_dipoles = np.kron(np.einsum('uj,vi,...uv', \
+                self.mol.C, self.mol.C, \
+                self.mol.M).real,spin)
+     
+        oscillator_strengths = np.zeros_like(transition_energies) 
+        for state in range(len(transition_energies)):
+            transition_density = transition_densities[:,state]
+            transition_dipoles = np.einsum('ia,pia->p', \
+                transition_density.reshape(nOcc,nVir), \
+                mo_basis_dipoles[:,occ,vir])
+            sum_sq_td = np.einsum('p,p',transition_dipoles,transition_dipoles)
+            oscillator_strengths[state] = (2/3)*transition_energies[state]*sum_sq_td
+ 
 
         # represent as energy differences / excitation energies
-        E *= 27.211399 # to eV
+        transition_energies *= 27.211399 # to eV
 
-        self.mol.cis_omega = E
+        self.mol.cis_omega = transition_energies
+        self.mol.cis_oscil = oscillator_strengths
         
         print("\nConfiguration Interaction Singles (CIS)")
         print("------------------------------")
         print("# Determinants: ",len(A))
         print("nOcc * nVirt:   ",nOV)
-        for state in range(min(len(A),10)):
-            print("CIS state %2s (eV): %12.4f" % (state+1,E[state]))
+        for state in range(min(len(A),30)):
+            print("CIS state %2s (eV): %12.4f (f=%6.4f)" % (state+1,self.mol.cis_omega[state],self.mol.cis_oscil[state]))
 
 
     def TDHF(self,alg='hermitian'):
@@ -296,17 +316,18 @@ class PostSCF(object):
 
         """
 
-        nEle = self.mol.nelec
-        nOrb = self.mol.norb
-
-        nOV = nEle*(nOrb-nEle)
+        nOcc = self.mol.nelec
+        nVir = self.mol.norb - self.mol.nelec
+        nOV = nOcc * nVir 
+        occ = slice(nOcc)
+        vir = slice(nOcc,self.mol.norb)
 
         # form full A and B matrices
-        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[nEle:nOrb]),np.diag(np.ones(nEle))) # + e_a 
-        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[:nEle]),np.diag(np.ones(nOrb-nEle))) # - e_i
-        A += np.einsum('ajib->iajb',self.mol.double_bar[nEle:nOrb,:nEle,:nEle,nEle:nOrb]) # + <aj||ib>
+        A  = np.einsum('ab,ij->iajb',np.diag(np.diag(self.mol.fs)[vir]),np.diag(np.ones(nOcc))) # + e_a 
+        A -= np.einsum('ij,ab->iajb',np.diag(np.diag(self.mol.fs)[occ]),np.diag(np.ones(nVir))) # - e_i
+        A += np.einsum('ajib->iajb',self.mol.double_bar[vir,occ,occ,vir]) # + <aj||ib>
 
-        B  = np.einsum('abij->iajb',self.mol.double_bar[nEle:nOrb,nEle:nOrb,:nEle,:nEle]) # + <ab||ij>
+        B  = np.einsum('abij->iajb',self.mol.double_bar[vir,vir,occ,occ]) # + <ab||ij>
 
         A = A.reshape(nOV,nOV)
         B = B.reshape(nOV,nOV)
@@ -315,29 +336,27 @@ class PostSCF(object):
         if alg == 'hermitian':
             sqrt_term = sqrtm(A-B) 
             H = np.dot(sqrt_term,np.dot(A+B,sqrt_term))
-            E,C = np.linalg.eigh(H)
-            E = np.sqrt(E)
+            transition_energies,transition_densities = np.linalg.eigh(H)
+            transition_energies = np.sqrt(transition_energies)
 
         elif alg == 'reduced':
             H = np.dot(A-B,A+B)
-            E,C = np.linalg.eig(H)
-            idx = E.argsort()
-            E = E[idx].real
-            C = C[:,idx]
-            E = np.sqrt(E)
+            transition_energies,transition_densities = np.linalg.eig(H)
+            transition_energies = np.sqrt(transition_energies)
+            idx = transition_energies.argsort()
+            transition_energies = transition_energies[idx].real
 
         elif alg == 'full':
             H = np.block([[A,B],[-B.T,-A.T]])
-            E,C = np.linalg.eig(H)
-            idx = E.argsort()
-            E = E[idx].real
-            C = C[:,idx]
+            transition_energies,transition_densities = np.linalg.eig(H)
+            idx = transition_energies.argsort()
+            transition_energies = transition_energies[idx].real
+            transition_densities = transition_densities[:,idx]
             # take positive eigenvalues
-            E = E[nOV:]
-            C = C[:,nOV:]
+            transition_energies = transition_energies[nOV:]
 
-        E *= 27.211399 # to eV
-        self.mol.tdhf_omega = E
+        transition_energies *= 27.211399 # to eV
+        self.mol.tdhf_omega = transition_energies
         
         print("\nTime-dependent Hartree-Fock (TDHF)")
         print("------------------------------")
@@ -345,9 +364,7 @@ class PostSCF(object):
         print("Matrix shape:     ",len(H))
         print("2 * nOcc * nVirt: ",2*nOV)
         for state in range(min(len(A),10)):
-            print("TDHF state %2s (eV): %12.4f" % (state+1,E[state]))
-
-
+            print("TDHF state %2s (eV): %12.4f" % (state+1,self.mol.tdhf_omega[state]))
 
 
 
