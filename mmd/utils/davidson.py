@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 
 def davidson(A,roots,tol=1e-8):
 
