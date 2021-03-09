@@ -351,7 +351,6 @@ class PostSCF(object):
             transition_energies,transition_densities = np.linalg.eig(H)
             idx = transition_energies.argsort()
             transition_energies = transition_energies[idx].real
-            transition_densities = transition_densities[:,idx]
             # take positive eigenvalues
             transition_energies = transition_energies[nOV:]
 
