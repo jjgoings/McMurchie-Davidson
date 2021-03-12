@@ -212,8 +212,8 @@ class PostSCF(object):
         nOrb = self.mol.norb
         det_list = []
  
-        if comb(nEle,nOrb) > 5000:
-            print("Number determinants: ",comb(nEle,nOrb))
+        if comb(nOrb,nEle) > 5000:
+            print("Number determinants: ",comb(nOrb,nEle))
             sys.exit("FCI too expensive. Quitting.")
          
         # FIXME: limited to 64 orbitals at the moment 
