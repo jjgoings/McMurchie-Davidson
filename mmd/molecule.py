@@ -1,4 +1,6 @@
 from __future__ import division
+import sys
+import os
 import numpy as np
 from mmd.integrals.onee import S,T,Mu,V,RxDel
 from mmd.integrals.twoe import doERIs, ERI
@@ -289,5 +291,30 @@ class Molecule(SCF,Forces):
         self.TwoE = np.zeros((N,N,N,N))  
         self.TwoE = doERIs(N,self.TwoE,self.bfs)
         self.TwoE = np.asarray(self.TwoE)
+
+    def save_integrals(self,folder=None):
+        """Routine to save integrals for SCF in Crawford group format"""
+        if folder is None:
+            sys.exit('Please provide a folder to save the integrals.')
+        else:
+            if not self.is_built:
+                self.build()
+            os.makedirs(folder,exist_ok=True) # careful! will overwrite. 
+            
+            np.savetxt(folder + '/enuc.dat',self.nuc_energy.reshape(1,))
+            np.savetxt(folder + '/nbf.dat',np.asarray(self.nbasis,dtype=int).reshape(1,),fmt='%d')
+            np.savetxt(folder + '/nelec.dat',np.asarray(self.nelec,dtype=int).reshape(1,),fmt='%d')
+            np.savetxt(folder + '/s.dat',self.S)
+            np.savetxt(folder + '/t.dat',self.T)
+            np.savetxt(folder + '/v.dat',self.V)
+            with open(folder + '/eri.dat','w') as f:
+                for i,j,k,l in itertools.product(range(self.nbasis),range(self.nbasis),range(self.nbasis),range(self.nbasis)):
+                    print(i+1,j+1,k+1,l+1,self.TwoE[i,j,k,l],file=f)
+       
+            
+            
+
+        
+            
 
 

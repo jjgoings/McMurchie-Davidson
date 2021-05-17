@@ -10,4 +10,4 @@ dist
 coverage.xml
 .coverage
 tests/.coverage
-
+.DS_Store
