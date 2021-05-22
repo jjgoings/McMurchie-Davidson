@@ -40,4 +40,6 @@ test018.py : Test CISD for minimal basis water
 test019.py : Test CIS for 3-21G basis water  
 
 test020.py : Test TDHF for minimal basis water  
+
+test021.py : Test standalone Davidson iterative diagonalizer
 ```
