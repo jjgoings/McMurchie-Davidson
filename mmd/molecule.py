@@ -35,6 +35,7 @@ class Molecule(SCF,Forces):
         self.nelec = sum([atom.charge for atom in atomlist]) - charge 
         self.nocc  = self.nelec//2
         self.is_built = False
+        self.geometry_input = geometry
         
         # Read in basis set data
         import os
@@ -300,8 +301,8 @@ class Molecule(SCF,Forces):
             if not self.is_built:
                 self.build()
             os.makedirs(folder,exist_ok=True) # careful! will overwrite. 
-            
-            np.savetxt(folder + '/enuc.dat',self.nuc_energy.reshape(1,))
+
+            np.savetxt(folder + '/enuc.dat',np.asarray(self.nuc_energy).reshape(1,))
             np.savetxt(folder + '/nbf.dat',np.asarray(self.nbasis,dtype=int).reshape(1,),fmt='%d')
             np.savetxt(folder + '/nelec.dat',np.asarray(self.nelec,dtype=int).reshape(1,),fmt='%d')
             np.savetxt(folder + '/s.dat',self.S)
@@ -310,6 +311,9 @@ class Molecule(SCF,Forces):
             with open(folder + '/eri.dat','w') as f:
                 for i,j,k,l in itertools.product(range(self.nbasis),range(self.nbasis),range(self.nbasis),range(self.nbasis)):
                     print(i+1,j+1,k+1,l+1,self.TwoE[i,j,k,l],file=f)
+
+            with open(folder + '/geometry.txt','w') as f:
+                print(self.geometry_input,file=f)
        
             
             

@@ -20,6 +20,7 @@ setup(
     packages=find_packages(),
     package_data = {'mmd' : ['mmd/basis']},
     license='BSD-3',
+    python_requires=">=3.4",
     install_requires=[
           'cython',
           'numpy',
