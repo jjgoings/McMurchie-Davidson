@@ -38,7 +38,6 @@ class Molecule(SCF,Forces):
         self.geometry_input = geometry
         
         # Read in basis set data
-        import os
         cur_dir = os.path.dirname(__file__)
         basis_path = 'basis/'+str(basis).lower()+'.gbs'
         basis_file = os.path.join(cur_dir, basis_path)
