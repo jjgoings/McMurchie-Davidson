@@ -1,6 +1,7 @@
 from __future__ import division
 from __future__ import print_function
 import numpy as np
+import scipy
 import sys
 from itertools import product, combinations
 from bitstring import BitArray
@@ -192,7 +193,7 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        #E,C = np.linalg.eigh(H)
+        #E,C = scipy.linalg.eigh(H)
         E,C = davidson(H,3)
         self.mol.ecisd = E[0] + self.mol.nuc_energy
         
@@ -225,7 +226,7 @@ class PostSCF(object):
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        #E,C = np.linalg.eigh(H)
+        #E,C = scipy.linalg.eigh(H)
         E,C = davidson(H,3)
         self.mol.efci = E[0] + self.mol.nuc_energy
         
@@ -275,7 +276,7 @@ class PostSCF(object):
 
  
         print("Diagonalizing Hamiltonian...")
-        transition_energies, transition_densities = np.linalg.eigh(A)
+        transition_energies, transition_densities = scipy.linalg.eigh(A)
 
         # MO tx dipole integrals
         spin = np.eye(2)
@@ -336,7 +337,7 @@ class PostSCF(object):
         if alg == 'hermitian':
             sqrt_term = sqrtm(A-B) 
             H = np.dot(sqrt_term,np.dot(A+B,sqrt_term))
-            transition_energies,transition_densities = np.linalg.eigh(H)
+            transition_energies,transition_densities = scipy.linalg.eigh(H)
             transition_energies = np.sqrt(transition_energies)
 
         elif alg == 'reduced':

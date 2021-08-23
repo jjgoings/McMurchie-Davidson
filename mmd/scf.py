@@ -1,6 +1,7 @@
 from __future__ import division
 from __future__ import print_function
 import numpy as np
+import scipy
 from numpy.linalg import multi_dot as dot
 from mmd.integrals.fock import formPT
 
@@ -42,8 +43,9 @@ class SCF(object):
                     self.FO = np.dot(self.X.T,np.dot(F_diis,self.X)) 
             if not DIIS or step == 0:
                 self.orthoFock()
-            E,self.CO   = np.linalg.eigh(self.FO)
-    
+
+            E,self.CO   = scipy.linalg.eigh(self.FO)
+
             C      = np.dot(self.X,self.CO)
             self.C      = np.dot(self.X,self.CO)
             self.MO     = E

@@ -1,4 +1,5 @@
 import numpy as np
+import scipy
 
 def davidson(A,roots,tol=1e-8):
 
@@ -12,7 +13,7 @@ def davidson(A,roots,tol=1e-8):
         S = np.dot(V.T,np.dot(A,V))
  
         # diag subspace
-        E,C = np.linalg.eigh(S) # note already ordered if using eigh
+        E,C = scipy.linalg.eigh(S) # note already ordered if using eigh
         E,C = E[:roots], C[:,:roots]
          
         # get current approx. eigenvectors
