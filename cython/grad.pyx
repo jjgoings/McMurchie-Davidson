@@ -279,7 +279,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
             val = 0.0
             for t in range(l1+l2+1+r1x):
                 for u in range(m1+m2+1+r1y):
-                    for v in range(n1+n2+1+r1z+1):
+                    for v in range(n1+n2+1+r1z):
                         for tau in range(l3+l4+1+r2x):
                             for nu in range(m3+m4+1+r2y):
                                 for phi in range(n3+n4+1+r2z+1):
@@ -332,7 +332,7 @@ cdef double electron_repulsionX(double a, long [:] lmn1, double [:] A, double b,
             val = 0.0
             for t in range(l1+l2+1+r1x):
                 for u in range(m1+m2+1+r1y):
-                    for v in range(n1+n2+1+r1z+1):
+                    for v in range(n1+n2+1+r1z):
                         for tau in range(l3+l4+1+r2x):
                             for nu in range(m3+m4+1+r2y):
                                 for phi in range(n3+n4+1+r2z+1):
