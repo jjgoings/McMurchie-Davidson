@@ -20,33 +20,22 @@ class PostSCF(object):
 
     def ao2mo(self):
         """Routine to convert AO integrals to MO integrals"""
-        self.mol.single_bar = np.einsum('mp,mnlz->pnlz',
-                                        self.mol.C,self.mol.TwoE)
-        temp = np.einsum('nq,pnlz->pqlz',
-                         self.mol.C,self.mol.single_bar)
-        self.mol.single_bar = np.einsum('lr,pqlz->pqrz',
-                                        self.mol.C,temp)
-        temp = np.einsum('zs,pqrz->pqrs',
-                         self.mol.C,self.mol.single_bar)
-        self.mol.single_bar = temp
+        
+        #2-electron integrals to molecular basis
+        C = self.mol.C
+        self.mol.single_bar = np.einsum('pQRS,pP->PQRS', np.einsum('pqRS,qQ->pQRS', np.einsum('pqrS,rR->pqRS', np.einsum('pqrs,sS->pqrS',  
+                                         self.mol.TwoE, C, optimize=True), C, optimize=True), C, optimize=True), C, optimize=True)
 
-        # TODO: Make this tx more elegant?
-        # tile spin to make spin orbitals from spatial (twice dimension)
-
-        self.mol.norb = self.mol.nbasis * 2 # spin orbital
-
-        self.mol.double_bar = np.zeros([2*idx for idx in self.mol.single_bar.shape])
-        for p in range(self.mol.double_bar.shape[0]):
-            for q in range(self.mol.double_bar.shape[1]):
-                for r in range(self.mol.double_bar.shape[2]):
-                    for s in range(self.mol.double_bar.shape[3]):
-                        value1 = self.mol.single_bar[p//2,r//2,q//2,s//2].real * (p%2==r%2) * (q%2==s%2)
-                        value2 = self.mol.single_bar[p//2,s//2,q//2,r//2].real * (p%2==s%2) * (q%2==r%2)
-                        self.mol.double_bar[p,q,r,s] = value1 - value2
+        #spin orbital occupation and block for kron
+        self.mol.norb = self.mol.nbasis * 2
+        spin = np.eye(2)
+        
+        #double bar intergrals in physicist notation
+        spin_block = np.kron(np.kron(self.mol.single_bar, spin).transpose(), spin).real
+        self.mol.double_bar = spin_block.transpose(0,2,1,3) - spin_block.transpose(0,2,3,1)
 
         # create Hp, the spin basis one electron operator 
-        spin = np.eye(2)
-        self.mol.Hp = np.kron(np.einsum('uj,vi,uv', self.mol.C, self.mol.C, self.mol.Core).real,spin)
+        self.mol.Hp = np.kron(np.einsum('uj,vi,uv', C, C, self.mol.Core).real,spin)
 
         # create fs, the spin basis fock matrix eigenvalues 
         self.mol.fs = np.kron(np.diag(self.mol.MO),spin)
@@ -206,28 +195,48 @@ class PostSCF(object):
 
 
 
-    def FCI(self):
+    def FCI(self, spin_adapt=True, solver='davidson'):
         """Routine to compute FCI energy from RHF reference"""
+
+        def is_spin_adapted(det, nmo, nocc):
+            '''
+            get the alpha and beta particle counts from determinant - 
+            if no alpha->beta or beta->alpha then determinant is spin-adapted
+            '''
+            occupations = [(int(bool(det & (1 << 2*i))), int(bool(det & (2 << 2*i)))) for i in range(nmo//2)]
+            nalpha, nbeta = [i.count(0) for i in zip(*occupations)]
+            
+            return nalpha == nbeta 
 
         nEle = self.mol.nelec
         nOrb = self.mol.norb
         det_list = []
- 
-        if comb(nOrb,nEle) > 5000:
-            print("Number determinants: ",comb(nOrb,nEle))
-            sys.exit("FCI too expensive. Quitting.")
-         
+        
         # FIXME: limited to 64 orbitals at the moment 
         for occlist in combinations(range(nOrb), nEle):
             string = PostSCF.tuple2bitstring(occlist)
             det = np.array([string.uint])
-            det_list.append(det)
+            
+            if spin_adapt:
+                if is_spin_adapted(det[0],nOrb,nEle):
+                    det_list.append(det)
+            else:
+                det_list.append(det)
+                
+        #check if problem too big
+        if len(det_list) > 5000:
+            print("Number determinants: ", len(det_list))
+            sys.exit("FCI too expensive. Quitting.")
 
         H = self.build_full_hamiltonian(det_list)
 
         print("Diagonalizing Hamiltonian...")
-        #E,C = scipy.linalg.eigh(H)
-        E,C = davidson(H,3)
+
+        if solver.lower() == 'davidson':
+            E,C = davidson(H,3)
+        else:
+            E,C = scipy.linalg.eigh(H)
+            
         self.mol.efci = E[0] + self.mol.nuc_energy
         
         print("\nFull Configuration Interaction")
@@ -237,7 +246,7 @@ class PostSCF(object):
         print("FCI corr:   %12.8f" % (self.mol.efci - self.mol.energy.real))
         print("FCI energy: %12.8f" % self.mol.efci)
 
-    def CIS(self):
+    def CIS(self, bitstring=False):
         """  Routine to compute CIS from RHF reference """
 
         nOcc = self.mol.nelec
@@ -256,23 +265,28 @@ class PostSCF(object):
 
         A = A.reshape(nOV,nOV)
 
-        #if construction == 'bitstring':
-        #    det_list = []
-        #    # FIXME: limited to 64 orbitals at the moment 
-        #    occ = range(nEle)
-        #    vir = range(nEle,nOrb)
-        #    occlist_string = product(combinations(occ,nEle-1),combinations(vir,1)) # all single excitations
-        #    # FIXME: this will not work for Python < 3.5
-        #    occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
-        #    assert len(occlist_string) == nOV 
-        #    for occlist in occlist_string: 
-        #        string = PostSCF.tuple2bitstring(occlist)
-        #        det = np.array([string.uint])
-        #        det_list.append(det)
+        if bitstring:
+            det_list = []
+            # FIXME: limited to 64 orbitals at the moment
+            occlist_string = product(combinations(range(nOcc),nOcc-1),combinations(range(nOcc,self.mol.norb),1))
+            # FIXME: this will not work for Python < 3.5
+            occlist_string = [(*a,*b) for a,b in occlist_string] # unpack tuples to list of tuples of occupied orbitals
+            assert len(occlist_string) == nOV
+            
+            for occlist in occlist_string: 
+                string = PostSCF.tuple2bitstring(occlist)
+                det = np.array([string.uint])
+                det_list.append(det)
     
-        #    A = self.build_full_hamiltonian(det_list)
-        #    # subtract reference to get true "A" matrix
-        #    A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
+            A = self.build_full_hamiltonian(det_list)
+            # subtract reference to get true "A" matrix
+            A += np.eye(len(A))*(- self.mol.energy.real + self.mol.nuc_energy) 
+            
+            #calcuate index and phase corrections to bring eigenvector order to Hartree-Fock
+            #(Fermi) reference vacuum. Valid for c1 amplitudes only.
+            idx = list(zip(*(iter(list(range(nOV))[::-1]),) * nVir))
+            idx = np.array(sum([list(i)[::-1] for i in idx], []))
+            sign = np.array([1*((-1)**j)  for j in range(nOcc) for i in range(nVir)])
 
  
         print("Diagonalizing Hamiltonian...")
@@ -287,6 +301,10 @@ class PostSCF(object):
         oscillator_strengths = np.zeros_like(transition_energies) 
         for state in range(len(transition_energies)):
             transition_density = transition_densities[:,state]
+            #if bitstring correct eigenvector for Hartree-Fock 
+            if bitstring:
+                transition_density = sign * transition_density[idx]
+
             transition_dipoles = np.einsum('ia,pia->p', \
                 transition_density.reshape(nOcc,nVir), \
                 mo_basis_dipoles[:,occ,vir])
@@ -365,17 +383,4 @@ class PostSCF(object):
         print("2 * nOcc * nVirt: ",2*nOV)
         for state in range(min(len(A),10)):
             print("TDHF state %2s (eV): %12.4f" % (state+1,self.mol.tdhf_omega[state]))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
